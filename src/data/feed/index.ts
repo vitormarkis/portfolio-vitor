@@ -1,4 +1,19 @@
-export const feed = [
+export type IFeedPost = {
+  id: number;
+  text: string;
+  created_at: string;
+}
+
+export const feed: IFeedPost[] = [
+  {
+    id: (() => Math.random())(),
+    text: `
+      Tentei colocar minha foto de perfil na sessão Sobre Mim com a tag <Image /> do Next, mas é uma dor de cabeça ajustar o tamanho da imagem, se tu quiser ela quadrada então, esquece.
+
+      Optei pela e velha boa tag <img />
+    `.trim(),
+    created_at: "2023-04-24T23:03:33.299Z",
+  },
   {
     id: (() => Math.random())(),
     text: `
@@ -13,10 +28,10 @@ export const feed = [
   {
     id: (() => Math.random())(),
     text: `
-      Sobre desenvolver o portfólio, eu realtime estive indeciso entre React e Next.
-      Next é superset de funcionalidades que são essesnciais para produção, principalmente servir as páginas já prontas de forma estáticas.
+      Sobre desenvolver o portfólio, eu realmente estive indeciso entre user React puro e Next.
+      Next possui um superset de funcionalidades que são essenciais para produção, principalmente para servir as páginas já prontas de forma estática.
 
-      Já o React puro, precisa montar a página, porém ele é muuito mais rápido pra desenvolver, coisa que o Next com certeza não é, o hot reload do Next não é amigável 
+      Já o React puro, precisa montar a página em runtime, porém ele é muuito mais rápido para desenvolver, coisa que o Next com certeza não é, o hot reload do Next não é amigável.
     `.trim(),
     created_at: "2023-04-24T17:42:47.548Z",
   },
