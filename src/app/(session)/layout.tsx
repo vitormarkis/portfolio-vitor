@@ -1,7 +1,8 @@
 import '../globals.css'
-import { Quicksand } from 'next/font/google'
+import { Montserrat } from 'next/font/google'
 
-const quicksand = Quicksand({ subsets: ['latin'] })
+const monts = Montserrat({ subsets: ['latin'] })
+// const inter = Inter({ subsets: ['latin'] })
 
 export const metadata = {
   title: 'Create Next App',
@@ -15,7 +16,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={quicksand.className}>{children}</body>
+      <body className={monts.className}>{children}</body>
     </html>
   )
 }
