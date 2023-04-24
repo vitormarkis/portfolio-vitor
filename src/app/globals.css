@@ -65,7 +65,7 @@
 }
 
 .scroll-thin::-webkit-scrollbar {
-  width: 10px;
+  width: 0.625rem;
 }
 
 .scroll-thin::-webkit-scrollbar-thumb {
