@@ -1,9 +1,11 @@
 "use client"
 
-// import { Campfire } from "phosphor-react"
+import { Campfire } from "phosphor-react"
 import { Github } from "@styled-icons/boxicons-logos/Github"
 import { LinkedinSquare } from "@styled-icons/boxicons-logos/LinkedinSquare"
 import twc from "tailwindcss/colors"
+import { Josefin_Sans } from 'next/font/google'
+const josefin = Josefin_Sans({ subsets: ['latin'] })
 
 export default function Home() {
   return (
@@ -11,8 +13,19 @@ export default function Home() {
       <header className="relative z-10 h-14 bg-white">
         <div className="w-full max-w-7xl px-6 mx-auto h-full flex justify-between items-center">
           <div className="flex items-center gap-1.5 ">
-            <i>{/* <Campfire color="black" width={24} height={24} /> */}</i>
-            <span className="text-xl font-black">Markis</span>
+            <i>
+              <Campfire
+                weight="bold"
+                color={twc.orange["500"]}
+                width={28}
+                height={28}
+              />
+            </i>
+            <span
+              className={`font-bold text-neutral-700 text-2xl translate-y-[3px] ${josefin.className}`}
+            >
+              Markis
+            </span>
           </div>
           <div className="">Navbar</div>
         </div>

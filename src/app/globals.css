@@ -6,9 +6,8 @@
   height: 100dvh;
 }
 
-.inter {
-  font-family: "Inter", sans-serif;
-}
+.inter { font-family: "Inter", sans-serif }
+.josefin { font-family: "Josefin Sans", sans-serif }
 
 .gradient {
   position: absolute;
