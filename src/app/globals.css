@@ -19,6 +19,23 @@
   position: absolute;
 }
 
+.something-new {
+  position: relative;
+}
+
+.something-new::after {
+  content: '';
+  display: block;
+  position: absolute;
+  right: -5px;
+  top: 1px;
+  width: 7px;
+  height: 7px;
+  border-radius: 999px;
+  background-color: #ff4b4b;
+  border: 1px solid #efedfc;
+}
+
 .gr {
   display: hidden;
   filter: blur(6.5rem);
@@ -45,6 +62,14 @@
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 
+}
+
+.scroll-thin::-webkit-scrollbar {
+  width: 10px;
+}
+
+.scroll-thin::-webkit-scrollbar-thumb {
+  @apply bg-zinc-300
 }
 
 @media (max-width: 640px) {
