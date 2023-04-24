@@ -1,7 +1,7 @@
 import "../globals.css"
-import { Montserrat, Josefin_Sans } from "next/font/google"
+import { Montserrat, Inter } from "next/font/google"
 
-const monts = Montserrat({ subsets: ["latin"] })
+const inter = Inter({ subsets: ["latin"] })
 
 export const metadata = {
   title: "Vitor Markis | Portfólio",
@@ -16,7 +16,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="pt-BR">
-      <body className={monts.className}>{children}</body>
+      <body className={inter.className}>{children}</body>
     </html>
   )
 }

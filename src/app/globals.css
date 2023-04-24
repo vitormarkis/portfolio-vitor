@@ -4,33 +4,39 @@
 
 .root-height {
   height: 100dvh;
+  background-image: linear-gradient(to bottom right, #e4e6ff 0%, white 40%, #f7ffe4 100%);
 }
 
-.inter { font-family: "Inter", sans-serif }
-.josefin { font-family: "Josefin Sans", sans-serif }
+.inter {
+  font-family: "Inter", sans-serif
+}
+
+.josefin {
+  font-family: "Josefin Sans", sans-serif
+}
 
 .gradient {
   position: absolute;
 }
 
 .gr {
-  filter: blur(7.5rem);
-  width: 21rem;
-  height: 5.4rem;
+  display: hidden;
+  filter: blur(6.5rem);
+  width: 22rem;
+  height: 2.4rem;
 }
 
 .gr.alpha {
-  top: -2.5rem;
+  top: 3.5rem;
   left: -5.6rem;
-  background: rgb(255, 170, 226);
-  background: linear-gradient(280deg, rgba(255, 170, 226, 1) 14%, rgba(255, 111, 111, 1) 53%, rgba(255, 252, 151, 1) 100%);
+  background: #ff7272;
 }
 
 .gr.bravo {
   bottom: -2.5rem;
   right: -5.6rem;
-  background: rgb(254, 255, 128);
-  background: linear-gradient(280deg, rgba(254, 255, 128, 1) 14%, rgba(255, 205, 0, 1) 53%, rgba(255, 206, 165, 1) 100%);
+  background: rgb(147, 184, 255);
+  background: linear-gradient(280deg, rgba(147, 184, 255, 1) 14%, rgba(100, 255, 248, 1) 53%, rgba(82, 255, 221, 1) 100%);
 }
 
 .h1-accent {
