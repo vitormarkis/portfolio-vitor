@@ -17,9 +17,8 @@ export function Hero({ className, ...rest }: Props) {
         {...rest}
       >
         <div className={`relative  flex items-center ${montserrat.className}`}>
-          <div className="gradient gr alpha" />
-          <div className="gradient gr bravo" />
-          <div className="gradient gr charlie" />
+          <div className="gradient gr alpha hero-01" />
+          <div className="gradient gr bravo hero-02" />
           <h1 className="text-slate-800 font-semibold sm:text-[4.3rem] relative z-10 text-center text-[2.75rem]">
             Seu próximo desenvolvedor{" "}
             <span className="whitespace-nowrap font-extrabold h1-accent">
@@ -27,7 +26,7 @@ export function Hero({ className, ...rest }: Props) {
             </span>
           </h1>
         </div>
-        <p className="mt-4 mb-8 text-center text-zinc-500 inter max-w-[32rem] text-sm sm:text-base">
+        <p className="relative z-10 mt-4 mb-8 text-center text-zinc-500 inter max-w-[32rem] text-sm sm:text-base">
           Me chamo Vítor Markis, 20 anos, desenvolvedor fullstack React, Node e
           Next, saiba mais sobre mim
         </p>
