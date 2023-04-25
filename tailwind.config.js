@@ -7,7 +7,11 @@ module.exports = {
   ],
   theme: {
     extend: {
+      // flex: {
+      //   ""
+      // },
       screens: {
+        xs: "480px",
         mdx: "896px",
       },
       backgroundImage: {
