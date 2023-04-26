@@ -1,6 +1,5 @@
 "use client"
 
-import { JetBrains_Mono } from "next/font/google"
 import { Hero } from "@/components/Hero"
 import { BlogShowcase } from "@/components/BlogShowcase"
 import { Header } from "@/components/Header"

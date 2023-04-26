@@ -32,7 +32,7 @@ export function Logo({ className, scale = 1.2, style, ...rest }: Props) {
         />
       </i>
       <span
-        className={`font-bold ml-1 ${jetbrains.className}`}
+        className={`font-bold ml-1 ${jetbrains.className} jetbrains`}
         style={{ fontSize }}
       >
         <span className="text-violet-700">Vitor.</span>

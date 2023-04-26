@@ -5,6 +5,8 @@ export type ProjectTechnologies =
   | "NEXT"
   | "REACT"
   | "EXPRESS"
+  | "GOOGLE_SHEETS"
+  | "STYLED_COMPONENTS"
 
 export interface IProjectLink {
   id: number
@@ -31,27 +33,28 @@ export const projectLinks: IProjectLink[] = [
     name: "Ike Linktree",
     path: "ike-linktree",
     image_url: "ike-consertos.jpg",
-    description: "",
+    description:
+      "Índice de contato para um assistente técnico da minha região.",
     importance: "casual",
-    technologies: [],
+    technologies: ["NEXT", "TAILWINDCSS"],
   },
   {
     id: Math.random(),
     name: "Twitter Clone",
     path: "twitter-clone",
     image_url: "twitter-frontend.jpg",
-    description: "",
+    description: "Clone da interface do Twitter totalmente responsivo.",
     importance: "casual",
-    technologies: [],
+    technologies: ["REACT", "STYLED_COMPONENTS"],
   },
   {
     id: Math.random(),
     name: "Custom Social Media",
     path: "custom-social-media",
     image_url: "custom-social-media.jpg",
-    description: "",
+    description: "Rede social criada com NodeJS, Express e MySQL.",
     importance: "casual",
-    technologies: [],
+    technologies: ["EXPRESS", "MYSQL", "REACT", "TAILWINDCSS"],
   },
   {
     id: Math.random(),
@@ -60,6 +63,6 @@ export const projectLinks: IProjectLink[] = [
     image_url: "analise-de-estruturas.jpg",
     description: "A melhor forma de analisar campanhas de empresas.",
     importance: "important",
-    technologies: [],
+    technologies: ["GOOGLE_SHEETS"],
   },
 ]

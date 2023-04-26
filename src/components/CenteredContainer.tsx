@@ -6,7 +6,7 @@ interface Props extends HTMLAttributes<HTMLDivElement> {
 
 export function CenteredContainer({ children, className, ...rest }: Props) {
   return (
-    <div className={`max-w-7xl mx-auto w-full ${className}`} {...rest}>
+    <div className={`max-w-7xl mx-auto w-full ${className ?? ""}`} {...rest}>
       {children}
     </div>
   )
