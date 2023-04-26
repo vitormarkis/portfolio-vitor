@@ -5,6 +5,7 @@ import { Hero } from "@/components/Hero"
 import { BlogShowcase } from "@/components/BlogShowcase"
 import { Header } from "@/components/Header"
 import { AboutMe } from "@/components/AboutMe"
+import { Projects } from "@/components/Projects"
 
 export default function Home() {
   return (
@@ -13,6 +14,7 @@ export default function Home() {
       <main className="flex flex-col">
         <Hero />
         <AboutMe className="mt-24" />
+        <Projects className="mt-24" />
         <BlogShowcase className="mt-24" />
       </main>
     </div>
