@@ -43,11 +43,11 @@ export function MobileSidebar({ children, className, ...rest }: Props) {
                   </h3>
                   <nav className="mb-6">
                     <ul className="flex flex-col">
-                      <li className="transition-colors font-medium duration-75 px-3 py-2 rounded-lg hover:bg-texas-100 cursor-pointer">
-                        <Link href="/blog" className="font-bold">
+                      <Link href="/blog" className="font-bold">
+                        <li className="transition-colors font-medium duration-75 px-3 py-2 rounded-lg hover:bg-texas-100 cursor-pointer">
                           Blog
-                        </Link>
-                      </li>
+                        </li>
+                      </Link>
                     </ul>
                   </nav>
                   <nav className="mb-6">
@@ -73,13 +73,14 @@ export function MobileSidebar({ children, className, ...rest }: Props) {
                   </nav>
                   <div className="relative transition-colors font-medium duration-75 px-3 py-2 rounded-lg cursor-pointer flex items-center overflow-hidden">
                     <div className="absolute inset-0 bg-texas-100 animate-pulse" />
-                    <Link
-                      href="/blog"
-                      className="inline-block relative"
-                    >
+                    <Link href="/blog" className="inline-block relative">
                       Entrar em contato
                     </Link>
-                    <Phone size={18} weight="duotone" className="ml-auto animate-bounce -mb-1" />
+                    <Phone
+                      size={18}
+                      weight="duotone"
+                      className="ml-auto animate-bounce -mb-1"
+                    />
                   </div>
                 </nav>
               </div>
