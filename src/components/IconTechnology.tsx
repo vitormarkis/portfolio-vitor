@@ -17,8 +17,6 @@ interface IconProps extends StyProps {
 }
 
 export function IconTechnology({ className, icon, ...rest }: IconProps) {
-  console.log(rest.height)
-
   const icons: Record<ProjectTechnologies, any> = {
     NEXT: (props: StyProps) => <Nextdotjs {...props} />,
     EXPRESS: (props: StyProps) => <Express {...props} />,

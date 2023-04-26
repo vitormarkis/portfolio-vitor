@@ -20,7 +20,7 @@ export function BlogShowcase({ className, ...rest }: Props) {
         </p>
       </div>
       <div className="relative max-w-xl w-full mx-auto">
-        {feed.slice(0, 2).map(post => (
+        {feed.slice(0, 3).map(post => (
           <FeedPost key={post.id} post={post} />
         ))}
         <div className="absolute inset-0 top-[70%] bg-gradient-to-b from-transparent to-zinc-800">
