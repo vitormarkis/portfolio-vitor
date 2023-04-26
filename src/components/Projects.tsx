@@ -1,4 +1,4 @@
-import { projectLinks } from "@/data/project"
+import { IProjectLink, projectLinks } from "@/data/project"
 import React, { HTMLAttributes } from "react"
 import { CenteredContainer } from "./CenteredContainer"
 import Image from "next/image"
@@ -9,48 +9,75 @@ interface Props extends HTMLAttributes<HTMLDivElement> {}
 export function Projects({ className, ...rest }: Props) {
   return (
     <div className={`${className}`} {...rest}>
-      <CenteredContainer className="py-6 px-12">
+      <CenteredContainer className="p-6">
         <h2 className="font-semibold mb-2 text-4xl relative z-10 text-center">
           Projetos
         </h2>
-        <p className="text-neutral-400 max-w-[17rem] mx-auto text-center text-xs">
+        <p className="text-neutral-400 mb-6 max-w-[17rem] mx-auto text-center text-xs">
           Veja os projetos onde coloquei meus conhecimentos em prática.
         </p>
-        <div className="grid grid-cols-2 gap-4">
+        <div className="grid mdx:grid-cols-2 grid-cols-1 gap-12 mb-8">
           {projectLinks
             .filter(p => p.importance === "important")
             .map(project => (
-              <Link
-                href={project.path}
-                key={project.id}
-                className="p-4 rounded-lg shadow-md hover:scale-[1.03] transition-all duration-200"
-              >
-                <div className="relative w-full aspect-video">
-                  <Image
-                    fill
-                    src={`/${project.image_url}`}
-                    alt={`Projeto ${project.name}`}
-                  />
-                </div>
-              </Link>
+              <ProjectHome key={project.id} project={project} size="normal" />
             ))}
         </div>
-        <div className="grid grid-cols-3 gap-4">
+        <div className="sm:grid mdx:grid-cols-3 sm:grid-cols-2 hidden gap-8">
           {projectLinks
             .filter(p => p.importance === "casual")
             .map(project => (
-              <article key={project.id} className="p-4 rounded-lg shadow-md">
-                <div className="relative w-full aspect-video">
-                  <Image
-                    fill
-                    src={`/${project.image_url}`}
-                    alt={`Projeto ${project.name}`}
-                  />
-                </div>
-              </article>
+              <ProjectHome key={project.id} project={project} size="small" />
             ))}
         </div>
       </CenteredContainer>
+    </div>
+  )
+}
+
+interface IProjectHome extends HTMLAttributes<HTMLDivElement> {
+  project: IProjectLink
+  size: "small" | "normal"
+}
+
+export function ProjectHome({
+  className,
+  project,
+  size,
+  ...rest
+}: IProjectHome) {
+  return (
+    <div className={`${className ?? ""}`} {...rest}>
+      <Link
+        href={project.path}
+        key={project.id}
+        className="block outline-accent relative rounded-xl shadow-lg hover:scale-[1.03] overflow-hidden transition-transform duration-500"
+      >
+        <div className="relative p-2">
+          <div className="relative w-full aspect-video z-20 rounded-lg overflow-hidden">
+            <Image
+              fill
+              src={`/${project.image_url}`}
+              alt={`Projeto ${project.name}`}
+            />
+          </div>
+          <div className="w-24 h-12 z-10 bg-cyan-500 blur-[40px] absolute top-0 left-0" />
+          <div className="w-32 h-12 z-10 bg-indigo-500 blur-[30px] absolute top-0 right-9" />
+          <div className="w-24 h-12 z-10 bg-red-500 blur-[50px] absolute bottom-0 right-0" />
+        </div>
+        <div className="p-3">
+          <h3 className="font-bold text-slate-700 text-lg">{project.name}</h3>
+          <p className="text-neutral-500 text-sm mb-3">{project.description}</p>
+          <div className="flex">
+            <Link
+              href={project.path}
+              className="border border-slate-700 outline-accent text-slate-700 rounded-full px-8 py-1 text-sm ml-auto shadow-md inline-block"
+            >
+              Ver mais
+            </Link>
+          </div>
+        </div>
+      </Link>
     </div>
   )
 }

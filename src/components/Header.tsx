@@ -34,7 +34,7 @@ export function Header({ className, ...rest }: Props) {
             <li className="transition-colors font-medium duration-75 px-6 py-3 rounded-lg hover:bg-texas-100 cursor-pointer">
               <span className="font-bold something-new">Blog</span>
             </li>
-            {projectLinks.map(project => (
+            {projectLinks.slice(0, 3).map(project => (
               <li
                 key={project.id}
                 className="transition-colors font-medium duration-75 px-6 py-3 rounded-lg hover:bg-texas-100 cursor-pointer"
@@ -42,6 +42,9 @@ export function Header({ className, ...rest }: Props) {
                 <span className="truncate">{project.name}</span>
               </li>
             ))}
+            <li className="transition-colors font-medium duration-75 px-6 py-3 rounded-lg hover:bg-texas-100 cursor-pointer">
+              <span className="truncate">Ver todos</span>
+            </li>
           </ul>
         </nav>
         <div className="basis-0 grow mdx:basis-auto flex justify-end">

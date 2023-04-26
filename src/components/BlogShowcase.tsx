@@ -23,7 +23,7 @@ export function BlogShowcase({ className, ...rest }: Props) {
           <FeedPost key={post.id} post={post} />
         ))}
         <div className="absolute inset-0 top-[17rem] bg-gradient-to-b from-transparent to-zinc-800">
-          <Button text="Ver tudo" className="absolute bottom-4 left-1/2 -translate-x-1/2" />
+          <Button text="Ver tudo" className="absolute outline-accent bottom-4 left-1/2 -translate-x-1/2" />
         </div>
       </div>
     </section>

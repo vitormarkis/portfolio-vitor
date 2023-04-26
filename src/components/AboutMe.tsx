@@ -16,7 +16,7 @@ export function AboutMe({ className, ...rest }: Props) {
         <h2 className="font-semibold mb-2 text-4xl relative z-10 text-center">
           Sobre mim
         </h2>
-        <div className="sm:flex-row flex flex-col items-center gap-6 px-6">
+        <div className="sm:flex-row flex flex-col items-center gap-6">
           <div className="sm:flex-1 w-40 sm:order-1 order-none">
             <img
               src="https://avatars.githubusercontent.com/u/121525239?v=4"

@@ -34,7 +34,7 @@ export function Hero({ className, ...rest }: Props) {
           <Link
             href="https://github.com/vitormarkis"
             target="_blank"
-            className="h-9 px-16 rounded-lg flex items-center jusitfy-center relative border-slate-300 text-neutral-500 border shadow-md group"
+            className="h-9 px-16 outline-accent rounded-lg flex items-center jusitfy-center relative border-slate-300 text-neutral-500 border shadow-md group"
           >
             <Github
               className="absolute left-3 group:hover:text-white"
@@ -47,7 +47,7 @@ export function Hero({ className, ...rest }: Props) {
           <Link
             href="https://www.linkedin.com/in/vitor-markis-524945265/"
             target="_blank"
-            className="h-9 px-16 rounded-lg flex items-center jusitfy-center relative border-slate-300 text-neutral-500 border shadow-md group"
+            className="h-9 px-16 outline-accent rounded-lg flex items-center jusitfy-center relative border-slate-300 text-neutral-500 border shadow-md group"
           >
             <LinkedinSquare
               className="absolute left-3 group:hover:text-white"

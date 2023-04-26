@@ -1,8 +1,9 @@
-interface IProjectLink {
+export interface IProjectLink {
   id: number
   name: string
   path: string
   image_url: string
+  description: string
   importance: "casual" | "important"
 }
 
@@ -12,6 +13,7 @@ export const projectLinks: IProjectLink[] = [
     name: "Auction App",
     path: "/auction-app",
     image_url: "auction-app.jpg",
+    description: "Compre e venda o que quiser, pelo preço que quiser!",
     importance: "important",
   },
   {
@@ -19,6 +21,7 @@ export const projectLinks: IProjectLink[] = [
     name: "Ike Linktree",
     path: "ike-linktree",
     image_url: "ike-consertos.jpg",
+    description: "",
     importance: "casual",
   },
   {
@@ -26,6 +29,7 @@ export const projectLinks: IProjectLink[] = [
     name: "Twitter Clone",
     path: "twitter-clone",
     image_url: "twitter-frontend.jpg",
+    description: "",
     importance: "casual",
   },
   {
@@ -33,6 +37,7 @@ export const projectLinks: IProjectLink[] = [
     name: "Custom Social Media",
     path: "custom-social-media",
     image_url: "custom-social-media.jpg",
+    description: "",
     importance: "casual",
   },
   {
@@ -40,6 +45,7 @@ export const projectLinks: IProjectLink[] = [
     name: "Análise de Estruturas",
     path: "analise-de-estruturas",
     image_url: "analise-de-estruturas.jpg",
+    description: "A melhor forma de analisar campanhas de empresas.",
     importance: "important",
   },
 ]
