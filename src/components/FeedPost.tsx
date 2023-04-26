@@ -1,6 +1,9 @@
 import { IFeedPost } from "@/data/feed"
 import { formatStringToDOM } from "@/helpers"
 import { HTMLAttributes } from "react"
+import moment from 'moment'
+import 'moment/locale/pt-br'
+moment.locale("pt-br")
 
 interface Props extends HTMLAttributes<HTMLDivElement> {
   post: IFeedPost
@@ -17,7 +20,7 @@ export function FeedPost({ post, className, ...rest }: Props) {
           vitormarkis
         </p>
         <span className="mx-2"> - </span>
-        <span className="italic">{post.created_at.slice(2, 10)}</span>
+        <span className="italic">{moment(post.created_at).locale("pt-br").fromNow()}</span>
       </div>
       {formatStringToDOM(post.text).map((text, i) => (
         <p

@@ -4,8 +4,6 @@ import { HTMLAttributes } from "react"
 import twc from "tailwindcss/colors"
 import { MobileSidebar } from "./MobileSidebar"
 import { Logo } from "./Logo"
-import { JetBrains_Mono } from "next/font/google"
-const jetbrains = JetBrains_Mono({ subsets: ["latin"] })
 
 
 interface Props extends HTMLAttributes<HTMLDivElement> {}
@@ -30,7 +28,7 @@ export function Header({ className, ...rest }: Props) {
           </MobileSidebar>
         </div>
         <div className="basis-0 grow mdx:basis-auto">
-          <Logo font={jetbrains} />
+          <Logo />
         </div>
         <nav className="basis-0 grow hidden mdx:flex text-zinc-700 justify-center">
           <ul className="flex text-sm min-w-0 ">

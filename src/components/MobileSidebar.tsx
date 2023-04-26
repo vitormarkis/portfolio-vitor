@@ -1,3 +1,5 @@
+"use client"
+
 import React, { HTMLAttributes } from "react"
 import ReactDOM from "react-dom"
 import { Logo } from "./Logo"
