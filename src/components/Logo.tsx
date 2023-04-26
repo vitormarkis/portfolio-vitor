@@ -1,16 +1,16 @@
-import { JetBrains_Mono } from "next/font/google"
+import { NextFont } from "next/dist/compiled/@next/font"
 import { Code } from "phosphor-react"
 import { HTMLAttributes } from "react"
 import twc from "tailwindcss/colors"
-const jetbrains = JetBrains_Mono({ subsets: ["latin"] })
 
 interface Props extends HTMLAttributes<HTMLDivElement> {
   scale?: number
+  font: NextFont
 }
 
-export function Logo({ className, scale = 1.2, style, ...rest }: Props) {
+export function Logo({ className, scale = 1.2, style, font, ...rest }: Props) {
   const codesize = scale * 18
-  const fontsize = scale * 16
+  const fontSize = scale * 16
   const gap = scale * 6
 
   return (
@@ -31,8 +31,8 @@ export function Logo({ className, scale = 1.2, style, ...rest }: Props) {
         />
       </i>
       <span
-        className={`font-bold ml-1 ${jetbrains.className}`}
-        style={{ fontSize: fontsize }}
+        className={`font-bold ml-1 ${font.className}`}
+        style={{ fontSize }}
       >
         <span className="text-violet-700">Vitor.</span>
         <span className="text-texas-500">markis</span>

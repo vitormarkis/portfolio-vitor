@@ -3,6 +3,8 @@ import React, { HTMLAttributes } from "react"
 import { CenteredContainer } from "./CenteredContainer"
 import Image from "next/image"
 import Link from "next/link"
+import { IconTechnology } from "./IconTechnology"
+import twc from "tailwindcss/colors"
 
 interface Props extends HTMLAttributes<HTMLDivElement> {}
 
@@ -48,35 +50,47 @@ export function ProjectHome({
 }: IProjectHome) {
   return (
     <div className={`${className ?? ""}`} {...rest}>
-      <Link
-        href={project.path}
-        key={project.id}
-        className="block outline-accent relative rounded-xl shadow-lg hover:scale-[1.03] overflow-hidden transition-transform duration-500"
-      >
-        <div className="relative p-2">
-          <div className="relative w-full aspect-video z-20 rounded-lg overflow-hidden">
-            <Image
-              fill
-              src={`/${project.image_url}`}
-              alt={`Projeto ${project.name}`}
-            />
+      <Link href={project.path} passHref legacyBehavior>
+        <a className="block outline-accent relative rounded-xl shadow-lg hover:scale-[1.03] overflow-hidden transition-transform duration-500">
+          <div className="relative p-2">
+            <div className="relative w-full aspect-video z-20 rounded-lg overflow-hidden">
+              <Image
+                fill
+                src={`/${project.image_url}`}
+                alt={`Projeto ${project.name}`}
+              />
+            </div>
+            <div className="w-24 h-12 z-10 bg-cyan-500 blur-[40px] absolute top-0 left-0" />
+            <div className="w-32 h-12 z-10 bg-indigo-500 blur-[30px] absolute top-0 right-9" />
+            <div className="w-24 h-12 z-10 bg-red-500 blur-[50px] absolute bottom-0 right-0" />
           </div>
-          <div className="w-24 h-12 z-10 bg-cyan-500 blur-[40px] absolute top-0 left-0" />
-          <div className="w-32 h-12 z-10 bg-indigo-500 blur-[30px] absolute top-0 right-9" />
-          <div className="w-24 h-12 z-10 bg-red-500 blur-[50px] absolute bottom-0 right-0" />
-        </div>
-        <div className="p-3">
-          <h3 className="font-bold text-slate-700 text-lg">{project.name}</h3>
-          <p className="text-neutral-500 text-sm mb-3">{project.description}</p>
-          <div className="flex">
-            <Link
-              href={project.path}
-              className="border border-slate-700 outline-accent text-slate-700 rounded-full px-8 py-1 text-sm ml-auto shadow-md inline-block"
-            >
-              Ver mais
-            </Link>
+          <div className="block outline-accent relative rounded-xl shadow-lg hover:scale-[1.03] overflow-hidden transition-transform duration-500">
+            <div className="p-3">
+              <h3 className="font-bold text-slate-700 text-lg">
+                {project.name}
+              </h3>
+              <p className="text-neutral-500 text-sm mb-3">
+                {project.description}
+              </p>
+              <div className="flex justify-between">
+                <div className="flex items-center gap-2">
+                  {project.technologies.map(tech => (
+                    <IconTechnology
+                      key={tech}
+                      icon={tech}
+                      width={18}
+                      height={18}
+                      color={twc.neutral["500"]}
+                    />
+                  ))}
+                </div>
+                <button className="border border-slate-700 outline-accent text-slate-700 rounded-full px-8 py-1 text-sm shadow-md inline-block">
+                  Ver mais
+                </button>
+              </div>
+            </div>
           </div>
-        </div>
+        </a>
       </Link>
     </div>
   )

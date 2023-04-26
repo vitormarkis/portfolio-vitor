@@ -26,8 +26,8 @@ export function AboutMe({ className, ...rest }: Props) {
           </div>
           <div className="sm:flex-1 text-neutral-700 text-justify">
             {/* <div className="sm:flex-1 p-3 rounded-lg backdrop-blur-[1px] border-t border-t-neutral-900 border-b border-b-black/20 shadow-lg"> */}
-            {formatStringToDOM(aboutMe.about_me_text).map(paragraph => (
-              <p key={paragraph} className="text-sm md:text-base mb-5">{paragraph}</p>
+            {formatStringToDOM(aboutMe.about_me_text).map((paragraph, i) => (
+              <p key={`${paragraph}-${i}`} className="text-sm md:text-base mb-5">{paragraph}</p>
             ))}
           </div>
         </div>

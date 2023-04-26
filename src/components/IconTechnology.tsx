@@ -6,28 +6,39 @@ import { ReactLogo } from "@styled-icons/simple-icons/ReactLogo"
 import { Express } from "@styled-icons/simple-icons/Express"
 import { Nextdotjs } from "@styled-icons/simple-icons/Nextdotjs"
 import { ProjectTechnologies } from "@/data/project"
-import { StyledIconBase } from "@styled-icons/styled-icon/index"
+import { StyledIconProps } from "@styled-icons/styled-icon/index"
+import { DiMysql } from "react-icons/di"
+import { IconBaseProps } from "react-icons"
 
-type IStyledIconBase = typeof StyledIconBase
-
-interface Props extends IStyledIconBase {
-  className?: string
+interface StyProps extends StyledIconProps {}
+interface RIcoProps extends IconBaseProps {
+  height: number
+  width: number
 }
 
-interface IconProps extends Props {
+interface IconProps extends StyProps {
   icon: ProjectTechnologies
 }
 
 export function IconTechnology({ className, icon, ...rest }: IconProps) {
-  const icons: Record<ProjectTechnologies, React.FC> = {
-    NEXT: props => <Nextdotjs {...props} />,
-    EXPRESS: props => <Express {...props} />,
-    PRISMA: props => <Prisma {...props} />,
-    TAILWINDCSS: props => <Tailwindcss {...props} />,
-    MYSQL: props => <Mysql {...props} />,
-    REACT: props => <ReactLogo {...props} />,
+  console.log(rest.height)
+  
+  const icons: Record<ProjectTechnologies, any> = {
+    NEXT: (props: StyProps) => <Nextdotjs {...props} />,
+    EXPRESS: (props: StyProps) => <Express {...props} />,
+    PRISMA: (props: StyProps) => <Prisma {...props} />,
+    TAILWINDCSS: (props: StyProps) => <Tailwindcss {...props} />,
+    MYSQL: ({ height, width, ...props }: RIcoProps) => (
+      <DiMysql
+        {...props}
+        height={height * 3}
+        width={width * 3}
+        title="MySQL"
+      />
+    ),
+    REACT: (props: StyProps) => <ReactLogo {...props} />,
   }
 
-  const Icon: React.FC<Props> = icons[icon]
+  const Icon: React.FC<StyProps> = icons[icon]
   return <Icon className={`${className}`} {...rest} />
 }

@@ -19,8 +19,13 @@ export function FeedPost({ post, className, ...rest }: Props) {
         <span className="mx-2"> - </span>
         <span className="italic">{post.created_at.slice(2, 10)}</span>
       </div>
-      {formatStringToDOM(post.text).map(text => (
-        <p key={text} className="mb-2 text-sm text-zinc-500 text-justify">{text}</p>
+      {formatStringToDOM(post.text).map((text, i) => (
+        <p
+          key={`${text}-${i}`}
+          className="mb-2 text-sm text-zinc-500 text-justify"
+        >
+          {text}
+        </p>
       ))}
     </article>
   )
