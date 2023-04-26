@@ -5,6 +5,7 @@ import Image from "next/image"
 import Link from "next/link"
 import { IconTechnology } from "./IconTechnology"
 import twc from "tailwindcss/colors"
+import Button from "./Button"
 
 interface Props extends HTMLAttributes<HTMLDivElement> {}
 
@@ -31,6 +32,14 @@ export function Projects({ className, ...rest }: Props) {
             .map(project => (
               <ProjectHome key={project.id} project={project} size="small" />
             ))}
+        </div>
+        <div className="flex justify-center mt-6">
+          <Button
+            text="Ver todos"
+            className="outline-accent mx-auto"
+            fontSize="base"
+            backgroundColor="luminescent"
+          />
         </div>
       </CenteredContainer>
     </div>

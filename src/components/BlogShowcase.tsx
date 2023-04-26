@@ -27,6 +27,7 @@ export function BlogShowcase({ className, ...rest }: Props) {
           <Button
             text="Ver tudo"
             className="absolute outline-accent bottom-4 left-1/2 -translate-x-1/2"
+            backgroundColor="orange"
           />
         </div>
       </div>
