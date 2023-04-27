@@ -79,7 +79,7 @@ export function ProjectHome({
           <div className="p-3 flex flex-col grow">
             <h3 className="font-bold text-slate-700 text-lg">{project.name}</h3>
             <p className="text-neutral-500 text-sm mb-3">
-              {project.description}
+              {project.short_description}
             </p>
             <div className="flex justify-between mt-auto">
               <div className="flex items-center gap-2">

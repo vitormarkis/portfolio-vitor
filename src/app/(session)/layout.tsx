@@ -1,3 +1,4 @@
+import { Header } from "@/components/Header"
 import "../globals.css"
 import { Montserrat, Inter } from "next/font/google"
 
@@ -17,7 +18,10 @@ export default function RootLayout({
   return (
     <html lang="pt-BR" className="scroll-smooth">
       <body className={inter.className}>
-        {children}
+        <div className="root-height overflow-x-hidden scroll-thin overflow-y-scroll">
+          <Header />
+          {children}
+        </div>
         <div id="portal" />
       </body>
     </html>
