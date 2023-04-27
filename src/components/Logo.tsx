@@ -21,7 +21,7 @@ export const Logo = React.forwardRef<HTMLAnchorElement, ILogo>(
       <Link
         href="/"
         ref={ref}
-        className="p-5 outline-accent rounded-2xl w-fit block mx-auto mdx:mx-0"
+        className="p-5 rounded-2xl w-fit block mx-auto mdx:mx-0"
       >
         <div
           className={`flex items-center justify-center mdx:justify-start leading-none ${className}`}
