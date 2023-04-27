@@ -19,16 +19,21 @@ export function BlogShowcase({ className, ...rest }: Props) {
           e muito mais.
         </p>
       </div>
-      <div className="relative max-w-xl w-full mx-auto">
-        {feed.slice(0, 3).map(post => (
-          <FeedPost key={post.id} post={post} />
-        ))}
-        <div className="absolute inset-0 top-[70%] bg-gradient-to-b from-transparent to-zinc-800">
-          <Button
-            text="Ver tudo"
-            className="absolute outline-accent bottom-4 left-1/2 -translate-x-1/2"
-            backgroundColor="orange"
-          />
+      <div className="relative w-fit mx-auto">
+        <div className="gradient gr bravo blogshowcase-01" />
+        <div className="gradient gr alpha blogshowcase-02" />
+        <div className="gradient gr delta blogshowcase-03" />
+        <div className="relative max-w-xl w-full mx-auto rounded-xl overflow-hidden backdrop-blur-md bg-[#ffffff50]">
+          {feed.slice(0, 3).map(post => (
+            <FeedPost key={post.id} post={post} />
+          ))}
+          <div className="absolute inset-0 top-[70%] bg-gradient-to-b from-transparent to-zinc-800">
+            <Button
+              text="Ver tudo"
+              className="absolute outline-outer bottom-9 left-1/2 -translate-x-1/2"
+              backgroundColor="neon"
+            />
+          </div>
         </div>
       </div>
     </section>

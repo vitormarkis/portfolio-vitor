@@ -59,6 +59,10 @@
   background: #ffe23f;
 }
 
+.gr.delta {
+  background: #bd15ff;
+}
+
 .hero-01 {
   top: 3.5rem;
   left: -5.6rem;
@@ -77,6 +81,21 @@
 .aboutme-02 {
   bottom: 3.5rem;
   right: -5.6rem;
+}
+
+.blogshowcase-01 {
+  bottom: 3.5rem;
+  right: -12rem;
+}
+
+.blogshowcase-02 {
+  top: 3.5rem;
+  left: -12rem;
+}
+
+.blogshowcase-03 {
+  bottom: 0rem;
+  left: -12rem;
 }
 
 .h1-accent {
@@ -102,6 +121,10 @@
 
 .outline-accent {
   @apply focus:outline-1 focus:outline-double focus:outline-blue-500 focus:outline-offset-2
+}
+
+.outline-outer {
+  @apply focus:outline-1 focus:outline-double focus:outline-green-500 focus:outline-offset-2
 }
 
 @media (max-width: 640px) {
