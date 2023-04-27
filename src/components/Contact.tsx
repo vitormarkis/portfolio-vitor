@@ -10,7 +10,7 @@ interface Props extends HTMLAttributes<HTMLDivElement> {}
 export function Contact({ className, ...rest }: Props) {
   return (
     <div className={`${className ?? ""}`} {...rest}>
-      <CenteredContainer className="p-6">
+      <CenteredContainer id="contact" className="p-6">
         <div className="flex flex-col">
           <h2 className="text-slate-800 font-semibold mb-2 text-4xl relative z-10 text-center">
             Contato
@@ -22,13 +22,17 @@ export function Contact({ className, ...rest }: Props) {
         </div>
         <div className="text-sm mt-6 flex flex-col gap-3">
           <Link href="https://wa.me/5551982582396" passHref legacyBehavior>
-            <ContactButton>
+            <ContactButton border="border-t-green-300 border-b-green-700" borderY>
+              <div className="absolute inset-0 bg-green-500" />
+              <div className="absolute right-0 bottom-4 h-52 w-52 rounded-full bg-green-400 blur-xl" />
+              <div className="absolute left-0 top-4 h-44 w-44 rounded-full bg-black/10 blur-xl" />
               <Whatsapp
                 height={24}
                 width={24}
+                color="#fff"
                 className="absolute top-1/2 -translate-y-1/2 left-3"
               />
-              <span>51 98258-2396</span>
+              <span className="relative z-10 text-white">51 98258-2396</span>
             </ContactButton>
           </Link>
           <Link
@@ -36,23 +40,31 @@ export function Contact({ className, ...rest }: Props) {
             passHref
             legacyBehavior
           >
-            <ContactButton>
+            <ContactButton border="border-t-blue-300 border-b-blue-700" borderY>
+              <div className="absolute inset-0 bg-blue-500" />
+              <div className="absolute right-0 bottom-4 h-48 w-64 rounded-full bg-cyan-500 blur-[50px]" />
+              <div className="absolute -left-20 top-4 h-44 w-44 rounded-full bg-indigo-700/70 blur-[36px]" />
+
               <LinkedinSquare
                 height={24}
                 width={24}
                 className="absolute top-1/2 -translate-y-1/2 left-3"
               />
-              <span>Linked In</span>
+              <span className="relative z-10">Linked In</span>
             </ContactButton>
           </Link>
           <Link href="mailto:vitormarkis2369@gmail.com" passHref legacyBehavior>
-            <ContactButton>
+            <ContactButton border="border-t-red-200 border-b-red-700" borderY>
+              <div className="absolute inset-0 bg-red-400" />
+              <div className="absolute right-0 bottom-4 h-48 w-64 rounded-full bg-rose-500 blur-[50px]" />
+              <div className="absolute -left-20 top-4 h-44 w-44 rounded-full bg-red-700/70 blur-[36px]" />
+
               <Gmail
                 height={24}
                 width={24}
                 className="absolute top-1/2 -translate-y-1/2 left-3"
               />
-              <span>vitormarkis2369@gmail.com</span>
+              <span className="relative z-10">vitormarkis2369@gmail.com</span>
             </ContactButton>
           </Link>
         </div>
@@ -63,18 +75,22 @@ export function Contact({ className, ...rest }: Props) {
 
 interface IContactButton extends HTMLAttributes<HTMLAnchorElement> {
   children: React.ReactNode
+  border?: string
+  borderY?: boolean
 }
 
 export function ContactButton({
   className,
   children,
+  border,
+  borderY = false,
   ...rest
 }: IContactButton) {
   return (
     <a
-      className={`h-12 relative flex rounded-lg border border-neutral-500 shadow-md outline-accent items-center justify-center text-zinc-600 ${
+      className={`h-12 relative text-white overflow-hidden flex rounded-lg shadow-sm outline-accent items-center justify-center ${
         className ?? ""
-      }`}
+      } ${border ?? "border-neutral-500"} ${borderY ? "border-y" : "border"}`}
       {...rest}
     >
       {children}

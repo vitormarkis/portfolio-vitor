@@ -1,14 +1,20 @@
+"use client"
+
 import { projectLinks } from "@/data/project"
 import { DotsThreeOutline, User } from "phosphor-react"
 import { HTMLAttributes } from "react"
 import twc from "tailwindcss/colors"
 import { MobileSidebar } from "./MobileSidebar"
 import { Logo } from "./Logo"
-
+import Link from "next/link"
+import { useRouter } from "next/navigation"
+import { useEffect } from "react"
 
 interface Props extends HTMLAttributes<HTMLDivElement> {}
 
 export function Header({ className, ...rest }: Props) {
+  const router = useRouter()
+
   return (
     <header
       className={`relative z-10 h-20 text-zinc-800 ${className}`}
@@ -49,14 +55,26 @@ export function Header({ className, ...rest }: Props) {
           </ul>
         </nav>
         <div className="basis-0 grow mdx:basis-auto flex justify-end">
-          <i className="p-2 inline-block leading-none hover:bg-texas-100 rounded-lg cursor-pointer">
-            <User
-              weight="bold"
-              color={twc.zinc["800"]}
-              width={18}
-              height={18}
-            />
-          </i>
+          {/* <Link href="#contact" legacyBehavior passHref>
+            <a className="p-2 inline-block leading-none hover:bg-texas-100 rounded-lg cursor-pointer">
+              <User
+                weight="bold"
+                color={twc.zinc["800"]}
+                width={18}
+                height={18}
+              />
+            </a>
+          </Link> */}
+          <button onClick={() => router.push("#contact")}>
+          <a className="p-2 inline-block leading-none hover:bg-texas-100 rounded-lg cursor-pointer">
+              <User
+                weight="bold"
+                color={twc.zinc["800"]}
+                width={18}
+                height={18}
+              />
+            </a>
+          </button>
         </div>
       </div>
     </header>
