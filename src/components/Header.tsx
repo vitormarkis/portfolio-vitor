@@ -55,26 +55,14 @@ export function Header({ className, ...rest }: Props) {
           </ul>
         </nav>
         <div className="basis-0 grow mdx:basis-auto flex justify-end">
-          {/* <Link href="#contact" legacyBehavior passHref>
-            <a className="p-2 inline-block leading-none hover:bg-texas-100 rounded-lg cursor-pointer">
+          <Link href="#contact" scroll={false} className="p-2 inline-block leading-none hover:bg-texas-100 rounded-lg cursor-pointer">
               <User
                 weight="bold"
                 color={twc.zinc["800"]}
                 width={18}
                 height={18}
               />
-            </a>
-          </Link> */}
-          <button onClick={() => router.push("#contact")}>
-          <a className="p-2 inline-block leading-none hover:bg-texas-100 rounded-lg cursor-pointer">
-              <User
-                weight="bold"
-                color={twc.zinc["800"]}
-                width={18}
-                height={18}
-              />
-            </a>
-          </button>
+          </Link>
         </div>
       </div>
     </header>
