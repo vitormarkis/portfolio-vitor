@@ -32,19 +32,21 @@ export const ProjectCard: React.FC<IProjectCard> = ({
   ...rest
 }) => (
   <div
-    className={`flex mb-12 md:mb-0 md:items-center flex-col-reverse md:flex-row-reverse md:odd:flex-row mdx:gap-12 ${
+    className={`flex mb-12 md:items-center flex-col-reverse md:flex-row-reverse md:odd:flex-row md:gap-12 ${
       className ?? ""
     }`}
     {...rest}
   >
     <div className="flex-1 p-3">
-      <h3 className="font-bold text-slate-700 md:mb-2 text-xl md:text-3xl text-center">
+      <h3 className="font-bold text-slate-700 md:mb-2 text-2xl md:text-3xl text-center">
         {project.name}
       </h3>
-      <Paragraph
-        text={project.description}
-        className="text-center text-neutral-500"
-      />
+      <div className="lg:mb-12 mb-8">
+        <Paragraph
+          text={project.description}
+          className="text-center text-neutral-500"
+        />
+      </div>
       <div className="flex justify-between">
         <ButtonProjectCard text="Ver detalhes" url={project.path} filled />
         <ButtonProjectCard text="Abrir" url={project.url} />
@@ -101,7 +103,7 @@ export const Paragraph: React.FC<IParagraph> = ({
       {formatStringToDOM(text).map((paragraph, i) => (
         <p
           key={`${paragraph}-${i}`}
-          className={`text-sm mb-5 ${className}`}
+          className={`text-sm mb-2 ${className}`}
           {...rest}
         >
           {paragraph}
