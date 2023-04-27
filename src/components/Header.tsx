@@ -20,7 +20,7 @@ export function Header({ className, ...rest }: Props) {
       className={`relative z-10 h-20 text-zinc-800 ${className}`}
       {...rest}
     >
-      <div className="w-full max-w-7xl px-5 mx-auto h-full flex justify-between items-center">
+      <div className="w-full max-w-7xl px-6 mdx:px-12 mx-auto h-full flex justify-between items-center">
         <div className="basis-0 grow mdx:hidden">
           <MobileSidebar>
             <i className="p-2 inline-block leading-none hover:bg-texas-100 rounded-lg cursor-pointer">

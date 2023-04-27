@@ -13,7 +13,7 @@ export function Hero({ className, ...rest }: Props) {
   return (
     <CenteredContainer>
       <section
-        className={`mt-[5vw] flex px-6 flex-col items-center justify-center ${className}`}
+        className={`mt-[5vw] flex px-6 mdx:px-12 flex-col items-center justify-center ${className}`}
         {...rest}
       >
         <div className={`relative  flex items-center ${montserrat.className}`}>

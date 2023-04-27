@@ -12,7 +12,7 @@ interface Props extends HTMLAttributes<HTMLDivElement> {}
 export function Projects({ className, ...rest }: Props) {
   return (
     <div className={`${className}`} {...rest}>
-      <CenteredContainer className="p-6">
+      <CenteredContainer className="p-6 mdx:p-12">
         <h2 className="font-semibold mb-2 text-4xl relative z-10 text-center">
           Projetos
         </h2>
