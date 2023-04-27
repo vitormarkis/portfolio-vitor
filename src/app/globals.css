@@ -123,8 +123,8 @@
   @apply focus:outline-1 focus:outline-double focus:outline-blue-500 focus:outline-offset-2
 }
 
-.outline-outer {
-  @apply focus:outline-1 focus:outline-double focus:outline-green-500 focus:outline-offset-2
+.outline-raw {
+  @apply focus:outline-1 focus:outline-double focus:outline-offset-2
 }
 
 @media (max-width: 640px) {

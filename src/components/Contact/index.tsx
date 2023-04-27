@@ -30,8 +30,7 @@ export function Contact({ className, ...rest }: Props) {
           >
             <ContactButtonHollow
               border="border-t-green-300 border-b-green-700"
-              borderY
-              className="group hover:border-green-500 transition-colors duration-300"
+              className="hover:border-green-500 focus:outline-green-500 group transition-colors duration-300"
             >
               {/* <div className="absolute inset-0 bg-green-500" />
               <div className="absolute right-0 bottom-4 h-52 w-52 rounded-full bg-green-400 blur-xl" />
@@ -54,8 +53,7 @@ export function Contact({ className, ...rest }: Props) {
           >
             <ContactButtonHollow
               border="border-t-blue-300 border-b-blue-700"
-              borderY
-              className="hover:border-blue-500 transition-colors group duration-300"
+              className="hover:border-blue-500 focus:outline-blue-500 transition-colors group duration-300"
             >
               {/* <div className="absolute inset-0 bg-blue-500" />
               <div className="absolute right-0 bottom-4 h-48 w-64 rounded-full bg-cyan-500 blur-[50px]" />
@@ -79,8 +77,7 @@ export function Contact({ className, ...rest }: Props) {
           >
             <ContactButtonHollow
               border="border-t-red-200 border-b-red-700"
-              borderY
-              className="hover:border-red-500 transition-colors group duration-300"
+              className="hover:border-red-500 focus:outline-red-500 transition-colors group duration-300"
             >
               {/* <div className="absolute inset-0 bg-red-400" />
               <div className="absolute right-0 bottom-4 h-48 w-64 rounded-full bg-rose-500 blur-[50px]" />

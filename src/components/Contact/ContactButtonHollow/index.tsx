@@ -6,19 +6,19 @@ interface IContactButtonHollow extends HTMLAttributes<HTMLAnchorElement> {
   borderY?: boolean
 }
 
-export function ContactButtonHollow({
-  className,
-  children,
-  ...rest
-}: IContactButtonHollow) {
+export const ContactButtonHollow = React.forwardRef<
+  HTMLAnchorElement,
+  IContactButtonHollow
+>(function ({ className, children, ...rest }, ref) {
   return (
     <a
-      className={`h-12 relative sm:max-w-md sm:w-full text-neutral-600 bg-white overflow-hidden flex rounded-lg shadow-sm outline-accent items-center border-neutral-500 border justify-center ${
+      className={`h-12 relative sm:max-w-md sm:w-full text-neutral-600 bg-white overflow-hidden flex rounded-lg shadow-sm outline-raw items-center border-neutral-500 border justify-center ${
         className ?? ""
       }`}
+      ref={ref}
       {...rest}
     >
       {children}
     </a>
   )
-}
+})

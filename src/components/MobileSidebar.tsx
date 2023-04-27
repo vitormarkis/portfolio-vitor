@@ -5,7 +5,7 @@ import ReactDOM from "react-dom"
 import { Logo } from "./Logo"
 import twc from "tailwindcss/colors"
 import * as Dialog from "@radix-ui/react-dialog"
-import { projectLinks } from "@/data/project"
+import { IProjectLink, projectLinks } from "@/data/project"
 import Link from "next/link"
 import { Montserrat } from "next/font/google"
 import { Phone } from "phosphor-react"
@@ -45,11 +45,11 @@ export function MobileSidebar({ children, className, ...rest }: Props) {
                   </h3>
                   <nav className="mb-6">
                     <ul className="flex flex-col">
-                      <Link href="/blog" className="font-bold">
-                        <li className="transition-colors font-medium duration-75 px-3 py-2 rounded-lg hover:bg-texas-100 cursor-pointer">
-                          Blog
-                        </li>
-                      </Link>
+                      <SidebarNavLink
+                        project={
+                          { name: "Blog", path: "/blog" } as IProjectLink
+                        }
+                      />
                     </ul>
                   </nav>
                   <nav className="mb-6">
@@ -64,26 +64,23 @@ export function MobileSidebar({ children, className, ...rest }: Props) {
                     </h4>
                     <ul className="flex-col flex">
                       {projectLinks.map(project => (
-                        <li
-                          key={project.id}
-                          className="transition-colors font-medium duration-75 px-3 py-2 rounded-lg hover:bg-texas-100 cursor-pointer"
-                        >
-                          <span className="truncate">{project.name}</span>
-                        </li>
+                        <SidebarNavLink key={project.id} project={project} />
                       ))}
                     </ul>
                   </nav>
-                  <div className="relative transition-colors font-medium duration-75 px-3 py-2 rounded-lg cursor-pointer flex items-center overflow-hidden">
-                    <div className="absolute inset-0 bg-texas-100 animate-pulse" />
-                    <Link href="/blog" className="inline-block relative">
-                      Entrar em contato
-                    </Link>
+                  <Link
+                    href="#contact"
+                    scroll={false}
+                    className="outline-accent relative transition-colors font-medium duration-75 px-3 py-2 rounded-lg cursor-pointer flex items-center overflow-hidden"
+                  >
+                    <div className="absolute inset-0 bg-texas-100 animate-pulse z-[-1]" />
+                    <span>Entrar em contato</span>
                     <Phone
                       size={18}
                       weight="duotone"
                       className="ml-auto animate-bounce -mb-1"
                     />
-                  </div>
+                  </Link>
                 </nav>
               </div>
             </Dialog.Content>,
@@ -93,3 +90,27 @@ export function MobileSidebar({ children, className, ...rest }: Props) {
     </Dialog.Root>
   )
 }
+
+interface ISidebarNavLink extends HTMLAttributes<HTMLLIElement> {
+  project: IProjectLink
+}
+
+export const SidebarNavLink: React.FC<ISidebarNavLink> = ({
+  className,
+  project,
+  ...rest
+}) => (
+  <li
+    className={`transition-colors font-medium duration-75 hover:bg-texas-100 cursor-pointer ${
+      className ?? ""
+    }`}
+    {...rest}
+  >
+    <Link
+      href={project.path}
+      className="outline-accent flex px-3 py-2 rounded-lg"
+    >
+      <span className="truncate">{project.name}</span>
+    </Link>
+  </li>
+)

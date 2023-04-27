@@ -30,7 +30,7 @@ export function BlogShowcase({ className, ...rest }: Props) {
           <div className="absolute inset-0 top-[70%] bg-gradient-to-b from-transparent to-zinc-800">
             <Button
               text="Ver tudo"
-              className="absolute outline-outer bottom-9 left-1/2 -translate-x-1/2"
+              className="absolute outline-raw focus:outline-black bottom-9 left-1/2 -translate-x-1/2"
               backgroundColor="neon"
             />
           </div>
