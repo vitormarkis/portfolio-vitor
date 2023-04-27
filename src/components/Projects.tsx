@@ -1,11 +1,11 @@
 import { IProjectLink, projectLinks } from "@/data/project"
-import React, { HTMLAttributes } from "react"
-import { CenteredContainer } from "./CenteredContainer"
 import Image from "next/image"
 import Link from "next/link"
-import { IconTechnology } from "./IconTechnology"
+import { HTMLAttributes } from "react"
 import twc from "tailwindcss/colors"
 import Button from "./Button"
+import { CenteredContainer } from "./CenteredContainer"
+import { IconTechnology } from "./IconTechnology"
 
 interface Props extends HTMLAttributes<HTMLDivElement> {}
 
@@ -34,12 +34,14 @@ export function Projects({ className, ...rest }: Props) {
             ))}
         </div>
         <div className="flex justify-center mt-6">
-          <Button
-            text="Ver todos"
-            className="outline-accent mx-auto"
-            fontSize="base"
-            backgroundColor="luminescent"
-          />
+          <Link href="/projects">
+            <Button
+              text="Ver todos"
+              className="outline-accent mx-auto"
+              fontSize="base"
+              backgroundColor="luminescent"
+            />
+          </Link>
         </div>
       </CenteredContainer>
     </div>
