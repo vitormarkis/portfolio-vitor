@@ -4,7 +4,8 @@ import { formatStringToDOM } from "@/helpers"
 import Image from "next/image"
 import Link from "next/link"
 import React, { HTMLAttributes } from "react"
-import clsx from "clsx"
+import { TechnologyIcons } from "@/components/ProjectsFeed/TechnologyIcons"
+import twc from "tailwindcss/colors"
 
 interface Props extends HTMLAttributes<HTMLDivElement> {}
 
@@ -12,7 +13,7 @@ export default function Projects({ className, ...rest }: Props) {
   return (
     <main className="flex flex-col">
       <CenteredContainer className="px-6 mdx:px-12">
-        <div className="flex flex-col gap-18">
+        <div className="flex flex-col gap-20">
           {projectLinks.map(project => (
             <ProjectCard key={project.id} project={project} />
           ))}
@@ -32,7 +33,7 @@ export const ProjectCard: React.FC<IProjectCard> = ({
   ...rest
 }) => (
   <div
-    className={`flex mb-12 md:items-center flex-col-reverse md:flex-row-reverse md:odd:flex-row md:gap-12 ${
+    className={`flex md:items-center flex-col-reverse md:flex-row-reverse md:odd:flex-row md:gap-12 ${
       className ?? ""
     }`}
     {...rest}
@@ -51,6 +52,12 @@ export const ProjectCard: React.FC<IProjectCard> = ({
         <ButtonProjectCard text="Ver detalhes" url={project.path} filled />
         <ButtonProjectCard text="Abrir" url={project.url} />
       </div>
+      <TechnologyIcons
+        color={twc.neutral["500"]}
+        iconsSize={16}
+        project={project}
+        className="mt-4 justify-evenly py-1.5 rounded-full"
+      />
     </div>
     <div className="flex-1 rounded-xl md:p-3 p-1.5 overflow-hidden">
       <ImageCoverProject project={project} />
