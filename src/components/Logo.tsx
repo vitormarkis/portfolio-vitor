@@ -40,7 +40,7 @@ export const Logo = React.forwardRef<HTMLAnchorElement, ILogo>(
             />
           </i>
           <span
-            className={`font-bold ml-1 ${jetbrains.className} jetbrains`}
+            className={`font-bold ml-1 ${jetbrains.className}`}
             style={{ fontSize }}
           >
             <span className="text-violet-700">Vitor.</span>

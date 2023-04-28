@@ -7,6 +7,7 @@ export type ProjectTechnologies =
   | "EXPRESS"
   | "GOOGLE_SHEETS"
   | "STYLED_COMPONENTS"
+  | "VERCEL"
 
 export interface IProjectLink {
   id: number
@@ -31,7 +32,7 @@ export const projectLinks: IProjectLink[] = [
       Site de venda de produtos, onde você anuncia um produto por R$200 durante 7 dias, esse anuncio fica publico para as pessoas no feed, elas podem dar lances de R$230, R$250, R$300, e ao final dos 7 dias, o lance com o maior valor leva o produto.
     `.trim(),
     importance: "important",
-    technologies: ["NEXT", "MYSQL", "TAILWINDCSS", "PRISMA"],
+    technologies: ["VERCEL", "NEXT", "MYSQL", "TAILWINDCSS", "PRISMA"],
     url: "https://auction-alpha.vercel.app/",
   },
   {
@@ -41,9 +42,9 @@ export const projectLinks: IProjectLink[] = [
     image_url: "ike-consertos.jpg",
     short_description:
       "Índice de contato para um assistente técnico da minha região.",
-    description: "",
+    description: `Site onde se encontra todos os links e formas de contato de um assistente técnico de celulares da minha região, meu primeiro projeto em Next.`,
     importance: "casual",
-    technologies: ["NEXT", "TAILWINDCSS"],
+    technologies: ["VERCEL", "NEXT", "TAILWINDCSS"],
     url: "",
   },
   {
@@ -52,9 +53,9 @@ export const projectLinks: IProjectLink[] = [
     path: "twitter-clone",
     image_url: "twitter-frontend.jpg",
     short_description: "Clone da interface do Twitter totalmente responsivo.",
-    description: "",
+    description: `Recriei a interface do Twitter de forma praticamente idêntica e totalmente responsiva usando a biblioteca Styled Components.`,
     importance: "casual",
-    technologies: ["REACT", "STYLED_COMPONENTS"],
+    technologies: ["VERCEL", "REACT", "STYLED_COMPONENTS"],
     url: "",
   },
   {
@@ -63,9 +64,9 @@ export const projectLinks: IProjectLink[] = [
     path: "custom-social-media",
     image_url: "custom-social-media.jpg",
     short_description: "Rede social criada com NodeJS, Express e MySQL.",
-    description: "",
+    description: `Rede social onde você pode criar, favoritar, e comentar em posts. Projeto que usei para aprender autenticação, queries cruas em MySQL, API com express e etc.`,
     importance: "casual",
-    technologies: ["EXPRESS", "MYSQL", "REACT", "TAILWINDCSS"],
+    technologies: ["VERCEL", "EXPRESS", "MYSQL", "REACT", "TAILWINDCSS"],
     url: "",
   },
   {
@@ -74,7 +75,7 @@ export const projectLinks: IProjectLink[] = [
     path: "analise-de-estruturas",
     image_url: "analise-de-estruturas.jpg",
     short_description: "A melhor forma de analisar campanhas de empresas.",
-    description: "",
+    description: `A melhor forma de analisar e metrificar qualquer coisa, o quê você quiser analisar é quebrado em vários pedaços, os quais são comparados entre eles e é retornado em um dashboard as melhores combinações.`,
     importance: "important",
     technologies: ["GOOGLE_SHEETS"],
     url: "",

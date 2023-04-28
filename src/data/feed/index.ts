@@ -4,7 +4,23 @@ export type IFeedPost = {
   created_at: string
 }
 
-export const feed: IFeedPost[] = [
+export const feedData: IFeedPost[] = [
+  {
+    id: 8346354657345,
+    text: `
+      Por algum motivo que ainda não sei, a fonte Montserrat, em dev mode não estava sendo carregada na página, inspencionando, a classe estava la, mas não aparecia na seção onde tinha as classes e suas propriedades.
+
+      Talvez seja algum problema relacionando a má configuração.
+    `.trim(),
+    created_at: "2023-04-28T22:15:52.149Z",
+  },
+  {
+    id: 64573645736475,
+    text: `
+      Pra usar uma fonte do next em um client, é só envolver o elemento com um Server Side Component que contenha aquela font.
+    `.trim(),
+    created_at: "2023-04-28T22:15:42.149Z",
+  },
   {
     id: 64375637456378,
     text: `
@@ -40,6 +56,15 @@ export const feed: IFeedPost[] = [
     created_at: "2023-04-21T17:42:47.548Z",
   },
   {
+    id: 4735894739534,
+    text: `
+      Por algum motivo que ainda não sei, a fonte Montserrat, em dev mode não estava sendo carregada na página, inspencionando, a classe estava la, mas não aparecia na seção onde tinha as classes e suas propriedades.
+
+      Talvez seja algum problema relacionando a má configuração.
+    `.trim(),
+    created_at: "2024-04-28T22:15:52.149Z",
+  },
+  {
     id: 85784395884395,
     text: `
       Sobre desenvolver o portfólio, eu realmente estive indeciso entre user React puro e Next.
@@ -57,3 +82,29 @@ export const feed: IFeedPost[] = [
     created_at: "2023-04-24T18:42:47.548Z",
   },
 ]
+
+type IUseFeed = (props?: IUseFeedProps) => { feed: IFeedPost[] }
+
+interface IUseFeedProps {
+  sort?: "date" | "importance"
+}
+
+export const useFeed: IUseFeed = (props) => {
+  let feed = feedData
+  if (!props) return { feed }
+  const { sort } = props
+
+  if (sort) {
+    if (sort === "date") {
+      feed = feed.sort((a, b) =>
+        a.created_at < b.created_at ? 1 : a.created_at > b.created_at ? -1 : 0
+      )
+    }
+
+    if (sort === "importance") {
+      feed = feed
+    }
+  }
+
+  return { feed }
+}

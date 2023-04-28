@@ -1,13 +1,15 @@
 import { Header } from "@/components/Header"
+import { Inter } from "next/font/google"
 import "../globals.css"
-import { Montserrat, Inter } from "next/font/google"
+import { Metadata } from "next"
 
 const inter = Inter({ subsets: ["latin"] })
 
-export const metadata = {
+export const metadata: Metadata = {
   title: "Vitor Markis | Portfólio",
   description:
     "Portfólio de Vitor Markis, desenvolvedor fullstack em React, Node e Next.",
+    
 }
 
 export default function RootLayout({

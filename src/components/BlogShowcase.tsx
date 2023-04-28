@@ -1,13 +1,15 @@
 "use client"
 
-import { feed } from "@/data/feed"
+import { useFeed } from "@/data/feed"
 import { HTMLAttributes } from "react"
-import { FeedPost } from "./FeedPost"
 import Button from "./Button"
+import { FeedPost } from "./FeedPost"
 
 interface Props extends HTMLAttributes<HTMLDivElement> {}
 
 export function BlogShowcase({ className, ...rest }: Props) {
+  const { feed } = useFeed()
+
   return (
     <section className={`flex flex-col px-6 ${className}`} {...rest}>
       <div className="mb-5">

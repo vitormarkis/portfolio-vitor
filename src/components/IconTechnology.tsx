@@ -6,6 +6,7 @@ import { ReactLogo } from "@styled-icons/simple-icons/ReactLogo"
 import { Express } from "@styled-icons/simple-icons/Express"
 import { Nextdotjs } from "@styled-icons/simple-icons/Nextdotjs"
 import { Googlesheets } from "@styled-icons/simple-icons/Googlesheets"
+import { Vercel } from "@styled-icons/simple-icons/Vercel"
 import { Styledcomponents } from "@styled-icons/simple-icons/Styledcomponents"
 import { ProjectTechnologies } from "@/data/project"
 import { StyledIconProps } from "@styled-icons/styled-icon/index"
@@ -26,6 +27,7 @@ export function IconTechnology({ className, icon, ...rest }: IconProps) {
     REACT: (props: StyProps) => <ReactLogo {...props} />,
     GOOGLE_SHEETS: (props: StyProps) => <Googlesheets {...props} />,
     STYLED_COMPONENTS: (props: StyProps) => <Styledcomponents {...props} />,
+    VERCEL: (props: StyProps) => <Vercel {...props} />,
   }
 
   const Icon: React.FC<StyProps> = icons[icon]

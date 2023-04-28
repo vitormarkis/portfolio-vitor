@@ -1,11 +1,11 @@
 import twc from "tailwindcss/colors"
-import { Montserrat } from "next/font/google"
-const montserrat = Montserrat({ subsets: ["latin"] })
+import { Outfit } from "next/font/google"
 import { Github } from "@styled-icons/boxicons-logos/Github"
 import { LinkedinSquare } from "@styled-icons/boxicons-logos/LinkedinSquare"
 import Link from "next/link"
 import { HTMLAttributes } from "react"
 import { CenteredContainer } from "./CenteredContainer"
+const montserrat = Outfit({ subsets: ["latin"] })
 
 interface Props extends HTMLAttributes<HTMLDivElement> {}
 
@@ -19,9 +19,9 @@ export function Hero({ className, ...rest }: Props) {
         <div className={`relative  flex items-center ${montserrat.className}`}>
           <div className="gradient gr alpha hero-01" />
           <div className="gradient gr bravo hero-02" />
-          <h1 className="text-slate-800 font-semibold sm:text-[4.3rem] relative z-10 text-center text-[2.75rem]">
+          <h1 className="leading-tight sm:text-[5.5rem] text-[12vw] mb-[8vw] sm:mb-0 text-slate-800 font-semibold relative z-10 text-center">
             Seu próximo desenvolvedor{" "}
-            <span className="whitespace-nowrap font-extrabold h1-accent">
+            <span className="whitespace-nowrap font-black h1-accent">
               Fullstack ;{")"}
             </span>
           </h1>
