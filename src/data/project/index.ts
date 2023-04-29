@@ -21,7 +21,7 @@ export interface IProjectLink {
   url: string
 }
 
-export const projectLinks: IProjectLink[] = [
+export const projectsData: IProjectLink[] = [
   {
     id: Math.random(),
     name: "Auction App",
@@ -40,8 +40,7 @@ export const projectLinks: IProjectLink[] = [
     name: "Ike Linktree",
     path: "ike-linktree",
     image_url: "ike-consertos.jpg",
-    short_description:
-      "Índice de contato para um assistente técnico da minha região.",
+    short_description: "Índice de contato para um assistente técnico da minha região.",
     description: `Site onde se encontra todos os links e formas de contato de um assistente técnico de celulares da minha região, meu primeiro projeto em Next.`,
     importance: "casual",
     technologies: ["VERCEL", "NEXT", "TAILWINDCSS"],
@@ -81,3 +80,23 @@ export const projectLinks: IProjectLink[] = [
     url: "",
   },
 ]
+
+type IUseProjects = (props?: IUseProjectsProps) => { projects: IProjectLink[] }
+
+interface IUseProjectsProps {
+  sort?: "importance"
+}
+
+export const useProjects: IUseProjects = props => {
+  let projects = projectsData
+  if (!props) return { projects }
+  const { sort } = props
+
+  if (sort) {
+    if (sort === "importance") {
+      projects = projects.sort((a, b) => (a.importance < b.importance ? 1 : a.importance > b.importance ? -1 : 0))
+    }
+  }
+
+  return { projects }
+}

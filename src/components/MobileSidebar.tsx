@@ -3,9 +3,8 @@
 import React, { HTMLAttributes } from "react"
 import ReactDOM from "react-dom"
 import { Logo } from "./Logo"
-import twc from "tailwindcss/colors"
 import * as Dialog from "@radix-ui/react-dialog"
-import { IProjectLink, projectLinks } from "@/data/project"
+import { IProjectLink, useProjects } from "@/data/project"
 import Link from "next/link"
 import { Montserrat } from "next/font/google"
 import { Phone } from "phosphor-react"
@@ -18,6 +17,7 @@ interface Props extends HTMLAttributes<HTMLDivElement> {
 export function MobileSidebar({ children, className, ...rest }: Props) {
   const [isModalOpen, setIsModalOpen] = React.useState(false)
   const [hasDocument, setHasDocument] = React.useState(false)
+  const { projects } = useProjects({ sort: "importance" })
 
   React.useEffect(() => {
     setHasDocument(true)
@@ -33,7 +33,7 @@ export function MobileSidebar({ children, className, ...rest }: Props) {
               {...rest}
             >
               <Dialog.Close className="absolute inset-0 bg-black/10 outline-none" />
-              <div className="backdrop-blur-lg bg-gradient-to-b from-white border-r border-neutral-300 shadow-lg z-20 to-transparent flex-col absolute inset-0 flex w-full max-w-[80vw]">
+              <div className="backdrop-blur-lg bg-gradient-to-b from-white border-r border-neutral-300 shadow-lg z-50 to-transparent flex-col absolute inset-0 flex w-full max-w-[80vw]">
                 <div className="p-6">
                   <Logo className="mx-auto" />
                 </div>
@@ -63,7 +63,7 @@ export function MobileSidebar({ children, className, ...rest }: Props) {
                       Projetos
                     </h4>
                     <ul className="flex-col flex">
-                      {projectLinks.map(project => (
+                      {projects.map(project => (
                         <SidebarNavLink key={project.id} project={project} />
                       ))}
                     </ul>

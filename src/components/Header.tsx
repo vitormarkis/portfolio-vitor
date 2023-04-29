@@ -1,21 +1,18 @@
 "use client"
 
-import { IProjectLink, projectLinks } from "@/data/project"
+import { IProjectLink, useProjects } from "@/data/project"
 import { DotsThreeOutline, User } from "phosphor-react"
 import { HTMLAttributes } from "react"
 import twc from "tailwindcss/colors"
 import { MobileSidebar } from "./MobileSidebar"
 import { Logo } from "./Logo"
 import Link from "next/link"
-import { useRouter } from "next/navigation"
-import { useEffect } from "react"
 import React from "react"
 
 interface Props extends HTMLAttributes<HTMLDivElement> {}
 
 export function Header({ className, ...rest }: Props) {
-  const router = useRouter()
-
+  const { projects } = useProjects({ sort: "importance" })
   return (
     <header
       className={`relative z-10 h-20 text-zinc-800 ${className}`}
@@ -40,7 +37,7 @@ export function Header({ className, ...rest }: Props) {
         <nav className="basis-0 grow hidden mdx:flex text-zinc-700 justify-center">
           <ul className="flex text-sm min-w-0 ">
           <HeaderNavLink project={{ name: "Blog", path: "/blog" } as IProjectLink} />
-            {projectLinks.slice(0, 3).map(project => (
+            {projects.slice(0, 3).map(project => (
               <HeaderNavLink key={project.id} project={project} />
             ))}
           <HeaderNavLink project={{ name: "Ver todos", path: "/projects" } as IProjectLink} />

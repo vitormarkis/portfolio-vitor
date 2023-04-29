@@ -2,9 +2,10 @@ import { TechnologyIcons } from "@/components/ProjectsFeed/TechnologyIcons"
 import { IProjectLink } from "@/data/project"
 import React, { HTMLAttributes } from "react"
 import twc from "tailwindcss/colors"
+import { ImageCoverProject } from "../ImageCoverProject"
 import { Paragraph } from "../Paragraph"
 import { ButtonProjectCard } from "./ButtonProjectCard"
-import { ImageCoverProject } from "../ImageCoverProject"
+import { ProjectPageImageContainer } from "../ProjectsPageImageContainer"
 
 interface IProjectCard extends HTMLAttributes<HTMLDivElement> {
   project: IProjectLink
@@ -42,8 +43,6 @@ export const ProjectCard: React.FC<IProjectCard> = ({
         className="mt-4 justify-evenly py-1.5 rounded-full"
       />
     </div>
-    <div className="flex-1 rounded-xl md:p-3 p-1.5 overflow-hidden">
-      <ImageCoverProject project={project} />
-    </div>
+    <ProjectPageImageContainer className="flex-1" project={project} />
   </div>
 )

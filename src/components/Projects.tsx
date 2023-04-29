@@ -1,4 +1,4 @@
-import { IProjectLink, projectLinks } from "@/data/project"
+import { IProjectLink, useProjects } from "@/data/project"
 import Image from "next/image"
 import Link from "next/link"
 import { HTMLAttributes } from "react"
@@ -10,6 +10,7 @@ import { IconTechnology } from "./IconTechnology"
 interface Props extends HTMLAttributes<HTMLDivElement> {}
 
 export function Projects({ className, ...rest }: Props) {
+  const { projects } = useProjects({ sort: "importance" })
   return (
     <div className={`${className}`} {...rest}>
       <CenteredContainer className="p-6 mdx:p-12">
@@ -20,14 +21,14 @@ export function Projects({ className, ...rest }: Props) {
           Veja os projetos onde coloquei meus conhecimentos em prática.
         </p>
         <div className="grid mdx:grid-cols-2 grid-cols-1 gap-12 mb-8">
-          {projectLinks
+          {projects
             .filter(p => p.importance === "important")
             .map(project => (
               <ProjectHome key={project.id} project={project} size="normal" />
             ))}
         </div>
         <div className="sm:grid mdx:grid-cols-3 sm:grid-cols-2 hidden align-super gap-8">
-          {projectLinks
+          {projects
             .filter(p => p.importance === "casual")
             .map(project => (
               <ProjectHome key={project.id} project={project} size="small" />
