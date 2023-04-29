@@ -46,7 +46,7 @@ export function MobileSidebar({ children, className, ...rest }: Props) {
                   <nav className="mb-6">
                     <h4 className={"text-xl text-black font-semibold mb-1" + " " + montserrat.className}>Projetos</h4>
                     <ul className="flex-col flex">
-                      {projects.mwap(project => (
+                      {projects.map(project => (
                         <SidebarNavLink key={project.id} project={project} />
                       ))}
                       <SidebarNavLink project={{ name: "Ver todos", path: "/projects" } as IProjectLink} />
