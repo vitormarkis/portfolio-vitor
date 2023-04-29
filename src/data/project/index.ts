@@ -109,17 +109,22 @@ type IUseProjects = (props?: IUseProjectsProps) => { projects: IProjectLink[] }
 
 interface IUseProjectsProps {
   sort?: "importance" | undefined
+  omit?: IProjectLink["importance"][]
 }
 
 export const useProjects: IUseProjects = props => {
   let projects = projectsData
   if (!props) return { projects }
-  const { sort } = props
+  const { sort, omit } = props
 
   if (sort) {
     if (sort === "importance") {
       projects = projects.sort((a, b) => (a.importance < b.importance ? 1 : a.importance > b.importance ? -1 : 0))
     }
+  }
+
+  if(omit) {
+    projects = projects.filter(p => !omit.includes(p.importance))
   }
 
   return { projects }
