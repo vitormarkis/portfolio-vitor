@@ -8,7 +8,7 @@ export default function Projects() {
   return (
     <main className="flex flex-col">
       <CenteredContainer className="px-6 mdx:px-12">
-        <div className="flex flex-col gap-20">
+        <div className="flex flex-col gap-20 md:py-24 py-8">
           {projects.map(project => (
             <ProjectCard key={project.id} project={project} />
           ))}

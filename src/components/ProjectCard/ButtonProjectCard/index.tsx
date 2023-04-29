@@ -5,14 +5,15 @@ interface IButtonProjectCard extends HTMLAttributes<HTMLButtonElement> {
   url: string
   text: string
   filled?: boolean
+  target?: React.HTMLAttributeAnchorTarget | undefined
 }
 
 export const ButtonProjectCard = React.forwardRef<
   HTMLAnchorElement,
   IButtonProjectCard
->(({ className, url, text, filled, ...rest }, ref) => {
+>(({ className, url, text, filled, target, ...rest }, ref) => {
   return (
-    <Link href={url} ref={ref} target="_blank">
+    <Link href={url} ref={ref} target={target}>
       <button
         className={`outline-accent rounded-full px-8 py-2 text-sm shadow-md inline-block ${
           className ?? ""
@@ -28,3 +29,9 @@ export const ButtonProjectCard = React.forwardRef<
     </Link>
   )
 })
+
+type Apple = {
+  banana: "user" | "admin",
+}
+
+type Second = Apple["banana"]

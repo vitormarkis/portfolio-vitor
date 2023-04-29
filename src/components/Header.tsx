@@ -15,7 +15,7 @@ export function Header({ className, ...rest }: Props) {
   const { projects } = useProjects({ sort: "importance" })
   return (
     <header
-      className={`relative z-10 h-20 text-zinc-800 ${className}`}
+      className={`relative z-10 h-20 text-zinc-800 ${className ?? ""}`}
       {...rest}
     >
       <div className="w-full max-w-7xl px-6 mdx:px-12 mx-auto h-full flex justify-between items-center">

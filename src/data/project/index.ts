@@ -14,9 +14,9 @@ export interface IProjectLink {
   name: string
   path: string
   image_url: string
-  short_description: string
+  short_description?: string | undefined
   description: string
-  importance: "casual" | "important"
+  importance: "casual" | "important" | "public"
   technologies: ProjectTechnologies[]
   url: string
 }
@@ -42,9 +42,9 @@ export const projectsData: IProjectLink[] = [
     image_url: "ike-consertos.jpg",
     short_description: "Índice de contato para um assistente técnico da minha região.",
     description: `Site onde se encontra todos os links e formas de contato de um assistente técnico de celulares da minha região, meu primeiro projeto em Next.`,
-    importance: "casual",
+    importance: "public",
     technologies: ["VERCEL", "NEXT", "TAILWINDCSS"],
-    url: "",
+    url: "https://ike-consertos-linktree.vercel.app/",
   },
   {
     id: Math.random(),
@@ -53,9 +53,9 @@ export const projectsData: IProjectLink[] = [
     image_url: "twitter-frontend.jpg",
     short_description: "Clone da interface do Twitter totalmente responsivo.",
     description: `Recriei a interface do Twitter de forma praticamente idêntica e totalmente responsiva usando a biblioteca Styled Components.`,
-    importance: "casual",
+    importance: "public",
     technologies: ["VERCEL", "REACT", "STYLED_COMPONENTS"],
-    url: "",
+    url: "https://twitter-frontend-indol.vercel.app/",
   },
   {
     id: Math.random(),
@@ -79,12 +79,36 @@ export const projectsData: IProjectLink[] = [
     technologies: ["GOOGLE_SHEETS"],
     url: "",
   },
+  {
+    id: Math.random(),
+    name: "Cron Jobs",
+    path: "cron-jobs",
+    image_url: "cron-jobs-cover.jpg",
+    description: `
+      Sistema de notificações em tempo real e persistida no banco de dados, autenticação JWT, e agendamento de tarefas (ações que acontecem no servidor de forma automática). 
+    `,
+    importance: "casual",
+    technologies: ["EXPRESS", "MYSQL", "PRISMA", "REACT", "TAILWINDCSS"],
+    url: "https://github.com/vitormarkis/cron-jobs",
+  },
+  {
+    id: Math.random(),
+    name: "Asseties",
+    path: "asseties",
+    image_url: "asseties-cover.jpg",
+    description: `
+      Programadores criam muitos projetos e dispersam suas implementações, esse projeto visa criar um índice entre todos os projetos para facilitar consulta de implementações.
+    `,
+    importance: "casual",
+    technologies: ["REACT", "TAILWINDCSS", "VERCEL"],
+    url: "https://github.com/vitormarkis/asseties",
+  },
 ]
 
 type IUseProjects = (props?: IUseProjectsProps) => { projects: IProjectLink[] }
 
 interface IUseProjectsProps {
-  sort?: "importance"
+  sort?: "importance" | undefined
 }
 
 export const useProjects: IUseProjects = props => {

@@ -29,7 +29,7 @@ export function MobileSidebar({ children, className, ...rest }: Props) {
       {hasDocument
         ? ReactDOM.createPortal(
             <Dialog.Content
-              className={`absolute flex inset-0 z-10 ${className}`}
+              className={`absolute flex inset-0 z-50 ${className ?? ""}`}
               {...rest}
             >
               <Dialog.Close className="absolute inset-0 bg-black/10 outline-none" />
