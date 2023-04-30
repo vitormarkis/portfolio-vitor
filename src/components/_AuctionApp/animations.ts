@@ -1,4 +1,4 @@
-import { TAnimation } from "@/types/framer-motion"
+import { TAnimation, TTransition } from "@/types/framer-motion"
 
 export const popup = (delay: number): TAnimation => ({
   initial: {
@@ -38,7 +38,7 @@ export function animatePopup(delay: number) {
 }
 
 export function animateEmerge(delay: number) {
-  const animationProps = {
+  const animationProps: TAnimation = {
     initial: {
       y: -25,
       opacity: 0,
@@ -49,7 +49,7 @@ export function animateEmerge(delay: number) {
     },
   }
 
-  const transition = {
+  const transition: TTransition = {
     y: {
       type: "spring",
       stiffness: 70,

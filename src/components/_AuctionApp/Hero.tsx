@@ -1,6 +1,7 @@
 "use client"
 
 import { getProject } from "@/data/project"
+import useWindowDimensions from "@/hooks/useWindowDimension"
 import { motion } from "framer-motion"
 import { HTMLAttributes } from "react"
 import { CenteredContainer } from "../CenteredContainer"
@@ -11,15 +12,17 @@ interface Props extends HTMLAttributes<HTMLDivElement> {}
 
 export function Hero({ className, ...rest }: Props) {
   const { project } = getProject("auction-app")
-
-  console.log(project.mobile_cover_picture)
+  const { width } = useWindowDimensions()
+  const smVW = width < 480
+  const mdVW = width < 880
+  const lgVW = width < 960
 
   return (
     <div className={`${className ?? ""}`} {...rest}>
       <CenteredContainer className="md:py-24 py-8">
-        <div className="flex flex-col gap-10 md:gap-0 md:flex-row h-[15rem] md:items-center px-6">
+        <div className="flex flex-col gap-10 md:gap-12 md:flex-row h-[15rem] md:items-center px-6">
           <div className="flex-1 flex justify-center items-center flex-col">
-            <Logo scale={3} className="" />
+            <Logo scale={smVW ? 3 : mdVW ? 3.3 : lgVW ? 3.7 : 4} className="" />
             <p className="text-neutral-500 text-center md:text-left">{project.short_description}</p>
           </div>
           <div className="flex-1 flex justify-center">
@@ -38,8 +41,8 @@ export function Hero({ className, ...rest }: Props) {
                 {...animateEmerge(0.15)}
                 className="absolute -bottom-8 -right-8 p-[2px] pb-2.5 rounded-lg bg-black shadow-sm md:shadow-md shadow-black/50"
               >
-                {/* <div className="bg-black w-8 h-1.5 top-0 left-1/2 -translate-x-1/2 absolute rounded-b-full"></div> */}
-                <div className="bg-black w-1 h-1 rounded-full top-1 left-1/2 -translate-x-1/2 absolute"></div>
+                <div className="bg-black w-8 h-1.5 top-0 left-1/2 -translate-x-1/2 absolute rounded-b-full"></div>
+                {/* <div className="bg-black w-1 h-1 rounded-full top-1 left-1/2 -translate-x-1/2 absolute"></div> */}
                 <div className="block bg-white overflow-hidden rounded-b-md rounded-t-lg">
                   <img
                     src={`/${project.mobile_cover_picture}`}
