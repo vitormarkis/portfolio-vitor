@@ -15,14 +15,15 @@ export function Hero({ className, ...rest }: Props) {
   return (
     <div className={`${className ?? ""}`} {...rest}>
       <CenteredContainer className="md:py-24 py-8">
-        <div className="flex flex-col md:flex-row h-[15rem] md:items-center px-6 md:px-0">
-          <div className="flex-1 grid place-items-center">
+        <div className="flex flex-col gap-10 md:gap-0 md:flex-row h-[15rem] md:items-center px-6">
+          <div className="flex-1 flex justify-center items-center flex-col">
             <Logo scale={3} className="" />
+            <p className="text-neutral-500 text-center md:text-left">{project.short_description}</p>
           </div>
-          <div className="flex-1">
-            <div className="flex relative w-fit mr-10">
+          <div className="flex-1 flex justify-center">
+            <div className="flex relative w-fit mr-[2.125rem] mb-8">
               <div className="absolute top-full h-4 w-20 bg-black left-1/2 -translate-x-1/2" />
-              <div className="flex p-2 rounded-xl bg-black">
+              <div className="flex p-1 md:p-2 rounded-xl bg-black">
                 <img
                   src={`/${project.desktop_cover_picture}`}
                   alt="Imagem da home do projeto Auction App na versão desktop"
