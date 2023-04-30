@@ -40,7 +40,7 @@ export function Header({ className, ...rest }: Props) {
             {projects.slice(0, 3).map(project => (
               <HeaderNavLink key={project.id} project={project} />
             ))}
-          <HeaderNavLink project={{ name: "Ver todos", path: "/projects" } as IProjectLink} />
+          <HeaderNavLink project={{ name: "Ver todos" } as IProjectLink} href="/projects" />
           </ul>
         </nav>
         <div className="basis-0 grow mdx:basis-auto flex justify-end">
@@ -64,10 +64,11 @@ export function Header({ className, ...rest }: Props) {
 
 interface IHeaderNavLink extends HTMLAttributes<HTMLLIElement> {
   project: IProjectLink
+  href?: string | undefined
 }
 
 export const HeaderNavLink = React.forwardRef<HTMLLIElement, IHeaderNavLink>(
-  ({ project, className, ...rest }, ref) => {
+  ({ project, href, className, ...rest }, ref) => {
     return (
       <li
         ref={ref}
@@ -76,7 +77,7 @@ export const HeaderNavLink = React.forwardRef<HTMLLIElement, IHeaderNavLink>(
         }`}
         {...rest}
       >
-        <Link href={`/project/${project.path}`} className="flex outline-accent rounded-lg px-6 py-3">
+        <Link href={href ?? `/project/${project.path}`} className="flex outline-accent rounded-lg px-6 py-3">
           <span className="truncate">{project.name}</span>
         </Link>
       </li>

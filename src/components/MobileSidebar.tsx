@@ -40,7 +40,7 @@ export function MobileSidebar({ children, className, ...rest }: Props) {
                   </h3>
                   <nav className="mb-6">
                     <ul className="flex flex-col">
-                      <SidebarNavLink project={{ name: "Blog", path: "/blog" } as IProjectLink} />
+                      <SidebarNavLink project={{ name: "Blog" } as IProjectLink} href="/blog" />
                     </ul>
                   </nav>
                   <nav className="mb-6">
@@ -49,7 +49,7 @@ export function MobileSidebar({ children, className, ...rest }: Props) {
                       {projects.map(project => (
                         <SidebarNavLink key={project.id} project={project} />
                       ))}
-                      <SidebarNavLink project={{ name: "Ver todos", path: "/projects" } as IProjectLink} />
+                      <SidebarNavLink project={{ name: "Ver todos" } as IProjectLink} href="/projects" />
                     </ul>
                   </nav>
                   <Link
@@ -73,14 +73,15 @@ export function MobileSidebar({ children, className, ...rest }: Props) {
 
 interface ISidebarNavLink extends HTMLAttributes<HTMLLIElement> {
   project: IProjectLink
+  href?: string | undefined
 }
 
-export const SidebarNavLink: React.FC<ISidebarNavLink> = ({ className, project, ...rest }) => (
+export const SidebarNavLink: React.FC<ISidebarNavLink> = ({ href, className, project, ...rest }) => (
   <li
     className={`transition-colors font-medium duration-75 hover:bg-texas-100 cursor-pointer ${className ?? ""}`}
     {...rest}
   >
-    <Link href={`/project/${project.path}`} className="outline-accent flex px-3 py-2 rounded-lg">
+    <Link href={href ?? `/project/${project.path}`} className="outline-accent flex px-3 py-2 rounded-lg">
       <span className="truncate">{project.name}</span>
     </Link>
   </li>
