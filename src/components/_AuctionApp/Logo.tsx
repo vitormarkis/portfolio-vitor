@@ -18,12 +18,12 @@ export function Logo({ scale, className, ...rest }: Props) {
   return (
     <div className={`${className ?? ""}`} {...rest}>
       <div className="leading-none">
-        <Link href="/" className="flex items-center" style={{ gap }}>
+        <div className="flex items-center" style={{ gap }}>
           <Grain width={iconSize} height={iconSize} className="text-cyan-500" />
           <h1 className={`font-bold ${josefins_sans.className}`} style={{ transform, fontSize }}>
             Auction.
           </h1>
-        </Link>
+        </div>
       </div>
     </div>
   )

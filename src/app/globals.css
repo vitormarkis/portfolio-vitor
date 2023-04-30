@@ -4,7 +4,7 @@
 
 .root-height {
   height: 100dvh;
-  background-image: linear-gradient(to bottom right, #e4e6ff 0%, white 40%, #f7ffe4 100%);
+  background-image: linear-gradient(to bottom right, #e4e6ff 0%, white 40%, #e4ebff 100%);
 }
 
 .jetbrains {
@@ -132,5 +132,15 @@
     filter: blur(4rem);
     width: 11rem;
     height: 1.4rem;
+  }
+}
+
+.mobile-mockup-responsive {
+  width: max(4rem, min(16.6vw, 5.75rem));
+}
+
+@media (min-width: 768px) {
+  .mobile-mockup-responsive {
+    width: min(5rem, 7.5vw);
   }
 }

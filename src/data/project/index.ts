@@ -19,7 +19,8 @@ export type ProjectTechnologies =
     id: number
     name: string
     path: string
-    image_url: string
+    desktop_cover_picture: string
+    mobile_cover_picture: string
     short_description?: string | undefined
     description: string
     importance: TImp
@@ -63,4 +64,10 @@ export const useProjects: IUseProjects = props => {
   }
 
   return { projects }
+}
+
+export const getProject = (projectName: string) => {
+  const project = projectsData.find(p => p.path === projectName)!
+  
+  return { project }
 }

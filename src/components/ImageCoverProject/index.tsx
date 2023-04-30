@@ -6,23 +6,13 @@ interface IProjectCover extends HTMLAttributes<HTMLDivElement> {
   project: IProjectLink
 }
 
-export const ImageCoverProject: React.FC<IProjectCover> = ({
-  className,
-  project,
-  ...rest
-}) => (
+export const ImageCoverProject: React.FC<IProjectCover> = ({ className, project, ...rest }) => (
   <div className="relative">
     <div
-      className={`relative w-full shadow-md aspect-video z-20 rounded-lg overflow-hidden ${
-        className ?? ""
-      }`}
+      className={`relative w-full shadow-md aspect-video z-20 rounded-lg overflow-hidden ${className ?? ""}`}
       {...rest}
     >
-      <Image
-        src={`/${project.image_url}`}
-        alt={`Foto do projeto ${project.name}`}
-        fill
-      />
+      <Image src={`/${project.desktop_cover_picture}`} alt={`Foto do projeto ${project.name}`} fill />
     </div>
     <div className="w-24 h-24 z-10 bg-cyan-500 blur-[40px] absolute top-0 left-0" />
     <div className="w-32 h-12 z-10 bg-indigo-500 blur-[30px] absolute top-0 right-0" />

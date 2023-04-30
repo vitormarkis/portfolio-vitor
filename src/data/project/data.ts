@@ -1,11 +1,12 @@
-import { IProjectLink } from ".";
+import { IProjectLink } from "."
 
 export const projectsData: IProjectLink[] = [
   {
     id: Math.random(),
     name: "Auction App",
     path: "auction-app",
-    image_url: "auction-app.jpg",
+    desktop_cover_picture: "auction-app-cover.jpg",
+    mobile_cover_picture: "auction-alpha-phone-cover.jpg",
     short_description: "Compre e venda o que quiser, pelo preço que quiser!",
     description: `
       Site de venda de produtos, onde você anuncia um produto por R$200 durante 7 dias, esse anuncio fica publico para as pessoas no feed, elas podem dar lances de R$230, R$250, R$300, e ao final dos 7 dias, o lance com o maior valor leva o produto.
@@ -18,7 +19,8 @@ export const projectsData: IProjectLink[] = [
     id: Math.random(),
     name: "Ike Linktree",
     path: "ike-linktree",
-    image_url: "ike-consertos.jpg",
+    desktop_cover_picture: "ike-consertos.jpg",
+    mobile_cover_picture: "",
     short_description: "Índice de contato para um assistente técnico da minha região.",
     description: `Site onde se encontra todos os links e formas de contato de um assistente técnico de celulares da minha região, meu primeiro projeto em Next.`,
     importance: "public",
@@ -29,7 +31,8 @@ export const projectsData: IProjectLink[] = [
     id: Math.random(),
     name: "Twitter Clone",
     path: "twitter-clone",
-    image_url: "twitter-frontend.jpg",
+    desktop_cover_picture: "twitter-frontend.jpg",
+    mobile_cover_picture: "",
     short_description: "Clone da interface do Twitter totalmente responsivo.",
     description: `Recriei a interface do Twitter de forma praticamente idêntica e totalmente responsiva usando a biblioteca Styled Components.`,
     importance: "public",
@@ -40,7 +43,8 @@ export const projectsData: IProjectLink[] = [
     id: Math.random(),
     name: "Custom Social Media",
     path: "custom-social-media",
-    image_url: "custom-social-media.jpg",
+    desktop_cover_picture: "custom-social-media.jpg",
+    mobile_cover_picture: "",
     short_description: "Rede social criada com NodeJS, Express e MySQL.",
     description: `Rede social onde você pode criar, favoritar, e comentar em posts. Projeto que usei para aprender autenticação, queries cruas em MySQL, API com express e etc.`,
     importance: "casual",
@@ -51,7 +55,8 @@ export const projectsData: IProjectLink[] = [
     id: Math.random(),
     name: "Análise de Estruturas",
     path: "analise-de-estruturas",
-    image_url: "analise-de-estruturas.jpg",
+    desktop_cover_picture: "analise-de-estruturas.jpg",
+    mobile_cover_picture: "",
     short_description: "A melhor forma de analisar campanhas de empresas.",
     description: `A melhor forma de analisar e metrificar qualquer coisa, o quê você quiser analisar é quebrado em vários pedaços, os quais são comparados entre eles e é retornado em um dashboard as melhores combinações.`,
     importance: "important",
@@ -62,7 +67,8 @@ export const projectsData: IProjectLink[] = [
     id: Math.random(),
     name: "Cron Jobs",
     path: "cron-jobs",
-    image_url: "cron-jobs-cover.jpg",
+    desktop_cover_picture: "cron-jobs-cover.jpg",
+    mobile_cover_picture: "",
     description: `
       Sistema de notificações em tempo real e persistida no banco de dados, autenticação JWT, e agendamento de tarefas (ações que acontecem no servidor de forma automática). 
     `,
@@ -74,7 +80,8 @@ export const projectsData: IProjectLink[] = [
     id: Math.random(),
     name: "Asseties",
     path: "asseties",
-    image_url: "asseties-cover.jpg",
+    desktop_cover_picture: "asseties-cover.jpg",
+    mobile_cover_picture: "",
     description: `
       Programadores criam muitos projetos e dispersam suas implementações, esse projeto visa criar um índice entre todos os projetos para facilitar consulta de implementações.
     `,

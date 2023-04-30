@@ -80,7 +80,7 @@ export const SidebarNavLink: React.FC<ISidebarNavLink> = ({ className, project, 
     className={`transition-colors font-medium duration-75 hover:bg-texas-100 cursor-pointer ${className ?? ""}`}
     {...rest}
   >
-    <Link href={project.path} className="outline-accent flex px-3 py-2 rounded-lg">
+    <Link href={`/project/${project.path}`} className="outline-accent flex px-3 py-2 rounded-lg">
       <span className="truncate">{project.name}</span>
     </Link>
   </li>

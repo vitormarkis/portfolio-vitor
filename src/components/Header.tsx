@@ -76,7 +76,7 @@ export const HeaderNavLink = React.forwardRef<HTMLLIElement, IHeaderNavLink>(
         }`}
         {...rest}
       >
-        <Link href={project.path} className="flex outline-accent rounded-lg px-6 py-3">
+        <Link href={`/project/${project.path}`} className="flex outline-accent rounded-lg px-6 py-3">
           <span className="truncate">{project.name}</span>
         </Link>
       </li>

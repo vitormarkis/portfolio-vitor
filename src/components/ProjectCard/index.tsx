@@ -21,7 +21,7 @@ export const ProjectCard: React.FC<IProjectCard> = ({ className, project, ...res
         <Paragraph text={project.description} className="text-center text-neutral-500" />
       </div>
       <div className="flex justify-between">
-        <ButtonProjectCard text="Ver detalhes" url={project.path} filled />
+        <ButtonProjectCard text="Ver detalhes" url={`/project/${project.path}`} filled />
         <ButtonProjectCard text="Abrir" url={project.url} target="_blank" />
       </div>
       <TechnologyIcons
