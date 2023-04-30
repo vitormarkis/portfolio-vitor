@@ -15,6 +15,7 @@ module.exports = {
       fontFamily: {
         josefin: `var(--josefin_sans), var(--inter), sans-serif;`,
         inter: `var(--inter), sans-serif;`,
+        roboto: `var(--roboto), var(--inter), sans-serif;`,
       },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",

@@ -1,4 +1,4 @@
-import { Inter, Josefin_Sans } from "next/font/google"
+import { Inter, Josefin_Sans, Roboto } from "next/font/google"
 
 export const josefins_sans = Josefin_Sans({
   subsets: ["latin"],
@@ -7,3 +7,8 @@ export const josefins_sans = Josefin_Sans({
 })
 
 export const inter = Inter({ subsets: ["latin"], variable: "--inter" })
+export const roboto = Roboto({
+  subsets: ["latin"],
+  weight: ["100", "300", "400", "500", "700", "900"],
+  variable: "--roboto",
+})

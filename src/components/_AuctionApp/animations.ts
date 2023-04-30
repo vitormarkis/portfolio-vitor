@@ -63,13 +63,13 @@ export function animateEmerge(delay: number) {
   return { ...animationProps, transition }
 }
 
-export function animateUnderline(delay: number) {
+export function animateUnderline(delay: number, width: string) {
   const animationProps: TAnimation = {
     initial: {
       width: 0,
     },
     animate: {
-      width: "5rem",
+      width,
     },
   }
 
@@ -77,7 +77,7 @@ export function animateUnderline(delay: number) {
     width: {
       type: "spring",
       stiffness: 70,
-      mass: 0.6,
+      mass: 0.4,
       damping: 8,
     },
     delay,
