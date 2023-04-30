@@ -12,10 +12,13 @@ module.exports = {
         xs: "480px",
         mdx: "896px",
       },
+      fontFamily: {
+        josefin: `var(--josefin_sans), var(--inter), sans-serif;`,
+        inter: `var(--inter), sans-serif;`,
+      },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
-        "gradient-conic":
-          "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
+        "gradient-conic": "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
       colors: {
         texas: {

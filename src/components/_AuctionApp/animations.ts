@@ -62,3 +62,27 @@ export function animateEmerge(delay: number) {
 
   return { ...animationProps, transition }
 }
+
+export function animateUnderline(delay: number) {
+  const animationProps: TAnimation = {
+    initial: {
+      width: 0,
+    },
+    animate: {
+      width: "5rem",
+    },
+  }
+
+  const transition: TTransition = {
+    width: {
+      type: "spring",
+      stiffness: 70,
+      mass: 0.6,
+      damping: 8,
+    },
+    delay,
+    ease: "easeInOut",
+  }
+
+  return { ...animationProps, transition }
+}

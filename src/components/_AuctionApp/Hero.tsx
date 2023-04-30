@@ -18,7 +18,7 @@ export function Hero({ className, ...rest }: Props) {
   const lgVW = width < 960
 
   return (
-    <div className={`${className ?? ""}`} {...rest}>
+    <div className={`pb-[11.125rem] md:pb-0 ${className ?? ""}`} {...rest}>
       <CenteredContainer className="md:py-24 py-8">
         <div className="flex flex-col gap-10 md:gap-12 md:flex-row h-[15rem] md:items-center px-6">
           <div className="flex-1 flex justify-center items-center flex-col">
