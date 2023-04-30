@@ -8,6 +8,7 @@ import { Phone } from "phosphor-react"
 import React, { HTMLAttributes } from "react"
 import ReactDOM from "react-dom"
 import { Logo } from "./Logo"
+import { usePathname } from "next/navigation"
 const montserrat = Montserrat({ subsets: ["latin"] })
 
 interface Props extends HTMLAttributes<HTMLDivElement> {
@@ -18,10 +19,15 @@ export function MobileSidebar({ children, className, ...rest }: Props) {
   const [isModalOpen, setIsModalOpen] = React.useState(false)
   const [hasDocument, setHasDocument] = React.useState(false)
   const { projects } = useProjects({ sort: "importance", omit: ["casual"] })
+  const pathname = usePathname()
 
   React.useEffect(() => {
     setHasDocument(true)
   }, [])
+
+  React.useEffect(() => {
+    setIsModalOpen(false)
+  }, [pathname])
 
   return (
     <Dialog.Root open={isModalOpen} onOpenChange={setIsModalOpen}>
