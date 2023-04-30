@@ -11,6 +11,16 @@ interface Props extends HTMLAttributes<HTMLDivElement> {}
 
 export function Projects({ className, ...rest }: Props) {
   const { projects } = useProjects({ sort: "importance" })
+  const desiredImportantProjects = [
+    "auction-app",
+    "analise-de-estruturas",
+]
+  const desiredProjects = [
+    "cron-jobs",
+    "custom-social-media",
+    "asseties",
+]
+  
   return (
     <div className={`${className}`} {...rest}>
       <CenteredContainer className="p-6 mdx:p-12">
@@ -22,14 +32,14 @@ export function Projects({ className, ...rest }: Props) {
         </p>
         <div className="grid mdx:grid-cols-2 grid-cols-1 gap-12 mb-8">
           {projects
-            .filter(p => p.importance === "important")
+            .filter(p => p.importance === "important" && desiredImportantProjects.includes(p.path))
             .map(project => (
               <ProjectHome key={project.id} project={project} size="normal" />
             ))}
         </div>
         <div className="sm:grid mdx:grid-cols-3 sm:grid-cols-2 hidden align-super gap-8">
           {projects
-            .filter(p => p.importance === "casual")
+            .filter(p => desiredProjects.includes(p.path))
             .map(project => (
               <ProjectHome key={project.id} project={project} size="small" />
             ))}
