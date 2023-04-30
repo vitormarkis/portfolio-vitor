@@ -1,9 +1,11 @@
 "use client"
 
 import { getProject } from "@/data/project"
+import { motion } from "framer-motion"
 import { HTMLAttributes } from "react"
 import { CenteredContainer } from "../CenteredContainer"
 import { Logo } from "./Logo"
+import { animateEmerge, animatePopup } from "./animations"
 
 interface Props extends HTMLAttributes<HTMLDivElement> {}
 
@@ -21,29 +23,31 @@ export function Hero({ className, ...rest }: Props) {
             <p className="text-neutral-500 text-center md:text-left">{project.short_description}</p>
           </div>
           <div className="flex-1 flex justify-center">
-            <div className="flex relative w-fit mr-[2.125rem] mb-8">
-              <div className="absolute top-full h-4 w-20 bg-black left-1/2 -translate-x-1/2" />
-              <div className="flex p-1 md:p-2 rounded-xl bg-black">
-                <img
-                  src={`/${project.desktop_cover_picture}`}
-                  alt="Imagem da home do projeto Auction App na versão desktop"
-                  className="w-[28rem] rounded-lg"
-                />
-              </div>
-              <div
-                className="absolute bottom-0 right-0 p-[2px] pb-2.5 rounded-lg bg-black shadow-sm md:shadow-md shadow-black/50"
-                style={{ transform: "translate(46%, 2rem)" }}
+            <div className="relative mr-[2.125rem] mb-8">
+              <motion.div {...animatePopup(0)} className="flex relative w-fit">
+                <div className="absolute top-full h-4 w-20 bg-black left-1/2 -translate-x-1/2" />
+                <div className="flex p-1 md:p-2 rounded-xl bg-black">
+                  <img
+                    src={`/${project.desktop_cover_picture}`}
+                    alt="Imagem da home do projeto Auction App na versão desktop"
+                    className="w-[28rem] rounded-lg"
+                  />
+                </div>
+              </motion.div>
+              <motion.div
+                {...animateEmerge(0.15)}
+                className="absolute -bottom-8 -right-8 p-[2px] pb-2.5 rounded-lg bg-black shadow-sm md:shadow-md shadow-black/50"
               >
                 {/* <div className="bg-black w-8 h-1.5 top-0 left-1/2 -translate-x-1/2 absolute rounded-b-full"></div> */}
                 <div className="bg-black w-1 h-1 rounded-full top-1 left-1/2 -translate-x-1/2 absolute"></div>
                 <div className="block bg-white overflow-hidden rounded-b-md rounded-t-lg">
-                <img
-                  src={`/${project.mobile_cover_picture}`}
-                  alt="Imagem da home do projeto Auction App na versão mobile"
-                  className="w-20 pt-2 mobile-mockup-responsive"
-                />
+                  <img
+                    src={`/${project.mobile_cover_picture}`}
+                    alt="Imagem da home do projeto Auction App na versão mobile"
+                    className="w-20 pt-2 mobile-mockup-responsive"
+                  />
                 </div>
-              </div>
+              </motion.div>
             </div>
           </div>
         </div>
