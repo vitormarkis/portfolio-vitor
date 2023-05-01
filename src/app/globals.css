@@ -1,3 +1,4 @@
+/* prettier-ignore */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -128,16 +129,18 @@
   width: 0.625rem;
 }
 
+/* prettier-ignore */
 .scroll-thin::-webkit-scrollbar-thumb {
   @apply bg-zinc-300
 }
 
+/* prettier-ignore */
 .outline-accent {
-  @apply focus: outline-1 focus:outline-double focus:outline-blue-500 focus:outline-offset-2
+  @apply focus:outline-1 focus:outline-double focus:outline-blue-500 focus:outline-offset-2
 }
 
 .outline-raw {
-  @apply focus: outline-1 focus:outline-double focus:outline-offset-2
+  @apply focus:outline-1 focus:outline-double focus:outline-offset-2
 }
 
 @media (max-width: 640px) {
