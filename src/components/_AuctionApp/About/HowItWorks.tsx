@@ -15,7 +15,8 @@ export function HowItWorks({ className, ...rest }: Props) {
         />
       </h2>
       <ul className="text-neutral-600 [&_strong]:text-neutral-800">
-        <li className="mb-[4.5rem]">
+        <li className="mb-[4.5rem] pt-4 border-t border-neutral-500">
+          <SectionNumber number={1} className="mr-2" />
           <span className="text-base">Cada post possui um prazo para ser encerrado, determinado pelo autor.</span>
           <p className="my-3 text-xs text-neutral-400 py-2 px-4 rounded-full w-fit border-dashed border border-neutral-600">
             <span className="text-xs">Publicado </span>
@@ -25,7 +26,8 @@ export function HowItWorks({ className, ...rest }: Props) {
             </span>
           </p>
         </li>
-        <li className="mb-[4.5rem]">
+        <li className="mb-[4.5rem] pt-4 border-t border-neutral-500">
+          <SectionNumber number={2} className="mr-2" />
           <span className="text-base">Enquanto ativo, seu post será mostrado em um feed similar ao do Facebook.</span>
           <div className="p-3 my-3 font-roboto text-black whitespace-nowrap rounded-xl border border-dashed border-neutral-500">
             <div className="flex">
@@ -119,7 +121,8 @@ export function HowItWorks({ className, ...rest }: Props) {
             </div>
           </div>
         </li>
-        <li className="mb-[4.5rem]">
+        <li className="mb-[4.5rem] pt-4 border-t border-neutral-500">
+          <SectionNumber number={3} className="mr-2" />
           <span className="text-base">
             As pessoas poderão entrar na página do post, ver detalhes, ver descrição, ver preço, fazer perguntas, e
             fazer <strong>lances</strong>.
@@ -195,7 +198,8 @@ export function HowItWorks({ className, ...rest }: Props) {
             </div>
           </div>
         </li>
-        <li className="mb-[4.5rem]">
+        <li className="mb-[4.5rem] pt-4 border-t border-neutral-500">
+          <SectionNumber number={4} className="mr-2" />
           <span className="text-base">
             Um lance é um valor que a pessoa está disposta a pagar por seu produto, pode ser maior ou menor ao valor
             original.
@@ -230,7 +234,8 @@ export function HowItWorks({ className, ...rest }: Props) {
             </div>
           </div>
         </li>
-        <li className="mb-[4.5rem]">
+        <li className="mb-[4.5rem] pt-4 border-t border-neutral-500">
+          <SectionNumber number={5} className="mr-2" />
           <span className="text-base">
             Agora que seu post possui vários lances, você pode escolher quem você deseja premiar como vencedor do
             leilão.
@@ -315,7 +320,8 @@ export function HowItWorks({ className, ...rest }: Props) {
             </div>
           </div>
         </li>
-        <li className="mb-[4.5rem]">
+        <li className="mb-[4.5rem] pt-4 border-t border-neutral-500">
+          <SectionNumber number={6} className="mr-2" />
           <span className="text-base">
             Caso ninguém seja escolhido por você, ao final do prazo do post, o lance com maior valor é escolhido como
             vencedor do leilão.
@@ -325,3 +331,22 @@ export function HowItWorks({ className, ...rest }: Props) {
     </section>
   )
 }
+
+interface ISectionNumber extends HTMLAttributes<HTMLDivElement> {
+  number: number
+}
+
+// background-image: linear-gradient(to bottom right, #a56dff, #fc39ff, #ffd86b);
+
+export const SectionNumber: React.FC<ISectionNumber> = ({ number, className, ...rest }) => (
+  <div
+    className={`border-t border-t-white/50 border-b border-b-black/5 bg-gradient-to-br from-[#a56dff] via-[#fc39ff] to-[#ffd86b] inline-grid place-items-center w-6 h-6 p-0.5 rounded-md text-white leading-none text-sm ${
+      className ?? ""
+    }`}
+    {...rest}
+  >
+    <div className="inline-grid place-items-center w-full h-full rounded-[5px]">
+      <p>{number}</p>
+    </div>
+  </div>
+)
