@@ -103,7 +103,20 @@
   background: repeating-linear-gradient(to right, #CF0C13 0%, #FF0A95 50%, #FF5724 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+}
 
+.h1-seccon {
+  background: #0ccfcf;
+  background: repeating-linear-gradient(270deg, #d50000 0%, #ff4040 50%, #ff0da9 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.h1-third {
+  background: #0ccfcf;
+  background: repeating-linear-gradient(325deg, #20ff5a 0%, #25f5ff 50%, #4386ff 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .bg-pattern {
@@ -120,11 +133,11 @@
 }
 
 .outline-accent {
-  @apply focus:outline-1 focus:outline-double focus:outline-blue-500 focus:outline-offset-2
+  @apply focus: outline-1 focus:outline-double focus:outline-blue-500 focus:outline-offset-2
 }
 
 .outline-raw {
-  @apply focus:outline-1 focus:outline-double focus:outline-offset-2
+  @apply focus: outline-1 focus:outline-double focus:outline-offset-2
 }
 
 @media (max-width: 640px) {
