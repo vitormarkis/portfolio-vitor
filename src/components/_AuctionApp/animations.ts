@@ -40,7 +40,7 @@ export function animatePopup(delay: number) {
 export function animateEmerge(delay: number) {
   const animationProps: TAnimation = {
     initial: {
-      y: -25,
+      y: -50,
       opacity: 0,
     },
     animate: {
@@ -53,7 +53,7 @@ export function animateEmerge(delay: number) {
     y: {
       type: "spring",
       stiffness: 70,
-      mass: 0.6,
+      mass: 0.8,
       damping: 8,
     },
     delay,

@@ -38,12 +38,12 @@ export function Hero({ className, ...rest }: Props) {
                 </div>
               </motion.div>
               <motion.div
-                {...animateEmerge(0.15)}
-                className="absolute -bottom-8 -right-8 p-[2px] pb-2.5 rounded-lg bg-black shadow-sm md:shadow-md shadow-black/50"
+                {...animateEmerge(0.7)}
+                className="absolute -bottom-8 -right-8 p-[2px] pb-2.5 rounded-lg bg-black"
               >
-                <div className="bg-black w-8 h-1.5 top-0 left-1/2 -translate-x-1/2 absolute rounded-b-full"></div>
+                <div className="bg-black w-8 h-1.5 top-0 left-1/2 -translate-x-1/2 absolute rounded-b-full" />
                 {/* <div className="bg-black w-1 h-1 rounded-full top-1 left-1/2 -translate-x-1/2 absolute"></div> */}
-                <div className="block bg-white overflow-hidden rounded-b-md rounded-t-lg">
+                <div className="block bg-white overflow-hidden rounded-b-md rounded-t-[6.5px]">
                   <img
                     src={`/${project.mobile_cover_picture}`}
                     alt="Imagem da home do projeto Auction App na versão mobile"
