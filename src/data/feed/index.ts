@@ -6,6 +6,17 @@ export type IFeedPost = {
 
 export const feedData: IFeedPost[] = [
   {
+    id: 3463576457455,
+    text: `
+      Aprendi que existe como importar coisas de forma mais dinâmica usando next/dynamic.
+
+      No meu caso eu tinha um componente que tava dando erro de conteúdo sendo renderizado de forma diferente no server e no client. Eu resolvi isso usando o next/dynamic dizendoq que o componente seria apenas carregado no client side.
+
+      const Component = dynamic(() => import("./Component").then(mod => mod.Component), { ssr: false })
+    `.trim(),
+    created_at: "2023-04-28T22:15:52.149Z",
+  },
+  {
     id: 8346354657345,
     text: `
       Por algum motivo que ainda não sei, a fonte Montserrat, em dev mode não estava sendo carregada na página, inspencionando, a classe estava la, mas não aparecia na seção onde tinha as classes e suas propriedades.
@@ -89,16 +100,14 @@ interface IUseFeedProps {
   sort?: "date" | "importance"
 }
 
-export const useFeed: IUseFeed = (props) => {
+export const useFeed: IUseFeed = props => {
   let feed = feedData
   if (!props) return { feed }
   const { sort } = props
 
   if (sort) {
     if (sort === "date") {
-      feed = feed.sort((a, b) =>
-        a.created_at < b.created_at ? 1 : a.created_at > b.created_at ? -1 : 0
-      )
+      feed = feed.sort((a, b) => (a.created_at < b.created_at ? 1 : a.created_at > b.created_at ? -1 : 0))
     }
 
     if (sort === "importance") {
