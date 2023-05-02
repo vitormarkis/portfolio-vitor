@@ -14,7 +14,7 @@ export const feedData: IFeedPost[] = [
 
       const Component = dynamic(() => import("./Component").then(mod => mod.Component), { ssr: false })
     `.trim(),
-    created_at: "2023-04-28T22:15:52.149Z",
+    created_at: "2023-05-02T16:47:54.106Z",
   },
   {
     id: 8346354657345,
