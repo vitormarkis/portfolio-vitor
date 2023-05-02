@@ -10,10 +10,10 @@ interface Props extends HTMLAttributes<HTMLDivElement> {
 }
 
 export function Logo({ scale, className, ...rest }: Props) {
-  const fontSize = rem(scale ? scale * 1.25 : 1.25)
-  const transform = `translateY(${rem(scale ? scale * 0.0625 : 0.0625)})`
-  const gap = rem(scale ? scale * 0.1875 : 0.1875)
-  const iconSize = rem(scale ? scale * 1.75 : 1.75)
+  const fontSize = "4.75rem"
+  const transform = `3.7px`
+  const gap = "0.75rem"
+  const iconSize = "103px"
 
   return (
     <div className={`${className ?? ""}`} {...rest}>

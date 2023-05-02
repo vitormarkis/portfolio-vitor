@@ -45,7 +45,7 @@ export function Feed() {
           <img
             alt="Foto do post"
             src="https://img.olx.com.br/images/55/552365756456720.jpg"
-            className="object-cover w-full h-72 border-r border-r-neutral-400"
+            className="object-cover w-full border-r border-r-neutral-400"
           />
         </div>
         <div className="p-2 bg-black">
@@ -56,7 +56,8 @@ export function Feed() {
             <span className="font-semibold text-2xl">R$&nbsp;300</span>
           </div>
           <div className="bg-neutral-400 h-5 w-[1px] mx-3"></div>
-          <div className="hidden whitespace-normal sm:flex items-center text-sm">
+          <div className="whitespace-normal flex items-center text-sm">
+            <p className="mr-1 block xs:hidden md:block mdx:hidden">3</p>
             <svg
               viewBox="0 0 48 48"
               height="16"
@@ -69,8 +70,10 @@ export function Feed() {
             >
               <path d="M41.56 26.13a1.25 1.25 0 0 0 2.38-.76C43.85 25.1 38.84 10 24 10 9.16 10 4.15 25.1 4.06 25.37c-.21.66.15 1.36.81 1.57.66.21 1.36-.15 1.57-.81.18-.56 4.51-13.63 17.56-13.63 13.05 0 17.38 13.07 17.56 13.63ZM17.5 27a6.5 6.5 0 1 1 13 0 6.5 6.5 0 0 1-13 0Zm6.5-9a9 9 0 1 0 0 18 9 9 0 0 0 0-18Z"></path>
             </svg>
-            <p className="ml-1">3 pessoas já fizeram um lance</p>
+            <p className="ml-1 hidden sm:block md:hidden lg:block">3 pessoas já fizeram um lance</p>
+            <p className="ml-1 hidden xs:block sm:hidden mdx:block lg:hidden">3 lances</p>
           </div>
+          <div className="h-5 w-[1px] mr-3"></div>
           <div className="ml-auto">
             <a href="/post/mesa-de-sinuca-charme-2-20-x-1-20-4862101538">
               <button className="py-1.5 rounded-lg pr-6 pl-4 bg-black text-white flex items-center">
