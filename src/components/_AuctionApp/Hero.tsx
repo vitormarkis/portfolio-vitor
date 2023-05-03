@@ -5,24 +5,20 @@ import useWindowDimensions from "@/hooks/useWindowDimension"
 import { motion } from "framer-motion"
 import { HTMLAttributes } from "react"
 import { CenteredContainer } from "../CenteredContainer"
-import { Logo } from "./Logo"
 import { animateEmerge, animatePopup } from "./animations"
+import { Logo } from "./Logo"
 
 interface Props extends HTMLAttributes<HTMLDivElement> {}
 
 export function Hero({ className, ...rest }: Props) {
   const { project } = getProject("auction-app")
-  const { width } = useWindowDimensions()
-  const smVW = width < 480
-  const mdVW = width < 880
-  const lgVW = width < 960
 
   return (
     <div className={`pb-[11.125rem] md:pb-0 ${className ?? ""}`} {...rest}>
       <CenteredContainer className="md:py-24 py-8">
         <div className="flex flex-col gap-10 md:gap-12 md:flex-row h-[15rem] md:items-center px-6">
           <div className="flex-1 flex justify-center items-center flex-col">
-            <Logo scale={smVW ? 3 : mdVW ? 3.3 : lgVW ? 3.7 : 4} className="" />
+            <Logo />
             <p className="text-neutral-500 text-center md:text-left">{project.short_description}</p>
           </div>
           <div className="flex-1 flex justify-center">

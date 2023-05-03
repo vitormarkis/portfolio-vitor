@@ -2,25 +2,17 @@
 
 import { josefins_sans } from "@/fonts"
 import { Grain } from "@styled-icons/material-sharp/Grain"
-import Link from "next/link"
 import { HTMLAttributes } from "react"
 
-interface Props extends HTMLAttributes<HTMLDivElement> {
-  scale?: number | undefined
-}
+interface Props extends HTMLAttributes<HTMLDivElement> {}
 
-export function Logo({ scale, className, ...rest }: Props) {
-  const fontSize = "4.75rem"
-  const transform = `3.7px`
-  const gap = "0.75rem"
-  const iconSize = "103px"
-
+export function Logo({ className, ...rest }: Props) {
   return (
     <div className={`${className ?? ""}`} {...rest}>
       <div className="leading-none">
-        <div className="flex items-center" style={{ gap }}>
-          <Grain width={iconSize} height={iconSize} className="text-cyan-500" />
-          <h1 className={`font-bold ${josefins_sans.className}`} style={{ transform, fontSize }}>
+        <div className="flex items-center md:gap-3 gap-0.5">
+          <Grain className="text-cyan-500 md:h-[103px] md:w-[103px] h-[82px] w-[82px]" />
+          <h1 className={`font-bold ${josefins_sans.className} md:text-[4.75rem] text-[3.8rem] translate-y-[3.7px]`}>
             Auction.
           </h1>
         </div>
