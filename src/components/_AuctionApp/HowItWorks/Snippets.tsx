@@ -104,7 +104,7 @@ export function Snippets({ className, ...rest }: ISnippets) {
             <MakeBid />
           </SnippetContainer>
         </ProjectFeature>
-        <div className="flex gap-6">
+        <div className="hidden md:flex gap-6">
           <ProjectFeature className="hidden md:flex md:grow-[3] md:basis-0 xl:hidden">
             <div>
               <SectionNumber number={5} className="mr-2" />

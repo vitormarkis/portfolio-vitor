@@ -142,7 +142,7 @@
 .outline-raw {
   @apply focus:outline-1 focus:outline-double focus:outline-offset-2
 }
-
+ 
 @media (max-width: 640px) {
   .gr {
     filter: blur(4rem);
@@ -153,6 +153,10 @@
 
 .mobile-mockup-responsive {
   width: max(4rem, min(16.6vw, 5.75rem));
+}
+
+.inset-shadow {
+  box-shadow: inset 0 10px 15px 3px rgb(0 0 0 / 0.1), inset 0 0 4px rgb(0 0 0 / 0.1);
 }
 
 @media (min-width: 768px) {

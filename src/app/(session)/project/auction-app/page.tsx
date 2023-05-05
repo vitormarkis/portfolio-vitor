@@ -1,7 +1,6 @@
-import { About } from "@/components/_AuctionApp/About"
 import { Introduction } from "@/components/_AuctionApp/About/Introduction"
 import { Hero } from "@/components/_AuctionApp/Hero"
-import { HowItWorks } from "@/components/_AuctionApp/HowItWoks"
+import { HowItWorks } from "@/components/_AuctionApp/HowItWorks"
 import { Tech } from "@/components/_AuctionApp/Tech"
 
 export default function AuctionAppPage() {
@@ -10,7 +9,7 @@ export default function AuctionAppPage() {
       <Hero />
       <Introduction className="mt-24" />
       {/* <About className="mt-24" /> */}
-      <HowItWorks />
+      <HowItWorks className="mt-24" />
       <Tech className="mt-24" />
     </main>
   )
