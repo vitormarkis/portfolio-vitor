@@ -115,7 +115,7 @@
 
 .h1-third {
   background: #0ccfcf;
-  background: repeating-linear-gradient(325deg, #20ff5a 0%, #25f5ff 50%, #4386ff 100%);
+  background: repeating-linear-gradient(325deg, #20afff 0%, #4572e4 50%, #9543ff 100%);  
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
