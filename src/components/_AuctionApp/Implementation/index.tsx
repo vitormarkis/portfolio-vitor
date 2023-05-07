@@ -26,11 +26,15 @@ export function Implementation({ className, ...rest }: IImplementation) {
                 {...bounceAnimation()}
                 className="grid place-items-center rounded-full w-full h-full z-[var(--zindex)]"
               >
-                <div className="z-[var(--zindex)] inset-[-2px] rounded-full bg-gradient-to-b from-cyan-400 to-cyan-600 absolute" />
+                {/* <div className="z-[var(--zindex)] inset-[-2px] rounded-full bg-gradient-to-b from-cyan-400 to-cyan-600 absolute" />
                 <div className="z-[var(--zindex)] inset-0 rounded-full bg-gradient-to-b from-cyan-600 to-cyan-500 absolute" />
-                <Grain className="z-[var(--zindex)] text-white h-40 w-40 relative" />
+                <Grain className="z-[var(--zindex)] text-white h-40 w-40 relative" /> */}
+
+                <div className="z-[var(--zindex)] inset-[-2px] rounded-full bg-gradient-to-b from-white to-neutral-100 absolute" />
+                <div className="z-[var(--zindex)] inset-0 rounded-full bg-gradient-to-b from-neutral-100 to-white absolute" />
+                <Grain className="z-[var(--zindex)] text-cyan-500 h-40 w-40 relative" />
               </motion.div>
-              <div className="z-[calc(var(--zindex)_-_1)] right-0 left-0 -bottom-4 rounded-[100%] h-6 bg-black absolute blur-xl" />
+              <div className="z-[calc(var(--zindex)_-_1)] right-8 left-8 -bottom-4 rounded-[100%] h-6 bg-neutral-300 absolute blur-md" />
             </div>
           </div>
           <ul className="flex-1 grow-[3] text-sm flex flex-wrap gap-x-4 gap-y-3 leading-none self-start">
