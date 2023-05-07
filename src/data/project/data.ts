@@ -14,6 +14,7 @@ export const projectsData: IProjectLink[] = [
     importance: "important",
     technologies: ["VERCEL", "NEXT", "MYSQL", "TAILWINDCSS", "PRISMA"],
     url: "https://auction-alpha.vercel.app/",
+    repo_url: "https://github.com/vitormarkis/auction-alpha/",
   },
   {
     id: Math.random(),
@@ -26,6 +27,7 @@ export const projectsData: IProjectLink[] = [
     importance: "public",
     technologies: ["VERCEL", "NEXT", "TAILWINDCSS"],
     url: "https://ike-consertos-linktree.vercel.app/",
+    repo_url: "",
   },
   {
     id: Math.random(),
@@ -38,6 +40,7 @@ export const projectsData: IProjectLink[] = [
     importance: "public",
     technologies: ["VERCEL", "REACT", "STYLED_COMPONENTS"],
     url: "https://twitter-frontend-indol.vercel.app/",
+    repo_url: "",
   },
   {
     id: Math.random(),
@@ -50,6 +53,7 @@ export const projectsData: IProjectLink[] = [
     importance: "casual",
     technologies: ["VERCEL", "EXPRESS", "MYSQL", "REACT", "TAILWINDCSS"],
     url: "",
+    repo_url: "",
   },
   {
     id: Math.random(),
@@ -62,6 +66,7 @@ export const projectsData: IProjectLink[] = [
     importance: "important",
     technologies: ["GOOGLE_SHEETS"],
     url: "",
+    repo_url: "",
   },
   {
     id: Math.random(),
@@ -75,6 +80,7 @@ export const projectsData: IProjectLink[] = [
     importance: "casual",
     technologies: ["EXPRESS", "MYSQL", "PRISMA", "REACT", "TAILWINDCSS"],
     url: "https://github.com/vitormarkis/cron-jobs",
+    repo_url: "",
   },
   {
     id: Math.random(),
@@ -88,5 +94,6 @@ export const projectsData: IProjectLink[] = [
     importance: "casual",
     technologies: ["REACT", "TAILWINDCSS", "VERCEL"],
     url: "https://github.com/vitormarkis/asseties",
+    repo_url: "",
   },
 ]

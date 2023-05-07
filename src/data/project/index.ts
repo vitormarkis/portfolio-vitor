@@ -15,18 +15,19 @@ export type ProjectTechnologies =
   | "STYLED_COMPONENTS"
   | "VERCEL"
 
-  export interface IProjectLink {
-    id: number
-    name: string
-    path: string
-    desktop_cover_picture: string
-    mobile_cover_picture: string
-    short_description?: string | undefined
-    description: string
-    importance: TImp
-    technologies: ProjectTechnologies[]
-    url: string
-  }  
+export interface IProjectLink {
+  id: number
+  name: string
+  path: string
+  desktop_cover_picture: string
+  mobile_cover_picture: string
+  short_description?: string | undefined
+  description: string
+  importance: TImp
+  technologies: ProjectTechnologies[]
+  url: string
+  repo_url: string
+}
 
 function compareImportances(a: IProjectLink, b: IProjectLink) {
   return importances.indexOf(a.importance) > importances.indexOf(b.importance)
@@ -58,7 +59,7 @@ export const useProjects: IUseProjects = props => {
   if (omit) {
     projects = projects.filter(p => !omit.includes(p.importance))
   }
-  
+
   if (include) {
     projects = projects.filter(p => include.includes(p.importance))
   }
@@ -68,6 +69,6 @@ export const useProjects: IUseProjects = props => {
 
 export const getProject = (projectName: string) => {
   const project = projectsData.find(p => p.path === projectName)!
-  
+
   return { project }
 }

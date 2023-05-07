@@ -7,6 +7,7 @@ import { HTMLAttributes } from "react"
 import { CenteredContainer } from "../CenteredContainer"
 import { animateEmerge, animatePopup } from "./animations"
 import { Logo } from "./Logo"
+import { ButtonProjectCard } from "../ProjectCard/ButtonProjectCard"
 
 interface Props extends HTMLAttributes<HTMLDivElement> {}
 
@@ -14,9 +15,9 @@ export function Hero({ className, ...rest }: Props) {
   const { project } = getProject("auction-app")
 
   return (
-    <div className={`pb-[11.125rem] md:pb-0 ${className ?? ""}`} {...rest}>
+    <div className={`md:pb-0 ${className ?? ""}`} {...rest}>
       <CenteredContainer className="md:py-24 py-8">
-        <div className="flex flex-col gap-10 md:gap-12 md:flex-row h-[15rem] md:items-center px-6">
+        <div className="flex flex-col gap-10 md:gap-12 md:flex-row h-[15rem] md:items-center px-6 mb-[min(15rem,_44vw)] md:mb-[max(0px,_calc(11vw_-_84px))]">
           <div className="flex-1 flex justify-center items-center flex-col">
             <Logo />
             <p className="text-neutral-500 text-center md:text-left">{project.short_description}</p>
@@ -49,6 +50,10 @@ export function Hero({ className, ...rest }: Props) {
               </motion.div>
             </div>
           </div>
+        </div>
+        <div className="flex flex-col gap-3 md:flex-row justify-between w-full max-w-sm mx-auto items-center">
+          <ButtonProjectCard text="Abrir projeto" url={project.url} filled target="_blank" />
+          <ButtonProjectCard text="Repositório" url={project.repo_url} target="_blank" />
         </div>
       </CenteredContainer>
     </div>
