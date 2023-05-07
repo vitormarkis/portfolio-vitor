@@ -77,7 +77,7 @@ export function Feed({ className, ...rest }: IFeed) {
           </div>
           <div className="h-5 w-[1px] mr-3 hidden xs:block"></div>
           <div className="ml-auto">
-            <a href="/post/mesa-de-sinuca-charme-2-20-x-1-20-4862101538">
+            <a href="#">
               <button className="py-1.5 rounded-lg pr-6 pl-4 bg-black text-white flex items-center">
                 <svg
                   viewBox="0 0 24 24"
