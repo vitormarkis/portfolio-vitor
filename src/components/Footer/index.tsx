@@ -19,14 +19,20 @@ export function Footer({ className, ...rest }: IFooter) {
         <div className="flex-1">
           <h2 className="text-center font-thin tracking-wide text-lg">Navegue</h2>
           <ul className="text-sm flex flex-col">
-            <li className="cursor-pointer rounded-lg hover:bg-neutral-900 px-4 py-2">
-              <Link href="/">Início</Link>
+            <li className="cursor-pointer rounded-lg hover:bg-neutral-900">
+              <Link className="px-4 py-2 block" href="/">
+                Início
+              </Link>
             </li>
-            <li className="cursor-pointer rounded-lg hover:bg-neutral-900 px-4 py-2">
-              <Link href="/blog">Blog</Link>
+            <li className="cursor-pointer rounded-lg hover:bg-neutral-900">
+              <Link className="px-4 py-2 block" href="/blog">
+                Blog
+              </Link>
             </li>
-            <li className="cursor-pointer rounded-lg hover:bg-neutral-900 px-4 py-2">
-              <Link href="/projects">Projetos</Link>
+            <li className="cursor-pointer rounded-lg hover:bg-neutral-900">
+              <Link className="px-4 py-2 block" href="/projects">
+                Projetos
+              </Link>
             </li>
           </ul>
         </div>
@@ -34,8 +40,10 @@ export function Footer({ className, ...rest }: IFooter) {
           <h2 className="text-center font-thin tracking-wide text-lg">Projetos</h2>
           <ul className="text-sm flex flex-col">
             {projects.map(p => (
-              <li key={p.id} className="cursor-pointer rounded-lg hover:bg-neutral-900 px-4 py-2">
-                <Link href={p.path}>{p.name}</Link>
+              <li key={p.id} className="cursor-pointer rounded-lg hover:bg-neutral-900">
+                <Link className="px-4 py-2 block" href={`/project/${p.path}`}>
+                  {p.name}
+                </Link>
               </li>
             ))}
           </ul>
@@ -44,7 +52,13 @@ export function Footer({ className, ...rest }: IFooter) {
           <h2 className="mb-4 text-center font-thin tracking-wide text-lg">Contato</h2>
           <ul className="text-sm flex flex-col gap-4">
             <li>
-              <Link href="https://www.linkedin.com/in/vitor-markis-524945265/" target="_blank" passHref legacyBehavior>
+              <Link
+                className="w-full h-full"
+                href="https://www.linkedin.com/in/vitor-markis-524945265/"
+                target="_blank"
+                passHref
+                legacyBehavior
+              >
                 <ContactButtonHollow noBorder color={twc.white}>
                   <div className="inset-[-1px] bg-gradient-to-tr from-neutral-300 via-black to-neutral-100 absolute rounded-[9px]" />
                   <div className="inset-0 bg-black absolute" />
@@ -54,7 +68,13 @@ export function Footer({ className, ...rest }: IFooter) {
               </Link>
             </li>
             <li>
-              <Link href="mailto:vitormarkis2369@gmail.com" target="_blank" passHref legacyBehavior>
+              <Link
+                className="w-full h-full"
+                href="mailto:vitormarkis2369@gmail.com"
+                target="_blank"
+                passHref
+                legacyBehavior
+              >
                 <ContactButtonHollow noBorder color={twc.white}>
                   <div className="inset-[-1px] bg-gradient-to-tr from-neutral-300 via-black to-neutral-100 absolute rounded-[9px]" />
                   <div className="inset-0 bg-black absolute" />
@@ -68,7 +88,13 @@ export function Footer({ className, ...rest }: IFooter) {
               </Link>
             </li>
             <li>
-              <Link href="https://wa.me/5551982582396" target="_blank" passHref legacyBehavior>
+              <Link
+                className="w-full h-full"
+                href="https://wa.me/5551982582396"
+                target="_blank"
+                passHref
+                legacyBehavior
+              >
                 <ContactButtonHollow noBorder color={twc.white}>
                   <div className="inset-[-1px] bg-gradient-to-tr from-neutral-300 via-black to-neutral-100 absolute rounded-[9px]" />
                   <div className="inset-0 bg-black absolute" />
