@@ -60,8 +60,8 @@ export function Footer({ className, ...rest }: IFooter) {
                 legacyBehavior
               >
                 <ContactButtonHollow noBorder color={twc.white}>
-                  <div className="inset-[-1px] bg-gradient-to-tr from-neutral-300 via-black to-neutral-100 absolute rounded-[9px]" />
-                  <div className="inset-0 bg-black absolute" />
+                  <div className="inset-[-1px] bg-gradient-to-tr from-violet-800 via-black to-fuchsia-500 absolute rounded-[9px]" />
+                  <div className="inset-0 bg-black absolute rounded-[10px]" />
                   <LinkedinSquare height={24} width={24} className="absolute top-1/2 -translate-y-1/2 left-3" />
                   <span className="relative z-10">Linked In</span>
                 </ContactButtonHollow>
@@ -76,8 +76,8 @@ export function Footer({ className, ...rest }: IFooter) {
                 legacyBehavior
               >
                 <ContactButtonHollow noBorder color={twc.white}>
-                  <div className="inset-[-1px] bg-gradient-to-tr from-neutral-300 via-black to-neutral-100 absolute rounded-[9px]" />
-                  <div className="inset-0 bg-black absolute" />
+                  <div className="inset-[-1px] bg-gradient-to-tr from-violet-800 via-black to-fuchsia-500 absolute rounded-[9px]" />
+                  <div className="inset-0 bg-black absolute rounded-[10px]" />
                   <Gmail
                     height={18}
                     width={18}
@@ -96,8 +96,8 @@ export function Footer({ className, ...rest }: IFooter) {
                 legacyBehavior
               >
                 <ContactButtonHollow noBorder color={twc.white}>
-                  <div className="inset-[-1px] bg-gradient-to-tr from-neutral-300 via-black to-neutral-100 absolute rounded-[9px]" />
-                  <div className="inset-0 bg-black absolute" />
+                  <div className="inset-[-1px] bg-gradient-to-tr from-violet-800 via-black to-fuchsia-500 absolute rounded-[9px]" />
+                  <div className="inset-0 bg-black absolute rounded-[10px]" />
                   <Whatsapp
                     height={20}
                     width={20}
