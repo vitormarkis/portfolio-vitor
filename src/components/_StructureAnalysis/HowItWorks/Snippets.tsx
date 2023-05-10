@@ -1,5 +1,7 @@
 import dynamic from "next/dynamic"
 import React from "react"
+import { EachLineCampaign } from "@/components/_StructureAnalysis/HowItWorks/snippets/EachLineCampaign"
+import { CampaignData } from "@/components/_StructureAnalysis/HowItWorks/snippets/CampaignData"
 
 interface ISnippets extends React.ComponentProps<"ul"> {}
 
@@ -9,28 +11,9 @@ export function Snippets({ className, ...rest }: ISnippets) {
   const _cn = ` ${className ?? ""}`
 
   return (
-    <ul className={"text-neutral-600 [&_strong]:text-neutral-800 flex flex-col gap-[4.5rem]" + _cn} {...rest}>
-      <div className="flex flex-col gap-[4.5rem] xl:flex-row">
-        <ProjectFeature noGrow>
-          <div>
-            {/* <SectionNumber number={1} className="mr-2" /> */}
-            <span className="text-base">
-              Dentro da planilha, na página{" "}
-              <a
-                href="https://docs.google.com/spreadsheets/d/1lweqynj7onpKU7s9df2c8AaFMxAzWz12yZyfqWoLC9Q/edit#gid=0"
-                target="_blank"
-                className="text-blue-600 underline visited:text-blue-900"
-              >
-                Dados
-              </a>
-              , cada linha é uma campanha.
-            </span>
-          </div>
-          <p className="my-3 text-xs text-neutral-400 py-2 px-4 rounded-full w-fit border-dashed border border-neutral-600 whitespace-nowrap">
-            <span></span>
-          </p>
-        </ProjectFeature>
-      </div>
+    <ul className={"grow text-neutral-600 [&_strong]:text-neutral-800 flex flex-col" + _cn} {...rest}>
+      <EachLineCampaign />
+      <CampaignData />
     </ul>
   )
 }

@@ -11,7 +11,7 @@ export function HowItWorks({ className, ...rest }: IHowItWorks) {
 
   return (
     <section className={"text-neutral-600 py-12" + _cn} {...rest}>
-      <CenteredContainer className="px-6 mdx:px-12">
+      <CenteredContainer className="px-6 mdx:px-12 flex flex-col h-[50rem]">
         <Header />
         <Snippets />
       </CenteredContainer>
