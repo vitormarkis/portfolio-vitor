@@ -2,6 +2,7 @@ import dynamic from "next/dynamic"
 import React from "react"
 import { EachLineCampaign } from "@/components/_StructureAnalysis/HowItWorks/snippets/EachLineCampaign"
 import { CampaignData } from "@/components/_StructureAnalysis/HowItWorks/snippets/CampaignData"
+import { CampaignTags } from "@/components/_StructureAnalysis/HowItWorks/snippets/CampaignTags"
 
 interface ISnippets extends React.ComponentProps<"ul"> {}
 
@@ -11,9 +12,14 @@ export function Snippets({ className, ...rest }: ISnippets) {
   const _cn = ` ${className ?? ""}`
 
   return (
-    <ul className={"grow text-neutral-600 [&_strong]:text-neutral-800 flex flex-col" + _cn} {...rest}>
+    <ul
+      // h-[54rem]
+      className={"grow text-neutral-600 [&_strong]:text-neutral-800 flex flex-col items-center mx-auto gap-3" + _cn}
+      {...rest}
+    >
       <EachLineCampaign />
       <CampaignData />
+      <CampaignTags />
     </ul>
   )
 }

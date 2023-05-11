@@ -2,21 +2,32 @@ import React from "react"
 import clsx from "clsx"
 import chroma from "chroma-js"
 
-interface ITableNode extends React.ComponentProps<"div"> {
-  children: React.ReactNode
+interface ITableSelect extends React.ComponentProps<"select"> {
   left?: boolean | undefined
   head?: boolean | undefined
   last?: boolean | undefined
   grow?: number | undefined
   backgroundColor?: string | undefined
+  color?: string | undefined
   invertBorderColor?: boolean | undefined
+  values: string[]
 }
 
-export function TableNode({ backgroundColor, grow, last, head, left, children, className, ...rest }: ITableNode) {
+export function TableSelect({
+  values,
+  color,
+  backgroundColor,
+  grow,
+  last,
+  head,
+  left,
+  className,
+  ...rest
+}: ITableSelect) {
   return (
-    <div
+    <select
       className={clsx(
-        `px-4 border-b border-neutral-500 py-0.5 last-of-type:border-b-0 grid place-items-center h-[29px]`,
+        `w-full rounded-full text-sm leading-none px-2`,
         className,
         left ? "text-left" : "text-center",
         head && "bg-black text-white",
@@ -24,12 +35,14 @@ export function TableNode({ backgroundColor, grow, last, head, left, children, c
         !last && head && "border-r-white"
       )}
       style={{
+        color,
         backgroundColor,
-        borderRightColor: backgroundColor ? (chroma(backgroundColor).darken(2) as unknown as string) : undefined,
       }}
       {...rest}
     >
-      {children}
-    </div>
+      {values.map(v => (
+        <option key={v}>{v}</option>
+      ))}
+    </select>
   )
 }

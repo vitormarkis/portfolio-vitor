@@ -9,8 +9,17 @@
   border-style: 1px dashed #525252;
   white-space: nowrap;
 
+  width: fit-content;
   display: flex;
   position: relative;
+}
+
+.wrapper::-webkit-scrollbar {
+  width: 0.625rem;
+}
+
+.wrapper::-webkit-scrollbar-thumb {
+  @apply bg-zinc-300
 }
 
 .border {
@@ -31,15 +40,21 @@
   content: "";
   display: block;
   position: absolute;
-  @apply bg-gradient-to-tl from-violet-800 via-black to-fuchsia-500;
   z-index: calc(var(--z-index) - 2);
   inset: 0px;
+}
+
+.border::before.bd-blackwhite-to-b {
+  @apply bg-gradient-to-b from-white to-slate-950;
+}
+
+.border::before.bd-blackwhite-to-tr {
+  @apply bg-gradient-to-tr from-indigo-950 via-slate-600 to-violet-950;
 }
 
 .contentWrapper {
   border-radius: var(--border-radius);
   overflow: hidden;
-  flex-grow: 1;
   display: flex;
   overflow-x: auto;
 }
