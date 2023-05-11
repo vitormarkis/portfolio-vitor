@@ -9,7 +9,7 @@
   border-style: 1px dashed #525252;
   white-space: nowrap;
 
-  width: fit-content;
+  align-self: stretch;
   display: flex;
   position: relative;
 }
@@ -57,4 +57,5 @@
   overflow: hidden;
   display: flex;
   overflow-x: auto;
+  width: 100%;
 }

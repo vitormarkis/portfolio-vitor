@@ -17,9 +17,9 @@ export function Snippets({ className, ...rest }: ISnippets) {
       className={"grow text-neutral-600 [&_strong]:text-neutral-800 flex flex-col items-center mx-auto gap-3" + _cn}
       {...rest}
     >
-      <EachLineCampaign />
-      <CampaignData />
-      <CampaignTags />
+      <EachLineCampaign className="min-w-[36rem]" />
+      <CampaignData className="min-w-[36rem]" />
+      <CampaignTags className="min-w-[36rem]" />
     </ul>
   )
 }

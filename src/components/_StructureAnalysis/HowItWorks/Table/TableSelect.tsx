@@ -1,4 +1,4 @@
-import React from "react"
+import React, { CSSProperties } from "react"
 import clsx from "clsx"
 import chroma from "chroma-js"
 
@@ -27,17 +27,20 @@ export function TableSelect({
   return (
     <select
       className={clsx(
-        `w-full rounded-full text-sm leading-none px-2`,
+        `w-full rounded-full text-sm leading-none px-2 outline-raw focus:outline-[var(--outline-color)]`,
         className,
         left ? "text-left" : "text-center",
         head && "bg-black text-white",
         !last && "border-r",
         !last && head && "border-r-white"
       )}
-      style={{
-        color,
-        backgroundColor,
-      }}
+      style={
+        {
+          color,
+          backgroundColor,
+          "--outline-color": color,
+        } as CSSProperties
+      }
       {...rest}
     >
       {values.map(v => (

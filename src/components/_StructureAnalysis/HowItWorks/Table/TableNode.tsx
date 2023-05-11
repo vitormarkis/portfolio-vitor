@@ -3,7 +3,7 @@ import clsx from "clsx"
 import chroma from "chroma-js"
 
 interface ITableNode extends React.ComponentProps<"div"> {
-  children: React.ReactNode
+  children: React.ReactNode | string
   left?: boolean | undefined
   head?: boolean | undefined
   last?: boolean | undefined
@@ -29,7 +29,7 @@ export function TableNode({ backgroundColor, grow, last, head, left, children, c
       }}
       {...rest}
     >
-      {children}
+      {left && typeof children === "string" ? <p className="w-full">{children}</p> : children}
     </div>
   )
 }

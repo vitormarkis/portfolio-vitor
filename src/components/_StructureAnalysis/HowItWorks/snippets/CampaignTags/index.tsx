@@ -13,6 +13,7 @@ export const descricao_com_emojis = ["Com emojis", "Sem emojis"]
 export const genero_protagonista_da_midia = ["Homem", "Mulher"]
 export const framework_de_copywritting = ["AIDA", "PAS", "4P's"]
 export const posicionamento = ["Reel", "Feed", "Story"]
+export const cor_predominante = ["Azul", "Vermelho", "Roxo"]
 
 export function CampaignTags({ className, ...rest }: ICampaignTags) {
   const _cn = ` ${className ?? ""}`
@@ -23,18 +24,10 @@ export function CampaignTags({ className, ...rest }: ICampaignTags) {
         <div>
           {/* <SectionNumber number={1} className="mr-2" /> */}
           <span className="text-base">
-            Dentro da planilha, na página{" "}
-            <a
-              href="https://docs.google.com/spreadsheets/d/1lweqynj7onpKU7s9df2c8AaFMxAzWz12yZyfqWoLC9Q/edit#gid=0"
-              target="_blank"
-              className="text-blue-600 underline visited:text-blue-900"
-            >
-              Dados
-            </a>
-            , cada linha é uma campanha.
+            Lembrando que cada linha é uma campanha, você deve adicionar tags às campanhas.
           </span>
         </div>
-        <div className={st.wrapper}>
+        <div className={`min-w-[36rem] ` + st.wrapper}>
           <div className={st.border + ` ${st["bd-blackwhite-to-b"]}`} />
           <Table>
             <TableCol>
@@ -76,7 +69,7 @@ export function CampaignTags({ className, ...rest }: ICampaignTags) {
           </Table>
         </div>
       </div>
-      <div>
+      <div className="flex flex-col items-center max-w-xl">
         <p>
           <strong>O que são tags?</strong> Tags são detalhes daquilo que você ta analisando, no caso, detalhes da
           campanha, como tipo de mídia, tipo de descrição, framework de descrição, CTA, cores predominantes,
@@ -88,18 +81,20 @@ export function CampaignTags({ className, ...rest }: ICampaignTags) {
           <Strong>cor predominante</Strong> possui 3 concorrentes para o poste de melhor cor predominante.
         </p>
         <p>O mesmo vale para outras tags como:</p>
-        --descrição com emojis("com emojis", "sem emojis"), --gênero protagonista da mídia ("homem", "mulher"),
-        --framework de copywritting("AIDA", "PAS", "4P's"), --posicionamento("reel", "feed", "story")
         <div className={st.wrapper}>
           <div className={st.border + ` ${st["bd-blackwhite-to-tr"]}`} />
           <Table>
             <TableCol>
+              <TableNode left>Cor Predominante</TableNode>
               <TableNode left>Descrição com Emojis</TableNode>
               <TableNode left>Gênero Protagonista da Mídia</TableNode>
               <TableNode left>Framework de Copywritting</TableNode>
               <TableNode left>Posicionamento</TableNode>
             </TableCol>
             <TableCol>
+              <TableNode last>
+                <TableSelect values={cor_predominante} backgroundColor={twc.blue["200"]} color={twc.blue["600"]} />
+              </TableNode>
               <TableNode last>
                 <TableSelect values={descricao_com_emojis} backgroundColor={twc.red["200"]} color={twc.red["600"]} />
               </TableNode>

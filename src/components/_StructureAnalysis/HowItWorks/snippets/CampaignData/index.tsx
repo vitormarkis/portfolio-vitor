@@ -12,7 +12,7 @@ export function CampaignData({ className, ...rest }: ICampaignData) {
 
   return (
     <div className={"flex flex-col items-center" + _cn} {...rest}>
-      <div className="max-w-xl mx-auto">
+      <div className="max-w-xl">
         <p>
           <strong>O que são campanhas?</strong> Uma campanha são elementos específicos, combinados, e de forma pública
           que estão rodando, ou que rodam durante um determinado período de tempo.
