@@ -20,6 +20,10 @@
   font-family: "Josefin Sans", sans-serif
 }
 
+.verdana {
+  font-family: "Verdana", monospace
+}
+
 .gradient {
   position: absolute;
 }
@@ -115,7 +119,7 @@
 
 .h1-third {
   background: #0ccfcf;
-  background: repeating-linear-gradient(325deg, #20afff 0%, #4572e4 50%, #9543ff 100%);  
+  background: repeating-linear-gradient(325deg, #20afff 0%, #4572e4 50%, #9543ff 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -142,7 +146,7 @@
 .outline-raw {
   @apply focus:outline-1 focus:outline-double focus:outline-offset-2
 }
- 
+
 @media (max-width: 640px) {
   .gr {
     filter: blur(4rem);

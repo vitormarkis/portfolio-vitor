@@ -1,8 +1,10 @@
 import React from "react"
 import st from "@/components/_StructureAnalysis/HowItWorks/styles.module.css"
+import local_st from "@/components/_StructureAnalysis/HowItWorks/snippets/Dashboard/styles.module.css"
 import { Table } from "@/components/_StructureAnalysis/HowItWorks/Table"
 import { TableCol } from "@/components/_StructureAnalysis/HowItWorks/Table/TableCol"
 import { TableNode } from "@/components/_StructureAnalysis/HowItWorks/Table/TableNode"
+import twc from "tailwindcss/colors"
 
 interface IDashboard extends React.ComponentProps<"div"> {}
 
@@ -18,55 +20,147 @@ export function Dashboard({ className, ...rest }: IDashboard) {
           em um dashboard com todas as tags lado a lado para fácil comparação de qual é melhor.
         </p>
         <p className="mb-3 last-of-type:mb-0">
-          Como podem ver nesse exemplo simples, descrições com emojis e no formato AIDA performaram mais, então agora
-          você sabe que em suas próximas campanhas você deve usar o formato de copy AIDA e usar emoji.
+          Como você pode ver nesse exemplo simples, descrições com emojis e no formato AIDA performaram mais.
         </p>
+        <p>O posicionamento que mais performou foi reel.</p>
       </div>
       <div className={st.wrapper}>
         <div className={st.border + ` ${st["bd-blackwhite-to-b"]}`} />
         <Table>
-          <TableCol>
-            <TableNode head>ID</TableNode>
-            <TableNode>01</TableNode>
-            <TableNode>02</TableNode>
-            <TableNode>03</TableNode>
+          <TableCol className={local_st.tableCol}>
+            <TableNode head>Nome da Tag</TableNode>
+            <TableNode>Com emojis</TableNode>
+            <TableNode>Sem emojis</TableNode>
+            <TableNode>AIDA</TableNode>
+            <TableNode>PAS</TableNode>
+            <TableNode>4P's</TableNode>
+            <TableNode>Reel</TableNode>
+            <TableNode>Feed</TableNode>
+            <TableNode>Stories</TableNode>
           </TableCol>
-          <TableCol grow={4}>
-            <TableNode left head>
-              Nome
-            </TableNode>
-            <TableNode left>C01 - Produto X [Aberto]</TableNode>
-            <TableNode left>C02 - Produto Y [Aberto]</TableNode>
-            <TableNode left>C03 - Produto Z [Segmentado]</TableNode>
+          <TableCol className={local_st.tableCol}>
+            <TableNode head>Categoria da Tag</TableNode>
+            <TableNode>Descrição com emojis</TableNode>
+            <TableNode>Descrição com emojis</TableNode>
+            <TableNode>Framework Copy</TableNode>
+            <TableNode>Framework Copy</TableNode>
+            <TableNode>Framework Copy</TableNode>
+            <TableNode>Posicionamento</TableNode>
+            <TableNode>Posicionamento</TableNode>
+            <TableNode>Posicionamento</TableNode>
           </TableCol>
-          <TableCol>
+          <TableCol className={local_st.tableCol}>
             <TableNode head>Gasto</TableNode>
-            <TableNode>R$ 30,00</TableNode>
-            <TableNode>R$ 30,00</TableNode>
-            <TableNode>R$ 30,00</TableNode>
+            <TableNode type="number">R$ 150,00</TableNode>
+            <TableNode type="number">R$ 150,00</TableNode>
+            <TableNode type="number">R$ 150,00</TableNode>
+            <TableNode type="number">R$ 150,00</TableNode>
+            <TableNode type="number">R$ 150,00</TableNode>
+            <TableNode type="number">R$ 150,00</TableNode>
+            <TableNode type="number">R$ 150,00</TableNode>
+            <TableNode type="number">R$ 150,00</TableNode>
           </TableCol>
-          <TableCol>
-            <TableNode head>Impressões</TableNode>
-            <TableNode>3.232</TableNode>
-            <TableNode>5.573</TableNode>
-            <TableNode>4.923</TableNode>
-          </TableCol>
-          <TableCol>
-            <TableNode head>Visualizações</TableNode>
-            <TableNode>2.845</TableNode>
-            <TableNode>5.242</TableNode>
-            <TableNode>4.623</TableNode>
-          </TableCol>
-          <TableCol>
-            <TableNode head last>
-              Cliques
+          <TableCol className={local_st.tableCol} grow={2}>
+            <TableNode head>Custo por Lead</TableNode>
+            <TableNode type="number" className="relative">
+              <BetterOption value="R$ 01,34" />
             </TableNode>
-            <TableNode last>492</TableNode>
-            <TableNode last>384</TableNode>
-            <TableNode last>247</TableNode>
+            <TableNode type="number">R$ 01,65</TableNode>
+            <TableNode type="number" className="relative">
+              <BetterOption value="R$ 02,20" />
+            </TableNode>
+            <TableNode type="number">R$ 02,30</TableNode>
+            <TableNode type="number">R$ 03,40</TableNode>
+            <TableNode type="number" className="relative">
+              <BetterOption value="R$ 01,92" />
+            </TableNode>
+            <TableNode type="number">R$ 02,20</TableNode>
+            <TableNode type="number">R$ 01,97</TableNode>
+          </TableCol>
+          <TableCol className={local_st.tableCol}>
+            <TableNode head>Taxa de Leads</TableNode>
+            <TableNode type="number">2,00%</TableNode>
+            <TableNode type="number">1,93%</TableNode>
+            <TableNode type="number">3,22%</TableNode>
+            <TableNode type="number">3,12%</TableNode>
+            <TableNode type="number">2,96%</TableNode>
+            <TableNode type="number">2,04%</TableNode>
+            <TableNode type="number">2,87%</TableNode>
+            <TableNode type="number">2,50%</TableNode>
+          </TableCol>
+          <TableCol className={local_st.tableCol}>
+            <TableNode head>Taxa de Likes</TableNode>
+            <TableNode type="number">2,50%</TableNode>
+            <TableNode type="number">2,32%</TableNode>
+            <TableNode type="number">5,35%</TableNode>
+            <TableNode type="number">5,02%</TableNode>
+            <TableNode type="number">4,75%</TableNode>
+            <TableNode type="number">3,25%</TableNode>
+            <TableNode type="number">3,06%</TableNode>
+            <TableNode type="number">2,65%</TableNode>
+          </TableCol>
+          <TableCol className={local_st.tableCol}>
+            <TableNode last head>
+              % Compartilhamentos
+            </TableNode>
+            <TableNode last type="number" className="relative">
+              <BetterOption value="1.05%" />
+            </TableNode>
+            <TableNode last type="number">
+              0,23%
+            </TableNode>
+            <TableNode last type="number" className="relative">
+              <BetterOption value="0.53%" />
+            </TableNode>
+            <TableNode last type="number">
+              0,20%
+            </TableNode>
+            <TableNode last type="number">
+              0,57%
+            </TableNode>
+            <TableNode last type="number" className="relative">
+              <BetterOption value="1.52%" />
+            </TableNode>
+            <TableNode last type="number">
+              0,60%
+            </TableNode>
+            <TableNode last type="number">
+              0,65%
+            </TableNode>
           </TableCol>
         </Table>
       </div>
+      <div>
+        <p className="font-semibold text-left text-black self-start">Conclusão</p>
+        <p className="mb-3 last-of-type:mb-0">
+          Agora com uma campanha com dados reais, sendo alimentada dia a dia, durante anos, você terá uma planilha rica
+          de conhecimento e um guia para tomada de ação estratégicas e de marketing dentro da empresa.
+        </p>
+        <p className="mb-3 last-of-type:mb-0">
+          Você terá explicito, o que funciona e o que não funciona dentro do seu negócio, e também a informação de cada
+          campanha, com suas tags, para que você possa apurar de perto por que algumas campanhas performaram e outras
+          não.
+        </p>
+      </div>
     </div>
+  )
+}
+
+interface IBetterOption extends React.ComponentProps<"p"> {
+  value: string
+}
+
+export const BetterOption: React.FC<IBetterOption> = ({ value, className, ...rest }) => {
+  const _cn = ` ${className ?? ""}`
+
+  return (
+    <p className={"flex items-center" + _cn} {...rest}>
+      <span>{value}</span>
+      <div className="grid place-items-center w-[18px] h-[18px] rounded-full bg-green-500 absolute top-1/2 right-3 -translate-y-1/2">
+        <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill={twc.white} viewBox="0 0 256 256">
+          <path d="M216.49,199.51a12,12,0,0,1-17,17L128,145,56.49,216.49a12,12,0,0,1-17-17l80-80a12,12,0,0,1,17,0Zm-160-63L128,65l71.51,71.52a12,12,0,0,0,17-17l-80-80a12,12,0,0,0-17,0l-80,80a12,12,0,0,0,17,17Z"></path>
+        </svg>
+      </div>
+    </p>
   )
 }

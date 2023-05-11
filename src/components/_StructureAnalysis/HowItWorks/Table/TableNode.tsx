@@ -10,9 +10,10 @@ interface ITableNode extends React.ComponentProps<"div"> {
   grow?: number | undefined
   backgroundColor?: string | undefined
   invertBorderColor?: boolean | undefined
+  type?: "number" | "string" | undefined
 }
 
-export function TableNode({ backgroundColor, grow, last, head, left, children, className, ...rest }: ITableNode) {
+export function TableNode({ type, backgroundColor, grow, last, head, left, children, className, ...rest }: ITableNode) {
   return (
     <div
       className={clsx(
@@ -21,7 +22,8 @@ export function TableNode({ backgroundColor, grow, last, head, left, children, c
         left ? "text-left" : "text-center",
         head && "bg-black text-white",
         !last && "border-r",
-        !last && head && "border-r-white"
+        !last && head && "border-r-white",
+        type === "number" && "verdana"
       )}
       style={{
         backgroundColor,

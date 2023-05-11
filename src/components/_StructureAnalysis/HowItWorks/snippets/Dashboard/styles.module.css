@@ -1,0 +1,5 @@
+.tableCol>div:nth-child(4),
+.tableCol>div:nth-child(5),
+.tableCol>div:nth-child(6) {
+  @apply bg-yellow-100
+}
