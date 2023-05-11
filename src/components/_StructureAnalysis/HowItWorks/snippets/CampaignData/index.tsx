@@ -13,12 +13,13 @@ export function CampaignData({ className, ...rest }: ICampaignData) {
   return (
     <div className={"flex flex-col items-center" + _cn} {...rest}>
       <div className="max-w-xl">
-        <p>
-          <strong>O que são campanhas?</strong> Uma campanha são elementos específicos, combinados, e de forma pública
-          que estão rodando, ou que rodam durante um determinado período de tempo.
+        <p className="font-semibold text-left text-black self-start">O que são tags?</p>
+        <p className="mb-3 last-of-type:mb-0">
+          Uma campanha são elementos específicos, combinados, e de forma pública que estão rodando, ou que rodam durante
+          um determinado período de tempo.
         </p>
-        <p>Vamos pegar campanhas de anúncio para Instagram como exemplo.</p>
-        <p>
+        <p className="mb-3 last-of-type:mb-0">Vamos pegar campanhas de anúncio para Instagram como exemplo.</p>
+        <p className="mb-3 last-of-type:mb-0">
           Para fazer um anúncio no Instagram, você cria uma campanha dentro do Facebook Ads, nessa campanha você coloca
           o vídeo, a descrição, a capa, o público, o orçamento, quantos dias esse anúncio vai rodar, e etc.
         </p>

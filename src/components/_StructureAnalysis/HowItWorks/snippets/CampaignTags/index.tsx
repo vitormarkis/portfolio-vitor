@@ -21,13 +21,13 @@ export function CampaignTags({ className, ...rest }: ICampaignTags) {
   return (
     <div className={"flex flex-col items-center" + _cn} {...rest}>
       <div className="flex flex-col items-center">
-        <div>
+        <div className="max-w-xl">
           {/* <SectionNumber number={1} className="mr-2" /> */}
           <span className="text-base">
             Lembrando que cada linha é uma campanha, você deve adicionar tags às campanhas.
           </span>
         </div>
-        <div className={`min-w-[36rem] ` + st.wrapper}>
+        <div className={`mb-12 min-w-[36rem] ` + st.wrapper}>
           <div className={st.border + ` ${st["bd-blackwhite-to-b"]}`} />
           <Table>
             <TableCol>
@@ -70,17 +70,17 @@ export function CampaignTags({ className, ...rest }: ICampaignTags) {
         </div>
       </div>
       <div className="flex flex-col items-center max-w-xl">
-        <p>
-          <strong>O que são tags?</strong> Tags são detalhes daquilo que você ta analisando, no caso, detalhes da
-          campanha, como tipo de mídia, tipo de descrição, framework de descrição, CTA, cores predominantes,
-          segmentação, faixa etária, etc.
+        <p className="font-semibold text-left text-black self-start">O que são tags?</p>
+        <p className="mb-3 last-of-type:mb-0">
+          Tags são detalhes daquilo que você ta analisando, no caso, detalhes da campanha, como tipo de mídia, tipo de
+          descrição, framework de descrição, CTA, cores predominantes, segmentação, faixa etária, etc.
         </p>
-        <p>
+        <p className="mb-3 last-of-type:mb-0">
           Pode ser entendido como uma tag, detalhes que possui mais de um concorrente, como por exemplo, cor
           predominante: <Strong>azul</Strong>, <Strong>vermelho</Strong>, <Strong>roxo</Strong>. Nesse caso, a tag{" "}
           <Strong>cor predominante</Strong> possui 3 concorrentes para o poste de melhor cor predominante.
         </p>
-        <p>O mesmo vale para outras tags como:</p>
+        <p className="mb-3 last-of-type:mb-0">O mesmo vale para outras tags como:</p>
         <div className={st.wrapper}>
           <div className={st.border + ` ${st["bd-blackwhite-to-tr"]}`} />
           <Table>
