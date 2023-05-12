@@ -5,6 +5,7 @@ import { Table } from "@/components/_StructureAnalysis/HowItWorks/Table"
 import { TableCol } from "@/components/_StructureAnalysis/HowItWorks/Table/TableCol"
 import { TableNode } from "@/components/_StructureAnalysis/HowItWorks/Table/TableNode"
 import twc from "tailwindcss/colors"
+import clsx from "clsx"
 
 interface IDashboard extends React.ComponentProps<"div"> {}
 
@@ -29,12 +30,18 @@ export function Dashboard({ className, ...rest }: IDashboard) {
         <Table>
           <TableCol className={local_st.tableCol}>
             <TableNode head>Nome da Tag</TableNode>
-            <TableNode>Com emojis</TableNode>
+            <TableNode better randomNumberBoolean>
+              Com emojis
+            </TableNode>
             <TableNode>Sem emojis</TableNode>
-            <TableNode>AIDA</TableNode>
+            <TableNode better randomNumberBoolean>
+              AIDA
+            </TableNode>
             <TableNode>PAS</TableNode>
             <TableNode>4P's</TableNode>
-            <TableNode>Reel</TableNode>
+            <TableNode better randomNumberBoolean>
+              Reel
+            </TableNode>
             <TableNode>Feed</TableNode>
             <TableNode>Stories</TableNode>
           </TableCol>
@@ -154,13 +161,18 @@ export const BetterOption: React.FC<IBetterOption> = ({ value, className, ...res
   const _cn = ` ${className ?? ""}`
 
   return (
-    <p className={"flex items-center" + _cn} {...rest}>
+    <div className={"flex items-center" + _cn} {...rest}>
       <span>{value}</span>
-      <div className="grid place-items-center w-[18px] h-[18px] rounded-full bg-green-500 absolute top-1/2 right-3 -translate-y-1/2">
+      <div
+        className={clsx(
+          "grid place-items-center w-[18px] h-[18px] rounded-full bg-green-500 absolute top-1/2 right-3 -translate-y-1/2",
+          local_st.betterIcon
+        )}
+      >
         <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill={twc.white} viewBox="0 0 256 256">
           <path d="M216.49,199.51a12,12,0,0,1-17,17L128,145,56.49,216.49a12,12,0,0,1-17-17l80-80a12,12,0,0,1,17,0Zm-160-63L128,65l71.51,71.52a12,12,0,0,0,17-17l-80-80a12,12,0,0,0-17,0l-80,80a12,12,0,0,0,17,17Z"></path>
         </svg>
       </div>
-    </p>
+    </div>
   )
 }

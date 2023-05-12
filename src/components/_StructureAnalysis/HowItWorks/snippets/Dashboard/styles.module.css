@@ -3,3 +3,19 @@
 .tableCol>div:nth-child(6) {
   @apply bg-yellow-100
 }
+
+.betterIcon {
+  animation: bounce 1s infinite ease-in-out;
+}
+
+@keyframes bounce {
+
+  0%,
+  100% {
+    transform: translateY(-5px);
+  }
+
+  50% {
+    transform: translateY(-7px);
+  }
+}

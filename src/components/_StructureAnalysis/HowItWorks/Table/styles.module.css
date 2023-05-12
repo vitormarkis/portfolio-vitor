@@ -1,0 +1,35 @@
+.flashing {
+  --w: var(--flashingWidth);
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  @apply bg-green-500;
+}
+
+.flashing::after {
+  content: "";
+  display: block;
+  position: absolute;
+  width: 20px;
+  height: 100%;
+  padding-block: 100%;
+  top: 50%;
+  transform: rotate(15deg) translateY(-50%);
+  filter: blur(15px);
+  animation: flashing 1.5s linear infinite;
+
+  @apply bg-green-300;
+}
+
+@keyframes flashing {
+
+  0%,
+  20% {
+    transform: rotate(15deg) translateY(-50%) translateX(calc(var(--w) * -1));
+  }
+
+  80%,
+  100% {
+    transform: rotate(15deg) translateY(-50%) translateX(var(--w));
+  }
+}
