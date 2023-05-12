@@ -14,7 +14,6 @@ export function Snippets({ className, ...rest }: ISnippets) {
 
   return (
     <ul
-      // h-[54rem]
       className={
         "text-justify grow text-neutral-600 [&_strong]:text-neutral-800 flex flex-col items-center mx-auto gap-16" + _cn
       }

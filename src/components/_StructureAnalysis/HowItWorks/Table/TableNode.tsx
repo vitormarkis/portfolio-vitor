@@ -58,7 +58,9 @@ export function TableNode({
       }
       {...rest}
     >
-      {better && <div className={local_st.flashing} />}
+      {better && <div className={clsx(local_st.flashing, local_st.alpha)} />}
+      {better && <div className={clsx(local_st.flashing, local_st.bravo)} />}
+      {better && <div className={clsx(local_st.flashing, local_st.charlie)} />}
       {left && typeof children === "string" ? (
         <p className={clsx("w-full", better && "z-10 text-white")}>{children}</p>
       ) : better ? (

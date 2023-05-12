@@ -3,33 +3,83 @@
   position: absolute;
   inset: 0;
   overflow: hidden;
-  @apply bg-green-500;
+  @apply bg-green-500
 }
 
 .flashing::after {
   content: "";
   display: block;
   position: absolute;
-  width: 20px;
   height: 100%;
   padding-block: 100%;
-  top: 50%;
-  transform: rotate(15deg) translateY(-50%);
-  filter: blur(15px);
-  animation: flashing 1.5s linear infinite;
+  z-index: 5;
 
-  @apply bg-green-300;
 }
 
-@keyframes flashing {
+.alpha::after {
+  @apply bg-green-400;
+  width: 20px;
+  animation: alpha 1.5s linear infinite;
+  top: 50%;
+  transform: rotate(90deg) translateY(-50%);
+  filter: blur(15px);
+}
+
+.bravo::after {
+  @apply bg-green-400;
+  animation: bravo 1.5s linear infinite;
+  top: 50%;
+  transform: rotate(15deg) translateY(-50%);
+  animation-delay: 300ms;
+  filter: blur(30px);
+  width: 140px;
+}
+
+.charlie::after {
+  @apply bg-green-400;
+  animation: charlie 1.5s linear infinite;
+  top: 50%;
+  transform: rotate(60deg) translateY(-50%);
+  animation-delay: 650ms;
+  filter: blur(50px);
+  width: 120px;
+}
+
+@keyframes alpha {
 
   0%,
   20% {
-    transform: rotate(15deg) translateY(-50%) translateX(calc(var(--w) * -1));
+    transform: rotate(90deg) translateY(-50%) translateX(calc(var(--w) * -1));
   }
 
   80%,
   100% {
-    transform: rotate(15deg) translateY(-50%) translateX(var(--w));
+    transform: rotate(90deg) translateY(-50%) translateX(var(--w));
+  }
+}
+
+@keyframes bravo {
+
+  0%,
+  20% {
+    transform: rotate(-25deg) translateY(-50%) translateX(calc(var(--w) * -1));
+  }
+
+  80%,
+  100% {
+    transform: rotate(-25deg) translateY(-50%) translateX(var(--w));
+  }
+}
+
+@keyframes charlie {
+
+  0%,
+  20% {
+    transform: rotate(60deg) translateY(-50%) translateX(var(--w));
+  }
+
+  80%,
+  100% {
+    transform: rotate(60deg) translateY(-50%) translateX(calc(var(--w) * -1));
   }
 }
