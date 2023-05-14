@@ -4,6 +4,7 @@ import { EachLineCampaign } from "@/components/_StructureAnalysis/HowItWorks/sni
 import { CampaignData } from "@/components/_StructureAnalysis/HowItWorks/snippets/CampaignData"
 import { CampaignTags } from "@/components/_StructureAnalysis/HowItWorks/snippets/CampaignTags"
 import { Dashboard } from "@/components/_StructureAnalysis/HowItWorks/snippets/Dashboard"
+import { Conclusion } from "@/components/_StructureAnalysis/HowItWorks/snippets/Conclusion"
 
 interface ISnippets extends React.ComponentProps<"ul"> {}
 
@@ -23,6 +24,7 @@ export function Snippets({ className, ...rest }: ISnippets) {
       <CampaignData className="min-w-[36rem]" />
       <CampaignTags className="min-w-[36rem]" />
       <Dashboard className="min-w-[36rem]" />
+      <Conclusion className="min-w-[36rem]" />
     </ul>
   )
 }
