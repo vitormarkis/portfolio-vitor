@@ -69,16 +69,16 @@ export function Dashboard({ className, ...rest }: IDashboard) {
           </TableCol>
           <TableCol className={local_st.tableCol} grow={2}>
             <TableNode head>Custo por Lead</TableNode>
-            <TableNode type="number" className="relative">
+            <TableNode type="number" className="relative pr-8">
               <BetterOption value="R$ 01,34" />
             </TableNode>
             <TableNode type="number">R$ 01,65</TableNode>
-            <TableNode type="number" className="relative">
+            <TableNode type="number" className="relative pr-8">
               <BetterOption value="R$ 02,20" />
             </TableNode>
             <TableNode type="number">R$ 02,30</TableNode>
             <TableNode type="number">R$ 03,40</TableNode>
-            <TableNode type="number" className="relative">
+            <TableNode type="number" className="relative pr-8">
               <BetterOption value="R$ 01,92" />
             </TableNode>
             <TableNode type="number">R$ 02,20</TableNode>
@@ -110,13 +110,13 @@ export function Dashboard({ className, ...rest }: IDashboard) {
             <TableNode last head>
               % Compartilhamentos
             </TableNode>
-            <TableNode last type="number" className="relative">
+            <TableNode last type="number" className="relative pr-8">
               <BetterOption value="1.05%" />
             </TableNode>
             <TableNode last type="number">
               0,23%
             </TableNode>
-            <TableNode last type="number" className="relative">
+            <TableNode last type="number" className="relative pr-8">
               <BetterOption value="0.53%" />
             </TableNode>
             <TableNode last type="number">
@@ -125,7 +125,7 @@ export function Dashboard({ className, ...rest }: IDashboard) {
             <TableNode last type="number">
               0,57%
             </TableNode>
-            <TableNode last type="number" className="relative">
+            <TableNode last type="number" className="relative pr-8">
               <BetterOption value="1.52%" />
             </TableNode>
             <TableNode last type="number">

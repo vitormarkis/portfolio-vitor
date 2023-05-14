@@ -27,7 +27,7 @@ export function TableSelect({
   return (
     <select
       className={clsx(
-        `w-full rounded-full text-sm leading-none px-2 outline-raw focus:outline-[var(--outline-color)]`,
+        `w-full min-w-max rounded-full text-sm leading-none px-2 outline-raw focus:outline-[var(--outline-color)]`,
         className,
         left ? "text-left" : "text-center",
         head && "bg-black text-white",
