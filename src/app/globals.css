@@ -131,6 +131,7 @@
 
 .scroll-thin::-webkit-scrollbar {
   width: 0.625rem;
+  height: 0.625rem; 
 }
 
 /* prettier-ignore */
