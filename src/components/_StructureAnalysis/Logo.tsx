@@ -11,9 +11,11 @@ export function Logo({ className, ...rest }: Props) {
   return (
     <div className={`${className ?? ""}`} {...rest}>
       <div className="leading-none">
-        <div className="flex items-center md:gap-3 gap-0.5">
+        <div className="flex items-center md:gap-3 gap-2">
           <Googlesheets className="text-green-500 md:h-[103px] md:w-[103px] h-[82px] w-[82px]" />
-          <h1 className={`font-bold ${josefins_sans.className} md:text-[4.75rem] text-[3.8rem] translate-y-[3.7px]`}>
+          <h1
+            className={`font-bold ${josefins_sans.className} mdx:text-[4.75rem] smx:text-[3.8rem] text-[2.75rem] translate-y-[3.7px] whitespace-nowrap`}
+          >
             Análise de
             <br />
             Estruturas
