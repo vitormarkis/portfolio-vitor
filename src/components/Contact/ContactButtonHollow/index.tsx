@@ -15,7 +15,7 @@ export const ContactButtonHollow = React.forwardRef<HTMLAnchorElement, IContactB
 ) {
   return (
     <a
-      className={`h-12 relative sm:max-w-md sm:w-full bg-white flex rounded-lg shadow-sm outline-raw items-center justify-center ${
+      className={`h-12 relative sm:w-full bg-white flex rounded-lg shadow-sm outline-raw items-center justify-center ${
         className ?? ""
       } ${noBorder ? "" : "border-neutral-500 border"}
       ${color ?? twc.neutral["600"]}

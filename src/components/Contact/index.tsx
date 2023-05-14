@@ -13,24 +13,16 @@ export function Contact({ className, ...rest }: Props) {
     <div className={`${className ?? ""}`} {...rest}>
       <CenteredContainer id="contact" className="p-6">
         <div className="flex flex-col">
-          <h2 className="text-slate-800 font-semibold mb-2 text-4xl relative z-10 text-center">
-            Contato
-          </h2>
+          <h2 className="text-slate-800 font-semibold mb-2 text-4xl relative z-10 text-center">Contato</h2>
           <p className="text-neutral-400 max-w-[17rem] mx-auto text-center text-xs">
-            Caso você tenha se interessado e deseja trabalhar comigo, você pode
-            entrar em contato
+            Caso você tenha se interessado e deseja trabalhar comigo, você pode entrar em contato
           </p>
         </div>
         <div className="text-sm mt-6 flex flex-col gap-3 sm:items-center">
-          <Link
-            href="https://wa.me/5551982582396"
-            target="_blank"
-            passHref
-            legacyBehavior
-          >
+          <Link href="https://wa.me/5551982582396" target="_blank" passHref legacyBehavior>
             <ContactButtonHollow
               border="border-t-green-300 border-b-green-700"
-              className="hover:border-green-500 focus:outline-green-500 group transition-colors duration-300"
+              className="hover:border-green-500 focus:outline-green-500 group transition-colors duration-300 sm:max-w-md"
             >
               {/* <div className="absolute inset-0 bg-green-500" />
               <div className="absolute right-0 bottom-4 h-52 w-52 rounded-full bg-green-400 blur-xl" />
@@ -45,15 +37,10 @@ export function Contact({ className, ...rest }: Props) {
               </span>
             </ContactButtonHollow>
           </Link>
-          <Link
-            href="https://www.linkedin.com/in/vitor-markis-524945265/"
-            target="_blank"
-            passHref
-            legacyBehavior
-          >
+          <Link href="https://www.linkedin.com/in/vitor-markis-524945265/" target="_blank" passHref legacyBehavior>
             <ContactButtonHollow
               border="border-t-blue-300 border-b-blue-700"
-              className="hover:border-blue-500 focus:outline-blue-500 transition-colors group duration-300"
+              className="hover:border-blue-500 focus:outline-blue-500 transition-colors group duration-300 sm:max-w-md"
             >
               {/* <div className="absolute inset-0 bg-blue-500" />
               <div className="absolute right-0 bottom-4 h-48 w-64 rounded-full bg-cyan-500 blur-[50px]" />
@@ -69,15 +56,10 @@ export function Contact({ className, ...rest }: Props) {
               </span>
             </ContactButtonHollow>
           </Link>
-          <Link
-            href="mailto:vitormarkis2369@gmail.com"
-            target="_blank"
-            passHref
-            legacyBehavior
-          >
+          <Link href="mailto:vitormarkis2369@gmail.com" target="_blank" passHref legacyBehavior>
             <ContactButtonHollow
               border="border-t-red-200 border-b-red-700"
-              className="hover:border-red-500 focus:outline-red-500 transition-colors group duration-300"
+              className="hover:border-red-500 focus:outline-red-500 transition-colors group duration-300 sm:max-w-md"
             >
               {/* <div className="absolute inset-0 bg-red-400" />
               <div className="absolute right-0 bottom-4 h-48 w-64 rounded-full bg-rose-500 blur-[50px]" />
