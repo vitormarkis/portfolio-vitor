@@ -24,9 +24,6 @@ export function Contact({ className, ...rest }: Props) {
               border="border-t-green-300 border-b-green-700"
               className="hover:border-green-500 focus:outline-green-500 group transition-colors duration-300 sm:max-w-md"
             >
-              {/* <div className="absolute inset-0 bg-green-500" />
-              <div className="absolute right-0 bottom-4 h-52 w-52 rounded-full bg-green-400 blur-xl" />
-              <div className="absolute left-0 top-4 h-44 w-44 rounded-full bg-black/10 blur-xl" /> */}
               <Whatsapp
                 height={24}
                 width={24}
@@ -42,10 +39,6 @@ export function Contact({ className, ...rest }: Props) {
               border="border-t-blue-300 border-b-blue-700"
               className="hover:border-blue-500 focus:outline-blue-500 transition-colors group duration-300 sm:max-w-md"
             >
-              {/* <div className="absolute inset-0 bg-blue-500" />
-              <div className="absolute right-0 bottom-4 h-48 w-64 rounded-full bg-cyan-500 blur-[50px]" />
-              <div className="absolute -left-20 top-4 h-44 w-44 rounded-full bg-indigo-700/70 blur-[36px]" /> */}
-
               <LinkedinSquare
                 height={24}
                 width={24}
@@ -61,10 +54,6 @@ export function Contact({ className, ...rest }: Props) {
               border="border-t-red-200 border-b-red-700"
               className="hover:border-red-500 focus:outline-red-500 transition-colors group duration-300 sm:max-w-md"
             >
-              {/* <div className="absolute inset-0 bg-red-400" />
-              <div className="absolute right-0 bottom-4 h-48 w-64 rounded-full bg-rose-500 blur-[50px]" />
-              <div className="absolute -left-20 top-4 h-44 w-44 rounded-full bg-red-700/70 blur-[36px]" /> */}
-
               <Gmail
                 height={24}
                 width={24}
