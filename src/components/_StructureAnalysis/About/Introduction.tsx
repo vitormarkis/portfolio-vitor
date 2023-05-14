@@ -13,19 +13,33 @@ export function Introduction({ className, ...rest }: IIntroduction) {
       <CenteredContainer className="px-6 mdx:px-12 py-12 md:py-16 flex flex-col items-center relative">
         <ContainerEffects />
         <div className="max-w-xl flex flex-col items-center relative z-10 px-6">
-          <h2 className="font-black text-5xl text-white h1-seccon tracking-tight font-josefin relative">
+          <h2 className="font-black text-5xl text-white h1-seccon tracking-tight font-josefin relative mb-4">
             Apresentação.
           </h2>
-          <div className="text-white mb-6 [&_strong]:text-neutral-800 flex flex-col items-center text-center">
+          <div className="text-white mb-6 [&_strong]:text-neutral-800 flex flex-col items-center">
             <p className="mb-6">
-              Esse projeto foi criado com Google Planilhas e tem a intenção de condensar informações cruas sobre
-              determinada coisa e transformar em inteligência, organizando esses dados em um dashboard.
+              Esse projeto foi criado com Google Planilhas antes de eu começar a aprender Javascript e a planilha foi
+              uma ferramenta que usei para resolver um problema que eu e alguns amigos tinhamos.
             </p>
-            <p>
+            <p className="mb-6">
+              Se você possui ou é dono de algo que precisa constantemente de testes para encontrar qual a melhor
+              opção/combinação, essa planilha á para você.
+            </p>
+            <p className="mb-6">
+              Ela funciona da seguinte forma, o que você quer analisar é quebrada em diversos pedaços, esses pedaços
+              viram entidades próprias, ou seja, cada um deles possui dados e métricas próprias, esses dados são somados
+              e lançados em um dashboard, onde fica exposto as métricas de cada pedaço lado a lado para fácil
+              comparação.
+            </p>
+            <p className="mb-6">
+              Uma vez que você possui um dashboard com todas as métricas de todos os pedaços, agora você pode montar um
+              todo, usando os melhores pedaços, aqueles que possuem melhores métricas.
+            </p>
+            <p className="mb-6">
               Essa versão é a final, mas eu criei a primeira versão após explicar de forma abstrata, como eu entendo que
               seria a melhor forma de analisar campanhas dentro de redes de tráfego pago, como Facebook Ads. Como
-              deveria ser feita a análise de uma campanha, como extrair o máximo de inteligência de cada campanha e como
-              empilhar os conhecimentos e crescer de forma exponencial com o tempo.
+              deveria ser feita a análise de uma campanha, como extrair o máximo de inteligência de cada campanha, como
+              empilhar a inteligência, resultando em um crescimento exponencial ao passar do tempo.
             </p>
           </div>
         </div>
