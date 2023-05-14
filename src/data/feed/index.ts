@@ -6,6 +6,33 @@ export type IFeedPost = {
 
 export const feedData: IFeedPost[] = [
   {
+    id: 87539847598379,
+    text: `
+      A única solução que eu consegui pensar para esse problema, foi usar "width: min(var(--tamanho_do_elemento), calc(100vw - paddings))" e funciona perfeitamente, por algum motivo, "width: min(fit-content, calc(100vw - paddings))" não funciona, mas seria perfeito na ocasião, então o que me restou foi usar uma variável CSS a nível de tabela, para definir seu width de forma manual.
+    `.trim(),
+    created_at: "2023-05-14T18:19:36.835Z",
+  },
+  {
+    id: 37458734857384,
+    text: `
+      Aplicado a solução responsiva hard coded, surge outro problema, 100vw - paddings em telas maiores, a tabela fica imensa, então eu teria que aplicar uma forma de limitar o tamanho da tabela até certo ponto, ponto esse que poderia ser seu tamanho mínimo, sem scroll horizontal, e sem crescer além do necessário.
+
+      Colocando "max-width: fit-content;" ele funciona a primeira vista, mas ai acontece algo que eu não sabia e me deixou triste.
+
+      O max-width apenas limita o tamanho do que nós vemos, porém o width continua do mesmo tamanho no contexto, o que ocasiona em toda a section estar sendo esticada porque "100vw - paddings" estava esticando toda a largura da section, mesmo com max-width.
+    `.trim(),
+    created_at: "2023-05-14T18:15:36.835Z",
+  },
+  {
+    id: 3475837458738,
+    text: `
+      Criando a página do projeto "Análise de Estruturas", me deparei com um problema na hora de criar a tabelas, elas não são responsivas por padrão.
+
+      Eu tentei várias formas de deixar elas responsivas de forma dinâmica, mas não consegui, a única coisa que funcionou foi fazer "100vw - paddings", o que é uma solução funcional mas não é dinâmica, caso eu mude os paddings da section, eu teria que mudar nessa outra parte do código também.
+    `.trim(),
+    created_at: "2023-05-14T18:10:36.835Z",
+  },
+  {
     id: 3463576457455,
     text: `
       Aprendi que existe como importar coisas de forma mais dinâmica usando next/dynamic.

@@ -28,26 +28,28 @@ export function EachLineCampaign({ className, ...rest }: IEachLineCampaign) {
       </div>
       <div className={st.wrapper} style={{ "--wrapper-width": "576px" } as CSSProperties}>
         <div className={st.border + ` ${st["bd-blackwhite-to-b"]}`} />
-        <Table>
-          <TableCol>
-            <TableNode head>ID</TableNode>
-            <TableNode>01</TableNode>
-          </TableCol>
-          <TableCol grow={3}>
-            <TableNode head>Nome</TableNode>
-            <TableNode left>Campanha do Facebook Ads</TableNode>
-          </TableCol>
-          <TableCol>
-            <TableNode head>Gasto</TableNode>
-            <TableNode>R$30,00</TableNode>
-          </TableCol>
-          <TableCol>
-            <TableNode head last>
-              Leads
-            </TableNode>
-            <TableNode last>40</TableNode>
-          </TableCol>
-        </Table>
+        <div className={st.tableWrapper}>
+          <Table>
+            <TableCol>
+              <TableNode head>ID</TableNode>
+              <TableNode>01</TableNode>
+            </TableCol>
+            <TableCol grow={3}>
+              <TableNode head>Nome</TableNode>
+              <TableNode left>Campanha do Facebook Ads</TableNode>
+            </TableCol>
+            <TableCol>
+              <TableNode head>Gasto</TableNode>
+              <TableNode>R$30,00</TableNode>
+            </TableCol>
+            <TableCol>
+              <TableNode head last>
+                Leads
+              </TableNode>
+              <TableNode last>40</TableNode>
+            </TableCol>
+          </Table>
+        </div>
       </div>
     </div>
   )

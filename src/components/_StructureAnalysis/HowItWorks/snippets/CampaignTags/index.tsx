@@ -29,76 +29,78 @@ export function CampaignTags({ className, ...rest }: ICampaignTags) {
         </div>
         <div className={`mb-12 ` + st.wrapper} style={{ "--wrapper-width": "576px" } as CSSProperties}>
           <div className={st.border + ` ${st["bd-blackwhite-to-b"]}`} />
-          <Table>
-            <TableCol>
-              <TableNode backgroundColor={twc.green["500"]} head>
-                tipo mídia
-              </TableNode>
-              <TableNode>
-                <TableSelect values={["imagem"]} backgroundColor={twc.blue["200"]} color={twc.blue["600"]} />
-              </TableNode>
-              <TableNode>
-                <TableSelect values={["vídeo"]} backgroundColor={twc.green["200"]} color={twc.green["600"]} />
-              </TableNode>
-              <TableNode>
-                <TableSelect values={["imagem"]} backgroundColor={twc.blue["200"]} color={twc.blue["600"]} />
-              </TableNode>
-              <TableNode>
-                <TableSelect values={["vídeo"]} backgroundColor={twc.green["200"]} color={twc.green["600"]} />
-              </TableNode>
-            </TableCol>
-            <TableCol>
-              <TableNode backgroundColor={twc.green["500"]} head>
-                formato mídia
-              </TableNode>
-              <TableNode>
-                <TableSelect values={["feed"]} backgroundColor={twc.amber["200"]} color={twc.amber["600"]} />
-              </TableNode>
-              <TableNode>
-                <TableSelect values={["reels"]} backgroundColor={twc.violet["200"]} color={twc.violet["600"]} />
-              </TableNode>
-              <TableNode>
-                <TableSelect values={["feed"]} backgroundColor={twc.amber["200"]} color={twc.amber["600"]} />
-              </TableNode>
-              <TableNode>
-                <TableSelect values={["stories"]} backgroundColor={twc.sky["200"]} color={twc.sky["600"]} />
-              </TableNode>
-            </TableCol>
-            <TableCol>
-              <TableNode backgroundColor={twc.green["500"]} head>
-                modelo pessoa
-              </TableNode>
-              <TableNode>
-                <TableSelect values={["homem"]} backgroundColor={twc.red["200"]} color={twc.red["600"]} />
-              </TableNode>
-              <TableNode>
-                <TableSelect values={["mulher"]} backgroundColor={twc.slate["200"]} color={twc.slate["600"]} />
-              </TableNode>
-              <TableNode>
-                <TableSelect values={["sem"]} backgroundColor={twc.blue["200"]} color={twc.blue["600"]} />
-              </TableNode>
-              <TableNode>
-                <TableSelect values={["sem"]} backgroundColor={twc.blue["200"]} color={twc.blue["600"]} />
-              </TableNode>
-            </TableCol>
-            <TableCol>
-              <TableNode backgroundColor={twc.green["500"]} head last>
-                gatilho mental
-              </TableNode>
-              <TableNode>
-                <TableSelect values={["urgência"]} backgroundColor={twc.lime["200"]} color={twc.lime["600"]} />
-              </TableNode>
-              <TableNode>
-                <TableSelect values={["escassez"]} backgroundColor={twc.fuchsia["200"]} color={twc.fuchsia["600"]} />
-              </TableNode>
-              <TableNode>
-                <TableSelect values={["sem"]} backgroundColor={twc.emerald["200"]} color={twc.emerald["600"]} />
-              </TableNode>
-              <TableNode>
-                <TableSelect values={["novidade"]} backgroundColor={twc.violet["200"]} color={twc.violet["600"]} />
-              </TableNode>
-            </TableCol>
-          </Table>
+          <div className={st.tableWrapper}>
+            <Table>
+              <TableCol>
+                <TableNode backgroundColor={twc.green["500"]} head>
+                  tipo mídia
+                </TableNode>
+                <TableNode>
+                  <TableSelect values={["imagem"]} backgroundColor={twc.blue["200"]} color={twc.blue["600"]} />
+                </TableNode>
+                <TableNode>
+                  <TableSelect values={["vídeo"]} backgroundColor={twc.green["200"]} color={twc.green["600"]} />
+                </TableNode>
+                <TableNode>
+                  <TableSelect values={["imagem"]} backgroundColor={twc.blue["200"]} color={twc.blue["600"]} />
+                </TableNode>
+                <TableNode>
+                  <TableSelect values={["vídeo"]} backgroundColor={twc.green["200"]} color={twc.green["600"]} />
+                </TableNode>
+              </TableCol>
+              <TableCol>
+                <TableNode backgroundColor={twc.green["500"]} head>
+                  formato mídia
+                </TableNode>
+                <TableNode>
+                  <TableSelect values={["feed"]} backgroundColor={twc.amber["200"]} color={twc.amber["600"]} />
+                </TableNode>
+                <TableNode>
+                  <TableSelect values={["reels"]} backgroundColor={twc.violet["200"]} color={twc.violet["600"]} />
+                </TableNode>
+                <TableNode>
+                  <TableSelect values={["feed"]} backgroundColor={twc.amber["200"]} color={twc.amber["600"]} />
+                </TableNode>
+                <TableNode>
+                  <TableSelect values={["stories"]} backgroundColor={twc.sky["200"]} color={twc.sky["600"]} />
+                </TableNode>
+              </TableCol>
+              <TableCol>
+                <TableNode backgroundColor={twc.green["500"]} head>
+                  modelo pessoa
+                </TableNode>
+                <TableNode>
+                  <TableSelect values={["homem"]} backgroundColor={twc.red["200"]} color={twc.red["600"]} />
+                </TableNode>
+                <TableNode>
+                  <TableSelect values={["mulher"]} backgroundColor={twc.slate["200"]} color={twc.slate["600"]} />
+                </TableNode>
+                <TableNode>
+                  <TableSelect values={["sem"]} backgroundColor={twc.blue["200"]} color={twc.blue["600"]} />
+                </TableNode>
+                <TableNode>
+                  <TableSelect values={["sem"]} backgroundColor={twc.blue["200"]} color={twc.blue["600"]} />
+                </TableNode>
+              </TableCol>
+              <TableCol>
+                <TableNode backgroundColor={twc.green["500"]} head last>
+                  gatilho mental
+                </TableNode>
+                <TableNode>
+                  <TableSelect values={["urgência"]} backgroundColor={twc.lime["200"]} color={twc.lime["600"]} />
+                </TableNode>
+                <TableNode>
+                  <TableSelect values={["escassez"]} backgroundColor={twc.fuchsia["200"]} color={twc.fuchsia["600"]} />
+                </TableNode>
+                <TableNode>
+                  <TableSelect values={["sem"]} backgroundColor={twc.emerald["200"]} color={twc.emerald["600"]} />
+                </TableNode>
+                <TableNode>
+                  <TableSelect values={["novidade"]} backgroundColor={twc.violet["200"]} color={twc.violet["600"]} />
+                </TableNode>
+              </TableCol>
+            </Table>
+          </div>
         </div>
       </div>
       <div className="flex flex-col items-center md:max-w-xl">
@@ -115,40 +117,42 @@ export function CampaignTags({ className, ...rest }: ICampaignTags) {
         <p className="mb-3 last-of-type:mb-0">O mesmo vale para outras tags como:</p>
         <div className={st.wrapper} style={{ "--wrapper-width": "576px" } as CSSProperties}>
           <div className={st.border + ` ${st["bd-blackwhite-to-tr"]}`} />
-          <Table>
-            <TableCol>
-              <TableNode left>Cor Predominante</TableNode>
-              <TableNode left>Descrição com Emojis</TableNode>
-              <TableNode left>Gênero Protagonista da Mídia</TableNode>
-              <TableNode left>Framework de Copywritting</TableNode>
-              <TableNode left>Posicionamento</TableNode>
-            </TableCol>
-            <TableCol>
-              <TableNode last>
-                <TableSelect values={cor_predominante} backgroundColor={twc.blue["200"]} color={twc.blue["600"]} />
-              </TableNode>
-              <TableNode last>
-                <TableSelect values={descricao_com_emojis} backgroundColor={twc.red["200"]} color={twc.red["600"]} />
-              </TableNode>
-              <TableNode last>
-                <TableSelect
-                  values={genero_protagonista_da_midia}
-                  backgroundColor={twc.amber["200"]}
-                  color={twc.amber["600"]}
-                />
-              </TableNode>
-              <TableNode last>
-                <TableSelect
-                  values={framework_de_copywritting}
-                  backgroundColor={twc.green["200"]}
-                  color={twc.green["600"]}
-                />
-              </TableNode>
-              <TableNode last>
-                <TableSelect values={posicionamento} backgroundColor={twc.violet["200"]} color={twc.violet["600"]} />
-              </TableNode>
-            </TableCol>
-          </Table>
+          <div className={st.tableWrapper}>
+            <Table>
+              <TableCol>
+                <TableNode left>Cor Predominante</TableNode>
+                <TableNode left>Descrição com Emojis</TableNode>
+                <TableNode left>Gênero Protagonista da Mídia</TableNode>
+                <TableNode left>Framework de Copywritting</TableNode>
+                <TableNode left>Posicionamento</TableNode>
+              </TableCol>
+              <TableCol>
+                <TableNode last>
+                  <TableSelect values={cor_predominante} backgroundColor={twc.blue["200"]} color={twc.blue["600"]} />
+                </TableNode>
+                <TableNode last>
+                  <TableSelect values={descricao_com_emojis} backgroundColor={twc.red["200"]} color={twc.red["600"]} />
+                </TableNode>
+                <TableNode last>
+                  <TableSelect
+                    values={genero_protagonista_da_midia}
+                    backgroundColor={twc.amber["200"]}
+                    color={twc.amber["600"]}
+                  />
+                </TableNode>
+                <TableNode last>
+                  <TableSelect
+                    values={framework_de_copywritting}
+                    backgroundColor={twc.green["200"]}
+                    color={twc.green["600"]}
+                  />
+                </TableNode>
+                <TableNode last>
+                  <TableSelect values={posicionamento} backgroundColor={twc.violet["200"]} color={twc.violet["600"]} />
+                </TableNode>
+              </TableCol>
+            </Table>
+          </div>
         </div>
         <p className="text-center italic text-xs">clique no campo onde diz "Azul" para abrir mais opções</p>
       </div>

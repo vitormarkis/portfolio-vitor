@@ -29,50 +29,52 @@ export function CampaignData({ className, ...rest }: ICampaignData) {
           planilha.
         </p>
       </div>
-      <div className={st.wrapper} style={{ "--wrapper-width": "716px" } as CSSProperties}>
+      <div className={st.wrapper} style={{ "--wrapper-width": "767px" } as CSSProperties}>
         <div className={st.border + ` ${st["bd-blackwhite-to-b"]}`} />
-        <Table>
-          <TableCol>
-            <TableNode head>ID</TableNode>
-            <TableNode>01</TableNode>
-            <TableNode>02</TableNode>
-            <TableNode>03</TableNode>
-          </TableCol>
-          <TableCol grow={4}>
-            <TableNode left head>
-              Nome
-            </TableNode>
-            <TableNode left>C01 - Produto X [Aberto]</TableNode>
-            <TableNode left>C02 - Produto Y [Aberto]</TableNode>
-            <TableNode left>C03 - Produto Z [Segmentado]</TableNode>
-          </TableCol>
-          <TableCol>
-            <TableNode head>Gasto</TableNode>
-            <TableNode>R$ 30,00</TableNode>
-            <TableNode>R$ 30,00</TableNode>
-            <TableNode>R$ 30,00</TableNode>
-          </TableCol>
-          <TableCol>
-            <TableNode head>Impressões</TableNode>
-            <TableNode>3.232</TableNode>
-            <TableNode>5.573</TableNode>
-            <TableNode>4.923</TableNode>
-          </TableCol>
-          <TableCol>
-            <TableNode head>Visualizações</TableNode>
-            <TableNode>2.845</TableNode>
-            <TableNode>5.242</TableNode>
-            <TableNode>4.623</TableNode>
-          </TableCol>
-          <TableCol>
-            <TableNode head last>
-              Cliques
-            </TableNode>
-            <TableNode last>492</TableNode>
-            <TableNode last>384</TableNode>
-            <TableNode last>247</TableNode>
-          </TableCol>
-        </Table>
+        <div className={st.tableWrapper}>
+          <Table>
+            <TableCol>
+              <TableNode head>ID</TableNode>
+              <TableNode>01</TableNode>
+              <TableNode>02</TableNode>
+              <TableNode>03</TableNode>
+            </TableCol>
+            <TableCol grow={4}>
+              <TableNode left head>
+                Nome
+              </TableNode>
+              <TableNode left>C01 - Produto X [Aberto]</TableNode>
+              <TableNode left>C02 - Produto Y [Aberto]</TableNode>
+              <TableNode left>C03 - Produto Z [Segmentado]</TableNode>
+            </TableCol>
+            <TableCol>
+              <TableNode head>Gasto</TableNode>
+              <TableNode>R$ 30,00</TableNode>
+              <TableNode>R$ 30,00</TableNode>
+              <TableNode>R$ 30,00</TableNode>
+            </TableCol>
+            <TableCol>
+              <TableNode head>Impressões</TableNode>
+              <TableNode>3.232</TableNode>
+              <TableNode>5.573</TableNode>
+              <TableNode>4.923</TableNode>
+            </TableCol>
+            <TableCol>
+              <TableNode head>Visualizações</TableNode>
+              <TableNode>2.845</TableNode>
+              <TableNode>5.242</TableNode>
+              <TableNode>4.623</TableNode>
+            </TableCol>
+            <TableCol>
+              <TableNode head last>
+                Cliques
+              </TableNode>
+              <TableNode last>492</TableNode>
+              <TableNode last>384</TableNode>
+              <TableNode last>247</TableNode>
+            </TableCol>
+          </Table>
+        </div>
       </div>
     </div>
   )

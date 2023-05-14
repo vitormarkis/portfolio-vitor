@@ -57,6 +57,12 @@
   @apply bg-gradient-to-tr from-indigo-950 via-slate-600 to-violet-950;
 }
 
+.tableWrapper {
+  overflow: hidden;
+  border-radius: var(--border-radius);
+  width: 100%;
+}
+
 .contentWrapper {
   border-radius: var(--border-radius);
   overflow: hidden;

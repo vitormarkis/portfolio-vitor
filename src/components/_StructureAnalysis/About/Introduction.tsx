@@ -19,14 +19,14 @@ export function Introduction({ className, ...rest }: IIntroduction) {
           <div className="text-white mb-6 [&_strong]:text-neutral-800 flex flex-col items-center">
             <p className="mb-6">
               Esse projeto foi criado com Google Planilhas antes de eu começar a aprender Javascript e a planilha foi
-              uma ferramenta que usei para resolver um problema que eu e alguns amigos tinhamos.
+              uma ferramenta que usei para resolver um problema que eu e alguns colegas tinhamos.
             </p>
             <p className="mb-6">
               Se você possui ou é dono de algo que precisa constantemente de testes para encontrar qual a melhor
-              opção/combinação, essa planilha á para você.
+              opção/combinação, essa planilha é para você.
             </p>
             <p className="mb-6">
-              Ela funciona da seguinte forma, o que você quer analisar é quebrada em diversos pedaços, esses pedaços
+              Ela funciona da seguinte forma, o que você quer analisar é quebrado em diversos pedaços, esses pedaços
               viram entidades próprias, ou seja, cada um deles possui dados e métricas próprias, esses dados são somados
               e lançados em um dashboard, onde fica exposto as métricas de cada pedaço lado a lado para fácil
               comparação.
@@ -36,10 +36,10 @@ export function Introduction({ className, ...rest }: IIntroduction) {
               todo, usando os melhores pedaços, aqueles que possuem melhores métricas.
             </p>
             <p className="mb-6">
-              Essa versão é a final, mas eu criei a primeira versão após explicar de forma abstrata, como eu entendo que
-              seria a melhor forma de analisar campanhas dentro de redes de tráfego pago, como Facebook Ads. Como
-              deveria ser feita a análise de uma campanha, como extrair o máximo de inteligência de cada campanha, como
-              empilhar a inteligência, resultando em um crescimento exponencial ao passar do tempo.
+              Essa versão é a final, mas eu criei uma primeira versão após explicar de forma abstrata, como eu entendo
+              que seria a melhor forma de analisar campanhas dentro de redes de tráfego pago, como Facebook Ads. Como
+              deveria ser feita a análise de uma campanha, como extrair o máximo de inteligência de cada campanha, e
+              como empilhar a inteligência, resultando em um crescimento exponencial ao passar do tempo.
             </p>
           </div>
         </div>
