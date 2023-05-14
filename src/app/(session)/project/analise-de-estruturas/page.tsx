@@ -10,8 +10,6 @@ export default function AuctionAppPage() {
       <Hero />
       <Introduction className="mt-24" />
       <HowItWorks className="mt-24" />
-      <Implementation className="mt-32" />
-      <UsedTechnologies className="mt-24" />
     </main>
   )
 }

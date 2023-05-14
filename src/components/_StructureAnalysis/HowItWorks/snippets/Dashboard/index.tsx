@@ -23,7 +23,7 @@ export function Dashboard({ className, ...rest }: IDashboard) {
         <p className="mb-3 last-of-type:mb-0">
           Como você pode ver nesse exemplo simples, descrições com emojis e no formato AIDA performaram mais.
         </p>
-        <p>O posicionamento que mais performou foi reel.</p>
+        <p>O posicionamento que mais performou foi reels.</p>
       </div>
       <div className={st.wrapper} style={{ "--wrapper-width": "1014px" } as CSSProperties}>
         <div className={st.border + ` ${st["bd-blackwhite-to-b"]}`} />
@@ -40,7 +40,7 @@ export function Dashboard({ className, ...rest }: IDashboard) {
             <TableNode>PAS</TableNode>
             <TableNode>4P's</TableNode>
             <TableNode better randomNumberBoolean>
-              Reel
+              Reels
             </TableNode>
             <TableNode>Feed</TableNode>
             <TableNode>Stories</TableNode>
@@ -137,6 +137,10 @@ export function Dashboard({ className, ...rest }: IDashboard) {
           </TableCol>
         </Table>
       </div>
+      <p className="text-center italic text-xs">
+        sugestão para próxima campanha: use descrição com emojis, usando o framework de copy AIDA, e veicule para
+        posicionamento de reels
+      </p>
     </div>
   )
 }
