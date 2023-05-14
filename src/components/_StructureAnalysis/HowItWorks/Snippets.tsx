@@ -20,11 +20,11 @@ export function Snippets({ className, ...rest }: ISnippets) {
       }
       {...rest}
     >
-      <EachLineCampaign className="min-w-[36rem]" />
-      <CampaignData className="min-w-[36rem]" />
-      <CampaignTags className="min-w-[36rem]" />
-      <Dashboard className="min-w-[36rem]" />
-      <Conclusion className="min-w-[36rem]" />
+      <EachLineCampaign />
+      <CampaignData />
+      <CampaignTags />
+      <Dashboard />
+      <Conclusion />
     </ul>
   )
 }

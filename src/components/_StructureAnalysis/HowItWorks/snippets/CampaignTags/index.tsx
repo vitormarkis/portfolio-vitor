@@ -1,4 +1,4 @@
-import React from "react"
+import React, { CSSProperties } from "react"
 import st from "@/components/_StructureAnalysis/HowItWorks/styles.module.css"
 import { ProjectFeature } from "@/components/_StructureAnalysis/HowItWorks/Snippets"
 import { Table } from "@/components/_StructureAnalysis/HowItWorks/Table"
@@ -21,13 +21,13 @@ export function CampaignTags({ className, ...rest }: ICampaignTags) {
   return (
     <div className={"flex flex-col items-center" + _cn} {...rest}>
       <div className="flex flex-col items-center">
-        <div className="max-w-xl">
+        <div className="md:max-w-xl">
           {/* <SectionNumber number={1} className="mr-2" /> */}
           <span className="text-base">
             Lembrando que cada linha é uma campanha, você deve adicionar tags às campanhas.
           </span>
         </div>
-        <div className={`mb-12 min-w-[36rem] ` + st.wrapper}>
+        <div className={`mb-12 ` + st.wrapper} style={{ "--wrapper-width": "576px" } as CSSProperties}>
           <div className={st.border + ` ${st["bd-blackwhite-to-b"]}`} />
           <Table>
             <TableCol>
@@ -69,7 +69,7 @@ export function CampaignTags({ className, ...rest }: ICampaignTags) {
           </Table>
         </div>
       </div>
-      <div className="flex flex-col items-center max-w-xl">
+      <div className="flex flex-col items-center md:max-w-xl">
         <p className="font-semibold text-left text-black self-start">O que são tags?</p>
         <p className="mb-3 last-of-type:mb-0">
           Tags são detalhes daquilo que você ta analisando, no caso, detalhes da campanha, como tipo de mídia, tipo de
@@ -81,7 +81,7 @@ export function CampaignTags({ className, ...rest }: ICampaignTags) {
           <Strong>cor predominante</Strong> possui 3 concorrentes para o poste de melhor cor predominante.
         </p>
         <p className="mb-3 last-of-type:mb-0">O mesmo vale para outras tags como:</p>
-        <div className={st.wrapper}>
+        <div className={st.wrapper} style={{ "--wrapper-width": "576px" } as CSSProperties}>
           <div className={st.border + ` ${st["bd-blackwhite-to-tr"]}`} />
           <Table>
             <TableCol>

@@ -1,4 +1,4 @@
-import React from "react"
+import React, { CSSProperties } from "react"
 import { ProjectFeature } from "@/components/_StructureAnalysis/HowItWorks/Snippets"
 import st from "@/components/_StructureAnalysis/HowItWorks/styles.module.css"
 import { Table } from "@/components/_StructureAnalysis/HowItWorks/Table"
@@ -12,7 +12,7 @@ export function CampaignData({ className, ...rest }: ICampaignData) {
 
   return (
     <div className={"flex flex-col items-center" + _cn} {...rest}>
-      <div className="max-w-xl">
+      <div className="md:max-w-xl">
         <p className="font-semibold text-left text-black self-start">O que são tags?</p>
         <p className="mb-3 last-of-type:mb-0">
           Uma campanha são elementos específicos, combinados, e de forma pública que estão rodando, ou que rodam durante
@@ -25,7 +25,7 @@ export function CampaignData({ className, ...rest }: ICampaignData) {
         </p>
         <p>Após essa campanha encerrar, passe os dados dela para a planilha.</p>
       </div>
-      <div className={st.wrapper}>
+      <div className={st.wrapper} style={{ "--wrapper-width": "716px" } as CSSProperties}>
         <div className={st.border + ` ${st["bd-blackwhite-to-b"]}`} />
         <Table>
           <TableCol>

@@ -6,7 +6,7 @@ export function Conclusion({ className, ...rest }: IConclusion) {
   const _cn = ` ${className ?? ""}`
 
   return (
-    <div className={"max-w-xl" + _cn} {...rest}>
+    <div className={"md:max-w-xl" + _cn} {...rest}>
       <p className="font-semibold text-left text-black self-start">Conclusão</p>
       <p className="mb-3 last-of-type:mb-0">
         Agora com uma campanha com dados reais, sendo alimentada dia a dia, durante anos, você terá uma planilha rica de

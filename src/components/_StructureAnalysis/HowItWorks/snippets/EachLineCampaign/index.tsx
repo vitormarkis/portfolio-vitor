@@ -1,4 +1,4 @@
-import React from "react"
+import React, { CSSProperties } from "react"
 import st from "@/components/_StructureAnalysis/HowItWorks/styles.module.css"
 import { ProjectFeature } from "@/components/_StructureAnalysis/HowItWorks/Snippets"
 import { Table } from "@/components/_StructureAnalysis/HowItWorks/Table"
@@ -26,7 +26,7 @@ export function EachLineCampaign({ className, ...rest }: IEachLineCampaign) {
           , cada linha é uma campanha.
         </span>
       </div>
-      <div className={st.wrapper}>
+      <div className={st.wrapper} style={{ "--wrapper-width": "576px" } as CSSProperties}>
         <div className={st.border + ` ${st["bd-blackwhite-to-b"]}`} />
         <Table>
           <TableCol>

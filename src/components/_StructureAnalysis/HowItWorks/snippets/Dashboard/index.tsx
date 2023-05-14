@@ -1,4 +1,4 @@
-import React from "react"
+import React, { CSSProperties } from "react"
 import st from "@/components/_StructureAnalysis/HowItWorks/styles.module.css"
 import local_st from "@/components/_StructureAnalysis/HowItWorks/snippets/Dashboard/styles.module.css"
 import { Table } from "@/components/_StructureAnalysis/HowItWorks/Table"
@@ -14,7 +14,7 @@ export function Dashboard({ className, ...rest }: IDashboard) {
 
   return (
     <div className={"flex flex-col items-center" + _cn} {...rest}>
-      <div className="max-w-xl">
+      <div className="md:max-w-xl">
         <p className="font-semibold text-left text-black self-start">E o que faço com isso?</p>
         <p className="mb-3 last-of-type:mb-0">
           Cada campanha possui diversas tags que devem ser atribuídas à elas, as quais seus dados são somados e lançados
@@ -25,7 +25,7 @@ export function Dashboard({ className, ...rest }: IDashboard) {
         </p>
         <p>O posicionamento que mais performou foi reel.</p>
       </div>
-      <div className={st.wrapper}>
+      <div className={st.wrapper} style={{ "--wrapper-width": "1014px" } as CSSProperties}>
         <div className={st.border + ` ${st["bd-blackwhite-to-b"]}`} />
         <Table>
           <TableCol className={local_st.tableCol}>
