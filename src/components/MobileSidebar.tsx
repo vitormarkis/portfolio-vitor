@@ -38,7 +38,7 @@ export function MobileSidebar({ children, className, ...rest }: Props) {
               <Dialog.Close className="absolute inset-0 bg-black/10 outline-none" />
               <div className="backdrop-blur-lg bg-gradient-to-b from-white border-r border-neutral-300 shadow-lg z-50 to-transparent flex-col absolute inset-0 flex w-full max-w-[80vw]">
                 <div className="p-6">
-                  <Logo className="mx-auto" />
+                  <Logo width="11rem" className="mx-auto " />
                 </div>
                 <nav className="p-6 text-zinc-700 text-sm">
                   <h3 className={`text-center text-3xl tracking-wider mb-6 text-black ${montserrat.className}`}>

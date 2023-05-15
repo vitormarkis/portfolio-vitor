@@ -24,7 +24,7 @@ export function Header({ className, ...rest }: Props) {
           </MobileSidebar>
         </div>
         <div className="basis-0 grow mdx:basis-auto">
-          <Logo />
+          <Logo width="11rem" className="w-[9rem] mdx:w-[11rem]" />
         </div>
         <nav className="basis-0 grow hidden mdx:flex text-zinc-700 justify-center">
           <ul className="flex text-sm min-w-0 ">
