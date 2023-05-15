@@ -25,6 +25,7 @@ export interface IProjectLink {
   description: string
   importance: TImp
   technologies: ProjectTechnologies[]
+  on: boolean
   url: string
   repo_url: string
 }

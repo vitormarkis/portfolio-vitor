@@ -9,12 +9,13 @@ export const projectsData: IProjectLink[] = [
     mobile_cover_picture: "auction-alpha-phone-cover.jpg",
     short_description: "Compre e venda o que quiser, pelo preço que quiser!",
     description: `
-      Site de venda de produtos, onde você anuncia um produto por R$200 durante 7 dias, esse anuncio fica publico para as pessoas no feed, elas podem dar lances de R$230, R$250, R$300, e ao final dos 7 dias, o lance com o maior valor leva o produto.
+    Site de venda de produtos, onde você anuncia um produto por R$200 durante 7 dias, esse anuncio fica publico para as pessoas no feed, elas podem dar lances de R$230, R$250, R$300, e ao final dos 7 dias, o lance com o maior valor leva o produto.
     `.trim(),
     importance: "important",
     technologies: ["VERCEL", "NEXT", "MYSQL", "TAILWINDCSS", "PRISMA"],
     url: "https://auction-alpha.vercel.app/",
     repo_url: "https://github.com/vitormarkis/auction-alpha/",
+    on: true,
   },
   {
     id: Math.random(),
@@ -28,19 +29,21 @@ export const projectsData: IProjectLink[] = [
     technologies: ["VERCEL", "NEXT", "TAILWINDCSS"],
     url: "https://ike-consertos-linktree.vercel.app/",
     repo_url: "",
+    on: false,
   },
   {
     id: Math.random(),
     name: "Twitter Clone",
     path: "twitter-clone",
     desktop_cover_picture: "twitter-frontend.jpg",
-    mobile_cover_picture: "",
+    mobile_cover_picture: "twitter-frontend-phone-cover.png",
     short_description: "Clone da interface do Twitter totalmente responsivo.",
     description: `Recriei a interface do Twitter de forma praticamente idêntica e totalmente responsiva usando a biblioteca Styled Components.`,
     importance: "public",
     technologies: ["VERCEL", "REACT", "STYLED_COMPONENTS"],
     url: "https://twitter-frontend-indol.vercel.app/",
     repo_url: "",
+    on: false,
   },
   {
     id: Math.random(),
@@ -54,6 +57,7 @@ export const projectsData: IProjectLink[] = [
     technologies: ["VERCEL", "EXPRESS", "MYSQL", "REACT", "TAILWINDCSS"],
     url: "",
     repo_url: "",
+    on: false,
   },
   {
     id: Math.random(),
@@ -67,6 +71,7 @@ export const projectsData: IProjectLink[] = [
     technologies: ["GOOGLE_SHEETS"],
     url: "https://docs.google.com/spreadsheets/d/1lweqynj7onpKU7s9df2c8AaFMxAzWz12yZyfqWoLC9Q/edit?usp=sharing",
     repo_url: "",
+    on: true,
   },
   {
     id: Math.random(),
@@ -75,12 +80,13 @@ export const projectsData: IProjectLink[] = [
     desktop_cover_picture: "cron-jobs-cover.jpg",
     mobile_cover_picture: "",
     description: `
-      Sistema de notificações em tempo real e persistida no banco de dados, autenticação JWT, e agendamento de tarefas (ações que acontecem no servidor de forma automática). 
+    Sistema de notificações em tempo real e persistida no banco de dados, autenticação JWT, e agendamento de tarefas (ações que acontecem no servidor de forma automática). 
     `,
     importance: "casual",
     technologies: ["EXPRESS", "MYSQL", "PRISMA", "REACT", "TAILWINDCSS"],
     url: "https://github.com/vitormarkis/cron-jobs",
     repo_url: "",
+    on: false,
   },
   {
     id: Math.random(),
@@ -89,11 +95,12 @@ export const projectsData: IProjectLink[] = [
     desktop_cover_picture: "asseties-cover.jpg",
     mobile_cover_picture: "",
     description: `
-      Programadores criam muitos projetos e dispersam suas implementações, esse projeto visa criar um índice entre todos os projetos para facilitar consulta de implementações.
+    Programadores criam muitos projetos e dispersam suas implementações, esse projeto visa criar um índice entre todos os projetos para facilitar consulta de implementações.
     `,
     importance: "casual",
     technologies: ["REACT", "TAILWINDCSS", "VERCEL"],
     url: "https://github.com/vitormarkis/asseties",
     repo_url: "",
+    on: false,
   },
 ]
