@@ -1,0 +1,78 @@
+.wrapper {
+  --border-radius: 12px;
+  --border-size: 1px;
+  --z-index: 0;
+
+
+  margin: 0.75rem 0;
+  border-radius: 0.75rem;
+  color: #525252;
+  border-style: 1px dashed #525252;
+  white-space: nowrap;
+
+  align-self: center;
+  display: flex;
+  position: relative;
+  width: min(var(--wrapper-width), 100vw - 56px);
+}
+
+.wrapper::-webkit-scrollbar {
+  width: 0.625rem;
+}
+
+.wrapper::-webkit-scrollbar-thumb {
+  @apply bg-zinc-300
+}
+
+.border {
+  content: "";
+  position: absolute;
+  inset: calc(var(--border-size) * -1);
+  z-index: calc(var(--z-index) + 5);
+  left: 0;
+  padding: var(--border-size);
+  border-radius: calc(var(--border-radius) + var(--border-size));
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+  width: 100%;
+}
+
+.border::before {
+  pointer-events: none;
+  content: "";
+  display: block;
+  position: absolute;
+  z-index: calc(var(--z-index) - 2);
+  inset: 0px;
+}
+
+.border::before.bd-blackwhite-to-b {
+  @apply bg-gradient-to-b from-white to-slate-950;
+}
+
+.border::before.bd-blackwhite-to-tr {
+  @apply bg-gradient-to-tr from-indigo-950 via-slate-600 to-violet-950;
+}
+
+.tableWrapper {
+  overflow: hidden;
+  border-radius: var(--border-radius);
+  width: 100%;
+}
+
+.contentWrapper {
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  display: flex;
+  overflow-x: auto;
+  width: 100%;
+}
+
+@media (min-width: 896px) {
+  .wrapper {
+    width: min(var(--wrapper-width), 100vw - 106px);
+  }
+}

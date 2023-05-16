@@ -1,0 +1,45 @@
+.blur-alpha {
+  position: absolute;
+  left: -1rem;
+  top: -2rem;
+  background-color: #ff7272;
+  width: 17rem;
+  height: 7rem;
+  filter: blur(13rem);
+  z-index: 0;
+}
+
+.blur-bravo {
+  position: absolute;
+  right: -2rem;
+  bottom: -9rem;
+  background-color: #52ffdd;
+  width: 13rem;
+  height: 3rem;
+  filter: blur(9rem);
+  z-index: 0;
+}
+
+@media (max-width: 640px) {
+  .blur-alpha {
+    position: absolute;
+    left: 2rem;
+    top: 1rem;
+    background-color: #fff;
+    width: 4rem;
+    height: 4rem;
+    filter: blur(3rem);
+    z-index: 0;
+  }
+
+  .blur-bravo {
+    position: absolute;
+    right: -7rem;
+    bottom: -13rem;
+    background-color: #52ffdd;
+    width: 13rem;
+    height: 3rem;
+    filter: blur(10rem);
+    z-index: 0;
+  }
+}

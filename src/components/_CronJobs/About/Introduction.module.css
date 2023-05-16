@@ -1,0 +1,41 @@
+.fxBlurA {
+  @apply bg-cyan-500;
+  position: absolute;
+  width: max(10px, min(25vw, 300px));
+  height: 66px;
+  top: 0;
+  left: min(13vw, 10rem);
+  transform: translate(-50%, -50%);
+  filter: blur(max(70px, min(10vw, 120px)));
+}
+
+.fxBlurB {
+  @apply bg-blue-400;
+  position: absolute;
+  width: max(23px, min(37.5vw, 450px));
+  height: 66px;
+  bottom: 0;
+  left: min(13vw, 10rem);
+  filter: blur(max(105px, min(12.5vw, 150px)));
+}
+
+.fxBlurC {
+  @apply bg-indigo-500;
+  position: absolute;
+  width: max(20px, min(26vw, 320px));
+  height: 66px;
+  bottom: 1rem;
+  right: max(-13vw, -6rem);
+  filter: blur(max(80px, min(10vw, 120px)));
+}
+
+.fxBlurD {
+  @apply bg-rose-500;
+  position: absolute;
+  width: max(20px, min(16vw, 220px));
+  height: 66px;
+  top: 0;
+  right: min(10vw, 0);
+  right: 0;
+  filter: blur(max(80px, min(10vw, 120px)));
+}

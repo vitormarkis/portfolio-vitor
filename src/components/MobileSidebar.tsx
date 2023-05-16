@@ -51,7 +51,7 @@ export function MobileSidebar({ children, className, ...rest }: Props) {
                   </nav>
                   <nav className="mb-6">
                     <h4 className={"text-xl text-black font-semibold mb-1" + " " + montserrat.className}>Projetos</h4>
-                    <ul className="flex-col flex">
+                    <ul className="flex-col flex gap-2">
                       {projects.map(project => (
                         <SidebarNavLink key={project.id} project={project} />
                       ))}
@@ -84,7 +84,9 @@ interface ISidebarNavLink extends HTMLAttributes<HTMLLIElement> {
 
 export const SidebarNavLink: React.FC<ISidebarNavLink> = ({ href, className, project, ...rest }) => (
   <li
-    className={`transition-colors font-medium duration-75 hover:bg-texas-100 cursor-pointer ${className ?? ""}`}
+    className={`transition-colors font-medium duration-75 hover:bg-texas-100 cursor-pointer rounded-lg bg-white/50 ${
+      className ?? ""
+    }`}
     {...rest}
   >
     <Link href={href ?? `/project/${project.path}`} className="outline-accent flex px-3 py-2 rounded-lg">
