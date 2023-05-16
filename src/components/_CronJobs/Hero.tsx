@@ -36,19 +36,6 @@ export function Hero({ className, ...rest }: Props) {
                   />
                 </div>
               </motion.div>
-              <motion.div
-                {...animateEmerge(0.7)}
-                className="absolute -bottom-8 -right-8 p-[2px] pb-2.5 rounded-lg bg-black"
-              >
-                <div className="bg-black w-8 h-1.5 top-0 left-1/2 -translate-x-1/2 absolute rounded-b-full" />
-                <div className="block bg-black overflow-hidden rounded-b-md rounded-t-[6.5px]">
-                  <img
-                    src={`/${project.mobile_cover_picture}`}
-                    alt="Imagem da home do projeto Twitter Clone na versão mobile"
-                    className="w-20 pt-2 mobile-mockup-responsive"
-                  />
-                </div>
-              </motion.div>
             </div>
           </div>
         </div>

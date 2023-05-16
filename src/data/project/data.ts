@@ -21,8 +21,8 @@ export const projectsData: IProjectLink[] = [
     id: Math.random(),
     name: "Ike Linktree",
     path: "ike-linktree",
-    desktop_cover_picture: "ike-consertos.jpg",
-    mobile_cover_picture: "",
+    desktop_cover_picture: "ike-consertos-cover.jpg",
+    mobile_cover_picture: "ike-consertos-phone-cover.png",
     short_description: "Índice de contato para um assistente técnico da minha região.",
     description: `Site onde se encontra todos os links e formas de contato de um assistente técnico de celulares da minha região, meu primeiro projeto em Next.`,
     importance: "public",
@@ -93,7 +93,7 @@ export const projectsData: IProjectLink[] = [
     name: "Asseties",
     path: "asseties",
     desktop_cover_picture: "asseties-cover.jpg",
-    mobile_cover_picture: "",
+    mobile_cover_picture: "asseties-phone-cover.png",
     description: `
     Programadores criam muitos projetos e dispersam suas implementações, esse projeto visa criar um índice entre todos os projetos para facilitar consulta de implementações.
     `,
