@@ -94,6 +94,7 @@ export const projectsData: IProjectLink[] = [
     path: "asseties",
     desktop_cover_picture: "asseties-cover.jpg",
     mobile_cover_picture: "asseties-phone-cover.png",
+    short_description: "Encontre seus códigos de forma super rápida.",
     description: `
     Programadores criam muitos projetos e dispersam suas implementações, esse projeto visa criar um índice entre todos os projetos para facilitar consulta de implementações.
     `,

@@ -21,7 +21,7 @@ export function Hero({ className, ...rest }: Props) {
           <div className={st["blur-alpha"]} />
           <div className={st["blur-bravo"]} />
           <div className="relative z-20 flex-1 flex justify-center items-center flex-col">
-            <Logo />
+            <Logo className="md:mb-4 mb-0" />
             <p className="text-neutral-500 text-center md:text-left">{project.short_description}</p>
           </div>
           <div className="flex-1 flex justify-center">
