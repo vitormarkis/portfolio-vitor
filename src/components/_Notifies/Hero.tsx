@@ -12,7 +12,7 @@ import st from "@/components/_StructureAnalysis/Hero.module.css"
 interface Props extends HTMLAttributes<HTMLDivElement> {}
 
 export function Hero({ className, ...rest }: Props) {
-  const { project } = getProject("cron-jobs")
+  const { project } = getProject("notifies")
 
   return (
     <div className={`md:pb-0 ${className ?? ""}`} {...rest}>
@@ -25,7 +25,7 @@ export function Hero({ className, ...rest }: Props) {
             <p className="text-neutral-500 text-center md:text-left">{project.short_description}</p>
           </div>
           <div className="flex-1 flex justify-center">
-            <div className="relative mb-8 z-20 mr-[2.125rem]">
+            <div className="relative mb-8 z-20">
               <motion.div {...animatePopup(0)} className="flex relative w-fit">
                 <div className="absolute top-full h-4 w-20 bg-black left-1/2 -translate-x-1/2" />
                 <div className="flex p-1 md:p-2 rounded-xl bg-black">

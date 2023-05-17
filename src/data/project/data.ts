@@ -75,16 +75,19 @@ export const projectsData: IProjectLink[] = [
   },
   {
     id: Math.random(),
-    name: "Cron Jobs",
-    path: "cron-jobs",
-    desktop_cover_picture: "cron-jobs-cover.jpg",
+    name: "Notifies",
+    path: "notifies",
+    desktop_cover_picture: "notifies-cover.jpg",
     mobile_cover_picture: "",
     description: `
     Sistema de notificações em tempo real e persistida no banco de dados, autenticação JWT, e agendamento de tarefas (ações que acontecem no servidor de forma automática). 
     `,
+    short_description: `
+    Notifiações em tempo real e agendamento de tarefas. 
+    `,
     importance: "casual",
     technologies: ["EXPRESS", "MYSQL", "PRISMA", "REACT", "TAILWINDCSS"],
-    url: "https://github.com/vitormarkis/cron-jobs",
+    url: "https://github.com/vitormarkis/notifies",
     repo_url: "",
     on: false,
   },
