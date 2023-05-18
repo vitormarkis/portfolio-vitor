@@ -6,6 +6,28 @@ export type IFeedPost = {
 
 export const feedData: IFeedPost[] = [
   {
+    id: 487583475937453,
+    text: `
+      Dado o relato anterior, eu quero adicionar uma funcionalidade de preservar a posição vertical do usuário entre navegações ida e volta, como o feed to Twitter, você abre um post, mas quando volta, ele volta exatamente aonde você estava.
+
+      Isso é super simples de fazer com javascript, mas eu to usando server components, então o approach precisa ser diferente.
+
+      Eu imagino que uma vez que a página esteja baixada no client, um post é aberto, a página de feed não seja perdida, então quando voltar, ele deveria voltar no feed sem mudar absolutamente nada, nem mesmo o scroll vertical, mas pelo contrário, ele muda o scroll lá pra cima.
+
+      No momento desse post eu ainda to procurando uma solução pra esse problema.
+    `.trim(),
+    created_at: "2023-05-18T20:04:13.938Z",
+  },
+  {
+    id: 539475983475893,
+    text: `
+      Relato, não gosto de React Server Pages/Components, é tudo menos intuitivo, qualquer solução que você pense em fazer, você precisa esperar que seu framework ja tenha implementado isso de forma nativa para Server Components, caso contrário terá que usar client component.
+      
+      A relação entre o que pode ser compartilhado entre client e server é muito nebulosa, o que ta disponível pra ser usado muda, hooks e state management ficam super engessados. Praticamente você precisa re-aprender a usar React.
+    `.trim(),
+    created_at: "2023-05-18T20:00:13.938Z",
+  },
+  {
     id: 87539847598379,
     text: `
       A única solução que eu consegui pensar para esse problema, foi usar "width: min(var(--tamanho_do_elemento), calc(100vw - paddings))" e funciona perfeitamente, por algum motivo, "width: min(fit-content, calc(100vw - paddings))" não funciona, mas seria perfeito na ocasião, então o que me restou foi usar uma variável CSS a nível de tabela, para definir seu width de forma manual.

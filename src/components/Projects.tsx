@@ -53,7 +53,7 @@ interface IProjectHome extends HTMLAttributes<HTMLDivElement> {
 export function ProjectHome({ className, project, size, ...rest }: IProjectHome) {
   return (
     <div className={`${className ?? ""}`} {...rest}>
-      <Link href={`/project/${project.path}`} passHref legacyBehavior>
+      <Link href={`/project/${project.path}`} passHref legacyBehavior scroll>
         <a className="flex flex-col outline-accent relative rounded-xl shadow-lg hover:scale-[1.03] overflow-hidden transition-transform duration-500 h-full">
           <div className="relative p-2">
             <div className="relative w-full aspect-video z-20 rounded-lg overflow-hidden">
