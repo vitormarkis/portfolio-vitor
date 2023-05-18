@@ -12,7 +12,7 @@ interface Props extends HTMLAttributes<HTMLDivElement> {}
 export function Projects({ className, ...rest }: Props) {
   const { projects } = useProjects({ sort: "importance" })
   const desiredImportantProjects = ["auction-app", "analise-de-estruturas"]
-  const desiredProjects = ["cron-jobs", "custom-social-media", "asseties"]
+  const desiredProjects = ["notifies", "custom-social-media", "asseties"]
 
   return (
     <div className={`${className}`} {...rest}>
