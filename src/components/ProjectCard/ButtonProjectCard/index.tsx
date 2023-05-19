@@ -11,7 +11,7 @@ interface IButtonProjectCard extends HTMLAttributes<HTMLButtonElement> {
 export const ButtonProjectCard = React.forwardRef<HTMLAnchorElement, IButtonProjectCard>(
   ({ className, url, text, filled, target, ...rest }, ref) => {
     return (
-      <Link href={url} ref={ref} target={target}>
+      <Link href={url} ref={ref} target={target} scroll={false}>
         <button
           className={`outline-accent rounded-full px-8 py-2 text-sm shadow-md inline-block ${className ?? ""} ${
             filled

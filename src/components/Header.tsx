@@ -62,7 +62,11 @@ export const HeaderNavLink = React.forwardRef<HTMLLIElement, IHeaderNavLink>(
         className={`transition-colors font-medium duration-75 hover:bg-texas-100 cursor-pointer ${className ?? ""}`}
         {...rest}
       >
-        <Link href={href ?? `/project/${project.path}`} className="flex outline-accent rounded-lg px-6 py-3">
+        <Link
+          scroll={false}
+          href={href ?? `/project/${project.path}`}
+          className="flex outline-accent rounded-lg px-6 py-3"
+        >
           <span className="truncate">{project.name}</span>
         </Link>
       </li>
