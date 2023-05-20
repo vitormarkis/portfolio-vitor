@@ -14,6 +14,10 @@ export function Projects({ className, ...rest }: Props) {
   const desiredImportantProjects = ["auction-app", "analise-de-estruturas"]
   const desiredProjects = ["notifies", "custom-social-media", "asseties"]
 
+  const handleSeeAllProjects = () => {
+    sessionStorage.setItem("userVerticalPosition", JSON.stringify({ top: 0 }))
+  }
+
   return (
     <div className={`${className}`} {...rest}>
       <CenteredContainer className="p-6 mdx:p-12">
@@ -36,7 +40,7 @@ export function Projects({ className, ...rest }: Props) {
             ))}
         </div>
         <div className="flex justify-center mt-6">
-          <Link href="/projects">
+          <Link href="/projects" onClick={handleSeeAllProjects}>
             <Button text="Ver todos" className="outline-accent mx-auto" fontSize="base" backgroundColor="luminescent" />
           </Link>
         </div>

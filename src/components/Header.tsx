@@ -13,6 +13,11 @@ interface Props extends HTMLAttributes<HTMLDivElement> {}
 
 export function Header({ className, ...rest }: Props) {
   const { projects } = useProjects({ sort: "importance" })
+
+  const handleSeeAllProjects = () => {
+    sessionStorage.setItem("userVerticalPosition", JSON.stringify({ top: 0 }))
+  }
+
   return (
     <header className={`relative z-10 h-20 text-zinc-800 ${className ?? ""}`} {...rest}>
       <div className="w-full max-w-7xl px-6 mdx:px-12 mx-auto h-full flex justify-between items-center">
@@ -32,7 +37,11 @@ export function Header({ className, ...rest }: Props) {
             {projects.slice(0, 3).map(project => (
               <HeaderNavLink key={project.id} project={project} />
             ))}
-            <HeaderNavLink project={{ name: "Ver todos" } as IProjectLink} href="/projects" />
+            <HeaderNavLink
+              onClick={handleSeeAllProjects}
+              project={{ name: "Ver todos" } as IProjectLink}
+              href="/projects"
+            />
           </ul>
         </nav>
         <div className="basis-0 grow mdx:basis-auto flex justify-end">
@@ -55,18 +64,15 @@ interface IHeaderNavLink extends HTMLAttributes<HTMLLIElement> {
 }
 
 export const HeaderNavLink = React.forwardRef<HTMLLIElement, IHeaderNavLink>(
-  ({ project, href, className, ...rest }, ref) => {
+  ({ project, href, className, onClick, ...rest }, ref) => {
     return (
       <li
         ref={ref}
+        onClick={onClick}
         className={`transition-colors font-medium duration-75 hover:bg-texas-100 cursor-pointer ${className ?? ""}`}
         {...rest}
       >
-        <Link
-          scroll={false}
-          href={href ?? `/project/${project.path}`}
-          className="flex outline-accent rounded-lg px-6 py-3"
-        >
+        <Link href={href ?? `/project/${project.path}`} className="flex outline-accent rounded-lg px-6 py-3">
           <span className="truncate">{project.name}</span>
         </Link>
       </li>
