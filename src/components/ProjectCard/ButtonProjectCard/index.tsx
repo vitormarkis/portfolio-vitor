@@ -1,3 +1,6 @@
+"use client"
+
+import { useRootContainer } from "@/state/rootContainer"
 import Link from "next/link"
 import React, { HTMLAttributes } from "react"
 
@@ -10,8 +13,17 @@ interface IButtonProjectCard extends HTMLAttributes<HTMLButtonElement> {
 
 export const ButtonProjectCard = React.forwardRef<HTMLAnchorElement, IButtonProjectCard>(
   ({ className, url, text, filled, target, ...rest }, ref) => {
+    const { elementRef } = useRootContainer()
+
+    const handleClick = () => {
+      if (elementRef && elementRef.current && typeof window !== "undefined") {
+        console.log("disparou o set, rodou no client")
+        sessionStorage.setItem("userVerticalPosition", JSON.stringify({ top: elementRef.current.scrollTop }))
+      }
+    }
+
     return (
-      <Link href={url} ref={ref} target={target} scroll={false}>
+      <Link href={url} ref={ref} target={target} scroll={false} onClick={handleClick}>
         <button
           className={`outline-accent rounded-full px-8 py-2 text-sm shadow-md inline-block ${className ?? ""} ${
             filled
