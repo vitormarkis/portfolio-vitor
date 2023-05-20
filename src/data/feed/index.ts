@@ -2,9 +2,43 @@ export type IFeedPost = {
   id: number
   text: string
   created_at: string
+  refs?: Array<{
+    id: string
+    title: string
+    url: string
+  }>
 }
 
 export const feedData: IFeedPost[] = [
+  {
+    id: 457384758374587,
+    text: `
+      Eu adicionei essa funcionalidade de manter a posição vertical do usuário na página de projetos entre navegações, a implementação pode não ter sido a melhor, mas foi a que consegui com meu conhecimento atual.
+
+      Eu usei javascript pra implementar. Criei um arquivo de layout, onde eu intercepto o children e entorno ele com um client component contendo a lógica. [#01]
+
+      A lógica que usei foi, assim que o usuário clicar para abrir um dos projetos, ele salva no Session Storage, um objeto { top: XXX } sendo XXX a posição que o usuário estava verticalmente no momento do clique, como se fosse um snapshot.
+
+      E com um useEffect dentro da página de projects, eu pego esse objeto do Session Storage e faço a div scrollável descer até ponto que está salvo no Session Storage.
+
+      Surge um pequeno bug, outros tentativas de acessar a página de projetos, como na home ou na navbar por exemplo, são movidas para o ponto salvo na Session Storage. Para consertar, eu coloquei uma função handler no clique desses links settando a propriedade top do objeto salvo no Session Storage com 0, fazendo que a página quando carregada, vá para o topo. [#02]
+
+      Eu salvei a ref da div scrollável, que fica no layout root, dentro de um store do Zustand, e acesso ele pelo layout da rota /projects.
+    `.trim(),
+    created_at: "2023-05-20T06:45:01.493Z",
+    refs: [
+      {
+        id: "s1g8d1fgd1",
+        title: "[commit #01] add persist user vertical position on projects page",
+        url: "https://github.com/vitormarkis/portfolio-vitor/commit/0a8ed96c333aef79edbf1f350786361371f03051",
+      },
+      {
+        id: "h7349gb394",
+        title: "[commit #02] scroll back to top when click see projects in other places",
+        url: "https://github.com/vitormarkis/portfolio-vitor/commit/f7d014fb957f76838171a7e810fada426d3166b4",
+      },
+    ],
+  },
   {
     id: 487583475937453,
     text: `

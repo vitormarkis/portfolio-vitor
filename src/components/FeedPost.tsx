@@ -3,6 +3,7 @@ import { formatStringToDOM } from "@/helpers"
 import { HTMLAttributes } from "react"
 import moment from "moment"
 import "moment/locale/pt-br"
+import Link from "next/link"
 moment.locale("pt-br")
 
 interface Props extends HTMLAttributes<HTMLDivElement> {
@@ -25,6 +26,20 @@ export function FeedPost({ post, className, ...rest }: Props) {
           {text}
         </p>
       ))}
+      {post.refs ? (
+        <div className="flex flex-wrap gap-2 text-sm bg-neutral-200 p-2 rounded-xl">
+          {post.refs.map(ref => (
+            <Link
+              target="_blank"
+              key={ref.id}
+              href={ref.url}
+              className="outline-accent px-3 py-1.5 rounded-lg bg-white text-blue-500 underline visited:text-indigo-600"
+            >
+              {ref.title}
+            </Link>
+          ))}
+        </div>
+      ) : null}
     </article>
   )
 }
