@@ -28,7 +28,7 @@ export const projectsData: IProjectLink[] = [
     importance: "public",
     technologies: ["VERCEL", "NEXT", "TAILWINDCSS"],
     url: "https://ike-consertos-linktree.vercel.app/",
-    repo_url: "",
+    repo_url: "https://github.com/vitormarkis/ike-consertos-linktree",
     on: false,
   },
   {
@@ -42,7 +42,7 @@ export const projectsData: IProjectLink[] = [
     importance: "public",
     technologies: ["VERCEL", "REACT", "STYLED_COMPONENTS"],
     url: "https://twitter-frontend-indol.vercel.app/",
-    repo_url: "",
+    repo_url: "https://github.com/vitormarkis/twitter-frontend",
     on: false,
   },
   {
@@ -55,7 +55,7 @@ export const projectsData: IProjectLink[] = [
     description: `Rede social onde você pode criar, favoritar, e comentar em posts. Projeto que usei para aprender autenticação, queries cruas em MySQL, API com express e etc.`,
     importance: "casual",
     technologies: ["VERCEL", "EXPRESS", "MYSQL", "REACT", "TAILWINDCSS"],
-    url: "",
+    url: "https://github.com/vitormarkis/5custom-social-media",
     repo_url: "",
     on: false,
   },
