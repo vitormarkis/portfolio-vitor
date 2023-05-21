@@ -1,4 +1,5 @@
 "use client"
+import { ImportanceChooser } from "@/components/BlogPageSection/ImportanceChooser"
 import React from "react"
 import ReactDOM from "react-dom"
 
@@ -21,9 +22,11 @@ export function BlogToolbar({ className, ...rest }: IBlogToolbar) {
           }
           {...rest}
         >
-          <div className="p-2 rounded-lg hover:bg-zinc-200 cursor-pointer">
-            <FunnelIcon />
-          </div>
+          <ImportanceChooser>
+            <div className="p-2 rounded-lg hover:bg-zinc-200 cursor-pointer">
+              <FunnelIcon />
+            </div>
+          </ImportanceChooser>
           <div className="p-2 rounded-lg hover:bg-zinc-200 cursor-pointer">
             <FunnelIcon />
           </div>

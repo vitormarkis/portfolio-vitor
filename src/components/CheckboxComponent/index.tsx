@@ -2,11 +2,13 @@
 
 import React from "react"
 import * as Checkbox from "@radix-ui/react-checkbox"
+import clsx from "clsx"
 
 interface ICheckboxComponent extends React.ComponentProps<"div"> {
   label: string
   tag: string
   importanceState: [importances: string[], setImportances: React.Dispatch<React.SetStateAction<string[]>>]
+  theme?: undefined | "dark" | "light"
 }
 
 export const CheckboxComponent: React.FC<ICheckboxComponent> = ({
@@ -14,6 +16,7 @@ export const CheckboxComponent: React.FC<ICheckboxComponent> = ({
   tag: tagName,
   importanceState,
   className,
+  theme = "light",
   ...rest
 }) => {
   const _cn = ` ${className ?? ""}`
@@ -28,11 +31,22 @@ export const CheckboxComponent: React.FC<ICheckboxComponent> = ({
   return (
     <div className={"flex items-center" + _cn} {...rest}>
       <Checkbox.Root
-        className="hover:bg-violet-100 h-[25px] w-[25px] appearance-none grid place-items-center rounded-sm bg-white outline-none"
+        className={clsx(
+          "outline-accent h-[25px] w-[25px] appearance-none grid place-items-center rounded-lg outline-none transition-all duration-150",
+          {
+            "hover:bg-neutral-200 bg-zinc-100 border-y border-t-gray-200 border-b-neutral-200": theme === "light",
+            "hover:bg-neutral-800 bg-neutral-700 border-y border-t-gray-800 border-b-neutral-800": theme === "dark",
+          }
+        )}
         onCheckedChange={handleCheckedChange(tagName)}
       >
-        <Checkbox.Indicator className="text-black">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" height={18} width={18}>
+        <Checkbox.Indicator
+          className={clsx({
+            "text-white": theme === "dark",
+            "text-neutral-700": theme === "light",
+          })}
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" height={16} width={16}>
             <rect width="256" height="256" fill="none" />
             <line
               x1="200"
@@ -59,7 +73,14 @@ export const CheckboxComponent: React.FC<ICheckboxComponent> = ({
           </svg>
         </Checkbox.Indicator>
       </Checkbox.Root>
-      <label className="pl-[15px] text-[15px] leading-none text-white">{label}</label>
+      <label
+        className={clsx("pl-4 leading-none", {
+          "text-white": theme === "dark",
+          "text-neutral-600": theme === "light",
+        })}
+      >
+        {label}
+      </label>
     </div>
   )
 }
