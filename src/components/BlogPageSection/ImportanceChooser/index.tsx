@@ -4,6 +4,7 @@ import * as Dialog from "@radix-ui/react-dialog"
 import { createPortal } from "react-dom"
 import { tags } from "@/data/feed"
 import { CheckboxComponent } from "@/components/CheckboxComponent"
+import { useBlogFeed } from "@/state/blogFeed"
 
 interface IImportanceChooser extends React.ComponentProps<"div"> {
   children: React.ReactNode
@@ -35,13 +36,7 @@ export function ImportanceChooser({ children, className, ...rest }: IImportanceC
                 </div>
                 <div className="p-6 flex flex-col gap-3">
                   {tags.importances.map(tag => (
-                    <CheckboxComponent
-                      key={tag.importance}
-                      importanceState={[importances, setImportances]}
-                      label={tag.title}
-                      tag={tag.importance}
-                      theme="light"
-                    />
+                    <CheckboxComponent key={tag.importance} label={tag.title} tag={tag.importance} theme="light" />
                   ))}
                 </div>
               </div>

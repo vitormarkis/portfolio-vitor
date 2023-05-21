@@ -1,22 +1,36 @@
+"use client"
 import { useFeed } from "@/data/feed"
 import { formatStringToDOM } from "@/helpers"
 import moment from "moment"
 import Link from "next/link"
 import React from "react"
 
+import { useBlogFeed } from "@/state/blogFeed"
+import { useRootContainer } from "@/state/rootContainer"
+
 interface IBlogPageSection extends React.ComponentProps<"div"> {}
 
 export function BlogPageSection({ className, ...rest }: IBlogPageSection) {
   const _cn = ` ${className ?? ""}`
-  const { feed } = useFeed()
+  const { elementRef } = useRootContainer()
+  const { feed: rawFeed } = useFeed()
+  const { seeingTags } = useBlogFeed()
+  const filteredFeed = rawFeed.filter(post => post.importance.some(i => seeingTags.includes(i)))
+  const feed = seeingTags.length ? filteredFeed : rawFeed
+
+  React.useEffect(() => {
+    if (elementRef?.current) {
+      elementRef.current.scrollTo({ top: 80 })
+    }
+  }, [feed])
 
   return (
     <div className={"self-center max-w-2xl" + _cn} {...rest}>
-      <div className="flex flex-col gap-8">
+      <div className="flex flex-col">
         {feed.map(post => (
           <article
             key={post.id}
-            className="md:rounded-xl pb-8 md:pb-0 overflow-hidden border-b md:border border-neutral-600 md:border-black"
+            className="md:rounded-xl py-8 md:pb-0 overflow-hidden border-b md:border border-neutral-600 md:border-black"
           >
             <div className={`md:px-6 text-zinc-600 ${post.refs ? "pb-6" : ""}`}>
               <div className="flex items-center">

@@ -3,29 +3,26 @@
 import React from "react"
 import * as Checkbox from "@radix-ui/react-checkbox"
 import clsx from "clsx"
+import { useBlogFeed } from "@/state/blogFeed"
 
 interface ICheckboxComponent extends React.ComponentProps<"div"> {
   label: string
   tag: string
-  importanceState: [importances: string[], setImportances: React.Dispatch<React.SetStateAction<string[]>>]
   theme?: undefined | "dark" | "light"
 }
 
 export const CheckboxComponent: React.FC<ICheckboxComponent> = ({
   label,
   tag: tagName,
-  importanceState,
   className,
   theme = "light",
   ...rest
 }) => {
   const _cn = ` ${className ?? ""}`
-  const [importances, setImportances] = importanceState
+  const { addTag, removeTag, seeingTags } = useBlogFeed()
 
   const handleCheckedChange = (tag: string) => (isChecked: boolean) => {
-    importances.includes(tag) && !isChecked
-      ? setImportances(prev => prev.filter(t => t !== tag))
-      : setImportances(prev => [...prev, tag])
+    seeingTags.includes(tag) && !isChecked ? removeTag(tag) : addTag(tag)
   }
 
   return (
@@ -38,6 +35,7 @@ export const CheckboxComponent: React.FC<ICheckboxComponent> = ({
             "hover:bg-neutral-800 bg-neutral-700 border-y border-t-gray-800 border-b-neutral-800": theme === "dark",
           }
         )}
+        checked={seeingTags.includes(tagName)}
         onCheckedChange={handleCheckedChange(tagName)}
       >
         <Checkbox.Indicator
