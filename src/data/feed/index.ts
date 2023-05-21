@@ -54,6 +54,14 @@ export type IFeedPost = {
 
 export const feedData: IFeedPost[] = [
   {
+    id: 8957485854834985,
+    text: `
+    Eu vou adicionar uma funcionalidade de sumir o elemento flutuante da toolbar quando chegar no final da página. 
+    `.trim(),
+    created_at: "2023-05-21T19:04:36.042Z",
+    importance: ["willing_to_do", "important"],
+  },
+  {
     id: 657384290485748,
     text: `
     Vou adicionar um toolbar na página do blog para filtrar ele e acessar melhor os posts.

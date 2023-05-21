@@ -4,7 +4,6 @@ import * as Dialog from "@radix-ui/react-dialog"
 import { createPortal } from "react-dom"
 import { tags } from "@/data/feed"
 import { CheckboxComponent } from "@/components/CheckboxComponent"
-import { useBlogFeed } from "@/state/blogFeed"
 
 interface IImportanceChooser extends React.ComponentProps<"div"> {
   children: React.ReactNode

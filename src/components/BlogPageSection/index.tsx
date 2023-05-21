@@ -30,7 +30,7 @@ export function BlogPageSection({ className, ...rest }: IBlogPageSection) {
         {feed.map(post => (
           <article
             key={post.id}
-            className="md:rounded-xl py-8 md:pb-0 overflow-hidden border-b md:border border-neutral-600 md:border-black"
+            className="md:rounded-xl py-8 md:pb-0 overflow-hidden last-of-type:border-b-0 border-b md:border border-neutral-600 md:border-black"
           >
             <div className={`md:px-6 text-zinc-600 ${post.refs ? "pb-6" : ""}`}>
               <div className="flex items-center">
@@ -47,12 +47,12 @@ export function BlogPageSection({ className, ...rest }: IBlogPageSection) {
               ))}
             </div>
             {post.refs ? (
-              <div className="bg-zinc-200 flex flex-col gap-3 p-6">
+              <div className="bg-zinc-100 flex flex-col gap-3 p-6">
                 {post.refs.map(ref => (
                   <Link
                     key={ref.id}
                     href={ref.url}
-                    className="outline-accent px-4 py-2 rounded-lg bg-white text-sky-600"
+                    className="outline-accent px-4 py-2 rounded-lg bg-white text-sky-500"
                   >
                     {ref.title}
                   </Link>
