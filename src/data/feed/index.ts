@@ -1,3 +1,45 @@
+type TImportance = "important" | "casual" | "issue" | "implementation" | "willing_to_do" | "off_topic" | "discover"
+
+type TTags = {
+  importances: Array<{
+    importance: TImportance
+    title: string
+  }>
+}
+
+export const tags: TTags = {
+  importances: [
+    {
+      importance: "important",
+      title: "Importante",
+    },
+    {
+      importance: "casual",
+      title: "Casual",
+    },
+    {
+      importance: "implementation",
+      title: "Implementação",
+    },
+    {
+      importance: "issue",
+      title: "Problema",
+    },
+    {
+      importance: "willing_to_do",
+      title: "Querendo fazer",
+    },
+    {
+      importance: "off_topic",
+      title: "Off topic",
+    },
+    {
+      importance: "discover",
+      title: "Aprendizado",
+    },
+  ],
+}
+
 export type IFeedPost = {
   id: number
   text: string
@@ -7,9 +49,18 @@ export type IFeedPost = {
     title: string
     url: string
   }>
+  importance: TImportance[]
 }
 
 export const feedData: IFeedPost[] = [
+  {
+    id: 657384290485748,
+    text: `
+    Vou adicionar um toolbar na página do blog para filtrar ele e acessar melhor os posts.
+    `.trim(),
+    created_at: "2023-05-21T06:06:01.263Z",
+    importance: ["willing_to_do", "casual"],
+  },
   {
     id: 457384758374587,
     text: `
@@ -26,6 +77,7 @@ export const feedData: IFeedPost[] = [
       Eu salvei a ref da div scrollável, que fica no layout root, dentro de um store do Zustand, e acesso ele pelo layout da rota /projects.
     `.trim(),
     created_at: "2023-05-20T06:45:01.493Z",
+    importance: ["implementation", "important"],
     refs: [
       {
         id: "s1g8d1fgd1",
@@ -51,6 +103,7 @@ export const feedData: IFeedPost[] = [
       No momento desse post eu ainda to procurando uma solução pra esse problema.
     `.trim(),
     created_at: "2023-05-18T20:04:13.938Z",
+    importance: ["willing_to_do"],
   },
   {
     id: 539475983475893,
@@ -60,6 +113,7 @@ export const feedData: IFeedPost[] = [
       A relação entre o que pode ser compartilhado entre client e server é muito nebulosa, o que ta disponível pra ser usado muda, hooks e state management ficam super engessados. Praticamente você precisa re-aprender a usar React.
     `.trim(),
     created_at: "2023-05-18T20:00:13.938Z",
+    importance: ["off_topic"],
   },
   {
     id: 87539847598379,
@@ -67,6 +121,7 @@ export const feedData: IFeedPost[] = [
       A única solução que eu consegui pensar para esse problema, foi usar "width: min(var(--tamanho_do_elemento), calc(100vw - paddings))" e funciona perfeitamente, por algum motivo, "width: min(fit-content, calc(100vw - paddings))" não funciona, mas seria perfeito na ocasião, então o que me restou foi usar uma variável CSS a nível de tabela, para definir seu width de forma manual.
     `.trim(),
     created_at: "2023-05-14T18:19:36.835Z",
+    importance: ["implementation", "important"],
   },
   {
     id: 37458734857384,
@@ -78,6 +133,7 @@ export const feedData: IFeedPost[] = [
       O max-width apenas limita o tamanho do que nós vemos, porém o width continua do mesmo tamanho no contexto, o que ocasiona em toda a section estar sendo esticada porque "100vw - paddings" estava esticando toda a largura da section, mesmo com max-width.
     `.trim(),
     created_at: "2023-05-14T18:15:36.835Z",
+    importance: ["issue", "casual"],
   },
   {
     id: 3475837458738,
@@ -87,6 +143,7 @@ export const feedData: IFeedPost[] = [
       Eu tentei várias formas de deixar elas responsivas de forma dinâmica, mas não consegui, a única coisa que funcionou foi fazer "100vw - paddings", o que é uma solução funcional mas não é dinâmica, caso eu mude os paddings da section, eu teria que mudar nessa outra parte do código também.
     `.trim(),
     created_at: "2023-05-14T18:10:36.835Z",
+    importance: ["issue", "casual"],
   },
   {
     id: 3463576457455,
@@ -98,6 +155,7 @@ export const feedData: IFeedPost[] = [
       const Component = dynamic(() => import("./Component").then(mod => mod.Component), { ssr: false })
     `.trim(),
     created_at: "2023-05-02T16:47:54.106Z",
+    importance: ["discover", "casual"],
   },
   {
     id: 8346354657345,
@@ -107,6 +165,7 @@ export const feedData: IFeedPost[] = [
       Talvez seja algum problema relacionando a má configuração.
     `.trim(),
     created_at: "2023-04-28T22:15:52.149Z",
+    importance: ["issue", "casual"],
   },
   {
     id: 64573645736475,
@@ -114,6 +173,7 @@ export const feedData: IFeedPost[] = [
       Pra usar uma fonte do next em um client, é só envolver o elemento com um Server Side Component que contenha aquela font.
     `.trim(),
     created_at: "2023-04-28T22:15:42.149Z",
+    importance: ["discover"],
   },
   {
     id: 64375637456378,
@@ -121,6 +181,7 @@ export const feedData: IFeedPost[] = [
       Quando imprimir paragrafos de texto em tags HTML, na key deve se colocar também o índice, dado que surgirão paragrafos de string vazias ${"``"} mais de uma vez, não sendo útil para ser usado como key de um elemento.
     `.trim(),
     created_at: "2023-04-26T17:14:39.293Z",
+    importance: ["discover"],
   },
   {
     id: 78645382947444,
@@ -128,6 +189,7 @@ export const feedData: IFeedPost[] = [
       Portfólio: Tava dando um erro de UI não correspondendo ao HTML enviado pelo servidor, porque eu tava utilizando uma tag Link dentro da outra.
     `.trim(),
     created_at: "2023-04-26T17:14:36.293Z",
+    importance: ["issue", "important"],
   },
   {
     id: 47723845764738,
@@ -137,6 +199,7 @@ export const feedData: IFeedPost[] = [
       Optei pela e velha boa tag <img />
     `.trim(),
     created_at: "2023-04-24T23:03:33.299Z",
+    importance: ["issue", "casual"],
   },
   {
     id: 95748357674895,
@@ -148,6 +211,7 @@ export const feedData: IFeedPost[] = [
       Até que eu encontre uma solução para isso, eu vou deixar o projeto adormecido.
     `.trim(),
     created_at: "2023-04-21T17:42:47.548Z",
+    importance: ["important", "off_topic"],
   },
   {
     id: 4735894739534,
@@ -157,6 +221,7 @@ export const feedData: IFeedPost[] = [
       Talvez seja algum problema relacionando a má configuração.
     `.trim(),
     created_at: "2024-04-28T22:15:52.149Z",
+    importance: ["issue", "casual"],
   },
   {
     id: 85784395884395,
@@ -167,6 +232,7 @@ export const feedData: IFeedPost[] = [
       Já o React puro, precisa montar a página em runtime, porém ele é muuito mais rápido para desenvolver, coisa que o Next com certeza não é, o hot reload do Next não é amigável.
     `.trim(),
     created_at: "2023-04-24T17:42:47.548Z",
+    importance: ["off_topic", "casual"],
   },
   {
     id: 84756473857435,
@@ -174,6 +240,7 @@ export const feedData: IFeedPost[] = [
       Assim que eu acabar meu portfólio, vou voltar a trabalhar no Auction App para resolver o problema de agendamento de ações, envio de notificações, e upload de arquivos para uma CDN, para assim finalizar a primeira versão daquele projeto.
     `.trim(),
     created_at: "2023-04-24T18:42:47.548Z",
+    importance: ["off_topic", "important"],
   },
 ]
 
