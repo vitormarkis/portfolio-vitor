@@ -6,15 +6,18 @@ import { ContactButtonHollow } from "../Contact/ContactButtonHollow"
 import { LinkedinSquare } from "@styled-icons/boxicons-logos/LinkedinSquare"
 import twc from "tailwindcss/colors"
 import { Gmail, Whatsapp } from "@styled-icons/simple-icons"
+import { useElementInView } from "@/hooks/useElementInView"
 
 interface IFooter extends React.ComponentProps<"footer"> {}
 
 export function Footer({ className, ...rest }: IFooter) {
   const _cn = ` ${className ?? ""}`
   const { projects } = useProjects({ sort: "importance", omit: ["casual"] })
+  const footerRef = React.useRef<HTMLDivElement>(null)
+  useElementInView({ ref: footerRef })
 
   return (
-    <footer className={"bg-black text-white border-t border-white" + _cn} {...rest}>
+    <footer ref={footerRef} className={"bg-black text-white border-t border-white" + _cn} {...rest}>
       <div className="w-full max-w-7xl px-6 mdx:px-12 mx-auto flex flex-col md:flex-row py-12 gap-12">
         <div className="flex-1">
           <h2 className="text-center font-thin tracking-wide text-lg">Navegue</h2>

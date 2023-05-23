@@ -1,5 +1,7 @@
 "use client"
 import { ImportanceChooser } from "@/components/BlogPageSection/ImportanceChooser"
+import { useElementInView } from "@/hooks/useElementInView"
+import { useFooterVisibility } from "@/state/toolbarVisibility"
 import React from "react"
 import ReactDOM from "react-dom"
 
@@ -8,6 +10,7 @@ interface IBlogToolbar extends React.ComponentProps<"div"> {}
 export function BlogToolbar({ className, ...rest }: IBlogToolbar) {
   const _cn = ` ${className ?? ""}`
   const [hasDocument, setHasDocument] = React.useState(false)
+  const { isFooterVisible } = useFooterVisibility()
 
   React.useEffect(() => {
     setHasDocument(true)
@@ -17,8 +20,9 @@ export function BlogToolbar({ className, ...rest }: IBlogToolbar) {
     ? ReactDOM.createPortal(
         <div
           className={
-            `flex justify-around items-center py-3 bg-white shadow-md fixed bottom-3 left-6 right-6 z-20 rounded-xl md:hidden`.trim() +
-            _cn
+            `justify-around items-center py-3 bg-white shadow-md fixed bottom-3 left-6 right-6 z-20 rounded-xl md:hidden ${
+              isFooterVisible ? "hidden" : "flex"
+            }` + _cn
           }
           {...rest}
         >

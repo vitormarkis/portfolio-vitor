@@ -1,13 +1,13 @@
 import { create } from "zustand"
 
-interface IUseToolbarVisibility {
-  isToolbarVisible: boolean
-  setToolbarVisibility: (newState: boolean) => void
-  toogleToolbarVisibility: () => void
+interface IUseFooterVisibility {
+  isFooterVisible: boolean
+  setFooterVisibility: (newState: boolean) => void
+  toogleFooterVisibility: () => void
 }
 
-export const useToolbarVisibility = create<IUseToolbarVisibility>((set, get) => ({
-  isToolbarVisible: false,
-  setToolbarVisibility: newState => set({ isToolbarVisible: newState }),
-  toogleToolbarVisibility: () => set({ isToolbarVisible: !get().isToolbarVisible }),
+export const useFooterVisibility = create<IUseFooterVisibility>((set, get) => ({
+  isFooterVisible: false,
+  setFooterVisibility: newState => set({ isFooterVisible: newState }),
+  toogleFooterVisibility: () => set({ isFooterVisible: !get().isFooterVisible }),
 }))
