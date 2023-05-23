@@ -54,6 +54,20 @@ export type IFeedPost = {
 
 export const feedData: IFeedPost[] = [
   {
+    id: 3847538947209374,
+    text: `
+      Implementei a funcionalidade de sumir a toolbar quando chega no fim da página do blog.
+
+      Pra isso eu primeiro criei um estado booleano que define se o footer ta visível. [#01]
+      
+      Pra isso eu usei Intersection Observer, onde eu registrei o footer da página nele, e quando ele está visível ele define o estado como true.
+
+      Agora no elemento da toolbar, eu seto display none quando o estado ser true, que é quando o footer está visível.
+    `.trim(),
+    created_at: "2023-05-23T21:04:24.849Z",
+    importance: ["implementation", "important"],
+  },
+  {
     id: 8957485854834985,
     text: `
     Eu vou adicionar uma funcionalidade de sumir o elemento flutuante da toolbar quando chegar no final da página. 
