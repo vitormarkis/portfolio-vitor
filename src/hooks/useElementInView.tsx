@@ -12,7 +12,6 @@ export function useElementInView({ ref }: IUseElementInView) {
     const observer = new IntersectionObserver(
       entries => {
         entries.forEach(entry => {
-          console.log("Visible")
           setFooterVisibility(entry.isIntersecting)
         })
       },

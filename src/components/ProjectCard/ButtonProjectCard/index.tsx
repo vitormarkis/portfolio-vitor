@@ -17,7 +17,6 @@ export const ButtonProjectCard = React.forwardRef<HTMLAnchorElement, IButtonProj
 
     const handleClick = () => {
       if (elementRef && elementRef.current && typeof window !== "undefined") {
-        console.log("disparou o set, rodou no client")
         sessionStorage.setItem("userVerticalPosition", JSON.stringify({ top: elementRef.current.scrollTop }))
       }
     }

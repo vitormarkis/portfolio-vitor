@@ -25,8 +25,6 @@ export const CheckboxComponent: React.FC<ICheckboxComponent> = ({
     seeingTags.includes(tag) && !isChecked ? removeTag(tag) : addTag(tag)
   }
 
-  console.log(seeingTags)
-
   return (
     <div className={"flex items-center" + _cn} {...rest}>
       <Checkbox.Root
