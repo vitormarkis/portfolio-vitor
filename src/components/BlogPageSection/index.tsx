@@ -1,12 +1,16 @@
 "use client"
-import { useFeed } from "@/data/feed"
+import { tags, useFeed } from "@/data/feed"
 import { formatStringToDOM } from "@/helpers"
 import moment from "moment"
 import Link from "next/link"
-import React from "react"
+import React, { CSSProperties } from "react"
+moment.locale("pt-br")
+import twc from "tailwindcss/colors"
+import st from "@/components/BlogPageSection/ImportanceChooser/styles.module.css"
 
 import { useBlogFeed } from "@/state/blogFeed"
 import { useRootContainer } from "@/state/rootContainer"
+import { DefaultColors } from "tailwindcss/types/generated/colors"
 
 interface IBlogPageSection extends React.ComponentProps<"div"> {}
 
@@ -30,9 +34,31 @@ export function BlogPageSection({ className, ...rest }: IBlogPageSection) {
         {feed.map(post => (
           <article
             key={post.id}
-            className="pb-8 mt-8 overflow-hidden last-of-type:border-b-0 border-b md:border-b border-neutral-600 md:border-zinc-500"
+            className="pb-8 mt-8 overflow-hidden last-of-type:border-b-0 border-b md:border-b border-neutral-300"
           >
             <div className={`md:px-6 text-zinc-500 ${post.refs ? "pb-6" : ""}`}>
+              <div>
+                <div className="flex gap-2 flex-wrap text-xs mb-2">
+                  {post.importance.map(tag => {
+                    const foundTag = tags.importances.find(imp => imp.importance === tag)
+                    if (!foundTag) return null
+                    const { color, title } = foundTag
+                    return (
+                      <p
+                        className={`leading-none py-1 px-2 rounded-md ${st.colorful}`}
+                        style={
+                          {
+                            "--color": twc[color]["500"],
+                            "--bg-color": twc[color]["100"],
+                          } as CSSProperties
+                        }
+                      >
+                        {title}
+                      </p>
+                    )
+                  })}
+                </div>
+              </div>
               <div className="flex flex-col md:flex-row">
                 <h2 className="text-lg font-semibold text-zinc-800">{post.title}</h2>
                 <div className="flex items-center self-end">

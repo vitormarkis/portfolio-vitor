@@ -1,9 +1,12 @@
+import { DefaultColors } from "tailwindcss/types/generated/colors"
+
 type TImportance = "important" | "casual" | "issue" | "implementation" | "willing_to_do" | "off_topic" | "discover"
 
 type TTags = {
   importances: Array<{
     importance: TImportance
     title: string
+    color: keyof DefaultColors
   }>
 }
 
@@ -12,30 +15,37 @@ export const tags: TTags = {
     {
       importance: "important",
       title: "Importante",
+      color: "red",
     },
     {
       importance: "casual",
       title: "Casual",
+      color: "blue",
     },
     {
       importance: "implementation",
       title: "Implementação",
+      color: "green",
     },
     {
       importance: "issue",
       title: "Problema",
+      color: "fuchsia",
     },
     {
       importance: "willing_to_do",
       title: "Querendo fazer",
+      color: "indigo",
     },
     {
       importance: "off_topic",
       title: "Off topic",
+      color: "amber",
     },
     {
       importance: "discover",
       title: "Aprendizado",
+      color: "sky",
     },
   ],
 }
@@ -274,7 +284,7 @@ export const feedData: IFeedPost[] = [
 
       Talvez seja algum problema relacionando a má configuração.
     `.trim(),
-    created_at: "2024-04-28T22:15:52.149Z",
+    created_at: "2023-04-28T17:42:47.548Z",
     importance: ["issue", "casual"],
   },
   {
