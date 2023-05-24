@@ -27,13 +27,13 @@ export function FeedPost({ post, className, ...rest }: Props) {
         </p>
       ))}
       {post.refs ? (
-        <div className="flex flex-wrap gap-2 text-sm bg-neutral-200 p-2 rounded-xl">
+        <div className="flex flex-wrap gap-2 text-sm bg-neutral-200 py-2 px-2 rounded-xl">
           {post.refs.map(ref => (
             <Link
               target="_blank"
               key={ref.id}
               href={ref.url}
-              className="outline-accent px-3 py-1.5 rounded-lg bg-white text-blue-500 underline visited:text-indigo-600"
+              className="outline-accent px-3 py-1.5 rounded-lg bg-white text-sky-500 underline visited:text-indigo-600"
             >
               {ref.title}
             </Link>
