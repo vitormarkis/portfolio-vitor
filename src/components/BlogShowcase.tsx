@@ -4,6 +4,7 @@ import { useFeed } from "@/data/feed"
 import { HTMLAttributes } from "react"
 import Button from "./Button"
 import { FeedPost } from "./FeedPost"
+import Link from "next/link"
 
 interface Props extends HTMLAttributes<HTMLDivElement> {}
 
@@ -17,8 +18,7 @@ export function BlogShowcase({ className, ...rest }: Props) {
           O que eu estive fazendo...
         </h2>
         <p className="text-neutral-400 max-w-[17rem] mx-auto text-center text-xs">
-          Acompanhe os meus desafios, o que eu venho estudando, o meu progresso
-          e muito mais.
+          Acompanhe os meus desafios, o que eu venho estudando, o meu progresso e muito mais.
         </p>
       </div>
       <div className="relative w-fit mx-auto">
@@ -30,11 +30,13 @@ export function BlogShowcase({ className, ...rest }: Props) {
             <FeedPost key={post.id} post={post} />
           ))}
           <div className="absolute inset-0 top-[70%] bg-gradient-to-b from-transparent to-zinc-800">
-            <Button
-              text="Ver tudo"
-              className="absolute outline-raw focus:outline-black bottom-9 left-1/2 -translate-x-1/2"
-              backgroundColor="neon"
-            />
+            <Link href="/blog">
+              <Button
+                text="Ver tudo"
+                className="absolute outline-raw focus:outline-black bottom-9 left-1/2 -translate-x-1/2"
+                backgroundColor="neon"
+              />
+            </Link>
           </div>
         </div>
       </div>

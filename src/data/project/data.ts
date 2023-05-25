@@ -83,7 +83,7 @@ export const projectsData: IProjectLink[] = [
     Sistema de notificações em tempo real e persistida no banco de dados, autenticação JWT, e agendamento de tarefas (ações que acontecem no servidor de forma automática). 
     `,
     short_description: `
-    Notifiações em tempo real e agendamento de tarefas. 
+    Notificações em tempo real e agendamento de tarefas. 
     `,
     importance: "casual",
     technologies: ["EXPRESS", "MYSQL", "PRISMA", "REACT", "TAILWINDCSS"],

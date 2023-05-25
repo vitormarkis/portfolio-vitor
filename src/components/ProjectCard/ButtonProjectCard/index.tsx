@@ -22,7 +22,7 @@ export const ButtonProjectCard = React.forwardRef<HTMLAnchorElement, IButtonProj
     }
 
     return (
-      <Link href={url} ref={ref} target={target} scroll={false} onClick={handleClick}>
+      <Link href={url} ref={ref} target={target} scroll={false} onClick={handleClick} className="flex">
         <button
           className={`outline-accent rounded-full px-8 py-2 text-sm shadow-md inline-block ${className ?? ""} ${
             filled

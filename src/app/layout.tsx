@@ -1,7 +1,7 @@
 import { Header } from "@/components/Header"
 import { inter, josefins_sans, roboto, jetbrains } from "@/fonts"
 import { Metadata } from "next"
-import "../globals.css"
+import "./globals.css"
 import { LayoutContainer } from "@/app/(session)/layout_client"
 
 export const metadata: Metadata = {
