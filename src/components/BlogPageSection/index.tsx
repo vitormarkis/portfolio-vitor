@@ -75,13 +75,13 @@ export function BlogPageSection({ className, ...rest }: IBlogPageSection) {
               ))}
             </div>
             {post.refs ? (
-              <div className="bg-zinc-100 flex flex-col gap-3 py-6 md:px-6">
+              <div className="bg-zinc-100 flex flex-col gap-3 md:py-6 md:px-6">
                 {post.refs.map(ref => (
                   <Link
                     key={ref.id}
                     target="_blank"
                     href={ref.url}
-                    className="outline-accent px-4 py-2 md:rounded-lg bg-white text-sky-500"
+                    className="outline-accent px-4 py-2 rounded-lg bg-white text-sky-500"
                   >
                     {ref.title}
                   </Link>

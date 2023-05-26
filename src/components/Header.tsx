@@ -38,7 +38,7 @@ export function Header({ className, ...rest }: Props) {
           <Logo width="11rem" className="w-[9rem] mdx:w-[11rem]" />
         </div>
         <nav className="basis-0 grow hidden mdx:flex text-zinc-700 justify-center">
-          <ul className="flex text-sm min-w-0 ">
+          <ul className="flex text-sm min-w-0 gap-[3px]">
             <HeaderNavLink project={{ name: "Blog" } as IProjectLink} href="/blog" />
             {projects.slice(0, 3).map(project => (
               <HeaderNavLink key={project.id} project={project} />

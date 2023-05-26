@@ -13,8 +13,8 @@ interface Props extends HTMLAttributes<HTMLDivElement> {}
 
 export function Hero({ className, ...rest }: Props) {
   return (
-    <CenteredContainer>
-      <section className={`mt-[5vw] flex px-6 mdx:px-12 flex-col items-center justify-center ${className}`} {...rest}>
+    <CenteredContainer className="min-h-[calc(100dvh_-_80px)]">
+      <section className={`mt-[12vh] flex px-6 mdx:px-12 flex-col items-center justify-center ${className}`} {...rest}>
         <div className={`relative  flex items-center ${montserrat.className}`}>
           <div className="gradient gr alpha hero-01" />
           <div className="gradient gr bravo hero-02" />
