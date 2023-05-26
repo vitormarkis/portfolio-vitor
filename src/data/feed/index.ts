@@ -1,6 +1,6 @@
 import { DefaultColors } from "tailwindcss/types/generated/colors"
 
-type TImportance = "important" | "casual" | "issue" | "implementation" | "willing_to_do" | "off_topic" | "discover"
+export type TImportance = "important" | "casual" | "issue" | "implementation" | "willing_to_do" | "off_topic" | "discover"
 
 type TTags = {
   importances: Array<{

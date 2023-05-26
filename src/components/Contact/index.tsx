@@ -29,7 +29,7 @@ export function Contact({ className, ...rest }: Props) {
                 width={24}
                 className="absolute top-1/2 -translate-y-1/2 left-3 group-hover:text-green-500 transition-all duration-300"
               />
-              <span className="relative z-10 group-hover:font-medium group-hover:text-green-500 transition-all duration-300">
+              <span className="ml-8 relative z-10 group-hover:font-medium group-hover:text-green-500 transition-all duration-300">
                 51 98258-2396
               </span>
             </ContactButtonHollow>
@@ -44,7 +44,7 @@ export function Contact({ className, ...rest }: Props) {
                 width={24}
                 className="absolute top-1/2 -translate-y-1/2 left-3 group-hover:text-blue-500 transition-all duration-300"
               />
-              <span className="relative z-10 group-hover:font-medium group-hover:text-blue-500 transition-all duration-300">
+              <span className="ml-8 relative z-10 group-hover:font-medium group-hover:text-blue-500 transition-all duration-300">
                 Linked In
               </span>
             </ContactButtonHollow>
@@ -59,7 +59,7 @@ export function Contact({ className, ...rest }: Props) {
                 width={24}
                 className="absolute top-1/2 -translate-y-1/2 left-3 group-hover:text-red-500 transition-all duration-300"
               />
-              <span className="relative z-10 group-hover:font-medium group-hover:text-red-500 transition-all duration-300">
+              <span className="ml-8 relative z-10 group-hover:font-medium group-hover:text-red-500 transition-all duration-300">
                 vitormarkis2369@gmail.com
               </span>
             </ContactButtonHollow>
