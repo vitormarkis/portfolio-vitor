@@ -4,15 +4,16 @@ import { useRootContainer } from "@/state/rootContainer"
 import Link from "next/link"
 import React, { HTMLAttributes } from "react"
 
-interface IButtonProjectCard extends HTMLAttributes<HTMLButtonElement> {
+interface IButtonProjectCard extends HTMLAttributes<HTMLAnchorElement> {
+  children?: React.ReactNode | undefined
   url: string
-  text: string
+  text?: string | undefined
   filled?: boolean
   target?: React.HTMLAttributeAnchorTarget | undefined
 }
 
 export const ButtonProjectCard = React.forwardRef<HTMLAnchorElement, IButtonProjectCard>(
-  ({ className, url, text, filled, target, ...rest }, ref) => {
+  ({ children, className, url, text, filled, target, ...rest }, ref) => {
     const { elementRef } = useRootContainer()
 
     const handleClick = () => {
@@ -22,17 +23,20 @@ export const ButtonProjectCard = React.forwardRef<HTMLAnchorElement, IButtonProj
     }
 
     return (
-      <Link href={url} ref={ref} target={target} scroll={false} onClick={handleClick} className="flex">
-        <button
-          className={`outline-accent rounded-full px-8 py-2 text-sm shadow-md inline-block ${className ?? ""} ${
-            filled
-              ? "bg-black text-white border-t-blue-500 border-y border-b-red-500"
-              : "border border-slate-700 text-slate-700"
-          }`}
-          {...rest}
-        >
-          {text}
-        </button>
+      <Link
+        href={url}
+        ref={ref}
+        target={target}
+        scroll={false}
+        onClick={handleClick}
+        className={`grid place-items-center outline-accent rounded-full py-2 text-sm shadow-md ${className ?? ""} ${
+          filled
+            ? "bg-black text-white border-t-blue-500 border-y border-b-red-500"
+            : "border border-slate-700 text-slate-700"
+        }`}
+        {...rest}
+      >
+        {children ?? text}
       </Link>
     )
   }

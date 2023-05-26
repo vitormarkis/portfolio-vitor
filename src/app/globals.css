@@ -148,6 +148,11 @@
   @apply focus:outline-1 focus:outline-double focus:outline-offset-2
 }
 
+.offset-icon-y {
+  top: 50%;
+  transform: translateY(-50%); 
+}
+
 @media (max-width: 640px) {
   .gr {
     filter: blur(4rem);
