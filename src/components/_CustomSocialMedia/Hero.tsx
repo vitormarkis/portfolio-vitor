@@ -45,7 +45,7 @@ export function Hero({ className, ...rest }: Props) {
           </div>
         </div>
         <div className="flex flex-col gap-3 md:flex-row justify-between w-fit max-w-sm mx-auto items-center">
-          <ButtonProjectCard text="Abrir projeto" url={project.url} filled target="_blank" />
+          <ButtonProjectCard text="Abrir projeto" url={project.url} filled target="_blank" className="px-4" />
         </div>
       </CenteredContainer>
     </div>

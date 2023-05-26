@@ -40,9 +40,14 @@ export function Projects({ className, ...rest }: Props) {
             ))}
         </div>
         <div className="flex justify-center mt-6">
-          <Link href="/projects" onClick={handleSeeAllProjects}>
-            <Button text="Ver todos" className="outline-accent mx-auto" fontSize="base" backgroundColor="luminescent" />
-          </Link>
+          <Button
+            href="/projects"
+            onClick={handleSeeAllProjects}
+            text="Ver todos"
+            className="outline-accent mx-auto px-4"
+            fontSize="base"
+            backgroundColor="luminescent"
+          />
         </div>
       </CenteredContainer>
     </div>
@@ -78,7 +83,7 @@ export function ProjectHome({ className, project, size, ...rest }: IProjectHome)
           <div className="p-3 flex flex-col grow">
             <h3 className="font-bold text-slate-700 text-lg">{project.name}</h3>
             <p className="text-neutral-500 text-sm mb-3">{project.short_description}</p>
-            <div className="flex justify-between mt-auto">
+            <div className="flex justify-between mt-auto gap-3">
               <div className="flex items-center gap-2">
                 {project.technologies.map(tech => (
                   <IconTechnology key={tech} icon={tech} width={18} height={18} color={twc.neutral["500"]} />

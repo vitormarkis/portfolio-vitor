@@ -44,7 +44,7 @@ export function BuildingProjectPlaceholder({ className, ...rest }: IBuildingProj
             Mas o projeto está no ar para você ver! Clique em <strong>Abrir projeto</strong> para visualizar o projeto
           </p>
           <div className="flex justify-center mb-8">
-            <ButtonProjectCard text="Abrir projeto" url={project.url} filled target="_blank" />
+            <ButtonProjectCard text="Abrir projeto" url={project.url} filled target="_blank" className="px-4" />
           </div>
         </div>
       ) : null}
