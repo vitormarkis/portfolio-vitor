@@ -38,8 +38,8 @@ export function Feed({ className, ...rest }: IFeed) {
       </div>
       <div className="mt-3 whitespace-normal">
         <p>
-          Sinuca Charme 2,20 X 1,20 estrutura em MDF laqueado, com campo de jogo em Pedra de Ardósia de 20mm revestido
-          com tecido acrílico, o que proporciona estabilidade e alta qualidade no nivelamento
+          Sinuca Charme, estrutura em MDF laqueado, com campo de jogo em Pedra de Ardósia de 20mm revestido com tecido
+          acrílico, o que proporciona estabilidade e alta qualidade no nivelamento
         </p>
       </div>
       <div className="mt-3 rounded-lg flex flex-col border border-black overflow-hidden cursor-pointer">

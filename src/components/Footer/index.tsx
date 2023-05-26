@@ -57,16 +57,44 @@ export function Footer({ className, ...rest }: IFooter) {
             <li>
               <Link
                 className="w-full h-full"
+                href="https://wa.me/5551982582396"
+                target="_blank"
+                passHref
+                legacyBehavior
+              >
+                <ContactButtonHollow
+                  noBorder
+                  className="p-3 outline-raw focus:outline-white transition-colors duration-300"
+                  color={twc.white}
+                >
+                  <div className="inset-[-1px] bg-gradient-to-tr from-violet-800 via-black to-fuchsia-500 absolute rounded-[9px]" />
+                  <div className="inset-0 bg-black absolute rounded-[10px]" />
+                  <Whatsapp
+                    height={20}
+                    width={20}
+                    className="absolute top-1/2 -translate-y-1/2 left-3 group-hover:text-green-500 transition-all duration-300"
+                  />
+                  <ButtonText>51 98258-2396</ButtonText>
+                </ContactButtonHollow>
+              </Link>
+            </li>
+            <li>
+              <Link
+                className="w-full h-full"
                 href="https://www.linkedin.com/in/vitor-markis-524945265/"
                 target="_blank"
                 passHref
                 legacyBehavior
               >
-                <ContactButtonHollow noBorder color={twc.white}>
+                <ContactButtonHollow
+                  noBorder
+                  className="p-3 outline-raw focus:outline-white transition-colors duration-300"
+                  color={twc.white}
+                >
                   <div className="inset-[-1px] bg-gradient-to-tr from-violet-800 via-black to-fuchsia-500 absolute rounded-[9px]" />
                   <div className="inset-0 bg-black absolute rounded-[10px]" />
                   <LinkedinSquare height={24} width={24} className="absolute top-1/2 -translate-y-1/2 left-3" />
-                  <span className="relative z-10">Linked In</span>
+                  <ButtonText>Linked In</ButtonText>
                 </ContactButtonHollow>
               </Link>
             </li>
@@ -78,7 +106,11 @@ export function Footer({ className, ...rest }: IFooter) {
                 passHref
                 legacyBehavior
               >
-                <ContactButtonHollow noBorder color={twc.white}>
+                <ContactButtonHollow
+                  noBorder
+                  className="p-3 outline-raw focus:outline-white transition-colors duration-300"
+                  color={twc.white}
+                >
                   <div className="inset-[-1px] bg-gradient-to-tr from-violet-800 via-black to-fuchsia-500 absolute rounded-[9px]" />
                   <div className="inset-0 bg-black absolute rounded-[10px]" />
                   <Gmail
@@ -86,27 +118,7 @@ export function Footer({ className, ...rest }: IFooter) {
                     width={18}
                     className="absolute top-1/2 -translate-y-1/2 left-3 group-hover:text-red-500 transition-all duration-300"
                   />
-                  <span className="relative z-10">vitormarkis2369@gmail.com</span>
-                </ContactButtonHollow>
-              </Link>
-            </li>
-            <li>
-              <Link
-                className="w-full h-full"
-                href="https://wa.me/5551982582396"
-                target="_blank"
-                passHref
-                legacyBehavior
-              >
-                <ContactButtonHollow noBorder color={twc.white}>
-                  <div className="inset-[-1px] bg-gradient-to-tr from-violet-800 via-black to-fuchsia-500 absolute rounded-[9px]" />
-                  <div className="inset-0 bg-black absolute rounded-[10px]" />
-                  <Whatsapp
-                    height={20}
-                    width={20}
-                    className="absolute top-1/2 -translate-y-1/2 left-3 group-hover:text-green-500 transition-all duration-300"
-                  />
-                  <span className="relative z-10">51 98258-2396</span>
+                  <ButtonText>vitormarkis2369@gmail.com</ButtonText>
                 </ContactButtonHollow>
               </Link>
             </li>
@@ -114,5 +126,19 @@ export function Footer({ className, ...rest }: IFooter) {
         </div>
       </div>
     </footer>
+  )
+}
+
+interface IButtonText extends React.ComponentProps<"span"> {
+  children: React.ReactNode
+}
+
+export const ButtonText: React.FC<IButtonText> = ({ children, className, ...rest }) => {
+  const _cn = ` ${className ?? ""}`
+
+  return (
+    <span className={"relative z-10 ml-8" + _cn} {...rest}>
+      {children}
+    </span>
   )
 }
