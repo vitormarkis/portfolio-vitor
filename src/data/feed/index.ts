@@ -1,6 +1,13 @@
 import { DefaultColors } from "tailwindcss/types/generated/colors"
 
-export type TImportance = "important" | "casual" | "issue" | "implementation" | "willing_to_do" | "off_topic" | "discover"
+export type TImportance =
+  | "important"
+  | "casual"
+  | "issue"
+  | "implementation"
+  | "willing_to_do"
+  | "off_topic"
+  | "discover"
 
 type TTags = {
   importances: Array<{
@@ -64,6 +71,39 @@ export type IFeedPost = {
 }
 
 export const feedData: IFeedPost[] = [
+  {
+    id: 2635243498584344,
+    title: "Botão de Contact na Header em outras páginas",
+    text: `
+      Agora na Home, o botão de contact na header ta funcionando, mas ele não funciona em outras páginas.
+
+      Eu vou fazer com que caso ele não esteja na home, ele mude de página e então de o foco. Por agora eu tenho ideia de como vou implementar, mas a sequencia de trocar de página e então scrollar que é algo que vou aprender, talvez com promises? Espero que seja.
+    `.trim(),
+    created_at: "2023-05-26T08:59:25.349Z",
+    importance: ["willing_to_do", "issue"],
+  },
+  {
+    id: 3456345739233906,
+    title: "Rolar para seção de Contato",
+    text: `
+      Agora o botão de contato no header, finalmente desce até a seção de contato.
+      
+      Pra isso, eu criei um estado que armazena e define a referência da div Contato.
+
+      No componente Contact, eu registro essa ref nos estados usando useEffect.
+
+      E quando eu clico no botão de contact no header, eu uso o scrollIntoView pra descer até a seção de Contato. [#1]
+    `.trim(),
+    created_at: "2023-05-26T08:51:42.642Z",
+    importance: ["implementation", "casual"],
+    refs: [
+      {
+        id: "in3840t83j",
+        title: "[commit #1] scroll to contact now",
+        url: "https://github.com/vitormarkis/portfolio-vitor/commit/35ff48988e92862178ffaebde1794afc7eaee498",
+      },
+    ],
+  },
   {
     id: 3847538947209374,
     title: "Toolbar agora some quando chegar no final da página",

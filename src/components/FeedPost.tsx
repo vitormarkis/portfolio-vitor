@@ -22,8 +22,10 @@ export function FeedPost({ post, className, ...rest }: Props) {
           <PostTag tag={tag} />
         ))}
       </div>
-      <div className="flex text-xs items-center mb-1 text-zinc-400">
-        <span className="italic">{moment(post.created_at).locale("pt-br").fromNow()}</span>
+      <div className="flex items-center mb-1 text-zinc-400">
+        <h2 className="font-medium text-zinc-600">{post.title}</h2>
+        <span className="block mx-2">{" - "}</span>
+        <span className="italic text-xs">{moment(post.created_at).locale("pt-br").fromNow()}</span>
       </div>
       {formatStringToDOM(post.text).map((text, i) => (
         <p key={`${text}-${i}`} className="mb-2 text-sm text-zinc-500">
