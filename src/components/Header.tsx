@@ -8,14 +8,20 @@ import { MobileSidebar } from "./MobileSidebar"
 import { Logo } from "./Logo"
 import Link from "next/link"
 import React from "react"
+import { useElementRefs } from "@/state/useElementRefs"
 
 interface Props extends HTMLAttributes<HTMLDivElement> {}
 
 export function Header({ className, ...rest }: Props) {
+  const { contactRef } = useElementRefs()
   const { projects } = useProjects({ sort: "importance" })
 
   const handleSeeAllProjects = () => {
     sessionStorage.setItem("userVerticalPosition", JSON.stringify({ top: 0 }))
+  }
+
+  const handleSeeContact = () => {
+    contactRef?.current?.scrollIntoView({ behavior: "smooth" })
   }
 
   return (
@@ -45,13 +51,12 @@ export function Header({ className, ...rest }: Props) {
           </ul>
         </nav>
         <div className="basis-0 grow mdx:basis-auto flex justify-end">
-          <Link
-            href="#contact"
-            scroll={false}
+          <button
+            onClick={handleSeeContact}
             className="outline-accent p-2 inline-block leading-none hover:bg-texas-100 rounded-lg cursor-pointer"
           >
             <User weight="bold" color={twc.zinc["800"]} width={18} height={18} />
-          </Link>
+          </button>
         </div>
       </div>
     </header>

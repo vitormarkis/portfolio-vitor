@@ -9,14 +9,14 @@ import twc from "tailwindcss/colors"
 import st from "@/components/BlogPageSection/ImportanceChooser/styles.module.css"
 
 import { useBlogFeed } from "@/state/blogFeed"
-import { useRootContainer } from "@/state/rootContainer"
+import { useElementRefs } from "@/state/useElementRefs"
 import { DefaultColors } from "tailwindcss/types/generated/colors"
 
 interface IBlogPageSection extends React.ComponentProps<"div"> {}
 
 export function BlogPageSection({ className, ...rest }: IBlogPageSection) {
   const _cn = ` ${className ?? ""}`
-  const { elementRef } = useRootContainer()
+  const { rootRef: elementRef } = useElementRefs()
   const { feed: rawFeed } = useFeed()
   const { seeingTags } = useBlogFeed()
   const filteredFeed = rawFeed.filter(post => post.importance.some(i => seeingTags.includes(i)))

@@ -2,7 +2,7 @@
 
 import { Footer } from "@/components/Footer"
 import { Header } from "@/components/Header"
-import { useRootContainer } from "@/state/rootContainer"
+import { useElementRefs } from "@/state/useElementRefs"
 import React from "react"
 
 interface ILayoutContainer extends React.ComponentProps<"div"> {
@@ -12,7 +12,7 @@ interface ILayoutContainer extends React.ComponentProps<"div"> {
 export function LayoutContainer({ children, className, ...rest }: ILayoutContainer) {
   const _cn = ` ${className ?? ""}`
   const ref = React.useRef<HTMLDivElement>(null)
-  const { setElementRef } = useRootContainer()
+  const { setRootRef: setElementRef } = useElementRefs()
 
   React.useEffect(() => {
     if (ref.current) setElementRef(ref)

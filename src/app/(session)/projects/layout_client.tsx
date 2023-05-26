@@ -1,5 +1,5 @@
 "use client"
-import { useRootContainer } from "@/state/rootContainer"
+import { useElementRefs } from "@/state/useElementRefs"
 import { usePathname } from "next/navigation"
 import React from "react"
 
@@ -8,7 +8,7 @@ interface IProjectsLayoutClient {
 }
 
 export default function ProjectsLayoutClient({ children }: IProjectsLayoutClient) {
-  const { elementRef } = useRootContainer()
+  const { rootRef: elementRef } = useElementRefs()
   const pathname = usePathname()
 
   React.useEffect(() => {

@@ -1,6 +1,6 @@
 "use client"
 
-import { useRootContainer } from "@/state/rootContainer"
+import { useElementRefs } from "@/state/useElementRefs"
 import Link from "next/link"
 import React, { HTMLAttributes } from "react"
 
@@ -14,7 +14,7 @@ interface IButtonProjectCard extends HTMLAttributes<HTMLAnchorElement> {
 
 export const ButtonProjectCard = React.forwardRef<HTMLAnchorElement, IButtonProjectCard>(
   ({ children, className, url, text, filled, target, ...rest }, ref) => {
-    const { elementRef } = useRootContainer()
+    const { rootRef: elementRef } = useElementRefs()
 
     const handleClick = () => {
       if (elementRef && elementRef.current && typeof window !== "undefined") {
