@@ -5,15 +5,17 @@ import React from "react"
 import { createPortal } from "react-dom"
 import twc from "tailwindcss/colors"
 
-interface IGoToTopButton extends React.ComponentProps<"button"> {}
+interface IGoToTopButton extends React.ComponentProps<"button"> {
+  visiblePosition?: number | undefined
+}
 
-export function GoToTopButton({ className, ...rest }: IGoToTopButton) {
+export function GoToTopButton({ visiblePosition, className, ...rest }: IGoToTopButton) {
   const _cn = ` ${className ?? ""}`
   const { rootRef } = useElementRefs()
   const [has, setHas] = React.useState(false)
   const { scrollPosition } = useElementScrollPosition({ ref: rootRef })
 
-  const isVisible = scrollPosition > 680
+  const isVisible = visiblePosition ? scrollPosition > visiblePosition : scrollPosition > 680
 
   const handleGoToTopClick = () => {
     if (rootRef && rootRef.current) {

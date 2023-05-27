@@ -10,27 +10,28 @@ import st from "@/components/BlogPageSection/ImportanceChooser/styles.module.css
 
 import { useBlogFeed } from "@/state/blogFeed"
 import { useElementRefs } from "@/state/useElementRefs"
-import { DefaultColors } from "tailwindcss/types/generated/colors"
+import { CheckboxComponent } from "@/components/CheckboxComponent"
 
 interface IBlogPageSection extends React.ComponentProps<"div"> {}
 
 export function BlogPageSection({ className, ...rest }: IBlogPageSection) {
   const _cn = ` ${className ?? ""}`
-  const { rootRef: elementRef } = useElementRefs()
+  const { rootRef } = useElementRefs()
   const { feed: rawFeed } = useFeed()
   const { seeingTags } = useBlogFeed()
   const filteredFeed = rawFeed.filter(post => post.importance.some(i => seeingTags.includes(i)))
   const feed = seeingTags.length ? filteredFeed : rawFeed
 
   React.useEffect(() => {
-    if (elementRef?.current) {
-      elementRef.current.scrollTo({ top: 80 })
+    if (rootRef?.current && rootRef.current.scrollTop > 80) {
+      rootRef.current.scrollTo({ top: 80 })
     }
   }, [feed])
 
   return (
-    <div className={"self-center max-w-2xl" + _cn} {...rest}>
-      <div className="flex flex-col">
+    <div className={"self-center flex w-full justify-center" + _cn} {...rest}>
+      <SidebarContainer></SidebarContainer>
+      <div className="flex flex-col max-w-2xl grow shrink">
         {feed.map(post => (
           <article
             key={post.id}
@@ -91,6 +92,31 @@ export function BlogPageSection({ className, ...rest }: IBlogPageSection) {
           </article>
         ))}
       </div>
+      <SidebarContainer className="px-6">
+        <h2 className="font-medium text-center mb-6">Filtro</h2>
+        <div className="flex flex-col gap-3">
+          {tags.importances.map(tag => (
+            <CheckboxComponent key={tag.importance} label={tag.title} tag={tag.importance} theme="dark" />
+          ))}
+        </div>
+      </SidebarContainer>
     </div>
+  )
+}
+
+/**
+ * Sidebar Container
+ */
+interface ISidebarContainer extends React.ComponentProps<"aside"> {
+  children?: React.ReactNode | undefined
+}
+
+export function SidebarContainer({ children, className, ...rest }: ISidebarContainer) {
+  const _cn = ` ${className ?? ""}`
+
+  return (
+    <aside className={"basis-[15rem] shrink-[99999] border-x border-neutral-500" + _cn} {...rest}>
+      {children ?? null}
+    </aside>
   )
 }

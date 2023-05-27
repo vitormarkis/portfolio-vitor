@@ -4,6 +4,8 @@ import React from "react"
 import * as Checkbox from "@radix-ui/react-checkbox"
 import clsx from "clsx"
 import { useBlogFeed } from "@/state/blogFeed"
+import chroma from "chroma-js"
+import twc from "tailwindcss/colors"
 
 interface ICheckboxComponent extends React.ComponentProps<"div"> {
   label: string
@@ -31,8 +33,8 @@ export const CheckboxComponent: React.FC<ICheckboxComponent> = ({
         className={clsx(
           "outline-accent h-[25px] w-[25px] appearance-none grid place-items-center rounded-lg outline-none transition-all duration-150",
           {
-            "hover:bg-neutral-200 bg-zinc-100 border-y border-t-gray-200 border-b-neutral-200": theme === "light",
-            "hover:bg-neutral-800 bg-neutral-700 border-y border-t-gray-800 border-b-neutral-800": theme === "dark",
+            "hover:bg-neutral-100 bg-zinc-100 border-y border-t-gray-200 border-b-neutral-200": theme === "light",
+            "hover:bg-neutral-300 bg-zinc-300 border-y border-t-gray-400 border-b-neutral-400": theme === "dark",
           }
         )}
         checked={seeingTags.includes(tagName)}
@@ -40,7 +42,7 @@ export const CheckboxComponent: React.FC<ICheckboxComponent> = ({
       >
         <Checkbox.Indicator
           className={clsx({
-            "text-white": theme === "dark",
+            "text-neutral-800": theme === "dark",
             "text-neutral-700": theme === "light",
           })}
         >
@@ -73,7 +75,7 @@ export const CheckboxComponent: React.FC<ICheckboxComponent> = ({
       </Checkbox.Root>
       <label
         className={clsx("pl-4 leading-none", {
-          "text-white": theme === "dark",
+          "text-neutral-500": theme === "dark",
           "text-neutral-600": theme === "light",
         })}
       >
