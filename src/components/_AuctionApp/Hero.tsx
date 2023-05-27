@@ -52,8 +52,12 @@ export function Hero({ className, ...rest }: Props) {
           </div>
         </div>
         <div className="flex flex-col gap-3 md:flex-row justify-between w-full max-w-sm mx-auto items-center">
-          <ButtonProjectCard text="Abrir projeto" url={project.url} filled target="_blank" className="px-4" />
-          <ButtonProjectCard text="Repositório" url={project.repo_url} target="_blank" className="px-4" />
+          {project.url ? (
+            <ButtonProjectCard text="Abrir projeto" url={project.url} filled target="_blank" className="px-4" />
+          ) : null}
+          {project.repo_url ? (
+            <ButtonProjectCard text="Repositório" url={project.repo_url} target="_blank" className="px-4" />
+          ) : null}
         </div>
       </CenteredContainer>
     </div>
