@@ -72,6 +72,17 @@ export type IFeedPost = {
 
 export const feedData: IFeedPost[] = [
   {
+    id: 6349856394659372,
+    title: "Estou finalizando meu portfólio",
+    text: `
+      Acredito que finalizando o blog agora, o portfólio vai finalmente ficar pronto, graças a Deus, esse projetinho tomou muito tempo, to com saudades de implementar uma lógica, mexer com API, com banco de dados...
+
+      Quero voltar pro Auction App!! 🥶🥶
+    `.trim(),
+    created_at: "2023-05-28T10:42:03.505Z",
+    importance: ["casual", "off_topic"],
+  },
+  {
     id: 2635243498584344,
     title: "Botão de Contact na Header em outras páginas",
     text: `

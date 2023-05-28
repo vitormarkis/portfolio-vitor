@@ -12,6 +12,7 @@ import { useBlogFeed } from "@/state/blogFeed"
 import { useElementRefs } from "@/state/useElementRefs"
 import { CheckboxComponent } from "@/components/CheckboxComponent"
 import { MagnifyingIcon } from "@/components/MagnifyingIcon"
+import { XIcon } from "@/components/XIcon"
 
 interface IBlogPageSection extends React.ComponentProps<"div"> {}
 
@@ -20,19 +21,19 @@ export function BlogPageSection({ className, ...rest }: IBlogPageSection) {
   const { rootRef } = useElementRefs()
   const { feed: rawFeed } = useFeed()
   const { seeingTags, searchInput } = useBlogFeed()
+  const isSearching = searchInput.length > 0
   const filteredFeed = React.useMemo(
     () => rawFeed.filter(post => post.importance.some(i => seeingTags.includes(i))),
     [seeingTags]
   )
   const feedImportance = seeingTags.length ? filteredFeed : rawFeed
-  const feed =
-    searchInput.length === 0
-      ? feedImportance
-      : feedImportance.filter(
-          post =>
-            post.title.toLowerCase().includes(searchInput.toLowerCase()) ||
-            post.text.toLowerCase().includes(searchInput.toLowerCase())
-        )
+  const feed = isSearching
+    ? feedImportance.filter(
+        post =>
+          post.title.toLowerCase().includes(searchInput.toLowerCase()) ||
+          post.text.toLowerCase().includes(searchInput.toLowerCase())
+      )
+    : feedImportance
 
   React.useEffect(() => {
     if (rootRef?.current && rootRef.current.scrollTop > 80) {
@@ -42,11 +43,11 @@ export function BlogPageSection({ className, ...rest }: IBlogPageSection) {
 
   return (
     <div className={"self-center flex w-full justify-center" + _cn} {...rest}>
-      <SidebarContainer className="px-6 border-r hidden md:block min-w-[280px]">
+      <SidebarContainer className="px-6 hidden md:block min-w-[280px]">
         <h2 className="font-medium text-center mb-1">Filtro</h2>
         <FilterBlogContent />
       </SidebarContainer>
-      <div className="flex flex-col max-w-2xl grow shrink">
+      <div className="flex flex-col max-w-2xl border-x border-neutral-300 grow shrink">
         {feed.map(post => (
           <article
             key={post.id}
@@ -114,6 +115,7 @@ export function BlogPageSection({ className, ...rest }: IBlogPageSection) {
 
 export function FilterBlogContent() {
   const { searchInput, setSearchInput } = useBlogFeed()
+  const isSearching = searchInput.length > 0
 
   const handleOnChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearchInput(e.target.value)
@@ -122,7 +124,7 @@ export function FilterBlogContent() {
   return (
     <>
       <div className="flex flex-col gap-3 mb-6">
-        <div className="rounded-lg bg-zinc-200 w-full relative">
+        <div className="rounded-lg bg-zinc-50 border border-zinc-300 text-zinc-500 w-full relative">
           <input
             type="text"
             value={searchInput}
@@ -130,11 +132,15 @@ export function FilterBlogContent() {
             placeholder="Pesquisar..."
             className="rounded-lg bg-transparent h-full w-full py-[10px] px-[14px] outline-accent text-neutral-700"
           />
-          <MagnifyingIcon
-            height={18}
-            width={18}
-            className="absolute text-neutral-500 top-1/2 -translate-y-1/2 right-[14px]"
-          />
+          {isSearching ? (
+            <ClearSearchButton className="text-neutral-500" />
+          ) : (
+            <MagnifyingIcon
+              height={18}
+              width={18}
+              className="absolute text-neutral-500 top-1/2 -translate-y-1/2 right-[14px]"
+            />
+          )}
         </div>
       </div>
       <div className="flex flex-col gap-3 mb-6">
@@ -160,5 +166,24 @@ export function SidebarContainer({ children, className, ...rest }: ISidebarConta
     <aside className={"basis-[16rem] shrink-[99999] border-neutral-300" + _cn} {...rest}>
       {children ?? null}
     </aside>
+  )
+}
+
+/**
+ * Clear Searching Button
+ */
+interface IClearSearchButton extends React.ComponentProps<"button"> {}
+
+export const ClearSearchButton: React.FC<IClearSearchButton> = ({ className, ...rest }) => {
+  const _cn = ` ${className ?? ""}`
+  const { setSearchInput } = useBlogFeed()
+
+  const handleOnClick = () => setSearchInput("")
+
+  return (
+    <button onClick={handleOnClick} className={"absolute top-1/2 -translate-y-1/2 right-[14px] group" + _cn} {...rest}>
+      <div className="absolute inset-[-5px] rounded-lg bg-zinc-100 -z-10 group-hover:block hidden transition-all duration-150" />
+      <XIcon height={18} width={18} className="text-neutral-500 " />
+    </button>
   )
 }

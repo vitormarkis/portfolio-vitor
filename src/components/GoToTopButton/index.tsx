@@ -1,5 +1,6 @@
 "use client"
 import { useElementScrollPosition } from "@/components/GoToTopButton/useElementScrollPosition"
+import { useFooterVisibility } from "@/state/toolbarVisibility"
 import { useElementRefs } from "@/state/useElementRefs"
 import React from "react"
 import { createPortal } from "react-dom"
@@ -15,6 +16,9 @@ export function GoToTopButton({ verticalOffset, visiblePosition, className, ...r
   const { rootRef } = useElementRefs()
   const [has, setHas] = React.useState(false)
   const { scrollPosition } = useElementScrollPosition({ ref: rootRef })
+  const { isFooterVisible } = useFooterVisibility()
+  const offsetGap = verticalOffset ? 1 * verticalOffset * 32 : 32
+  const customBottomOffset = isFooterVisible ? offsetGap : null
 
   const isVisible = visiblePosition ? scrollPosition > visiblePosition : scrollPosition > 680
 
@@ -38,7 +42,7 @@ export function GoToTopButton({ verticalOffset, visiblePosition, className, ...r
             _cn +
             ` ${isVisible ? "flex" : "hidden"}`
           }
-          style={verticalOffset ? { bottom: verticalOffset } : undefined}
+          style={customBottomOffset ? { bottom: customBottomOffset } : undefined}
           {...rest}
         >
           <svg

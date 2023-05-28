@@ -45,6 +45,7 @@ export function Implementation({ className, ...rest }: IImplementation) {
             <Item text="Ver lances em seu post" />
             <Item text="Salvar posts" working />
             <Item text="Ver posts salvos" working />
+            <Item text="Upload de arquivos" working />
             <Item text="Fazer lances" />
             <Item text="Ver posts os quais você fez lance" working />
             <Item text="Notificações persistidas em banco de dados" working />

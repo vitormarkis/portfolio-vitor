@@ -10,7 +10,7 @@ export function Header({ className, ...rest }: IHeader) {
       <h2 className="font-black mb-0.5 text-4xl h1-seccon tracking-tight font-josefin relative text-center">
         Tecnologias Usadas
       </h2>
-      <p className="text-neutral-200 text-center">As tecnologias que eu usei e a explicação de porque eu usei elas.</p>
+      <p className="text-neutral-200 text-center">As tecnologias que eu usei e o motivo de tê-las escolhidas.</p>
     </div>
   )
 }

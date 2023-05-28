@@ -34,7 +34,7 @@ export const CheckboxComponent: React.FC<ICheckboxComponent> = ({
           "outline-accent h-[25px] w-[25px] appearance-none grid place-items-center rounded-lg outline-none transition-all duration-150",
           {
             "hover:bg-neutral-100 bg-zinc-100 border-y border-t-gray-200 border-b-neutral-200": theme === "light",
-            "hover:bg-neutral-300 bg-zinc-300 border-y border-t-gray-400 border-b-neutral-400": theme === "dark",
+            "hover:bg-zinc-100 bg-zinc-50 border border-zinc-300": theme === "dark",
           }
         )}
         checked={seeingTags.includes(tagName)}
@@ -42,7 +42,7 @@ export const CheckboxComponent: React.FC<ICheckboxComponent> = ({
       >
         <Checkbox.Indicator
           className={clsx({
-            "text-neutral-800": theme === "dark",
+            "text-zinc-500": theme === "dark",
             "text-neutral-700": theme === "light",
           })}
         >
