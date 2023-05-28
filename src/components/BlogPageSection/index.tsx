@@ -47,7 +47,7 @@ export function BlogPageSection({ className, ...rest }: IBlogPageSection) {
         <h2 className="font-medium text-center mb-1">Filtro</h2>
         <FilterBlogContent />
       </SidebarContainer>
-      <div className="flex flex-col max-w-2xl border-x border-neutral-300 grow shrink">
+      <div className="flex flex-col max-w-2xl md:border-x border-neutral-300 grow shrink">
         {feed.map(post => (
           <article
             key={post.id}

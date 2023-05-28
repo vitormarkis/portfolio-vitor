@@ -72,6 +72,19 @@ export type IFeedPost = {
 
 export const feedData: IFeedPost[] = [
   {
+    id: 7634709823792923,
+    title: "Plataforma para criar esses posts",
+    text: `
+      No futuro, entre um projeto e outro, pretendo adicionar uma forma de criar esses posts de forma mais abstraída. Da forma que eu to fazendo agora, eu to literalmenete escrevendo cada post como objetos, criando ID na mão, colocando data de criação na mão, niguém merece.
+
+      Uma boa ideia seria colocar todos os posts em um banco de dados, pra isso tava pensando em implementar isso usando MongoDB, vai ser a primeira vez que eu vou utilizar Mongo então escolhi uma implementação simples.
+
+      Ainda vou criar uma página secreta pra isso, é possível que alguém mau intencionado possa excluir todos os posts, ai ferrou tudo
+    `.trim(),
+    created_at: "2023-05-28T10:50:03.505Z",
+    importance: ["casual", "willing_to_do"],
+  },
+  {
     id: 6349856394659372,
     title: "Estou finalizando meu portfólio",
     text: `
