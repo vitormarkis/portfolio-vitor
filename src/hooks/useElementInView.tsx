@@ -6,7 +6,7 @@ interface IUseElementInView {
 }
 
 export function useElementInView({ ref }: IUseElementInView) {
-  const { isFooterVisible: isToolbarVisible, setFooterVisibility } = useFooterVisibility()
+  const { isFooterVisible, setFooterVisibility } = useFooterVisibility()
 
   React.useEffect(() => {
     const observer = new IntersectionObserver(
@@ -29,5 +29,5 @@ export function useElementInView({ ref }: IUseElementInView) {
     }
   }, [])
 
-  return { isToolbarVisible }
+  return { isFooterVisible }
 }

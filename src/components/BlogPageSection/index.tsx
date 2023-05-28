@@ -20,7 +20,10 @@ export function BlogPageSection({ className, ...rest }: IBlogPageSection) {
   const { rootRef } = useElementRefs()
   const { feed: rawFeed } = useFeed()
   const { seeingTags, searchInput } = useBlogFeed()
-  const filteredFeed = rawFeed.filter(post => post.importance.some(i => seeingTags.includes(i)))
+  const filteredFeed = React.useMemo(
+    () => rawFeed.filter(post => post.importance.some(i => seeingTags.includes(i))),
+    [seeingTags]
+  )
   const feedImportance = seeingTags.length ? filteredFeed : rawFeed
   const feed =
     searchInput.length === 0
@@ -39,8 +42,8 @@ export function BlogPageSection({ className, ...rest }: IBlogPageSection) {
 
   return (
     <div className={"self-center flex w-full justify-center" + _cn} {...rest}>
-      <SidebarContainer className="px-6 border-r hidden md:block">
-        <h2 className="font-medium text-center">Filtro</h2>
+      <SidebarContainer className="px-6 border-r hidden md:block min-w-[280px]">
+        <h2 className="font-medium text-center mb-1">Filtro</h2>
         <FilterBlogContent />
       </SidebarContainer>
       <div className="flex flex-col max-w-2xl grow shrink">
@@ -125,12 +128,12 @@ export function FilterBlogContent() {
             value={searchInput}
             onChange={handleOnChange}
             placeholder="Pesquisar..."
-            className="rounded-lg bg-transparent h-full w-full py-1.5 px-2 outline-accent pr-9 text-neutral-700"
+            className="rounded-lg bg-transparent h-full w-full py-[10px] px-[14px] outline-accent text-neutral-700"
           />
           <MagnifyingIcon
             height={18}
             width={18}
-            className="absolute text-neutral-500 top-1/2 -translate-y-1/2 right-2.5"
+            className="absolute text-neutral-500 top-1/2 -translate-y-1/2 right-[14px]"
           />
         </div>
       </div>
