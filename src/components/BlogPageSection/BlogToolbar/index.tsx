@@ -20,7 +20,7 @@ export function BlogToolbar({ className, ...rest }: IBlogToolbar) {
     ? ReactDOM.createPortal(
         <div
           className={
-            `justify-around items-center py-3 bg-white shadow-md fixed bottom-3 left-6 right-6 z-20 rounded-xl md:hidden ${
+            `justify-around items-center py-3 border border-stone-300 bg-white shadow-md fixed bottom-3 left-6 right-6 z-20 rounded-xl md:hidden ${
               isFooterVisible ? "hidden" : "flex"
             }` + _cn
           }

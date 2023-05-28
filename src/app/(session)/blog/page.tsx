@@ -10,7 +10,7 @@ export default function Blog() {
       <CenteredContainer className="px-6 mdx:px-12 flex flex-col">
         <BlogPageSection />
         <BlogToolbar />
-        <GoToTopButton visiblePosition={350} />
+        <GoToTopButton visiblePosition={350} verticalOffset={68} />
       </CenteredContainer>
     </div>
   )

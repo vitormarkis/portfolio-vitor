@@ -7,9 +7,10 @@ import twc from "tailwindcss/colors"
 
 interface IGoToTopButton extends React.ComponentProps<"button"> {
   visiblePosition?: number | undefined
+  verticalOffset?: number | undefined
 }
 
-export function GoToTopButton({ visiblePosition, className, ...rest }: IGoToTopButton) {
+export function GoToTopButton({ verticalOffset, visiblePosition, className, ...rest }: IGoToTopButton) {
   const _cn = ` ${className ?? ""}`
   const { rootRef } = useElementRefs()
   const [has, setHas] = React.useState(false)
@@ -33,10 +34,11 @@ export function GoToTopButton({ visiblePosition, className, ...rest }: IGoToTopB
         <button
           onClick={handleGoToTopClick}
           className={
-            "z-20 bg-white border border-slate-700 fixed right-8 bottom-8 md:right-12 md:bottom-12 p-3 shadow-lg shadow-black/20 rounded-full" +
+            "z-20 bg-white border border-slate-700 fixed right-8 md:right-12 md:bottom-12 p-3 shadow-lg shadow-black/20 rounded-full" +
             _cn +
             ` ${isVisible ? "flex" : "hidden"}`
           }
+          style={{ bottom: verticalOffset ? 32 + verticalOffset : 32 }}
           {...rest}
         >
           <svg

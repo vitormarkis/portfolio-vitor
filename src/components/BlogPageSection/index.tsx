@@ -18,9 +18,21 @@ export function BlogPageSection({ className, ...rest }: IBlogPageSection) {
   const _cn = ` ${className ?? ""}`
   const { rootRef } = useElementRefs()
   const { feed: rawFeed } = useFeed()
-  const { seeingTags } = useBlogFeed()
+  const { seeingTags, searchInput, setSearchInput } = useBlogFeed()
   const filteredFeed = rawFeed.filter(post => post.importance.some(i => seeingTags.includes(i)))
-  const feed = seeingTags.length ? filteredFeed : rawFeed
+  const feedImportance = seeingTags.length ? filteredFeed : rawFeed
+  const feed =
+    searchInput.length === 0
+      ? feedImportance
+      : feedImportance.filter(
+          post =>
+            post.title.toLowerCase().includes(searchInput.toLowerCase()) ||
+            post.text.toLowerCase().includes(searchInput.toLowerCase())
+        )
+
+  const handleOnChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setSearchInput(e.target.value)
+  }
 
   React.useEffect(() => {
     if (rootRef?.current && rootRef.current.scrollTop > 80) {
@@ -30,7 +42,30 @@ export function BlogPageSection({ className, ...rest }: IBlogPageSection) {
 
   return (
     <div className={"self-center flex w-full justify-center" + _cn} {...rest}>
-      <SidebarContainer></SidebarContainer>
+      <SidebarContainer className="px-6 border-r hidden md:block">
+        <h2 className="font-medium text-center mb-6">Filtro</h2>
+        <div className="flex flex-col gap-3">
+          <div className="rounded-lg bg-zinc-200 w-full mb-6 relative">
+            <input
+              type="text"
+              value={searchInput}
+              onChange={handleOnChange}
+              placeholder="Pesquisar..."
+              className="rounded-lg bg-transparent h-full w-full py-1.5 px-2 outline-accent pr-9 text-neutral-700"
+            />
+            <MagnifyingIcon
+              height={18}
+              width={18}
+              className="absolute text-neutral-500 top-1/2 -translate-y-1/2 right-2.5"
+            />
+          </div>
+        </div>
+        <div className="flex flex-col gap-3">
+          {tags.importances.map(tag => (
+            <CheckboxComponent key={tag.importance} label={tag.title} tag={tag.importance} theme="dark" />
+          ))}
+        </div>
+      </SidebarContainer>
       <div className="flex flex-col max-w-2xl grow shrink">
         {feed.map(post => (
           <article
@@ -92,28 +127,7 @@ export function BlogPageSection({ className, ...rest }: IBlogPageSection) {
           </article>
         ))}
       </div>
-      <SidebarContainer className="px-6">
-        <h2 className="font-medium text-center mb-6">Filtro</h2>
-        <div className="flex flex-col gap-3">
-          <div className="rounded-lg bg-zinc-200 w-full mb-6 relative">
-            <input
-              type="text"
-              placeholder="Pesquisar..."
-              className="rounded-lg bg-transparent h-full w-full py-1.5 px-2 outline-accent pr-9 text-neutral-700"
-            />
-            <MagnifyingIcon
-              height={18}
-              width={18}
-              className="absolute text-neutral-500 top-1/2 -translate-y-1/2 right-2.5"
-            />
-          </div>
-        </div>
-        <div className="flex flex-col gap-3">
-          {tags.importances.map(tag => (
-            <CheckboxComponent key={tag.importance} label={tag.title} tag={tag.importance} theme="dark" />
-          ))}
-        </div>
-      </SidebarContainer>
+      <SidebarContainer className="hidden md:block"></SidebarContainer>
     </div>
   )
 }
@@ -129,7 +143,7 @@ export function SidebarContainer({ children, className, ...rest }: ISidebarConta
   const _cn = ` ${className ?? ""}`
 
   return (
-    <aside className={"basis-[15rem] shrink-[99999] border-x border-neutral-500" + _cn} {...rest}>
+    <aside className={"basis-[16rem] shrink-[99999] border-neutral-300" + _cn} {...rest}>
       {children ?? null}
     </aside>
   )
