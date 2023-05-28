@@ -2,8 +2,6 @@
 import React from "react"
 import * as Dialog from "@radix-ui/react-dialog"
 import { createPortal } from "react-dom"
-import { tags } from "@/data/feed"
-import { CheckboxComponent } from "@/components/CheckboxComponent"
 import { FilterBlogContent } from "@/components/BlogPageSection"
 
 interface IFilterToolbarPopup extends React.ComponentProps<"div"> {

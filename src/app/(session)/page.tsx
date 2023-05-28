@@ -15,7 +15,7 @@ export default function Home() {
       <Projects className="mt-24" />
       <BlogShowcase className="mt-24" />
       <Contact className="my-24" />
-      <GoToTopButton />
+      <GoToTopButton className="md:bottom-12" />
     </main>
   )
 }

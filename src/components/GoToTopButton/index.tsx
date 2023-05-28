@@ -34,11 +34,11 @@ export function GoToTopButton({ verticalOffset, visiblePosition, className, ...r
         <button
           onClick={handleGoToTopClick}
           className={
-            "z-20 bg-white border border-slate-700 fixed right-8 md:right-12 md:bottom-12 p-3 shadow-lg shadow-black/20 rounded-full" +
+            "z-20 bg-white border border-slate-700 fixed right-8 md:right-12 p-3 shadow-lg shadow-black/20 rounded-full" +
             _cn +
             ` ${isVisible ? "flex" : "hidden"}`
           }
-          style={{ bottom: verticalOffset ?? 32 }}
+          style={verticalOffset ? { bottom: verticalOffset } : undefined}
           {...rest}
         >
           <svg

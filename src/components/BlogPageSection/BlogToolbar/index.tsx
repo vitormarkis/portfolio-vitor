@@ -4,7 +4,7 @@ import { useFooterVisibility } from "@/state/toolbarVisibility"
 import React from "react"
 import ReactDOM from "react-dom"
 
-interface IBlogToolbar extends React.ComponentProps<"div"> {}
+interface IBlogToolbar extends React.ComponentProps<"button"> {}
 
 export function BlogToolbar({ className, ...rest }: IBlogToolbar) {
   const _cn = ` ${className ?? ""}`
@@ -19,9 +19,12 @@ export function BlogToolbar({ className, ...rest }: IBlogToolbar) {
     ? ReactDOM.createPortal(
         <FilterToolbarPopup>
           <button
-            className={`z-20 bg-white border border-slate-700 fixed bottom-8 right-8 p-3 shadow-lg shadow-black/20 rounded-full block md:hidden ${
-              isFooterVisible ? "hidden" : ""
-            }`}
+            className={
+              `z-20 bg-white border border-slate-700 fixed right-8 p-3 bottom-8 shadow-lg shadow-black/20 rounded-full block md:hidden ${
+                isFooterVisible ? "hidden" : ""
+              }` + _cn
+            }
+            {...rest}
           >
             <FunnelIcon height={24} width={24} className="text-slate-700" />
           </button>
