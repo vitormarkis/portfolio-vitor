@@ -25,20 +25,25 @@ export function BlogPageSection({ className, ...rest }: IBlogPageSection) {
   const _cn = ` ${className ?? ""}`
   const { rootRef } = useElementRefs()
   const { feed: rawFeed } = useFeed()
-  const { seeingTags, searchInput } = useBlogFeed()
+  const { seeingTags, searchInput, isSortingAscending } = useBlogFeed()
   const isSearching = searchInput.length > 0
   const filteredFeed = React.useMemo(
     () => rawFeed.filter(post => post.importance.some(i => seeingTags.includes(i))),
     [seeingTags]
   )
   const feedImportance = seeingTags.length ? filteredFeed : rawFeed
-  const feed = isSearching
+  const searchFeed = isSearching
     ? feedImportance.filter(
         post =>
           post.title.toLowerCase().includes(searchInput.toLowerCase()) ||
           post.text.toLowerCase().includes(searchInput.toLowerCase())
       )
     : feedImportance
+
+  const sortNumber = isSortingAscending ? -1 : 1
+  const feed = searchFeed.sort((a, b) =>
+    a.created_at > b.created_at ? sortNumber : a.created_at < b.created_at ? sortNumber * -1 : 0
+  )
 
   React.useEffect(() => {
     if (rootRef?.current && rootRef.current.scrollTop > 80) {
