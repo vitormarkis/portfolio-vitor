@@ -160,32 +160,28 @@ export function FilterBlogContent() {
 }
 
 export function SortBlogContent() {
+  const { isSortingAscending, setIsSortingAscending } = useBlogFeed()
   return (
     <>
       <div className="flex flex-col mb-6">
         <OptionButton
           Icon={SortDescendingIcon}
-          active
+          active={isSortingAscending}
           activeColor={twc.violet["600"]}
           text="Data crescente"
           activeFontWeight="500"
           iconSize={20}
+          onClick={() => (isSortingAscending ? null : setIsSortingAscending(true))}
         />
         <OptionButton
           Icon={SortAscendingIcon}
+          active={!isSortingAscending}
           activeColor={twc.violet["600"]}
           text="Data decrescente"
           activeFontWeight="500"
           iconSize={20}
+          onClick={() => (isSortingAscending ? setIsSortingAscending(false) : null)}
         />
-        {/* <button className="rounded-md outline-accent py-1 px-2 text-violet-600 flex items-center font-bold">
-          <SortDescendingIcon height={20} width={20} />
-          <span className="ml-2">Data crescente</span>
-        </button>
-        <button className="rounded-md outline-accent py-1 px-2 text-zinc-500 flex items-center">
-          <SortAscendingIcon height={20} width={20} />
-          <span className="ml-2">Data decrescente</span>
-        </button> */}
       </div>
     </>
   )
@@ -214,6 +210,7 @@ export const OptionButton: React.FC<IOptionButton> = ({
   activeColor,
   Icon,
   className,
+  onClick,
   ...rest
 }) => {
   const _cn = ` ${className ?? ""}`
@@ -222,7 +219,8 @@ export const OptionButton: React.FC<IOptionButton> = ({
 
   return (
     <button
-      className={clsx("rounded-md outline-accent py-1 px-2 flex items-center", local_st.variables, _cn)}
+      onClick={onClick}
+      className={clsx("rounded-md outline-none py-1 flex items-center", local_st.variables, _cn)}
       style={{ "--color": textColor, "--weight": textWeight } as CSSProperties}
       {...rest}
     >
