@@ -95,6 +95,20 @@ export function BlogPageSection({ className, ...rest }: IBlogPageSection) {
       <SidebarContainer className="px-6">
         <h2 className="font-medium text-center mb-6">Filtro</h2>
         <div className="flex flex-col gap-3">
+          <div className="rounded-lg bg-zinc-200 w-full mb-6 relative">
+            <input
+              type="text"
+              placeholder="Pesquisar..."
+              className="rounded-lg bg-transparent h-full w-full py-1.5 px-2 outline-accent pr-9 text-neutral-700"
+            />
+            <MagnifyingIcon
+              height={18}
+              width={18}
+              className="absolute text-neutral-500 top-1/2 -translate-y-1/2 right-2.5"
+            />
+          </div>
+        </div>
+        <div className="flex flex-col gap-3">
           {tags.importances.map(tag => (
             <CheckboxComponent key={tag.importance} label={tag.title} tag={tag.importance} theme="dark" />
           ))}
@@ -118,5 +132,51 @@ export function SidebarContainer({ children, className, ...rest }: ISidebarConta
     <aside className={"basis-[15rem] shrink-[99999] border-x border-neutral-500" + _cn} {...rest}>
       {children ?? null}
     </aside>
+  )
+}
+
+/**
+ * Magnifying Icon
+ */
+interface IMagnifyingIcon extends React.ComponentProps<"svg"> {
+  height: number
+  width: number
+}
+
+export const MagnifyingIcon: React.FC<IMagnifyingIcon> = ({ height, width, className, ...rest }) => {
+  const _cn = ` ${className ?? ""}`
+
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      height={height}
+      width={width}
+      viewBox="0 0 256 256"
+      className={"" + _cn}
+      {...rest}
+    >
+      <rect width="256" height="256" fill="none" />
+      <circle
+        cx="112"
+        cy="112"
+        r="80"
+        fill="none"
+        stroke="currentColor"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="24"
+      />
+      <line
+        x1="168.57"
+        y1="168.57"
+        x2="224"
+        y2="224"
+        fill="none"
+        stroke="currentColor"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="24"
+      />
+    </svg>
   )
 }
