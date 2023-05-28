@@ -6,6 +6,9 @@ interface IUseBlogFeed {
   removeTag: (tagName: string) => void
   searchInput: string
   setSearchInput: (input: string) => void
+  isSortingAscending: boolean
+  setIsSortingAscending: (state: boolean) => void
+  toggleSortingAscending: () => void
 }
 
 export const useBlogFeed = create<IUseBlogFeed>((set, get) => ({
@@ -14,4 +17,7 @@ export const useBlogFeed = create<IUseBlogFeed>((set, get) => ({
   removeTag: tagName => set({ seeingTags: get().seeingTags.filter(t => t !== tagName) }),
   searchInput: "",
   setSearchInput: searchInput => set({ searchInput }),
+  isSortingAscending: true,
+  setIsSortingAscending: state => set({ isSortingAscending: state }),
+  toggleSortingAscending: () => set({ isSortingAscending: !get().isSortingAscending }),
 }))

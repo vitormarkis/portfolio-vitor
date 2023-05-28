@@ -1,0 +1,4 @@
+.variables {
+  color: var(--color);
+  font-weight: var(--weight);
+}

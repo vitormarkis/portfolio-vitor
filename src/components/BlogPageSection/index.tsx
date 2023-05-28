@@ -3,16 +3,21 @@ import { tags, useFeed } from "@/data/feed"
 import { formatStringToDOM } from "@/helpers"
 import moment from "moment"
 import Link from "next/link"
-import React, { CSSProperties } from "react"
+import React, { CSSProperties, SVGProps } from "react"
 moment.locale("pt-br")
 import twc from "tailwindcss/colors"
 import st from "@/components/BlogPageSection/FilterToolbarPopup/styles.module.css"
+import local_st from "@/components/BlogPageSection/styles.module.css"
 
 import { useBlogFeed } from "@/state/blogFeed"
 import { useElementRefs } from "@/state/useElementRefs"
 import { CheckboxComponent } from "@/components/CheckboxComponent"
 import { MagnifyingIcon } from "@/components/MagnifyingIcon"
 import { XIcon } from "@/components/XIcon"
+import { SortAscendingIcon } from "@/components/SortAscendingIcon"
+import { SortDescendingIcon } from "@/components/SortDescendingIcon"
+import clsx from "clsx"
+import { IIconProps } from "@/myTypes"
 
 interface IBlogPageSection extends React.ComponentProps<"div"> {}
 
@@ -46,6 +51,8 @@ export function BlogPageSection({ className, ...rest }: IBlogPageSection) {
       <SidebarContainer className="px-6 hidden md:block min-w-[280px]">
         <h2 className="font-medium text-center mb-1">Filtro</h2>
         <FilterBlogContent />
+        <h2 className="font-medium text-center mb-1">Ordenar por</h2>
+        <SortBlogContent />
       </SidebarContainer>
       <div className="flex flex-col max-w-2xl md:border-x border-neutral-300 grow shrink">
         {feed.map(post => (
@@ -149,6 +156,79 @@ export function FilterBlogContent() {
         ))}
       </div>
     </>
+  )
+}
+
+export function SortBlogContent() {
+  return (
+    <>
+      <div className="flex flex-col mb-6">
+        <OptionButton
+          Icon={SortDescendingIcon}
+          active
+          activeColor={twc.violet["600"]}
+          text="Data crescente"
+          activeFontWeight="500"
+          iconSize={20}
+        />
+        <OptionButton
+          Icon={SortAscendingIcon}
+          activeColor={twc.violet["600"]}
+          text="Data decrescente"
+          activeFontWeight="500"
+          iconSize={20}
+        />
+        {/* <button className="rounded-md outline-accent py-1 px-2 text-violet-600 flex items-center font-bold">
+          <SortDescendingIcon height={20} width={20} />
+          <span className="ml-2">Data crescente</span>
+        </button>
+        <button className="rounded-md outline-accent py-1 px-2 text-zinc-500 flex items-center">
+          <SortAscendingIcon height={20} width={20} />
+          <span className="ml-2">Data decrescente</span>
+        </button> */}
+      </div>
+    </>
+  )
+}
+
+/**
+ * Sidebar Option Button
+ */
+
+interface IOptionButton extends React.ComponentProps<"button"> {
+  active?: boolean | undefined
+  activeColor: string
+  activeFontWeight?: number | string | undefined
+  disabledColor?: string | undefined
+  iconSize?: number | undefined
+  Icon: React.FC<IIconProps>
+  text: string
+}
+
+export const OptionButton: React.FC<IOptionButton> = ({
+  text,
+  active,
+  iconSize,
+  disabledColor,
+  activeFontWeight,
+  activeColor,
+  Icon,
+  className,
+  ...rest
+}) => {
+  const _cn = ` ${className ?? ""}`
+  const textColor = active ? activeColor : disabledColor ?? twc["zinc"]["500"]
+  const textWeight = active ? activeFontWeight : "400"
+
+  return (
+    <button
+      className={clsx("rounded-md outline-accent py-1 px-2 flex items-center", local_st.variables, _cn)}
+      style={{ "--color": textColor, "--weight": textWeight } as CSSProperties}
+      {...rest}
+    >
+      <Icon height={iconSize ?? 20} width={iconSize ?? 20} />
+      <span className="ml-2">{text}</span>
+    </button>
   )
 }
 
