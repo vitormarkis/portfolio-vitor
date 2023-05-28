@@ -4,15 +4,15 @@ import * as Dialog from "@radix-ui/react-dialog"
 import { createPortal } from "react-dom"
 import { tags } from "@/data/feed"
 import { CheckboxComponent } from "@/components/CheckboxComponent"
+import { FilterBlogContent } from "@/components/BlogPageSection"
 
-interface IImportanceChooser extends React.ComponentProps<"div"> {
+interface IFilterToolbarPopup extends React.ComponentProps<"div"> {
   children: React.ReactNode
 }
 
-export function ImportanceChooser({ children, className, ...rest }: IImportanceChooser) {
+export function FilterToolbarPopup({ children, className, ...rest }: IFilterToolbarPopup) {
   const _cn = ` ${className ?? ""}`
   const [hasDocument, setHasDocument] = React.useState(false)
-  const [importances, setImportances] = React.useState([] as string[])
 
   React.useEffect(() => {
     setHasDocument(true)
@@ -28,15 +28,14 @@ export function ImportanceChooser({ children, className, ...rest }: IImportanceC
               <Dialog.Close className="absolute inset-0 bg-black/20 outline-none" />
 
               <div className={"absolute right-0 left-0 bottom-0 top-1/4 rounded-t-3xl bg-white" + _cn} {...rest}>
-                <div className="h-3 flex justify-center">
+                <div className="h-3 flex justify-center mb-6">
                   <div className="w-12 relative">
                     <div className="absolute left-0 right-0 top-full h-1.5 rounded-full bg-zinc-300"></div>
                   </div>
                 </div>
-                <div className="p-6 flex flex-col gap-3">
-                  {tags.importances.map(tag => (
-                    <CheckboxComponent key={tag.importance} label={tag.title} tag={tag.importance} theme="light" />
-                  ))}
+                <div className="px-6">
+                  <h2 className="font-medium text-center mb-1.5">Filtro</h2>
+                  <FilterBlogContent />
                 </div>
               </div>
             </Dialog.Content>,

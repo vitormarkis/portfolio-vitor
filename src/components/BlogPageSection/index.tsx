@@ -6,11 +6,12 @@ import Link from "next/link"
 import React, { CSSProperties } from "react"
 moment.locale("pt-br")
 import twc from "tailwindcss/colors"
-import st from "@/components/BlogPageSection/ImportanceChooser/styles.module.css"
+import st from "@/components/BlogPageSection/FilterToolbarPopup/styles.module.css"
 
 import { useBlogFeed } from "@/state/blogFeed"
 import { useElementRefs } from "@/state/useElementRefs"
 import { CheckboxComponent } from "@/components/CheckboxComponent"
+import { MagnifyingIcon } from "@/components/MagnifyingIcon"
 
 interface IBlogPageSection extends React.ComponentProps<"div"> {}
 
@@ -18,7 +19,7 @@ export function BlogPageSection({ className, ...rest }: IBlogPageSection) {
   const _cn = ` ${className ?? ""}`
   const { rootRef } = useElementRefs()
   const { feed: rawFeed } = useFeed()
-  const { seeingTags, searchInput, setSearchInput } = useBlogFeed()
+  const { seeingTags, searchInput } = useBlogFeed()
   const filteredFeed = rawFeed.filter(post => post.importance.some(i => seeingTags.includes(i)))
   const feedImportance = seeingTags.length ? filteredFeed : rawFeed
   const feed =
@@ -30,10 +31,6 @@ export function BlogPageSection({ className, ...rest }: IBlogPageSection) {
             post.text.toLowerCase().includes(searchInput.toLowerCase())
         )
 
-  const handleOnChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setSearchInput(e.target.value)
-  }
-
   React.useEffect(() => {
     if (rootRef?.current && rootRef.current.scrollTop > 80) {
       rootRef.current.scrollTo({ top: 80 })
@@ -43,28 +40,8 @@ export function BlogPageSection({ className, ...rest }: IBlogPageSection) {
   return (
     <div className={"self-center flex w-full justify-center" + _cn} {...rest}>
       <SidebarContainer className="px-6 border-r hidden md:block">
-        <h2 className="font-medium text-center mb-6">Filtro</h2>
-        <div className="flex flex-col gap-3">
-          <div className="rounded-lg bg-zinc-200 w-full mb-6 relative">
-            <input
-              type="text"
-              value={searchInput}
-              onChange={handleOnChange}
-              placeholder="Pesquisar..."
-              className="rounded-lg bg-transparent h-full w-full py-1.5 px-2 outline-accent pr-9 text-neutral-700"
-            />
-            <MagnifyingIcon
-              height={18}
-              width={18}
-              className="absolute text-neutral-500 top-1/2 -translate-y-1/2 right-2.5"
-            />
-          </div>
-        </div>
-        <div className="flex flex-col gap-3">
-          {tags.importances.map(tag => (
-            <CheckboxComponent key={tag.importance} label={tag.title} tag={tag.importance} theme="dark" />
-          ))}
-        </div>
+        <h2 className="font-medium text-center">Filtro</h2>
+        <FilterBlogContent />
       </SidebarContainer>
       <div className="flex flex-col max-w-2xl grow shrink">
         {feed.map(post => (
@@ -132,6 +109,40 @@ export function BlogPageSection({ className, ...rest }: IBlogPageSection) {
   )
 }
 
+export function FilterBlogContent() {
+  const { searchInput, setSearchInput } = useBlogFeed()
+
+  const handleOnChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setSearchInput(e.target.value)
+  }
+
+  return (
+    <>
+      <div className="flex flex-col gap-3 mb-6">
+        <div className="rounded-lg bg-zinc-200 w-full relative">
+          <input
+            type="text"
+            value={searchInput}
+            onChange={handleOnChange}
+            placeholder="Pesquisar..."
+            className="rounded-lg bg-transparent h-full w-full py-1.5 px-2 outline-accent pr-9 text-neutral-700"
+          />
+          <MagnifyingIcon
+            height={18}
+            width={18}
+            className="absolute text-neutral-500 top-1/2 -translate-y-1/2 right-2.5"
+          />
+        </div>
+      </div>
+      <div className="flex flex-col gap-3 mb-6">
+        {tags.importances.map(tag => (
+          <CheckboxComponent key={tag.importance} label={tag.title} tag={tag.importance} theme="dark" />
+        ))}
+      </div>
+    </>
+  )
+}
+
 /**
  * Sidebar Container
  */
@@ -146,51 +157,5 @@ export function SidebarContainer({ children, className, ...rest }: ISidebarConta
     <aside className={"basis-[16rem] shrink-[99999] border-neutral-300" + _cn} {...rest}>
       {children ?? null}
     </aside>
-  )
-}
-
-/**
- * Magnifying Icon
- */
-interface IMagnifyingIcon extends React.ComponentProps<"svg"> {
-  height: number
-  width: number
-}
-
-export const MagnifyingIcon: React.FC<IMagnifyingIcon> = ({ height, width, className, ...rest }) => {
-  const _cn = ` ${className ?? ""}`
-
-  return (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      height={height}
-      width={width}
-      viewBox="0 0 256 256"
-      className={"" + _cn}
-      {...rest}
-    >
-      <rect width="256" height="256" fill="none" />
-      <circle
-        cx="112"
-        cy="112"
-        r="80"
-        fill="none"
-        stroke="currentColor"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-        stroke-width="24"
-      />
-      <line
-        x1="168.57"
-        y1="168.57"
-        x2="224"
-        y2="224"
-        fill="none"
-        stroke="currentColor"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-        stroke-width="24"
-      />
-    </svg>
   )
 }

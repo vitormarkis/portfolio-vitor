@@ -38,7 +38,7 @@ export function GoToTopButton({ verticalOffset, visiblePosition, className, ...r
             _cn +
             ` ${isVisible ? "flex" : "hidden"}`
           }
-          style={{ bottom: verticalOffset ? 32 + verticalOffset : 32 }}
+          style={{ bottom: verticalOffset ?? 32 }}
           {...rest}
         >
           <svg
