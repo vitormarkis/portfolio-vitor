@@ -1,11 +1,7 @@
+import { IIconProps } from "@/myTypes"
 import React from "react"
 
-interface IXIcon extends React.ComponentProps<"svg"> {
-  height: number
-  width: number
-}
-
-export const XIcon: React.FC<IXIcon> = ({ height, width, className, ...rest }) => {
+export const XIcon: React.FC<IIconProps> = ({ height, width, className, ...rest }) => {
   const _cn = ` ${className ?? ""}`
 
   return (
