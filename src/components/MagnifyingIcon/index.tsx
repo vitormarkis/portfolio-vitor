@@ -24,9 +24,9 @@ export const MagnifyingIcon: React.FC<IMagnifyingIcon> = ({ height, width, class
         r="80"
         fill="none"
         stroke="currentColor"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-        stroke-width="24"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth="24"
       />
       <line
         x1="168.57"
@@ -35,9 +35,9 @@ export const MagnifyingIcon: React.FC<IMagnifyingIcon> = ({ height, width, class
         y2="224"
         fill="none"
         stroke="currentColor"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-        stroke-width="24"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth="24"
       />
     </svg>
   )

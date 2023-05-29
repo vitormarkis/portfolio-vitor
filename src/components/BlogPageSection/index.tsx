@@ -19,8 +19,15 @@ import { SortDescendingIcon } from "@/components/SortDescendingIcon"
 import clsx from "clsx"
 import { IIconProps } from "@/myTypes"
 import { NoPostFoundPlaceholder } from "@/components/BlogPageSection/NoPostFoundPlaceholder"
+import dynamic from "next/dynamic"
+import { Placeholder } from "@/components/BlogPageSection/FavoritePostButton"
 
 interface IBlogPageSection extends React.ComponentProps<"div"> {}
+
+const FavoritePostButton = dynamic(
+  () => import("@/components/BlogPageSection/FavoritePostButton").then(mod => mod.FavoritePostButton),
+  { ssr: false, loading: () => <Placeholder /> }
+)
 
 export function BlogPageSection({ className, ...rest }: IBlogPageSection) {
   const _cn = ` ${className ?? ""}`
@@ -71,14 +78,15 @@ export function BlogPageSection({ className, ...rest }: IBlogPageSection) {
               )}
             >
               <div className={`md:px-6 text-zinc-500 ${post.refs ? "pb-6" : ""}`}>
-                <div>
-                  <div className="flex gap-2 flex-wrap text-xs mb-2">
+                <div className="flex items-start">
+                  <div className="flex grow gap-2 flex-wrap text-xs mb-2">
                     {post.importance.map(tag => {
                       const foundTag = tags.importances.find(imp => imp.importance === tag)
                       if (!foundTag) return null
                       const { color, title } = foundTag
                       return (
                         <p
+                          key={tag}
                           className={`leading-none py-1 px-2 rounded-md ${st.colorful}`}
                           style={
                             {
@@ -91,6 +99,9 @@ export function BlogPageSection({ className, ...rest }: IBlogPageSection) {
                         </p>
                       )
                     })}
+                  </div>
+                  <div className="shrink-0">
+                    <FavoritePostButton post={post} />
                   </div>
                 </div>
                 <div className="flex flex-col md:flex-row">

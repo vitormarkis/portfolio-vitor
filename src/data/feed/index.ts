@@ -72,7 +72,7 @@ export type IFeedPost = {
 
 export const feedData: IFeedPost[] = [
   {
-    id: 128983972486553,
+    id: 1289839724865534,
     title: "Sidebar sticky",
     text: `
       Pra sidebar ficar sticky, ela precisa ter primeiro, tela pra descer, ou seja, ela não pode ocupar todo espaço vertical, height fit content é bem vindo, mas mais interessante é colocar max-height 100vh, assim faz com que ela mantenha o tamanho da tela, e caso passe, ele scrolla.
