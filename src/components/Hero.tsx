@@ -25,7 +25,7 @@ export function Hero({ className, ...rest }: Props) {
         <p className="relative z-10 mt-4 mb-8 text-center text-zinc-500 inter max-w-[32rem] text-sm sm:text-base">
           Me chamo Vítor Markis, 20 anos, desenvolvedor fullstack React, Node e Next, saiba mais sobre mim
         </p>
-        <div className="[&_*]:transition-colors [&_*]:duration-300 flex sm:flex-row flex-col gap-4">
+        <div className="[&_*]:transition-colors [&_*]:duration-300 flex sm:flex-row flex-col gap-4 sm:gap-12">
           <Button
             href="https://github.com/vitormarkis"
             target="_blank"

@@ -49,11 +49,11 @@ export function BlogPageSection({ className, ...rest }: IBlogPageSection) {
     if (rootRef?.current && rootRef.current.scrollTop > 80) {
       rootRef.current.scrollTo({ top: 80 })
     }
-  }, [feed])
+  }, [feed, sortNumber])
 
   return (
     <div className={"self-center flex w-full justify-center" + _cn} {...rest}>
-      <SidebarContainer className="px-6 hidden md:block min-w-[280px]">
+      <SidebarContainer className="overflow-y-scroll scroll-thin p-6 hidden md:block min-w-[280px] sticky max-h-screen top-0">
         <h2 className="font-medium text-center mb-1">Filtro</h2>
         <FilterBlogContent />
         <h2 className="font-medium text-center mb-1">Ordenar por</h2>
