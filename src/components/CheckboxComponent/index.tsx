@@ -25,10 +25,6 @@ export const CheckboxComponent: React.FC<ICheckboxComponent> = ({
   const { addTag, removeTag, seeingTags } = useBlogFeed()
   const checkboxRef = React.useRef<HTMLButtonElement>(null)
 
-  const handleCheckedChange = (tag: string) => (isChecked: boolean) => {
-    seeingTags.includes(tag) && !isChecked ? removeTag(tag) : addTag(tag)
-  }
-
   const handleClick = (tag: string) => {
     seeingTags.includes(tag) ? removeTag(tag) : addTag(tag)
   }
@@ -53,7 +49,6 @@ export const CheckboxComponent: React.FC<ICheckboxComponent> = ({
           }
         )}
         checked={seeingTags.includes(tagName)}
-        onCheckedChange={handleCheckedChange(tagName)}
       >
         <Checkbox.Indicator
           className={clsx({

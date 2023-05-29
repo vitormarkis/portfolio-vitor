@@ -60,7 +60,7 @@ export function BlogPageSection({ className, ...rest }: IBlogPageSection) {
         <h2 className="font-medium text-center mb-1">Ordenar por</h2>
         <SortBlogContent />
       </SidebarContainer>
-      <div className="flex flex-col max-w-2xl md:border-x border-neutral-300 grow shrink w-full">
+      <div className="flex flex-col max-w-2xl md:border-l mdx:border-x border-neutral-300 grow shrink w-full">
         {feed.length ? (
           feed.map(post => (
             <article
@@ -134,16 +134,21 @@ export function BlogPageSection({ className, ...rest }: IBlogPageSection) {
 }
 
 export function FilterBlogContent() {
-  const { searchInput, setSearchInput, seeingTags } = useBlogFeed()
+  const { searchInput, setSearchInput, seeingTags, clearTags, addTag } = useBlogFeed()
   const isSearching = searchInput.length > 0
 
   const handleOnChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearchInput(e.target.value)
   }
 
-  const handleSelectAllFiltersButton = () => {}
+  const handleSelectAllFiltersButton = () => {
+    const postTags = tags.importances.reduce((acc: string[], item) => (acc.push(item.importance), acc), [] as string[])
 
-  const handleClearFiltersButton = () => {}
+    clearTags()
+    postTags.forEach(addTag)
+  }
+
+  const handleClearFiltersButton = () => clearTags()
 
   return (
     <>
