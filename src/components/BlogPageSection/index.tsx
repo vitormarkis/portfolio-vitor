@@ -134,16 +134,21 @@ export function BlogPageSection({ className, ...rest }: IBlogPageSection) {
 }
 
 export function FilterBlogContent() {
-  const { searchInput, setSearchInput } = useBlogFeed()
+  const { searchInput, setSearchInput, seeingTags } = useBlogFeed()
   const isSearching = searchInput.length > 0
 
   const handleOnChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearchInput(e.target.value)
   }
 
+  const handleSelectAllFiltersButton = () => {}
+
+  const handleClearFiltersButton = () => {}
+
   return (
     <>
       <div className="flex flex-col gap-3 mb-6">
+        {/* input pesquisar */}
         <div className="rounded-lg bg-zinc-50 border border-zinc-300 text-zinc-500 w-full relative">
           <input
             type="text"
@@ -164,9 +169,25 @@ export function FilterBlogContent() {
         </div>
       </div>
       <div className="flex flex-col mb-6">
-        {tags.importances.map(tag => (
-          <CheckboxComponent key={tag.importance} label={tag.title} tag={tag.importance} theme="dark" />
-        ))}
+        <div className="flex justify-between">
+          <button
+            onClick={handleSelectAllFiltersButton}
+            className="p-0 m-0 text-sm font-medium text-slate-600 active:underline"
+          >
+            Todos
+          </button>
+          <button
+            onClick={handleClearFiltersButton}
+            className="p-0 m-0 text-sm font-medium text-slate-600 active:underline"
+          >
+            Limpar {seeingTags.length ? `(${seeingTags.length})` : null}
+          </button>
+        </div>
+        <div className="flex flex-col">
+          {tags.importances.map(tag => (
+            <CheckboxComponent key={tag.importance} label={tag.title} tag={tag.importance} theme="dark" />
+          ))}
+        </div>
       </div>
     </>
   )
