@@ -17,19 +17,34 @@ export const CheckboxComponent: React.FC<ICheckboxComponent> = ({
   label,
   tag: tagName,
   className,
+  onClick,
   theme = "light",
   ...rest
 }) => {
   const _cn = ` ${className ?? ""}`
   const { addTag, removeTag, seeingTags } = useBlogFeed()
+  const checkboxRef = React.useRef<HTMLButtonElement>(null)
 
   const handleCheckedChange = (tag: string) => (isChecked: boolean) => {
     seeingTags.includes(tag) && !isChecked ? removeTag(tag) : addTag(tag)
   }
 
+  const handleClick = (tag: string) => {
+    seeingTags.includes(tag) ? removeTag(tag) : addTag(tag)
+  }
+
   return (
-    <div className={"flex items-center" + _cn} {...rest}>
+    <div
+      className={"flex items-center py-1.5 hover:cursor-pointer" + _cn}
+      onClick={(...args) => {
+        handleClick(tagName)
+        if (checkboxRef.current) checkboxRef.current.focus()
+        if (onClick) onClick(...args)
+      }}
+      {...rest}
+    >
       <Checkbox.Root
+        ref={checkboxRef}
         className={clsx(
           "outline-accent h-[25px] w-[25px] appearance-none grid place-items-center rounded-lg outline-none transition-all duration-150",
           {
@@ -74,7 +89,7 @@ export const CheckboxComponent: React.FC<ICheckboxComponent> = ({
         </Checkbox.Indicator>
       </Checkbox.Root>
       <label
-        className={clsx("pl-4 leading-none", {
+        className={clsx("pl-4 leading-none hover:cursor-pointer", {
           "text-neutral-500": theme === "dark",
           "text-neutral-600": theme === "light",
         })}

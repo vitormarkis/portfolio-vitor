@@ -163,7 +163,7 @@ export function FilterBlogContent() {
           )}
         </div>
       </div>
-      <div className="flex flex-col gap-3 mb-6">
+      <div className="flex flex-col mb-6">
         {tags.importances.map(tag => (
           <CheckboxComponent key={tag.importance} label={tag.title} tag={tag.importance} theme="dark" />
         ))}
