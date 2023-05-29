@@ -1,5 +1,6 @@
 "use client"
 import { FilterToolbarPopup } from "@/components/BlogPageSection/FilterToolbarPopup"
+import { useBlogFeed } from "@/state/blogFeed"
 import { useFooterVisibility } from "@/state/toolbarVisibility"
 import React from "react"
 import ReactDOM from "react-dom"
@@ -10,6 +11,9 @@ export function BlogToolbar({ className, ...rest }: IBlogToolbar) {
   const _cn = ` ${className ?? ""}`
   const [hasDocument, setHasDocument] = React.useState(false)
   const { isFooterVisible } = useFooterVisibility()
+  const { searchInput, seeingTags } = useBlogFeed()
+
+  const mustBeVisible = searchInput.length > 0 || seeingTags.length > 0
 
   React.useEffect(() => {
     setHasDocument(true)
@@ -21,7 +25,7 @@ export function BlogToolbar({ className, ...rest }: IBlogToolbar) {
           <button
             className={
               `z-20 bg-white border border-slate-700 fixed right-8 p-3 bottom-8 shadow-lg shadow-black/20 rounded-full block md:hidden ${
-                isFooterVisible ? "hidden" : ""
+                isFooterVisible && !mustBeVisible ? "hidden" : ""
               }` + _cn
             }
             {...rest}
