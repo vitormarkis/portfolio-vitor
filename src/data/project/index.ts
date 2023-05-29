@@ -3,6 +3,14 @@ import { projectsData } from "./data"
 const importances = ["important", "public", "casual"] as const
 
 export type TImp = (typeof importances)[number]
+export type TProjectPaths =
+  | "auction-app"
+  | "ike-linktree"
+  | "twitter-clone"
+  | "custom-social-media"
+  | "analise-de-estruturas"
+  | "notifies"
+  | "asseties"
 
 export type ProjectTechnologies =
   | "PRISMA"
@@ -18,7 +26,7 @@ export type ProjectTechnologies =
 export interface IProjectLink {
   id: number
   name: string
-  path: string
+  path: TProjectPaths
   desktop_cover_picture: string
   mobile_cover_picture: string
   short_description?: string | undefined

@@ -1,15 +1,15 @@
 import { IIconProps } from "@/myTypes"
 import React from "react"
 
-export const XIcon: React.FC<IIconProps> = ({ height, width, className, ...rest }) => {
+export const XIcon: React.FC<IIconProps> = ({ size, className, ...rest }) => {
   const _cn = ` ${className ?? ""}`
 
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 256 256"
-      height={height}
-      width={width}
+      height={size}
+      width={size}
       className={"" + _cn}
       {...rest}
     >

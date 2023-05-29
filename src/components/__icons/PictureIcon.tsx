@@ -1,7 +1,9 @@
 import { IIconProps } from "@/myTypes"
 import React from "react"
 
-export const SortDescendingIcon: React.FC<IIconProps> = ({ size, className, ...rest }) => {
+interface IPictureIcon extends IIconProps {}
+
+export function PictureIcon({ size, className, ...rest }: IPictureIcon) {
   const _cn = ` ${className ?? ""}`
 
   return (
@@ -14,52 +16,29 @@ export const SortDescendingIcon: React.FC<IIconProps> = ({ size, className, ...r
       {...rest}
     >
       <rect width={256} height={256} fill="none" />
-      <line
-        x1={48}
-        y1={128}
-        x2={116}
-        y2={128}
+      <circle cx={160} cy={96} r={16} />
+      <rect
+        x={32}
+        y={48}
+        width={192}
+        height={160}
+        rx={8}
         fill="none"
         stroke="currentColor"
         strokeLinecap="round"
         strokeLinejoin="round"
         strokeWidth={24}
       />
-      <line
-        x1={48}
-        y1={64}
-        x2={100}
-        y2={64}
+      <path
+        d="M147.31,164,173,138.34a8,8,0,0,1,11.31,0L224,178.06"
         fill="none"
         stroke="currentColor"
         strokeLinecap="round"
         strokeLinejoin="round"
         strokeWidth={24}
       />
-      <line
-        x1={48}
-        y1={192}
-        x2={180}
-        y2={192}
-        fill="none"
-        stroke="currentColor"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        strokeWidth={24}
-      />
-      <polyline
-        points="144 88 184 48 224 88"
-        fill="none"
-        stroke="currentColor"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        strokeWidth={24}
-      />
-      <line
-        x1={184}
-        y1={48}
-        x2={184}
-        y2={144}
+      <path
+        d="M32,168.69l54.34-54.35a8,8,0,0,1,11.32,0L191.31,208"
         fill="none"
         stroke="currentColor"
         strokeLinecap="round"

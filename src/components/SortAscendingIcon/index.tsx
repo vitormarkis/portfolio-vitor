@@ -1,19 +1,17 @@
+import { IIconProps } from "@/myTypes"
 import React from "react"
 
-interface ISortAscendingIcon extends React.ComponentProps<"svg"> {
-  height: number
-  width: number
-}
+interface ISortAscendingIcon extends IIconProps {}
 
-export const SortAscendingIcon: React.FC<ISortAscendingIcon> = ({ height, width, className, ...rest }) => {
+export const SortAscendingIcon: React.FC<ISortAscendingIcon> = ({ size, className, ...rest }) => {
   const _cn = ` ${className ?? ""}`
 
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 256 256"
-      height={height}
-      width={width}
+      height={size}
+      width={size}
       className={"" + _cn}
       {...rest}
     >
