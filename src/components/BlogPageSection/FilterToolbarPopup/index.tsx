@@ -2,8 +2,8 @@
 import React from "react"
 import * as Dialog from "@radix-ui/react-dialog"
 import { createPortal } from "react-dom"
-import { SortBlogContent } from "@/components/BlogPageSection"
 import { FilterBlogContent } from "@/components/BlogPageSection/FilterBlogContent"
+import { SortBlogContent } from "@/components/BlogPageSection/SortBlogContent"
 
 interface IFilterToolbarPopup extends React.ComponentProps<"div"> {
   children: React.ReactNode

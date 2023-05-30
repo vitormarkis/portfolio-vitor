@@ -72,6 +72,30 @@ export type IFeedPost = {
 
 export const feedData: IFeedPost[] = [
   {
+    id: 8968273857349587,
+    title: "Zustand Localstorage com Server Components",
+    text: `
+      Pra conseguir usar Zustand com Next Server Side Rendering sem causar erros de UI, é preciso criar um estado e popular esse estado com useEffect, esse é o ciclo que respeita a forma como o React funciona.
+
+      Pra isso eu precisei criar esse hook [#01].
+
+      Agora pra acessar um valor estático/estado, eu devo usar useStore(store, state => state.nomeDoEstado)
+
+      Agora por conta do valor está sendo armazenado em um estado e com useEffect estar sendo populado, a primeiro momento ele está undefined, ou null, ou seja, agora eu consigo trabalhar a UI de forma dinâmica enquanto o dado não é populado, com renderizações condicionais.
+
+      Importante saber que, apenas os dados estáticos devem ser pegos com o hook useStore, porque apenas eles estão sendo salvos no LocalStorage, os setters podem ser acessados da forma normal, pelo store direto: const { setState } = useWhateverZustandStore().
+    `.trim(),
+    created_at: "2023-05-30T04:19:49.008Z",
+    importance: ["important", "discover"],
+    refs: [
+      {
+        id: "nf8934b9fg",
+        title: "[commit #01] refactor: create useStore hook (useStore.tsx)",
+        url: "https://github.com/vitormarkis/portfolio-vitor/commit/79c282283df3d89678a53dccf92d05c7508210ea#diff-49556d3168ed7cc42353ab72b93907b057de4dfe641bd1d0401a6477624b5a31",
+      },
+    ],
+  },
+  {
     id: 1289839724865534,
     title: "Sidebar sticky",
     text: `
@@ -398,7 +422,9 @@ export const useFeed: IUseFeed = props => {
 
   if (sort) {
     if (sort === "date") {
-      feed = feed.sort((a, b) => (a.created_at < b.created_at ? 1 : a.created_at > b.created_at ? -1 : 0))
+      feed = feed.sort((a, b) =>
+        a.created_at < b.created_at ? 1 : a.created_at > b.created_at ? -1 : 0
+      )
     }
 
     if (sort === "importance") {

@@ -1,4 +1,3 @@
-import { Header } from "@/components/Header"
 import { inter, josefins_sans, roboto, jetbrains } from "@/fonts"
 import { Metadata } from "next"
 import "./globals.css"

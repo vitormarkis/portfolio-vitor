@@ -11,7 +11,7 @@ import { MagnifyingIcon } from "@/components/MagnifyingIcon"
 import clsx from "clsx"
 import { useFavoritePosts } from "@/state/favoritePosts"
 import { useStore } from "@/hooks/useStore"
-import { ClearSearchButton } from "@/components/BlogPageSection"
+import { ClearSearchButton } from "@/components/ClearSearchButton"
 
 export function FilterBlogContent() {
   const { searchInput, setSearchInput, seeingTags, clearTags, addTag } = useBlogFeed()
@@ -64,7 +64,7 @@ export function FilterBlogContent() {
             className="rounded-lg bg-transparent h-full w-full py-[10px] px-[14px] outline-accent text-neutral-700"
           />
           {isSearching ? (
-            <ClearSearchButton className="text-neutral-500" />
+            <ClearSearchButton onClick={() => setSearchInput("")} className="text-neutral-500" />
           ) : (
             <MagnifyingIcon
               height={18}
