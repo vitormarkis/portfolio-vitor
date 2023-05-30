@@ -1,11 +1,12 @@
 import { create } from "zustand"
-import { persist } from "zustand/middleware"
+import { persist, createJSONStorage } from "zustand/middleware"
 
 export interface IUseFavoritePosts {
   seeingFavoritePosts: boolean
+  toggleSeeingFavoritePosts: () => void
   favoritePosts: number[]
   addNewFavoritePost: (postId: number) => void
-  removeFavoriePost: (postId: number) => void
+  removeFavoritePost: (postId: number) => void
   removeAllFavoritePosts: () => void
 }
 
@@ -14,11 +15,13 @@ export const useFavoritePosts = create<IUseFavoritePosts>(
   persist(
     (set, get) => ({
       seeingFavoritePosts: false,
+      toggleSeeingFavoritePosts: () => set({ seeingFavoritePosts: !get().seeingFavoritePosts }),
       favoritePosts: [],
       addNewFavoritePost: postId => set({ favoritePosts: [...get().favoritePosts, postId] }),
-      removeFavoriePost: postId => set({ favoritePosts: get().favoritePosts.filter(p => p !== postId) }),
+      removeFavoritePost: postId =>
+        set({ favoritePosts: get().favoritePosts.filter(post_id => post_id !== postId) }),
       removeAllFavoritePosts: () => set({ favoritePosts: [] }),
     }),
-    { name: "favorite-posts" }
+    { name: "favorite-posts", storage: createJSONStorage(() => localStorage) }
   )
 )

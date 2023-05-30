@@ -50,12 +50,7 @@ export const CheckboxComponent: React.FC<ICheckboxComponent> = ({
         )}
         checked={seeingTags.includes(tagName)}
       >
-        <Checkbox.Indicator
-          className={clsx({
-            "text-zinc-500": theme === "dark",
-            "text-neutral-700": theme === "light",
-          })}
-        >
+        <Checkbox.Indicator className={clsx("text-violet-600")}>
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" height={16} width={16}>
             <rect width="256" height="256" fill="none" />
             <line

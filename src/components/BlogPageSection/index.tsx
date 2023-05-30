@@ -3,7 +3,7 @@ import { tags, useFeed } from "@/data/feed"
 import { formatStringToDOM } from "@/helpers"
 import moment from "moment"
 import Link from "next/link"
-import React, { CSSProperties, SVGProps } from "react"
+import React, { CSSProperties } from "react"
 moment.locale("pt-br")
 import twc from "tailwindcss/colors"
 import st from "@/components/BlogPageSection/FilterToolbarPopup/styles.module.css"
@@ -11,30 +11,39 @@ import local_st from "@/components/BlogPageSection/styles.module.css"
 
 import { useBlogFeed } from "@/state/blogFeed"
 import { useElementRefs } from "@/state/useElementRefs"
-import { CheckboxComponent } from "@/components/CheckboxComponent"
-import { MagnifyingIcon } from "@/components/MagnifyingIcon"
 import { XIcon } from "@/components/XIcon"
 import { SortAscendingIcon } from "@/components/SortAscendingIcon"
 import { SortDescendingIcon } from "@/components/SortDescendingIcon"
 import clsx from "clsx"
 import { IIconProps } from "@/myTypes"
 import { NoPostFoundPlaceholder } from "@/components/BlogPageSection/NoPostFoundPlaceholder"
-import dynamic from "next/dynamic"
-import { Placeholder } from "@/components/BlogPageSection/FavoritePostButton"
+import { FavoritePostButton } from "@/components/BlogPageSection/FavoritePostButton"
+import { useFavoritePosts } from "@/state/favoritePosts"
+import { useStore } from "@/hooks/useStore"
+import { FilterBlogContent } from "@/components/BlogPageSection/FilterBlogContent"
 
 interface IBlogPageSection extends React.ComponentProps<"div"> {}
 
-const FavoritePostButton = dynamic(
-  () => import("@/components/BlogPageSection/FavoritePostButton").then(mod => mod.FavoritePostButton),
-  { ssr: false, loading: () => <Placeholder /> }
-)
+// const FavoritePostButton = dynamic(
+//   () =>
+//     import("@/components/BlogPageSection/FavoritePostButton").then(mod => mod.FavoritePostButton),
+//   { ssr: false, loading: () => <Placeholder /> }
+// )
 
 export function BlogPageSection({ className, ...rest }: IBlogPageSection) {
   const _cn = ` ${className ?? ""}`
   const { rootRef } = useElementRefs()
-  const { feed: rawFeed } = useFeed()
+  const { feed: allFeed } = useFeed()
+
+  const favoritePosts = useStore(useFavoritePosts, state => state.favoritePosts)
+  const seeingFavoritePosts = useStore(useFavoritePosts, state => state.seeingFavoritePosts)
+
   const { seeingTags, searchInput, isSortingAscending } = useBlogFeed()
   const isSearching = searchInput.length > 0
+  const rawFeed =
+    seeingFavoritePosts && favoritePosts
+      ? allFeed.filter(post => favoritePosts.includes(post.id))
+      : allFeed
   const filteredFeed = React.useMemo(
     () => rawFeed.filter(post => post.importance.some(i => seeingTags.includes(i))),
     [seeingTags]
@@ -68,144 +77,88 @@ export function BlogPageSection({ className, ...rest }: IBlogPageSection) {
         <SortBlogContent />
       </SidebarContainer>
       <div className="flex flex-col max-w-2xl md:border-l mdx:border-x border-neutral-300 grow shrink w-full">
-        {feed.length ? (
-          feed.map(post => (
-            <article
-              key={post.id}
-              className={clsx(
-                "pb-8 mt-8 overflow-hidden last-of-type:border-b-0 border-b md:border-b border-neutral-300",
-                post.refs && "pb-0"
-              )}
-            >
-              <div className={`md:px-6 text-zinc-500 ${post.refs ? "pb-6" : ""}`}>
-                <div className="flex items-start">
-                  <div className="flex grow gap-2 flex-wrap text-xs mb-2">
-                    {post.importance.map(tag => {
-                      const foundTag = tags.importances.find(imp => imp.importance === tag)
-                      if (!foundTag) return null
-                      const { color, title } = foundTag
-                      return (
-                        <p
-                          key={tag}
-                          className={`leading-none py-1 px-2 rounded-md ${st.colorful}`}
-                          style={
-                            {
-                              "--color": twc[color]["500"],
-                              "--bg-color": twc[color]["100"],
-                            } as CSSProperties
-                          }
-                        >
-                          {title}
-                        </p>
-                      )
-                    })}
+        {seeingFavoritePosts ? (
+          <div className="p-6 pb-0 flex justify-center">
+            <h2 className="py-1.5 px-4 text-sm rounded-lg bg-violet-600 text-white shadow-lg text-center">
+              Você está vendo seus posts favoritos.
+            </h2>
+          </div>
+        ) : null}
+        <div>
+          {feed.length ? (
+            feed.map(post => (
+              <article
+                key={post.id}
+                className={clsx(
+                  "pb-8 mt-8 overflow-hidden last-of-type:border-b-0 border-b md:border-b border-neutral-300",
+                  post.refs && "pb-0"
+                )}
+              >
+                <div className={`md:px-6 text-zinc-500 ${post.refs ? "pb-6" : ""}`}>
+                  <div className="flex items-start">
+                    <div className="flex grow gap-2 flex-wrap text-xs mb-2">
+                      {post.importance.map(tag => {
+                        const foundTag = tags.importances.find(imp => imp.importance === tag)
+                        if (!foundTag) return null
+                        const { color, title } = foundTag
+                        return (
+                          <p
+                            key={tag}
+                            className={`leading-none py-1 px-2 rounded-md ${st.colorful}`}
+                            style={
+                              {
+                                "--color": twc[color]["500"],
+                                "--bg-color": twc[color]["100"],
+                              } as CSSProperties
+                            }
+                          >
+                            {title}
+                          </p>
+                        )
+                      })}
+                    </div>
+                    <div className="shrink-0">
+                      <FavoritePostButton post={post} />
+                    </div>
                   </div>
-                  <div className="shrink-0">
-                    <FavoritePostButton post={post} />
+                  <div className="flex flex-col md:flex-row">
+                    <h2 className="text-lg font-semibold text-zinc-800">{post.title}</h2>
+                    <div className="flex items-center self-end">
+                      <span className="mx-2 hidden md:inline"> - </span>
+                      <span className="block italic text-neutral-500 text-sm md:text-base whitespace-nowrap">
+                        {moment(post.created_at).locale("pt-br").fromNow()}
+                      </span>
+                    </div>
                   </div>
-                </div>
-                <div className="flex flex-col md:flex-row">
-                  <h2 className="text-lg font-semibold text-zinc-800">{post.title}</h2>
-                  <div className="flex items-center self-end">
-                    <span className="mx-2 hidden md:inline"> - </span>
-                    <span className="block italic text-neutral-500 text-sm md:text-base whitespace-nowrap">
-                      {moment(post.created_at).locale("pt-br").fromNow()}
-                    </span>
-                  </div>
-                </div>
-                {formatStringToDOM(post.text).map((text, i) => (
-                  <p key={`${text}-${i}`} className="mb-3">
-                    {text}
-                  </p>
-                ))}
-              </div>
-              {post.refs ? (
-                <div className="bg-zinc-100 flex flex-col gap-3 md:py-6 md:px-6">
-                  {post.refs.map(ref => (
-                    <Link
-                      key={ref.id}
-                      target="_blank"
-                      href={ref.url}
-                      className="outline-accent px-4 py-2 rounded-lg bg-white text-sky-500"
-                    >
-                      {ref.title}
-                    </Link>
+                  {formatStringToDOM(post.text).map((text, i) => (
+                    <p key={`${text}-${i}`} className="mb-3">
+                      {text}
+                    </p>
                   ))}
                 </div>
-              ) : null}
-            </article>
-          ))
-        ) : (
-          <NoPostFoundPlaceholder />
-        )}
-      </div>
-      <SidebarContainer className="hidden md:block"></SidebarContainer>
-    </div>
-  )
-}
-
-export function FilterBlogContent() {
-  const { searchInput, setSearchInput, seeingTags, clearTags, addTag } = useBlogFeed()
-  const isSearching = searchInput.length > 0
-
-  const handleOnChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setSearchInput(e.target.value)
-  }
-
-  const handleSelectAllFiltersButton = () => {
-    const postTags = tags.importances.reduce((acc: string[], item) => (acc.push(item.importance), acc), [] as string[])
-
-    clearTags()
-    postTags.forEach(addTag)
-  }
-
-  const handleClearFiltersButton = () => clearTags()
-
-  return (
-    <>
-      <div className="flex flex-col gap-3 mb-6">
-        {/* input pesquisar */}
-        <div className="rounded-lg bg-zinc-50 border border-zinc-300 text-zinc-500 w-full relative">
-          <input
-            type="text"
-            value={searchInput}
-            onChange={handleOnChange}
-            placeholder="Pesquisar..."
-            className="rounded-lg bg-transparent h-full w-full py-[10px] px-[14px] outline-accent text-neutral-700"
-          />
-          {isSearching ? (
-            <ClearSearchButton className="text-neutral-500" />
+                {post.refs ? (
+                  <div className="bg-zinc-100 flex flex-col gap-3 md:py-6 md:px-6">
+                    {post.refs.map(ref => (
+                      <Link
+                        key={ref.id}
+                        target="_blank"
+                        href={ref.url}
+                        className="outline-accent px-4 py-2 rounded-lg bg-white text-sky-500"
+                      >
+                        {ref.title}
+                      </Link>
+                    ))}
+                  </div>
+                ) : null}
+              </article>
+            ))
           ) : (
-            <MagnifyingIcon
-              height={18}
-              width={18}
-              className="absolute text-neutral-500 top-1/2 -translate-y-1/2 right-[14px]"
-            />
+            <NoPostFoundPlaceholder />
           )}
         </div>
       </div>
-      <div className="flex flex-col mb-6">
-        <div className="flex justify-between">
-          <button
-            onClick={handleSelectAllFiltersButton}
-            className="p-0 m-0 text-sm font-medium text-slate-600 active:underline"
-          >
-            Todos
-          </button>
-          <button
-            onClick={handleClearFiltersButton}
-            className="p-0 m-0 text-sm font-medium text-slate-600 active:underline"
-          >
-            Limpar {seeingTags.length ? `(${seeingTags.length})` : null}
-          </button>
-        </div>
-        <div className="flex flex-col">
-          {tags.importances.map(tag => (
-            <CheckboxComponent key={tag.importance} label={tag.title} tag={tag.importance} theme="dark" />
-          ))}
-        </div>
-      </div>
-    </>
+      <SidebarContainer className="hidden md:block"></SidebarContainer>
+    </div>
   )
 }
 
@@ -309,7 +262,11 @@ export const ClearSearchButton: React.FC<IClearSearchButton> = ({ className, ...
   const handleOnClick = () => setSearchInput("")
 
   return (
-    <button onClick={handleOnClick} className={"absolute top-1/2 -translate-y-1/2 right-[14px] group" + _cn} {...rest}>
+    <button
+      onClick={handleOnClick}
+      className={"absolute top-1/2 -translate-y-1/2 right-[14px] group" + _cn}
+      {...rest}
+    >
       <div className="absolute inset-[-5px] rounded-lg bg-zinc-100 -z-10 group-hover:block hidden transition-all duration-150" />
       <XIcon size={18} className="text-neutral-500 " />
     </button>
