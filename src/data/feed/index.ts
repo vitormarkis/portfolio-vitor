@@ -72,6 +72,19 @@ export type IFeedPost = {
 
 export const feedData: IFeedPost[] = [
   {
+    id: 6753483847538748,
+    title: "Redis, Clerk e UploadThing",
+    text: `
+      Agora que finalizei meu portfólio, eu quero aprender a fazer upload de mídias usando Next, pra isso vou utilizar UploadThing.
+
+      Quero aprender a implementar um sistema de rate limiting, essencial pra qualquer site em produção, pra isso vou aprender a usar Redis e/ou Next KV.
+
+      E também quero aprender outra forma de autenticação para Next que não seja Next Auth, gosto muito do Next Auth mas vejo pouca frequência em projetos novos.
+    `.trim(),
+    created_at: "2023-05-31T15:54:31.802Z",
+    importance: ["willing_to_do", "important"],
+  },
+  {
     id: 8968273857349587,
     title: "Zustand Localstorage com Server Components",
     text: `
