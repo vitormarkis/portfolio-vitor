@@ -33,7 +33,7 @@ export function FeedPost({ post, className, ...rest }: Props) {
         </p>
       ))}
       {post.refs ? (
-        <div className="flex flex-wrap gap-2 text-sm bg-neutral-200 py-2 px-2 rounded-xl">
+        <div className="flex flex-wrap gap-2 text-sm bg-zinc-100 py-2 px-2 rounded-xl">
           {post.refs.map(ref => (
             <Link
               target="_blank"

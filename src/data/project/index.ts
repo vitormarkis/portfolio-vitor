@@ -76,7 +76,7 @@ export const useProjects: IUseProjects = props => {
   return { projects }
 }
 
-export const getProject = (projectName: string) => {
+export const getProject = (projectName: TProjectPaths) => {
   const project = projectsData.find(p => p.path === projectName)!
 
   return { project }

@@ -18,7 +18,10 @@ export const ButtonProjectCard = React.forwardRef<HTMLAnchorElement, IButtonProj
 
     const handleClick = () => {
       if (elementRef && elementRef.current && typeof window !== "undefined") {
-        sessionStorage.setItem("userVerticalPosition", JSON.stringify({ top: elementRef.current.scrollTop }))
+        sessionStorage.setItem(
+          "userVerticalPosition",
+          JSON.stringify({ top: elementRef.current.scrollTop })
+        )
       }
     }
 
@@ -29,7 +32,9 @@ export const ButtonProjectCard = React.forwardRef<HTMLAnchorElement, IButtonProj
         target={target}
         scroll={false}
         onClick={handleClick}
-        className={`grid place-items-center outline-accent rounded-full py-2 text-sm shadow-md ${className ?? ""} ${
+        className={`grid place-items-center outline-accent rounded-full py-2 text-sm shadow-md ${
+          className ?? ""
+        } ${
           filled
             ? "bg-black text-white border-t-blue-500 border-y border-b-red-500"
             : "border border-slate-700 text-slate-700"
@@ -41,9 +46,3 @@ export const ButtonProjectCard = React.forwardRef<HTMLAnchorElement, IButtonProj
     )
   }
 )
-
-type Apple = {
-  banana: "user" | "admin"
-}
-
-type Second = Apple["banana"]

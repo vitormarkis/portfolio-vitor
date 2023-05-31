@@ -1,7 +1,9 @@
+"use client"
 import { ButtonProjectCard } from "@/components/ProjectCard/ButtonProjectCard"
-import { getProject, useProjects } from "@/data/project"
+import { TProjectPaths, getProject, useProjects } from "@/data/project"
 import { projectsData } from "@/data/project/data"
 import Link from "next/link"
+import { usePathname } from "next/navigation"
 import React from "react"
 
 interface IBuildingProjectPlaceholder extends React.ComponentProps<"div"> {}
@@ -9,8 +11,8 @@ interface IBuildingProjectPlaceholder extends React.ComponentProps<"div"> {}
 export function BuildingProjectPlaceholder({ className, ...rest }: IBuildingProjectPlaceholder) {
   const _cn = ` ${className ?? ""}`
   const projects = projectsData.sort((a, b) => (a.on > b.on ? -1 : 1))
-  const verifyRepository = (projectURL: string) => projectURL.includes("github.com")
-  const { project } = getProject("auction-app")
+  const pathname = usePathname()
+  const { project } = getProject(pathname.replace("/project/", "") as TProjectPaths)
 
   return (
     <div className={"" + _cn} {...rest}>
@@ -21,6 +23,7 @@ export function BuildingProjectPlaceholder({ className, ...rest }: IBuildingProj
         {projects.map(p =>
           p.on ? (
             <Link
+              key={p.id}
               href={`/project/${p.path}`}
               className="text-neutral-700 rounded-lg py-2 px-4 flex justify-between items-center hover:bg-zinc-200 transition-all duration-150"
             >
@@ -29,6 +32,7 @@ export function BuildingProjectPlaceholder({ className, ...rest }: IBuildingProj
             </Link>
           ) : (
             <button
+              key={p.id}
               disabled
               className="italic text-neutral-500 rounded-lg py-2 px-4 flex justify-between items-center hover:bg-zinc-200 transition-all duration-150"
             >
@@ -38,13 +42,20 @@ export function BuildingProjectPlaceholder({ className, ...rest }: IBuildingProj
           )
         )}
       </div>
-      {!verifyRepository(project.url) ? (
+      {project.url.length ? (
         <div>
           <p className="text-center mb-6 font-light">
-            Mas o projeto está no ar para você ver! Clique em <strong>Abrir projeto</strong> para visualizar o projeto
+            Mas o projeto está no ar para você ver! Clique em <strong>Abrir projeto</strong> para
+            visualizar o projeto
           </p>
           <div className="flex justify-center mb-8">
-            <ButtonProjectCard text="Abrir projeto" url={project.url} filled target="_blank" className="px-4" />
+            <ButtonProjectCard
+              text="Abrir projeto"
+              url={project.url}
+              filled
+              target="_blank"
+              className="px-4"
+            />
           </div>
         </div>
       ) : null}

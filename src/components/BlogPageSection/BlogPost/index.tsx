@@ -21,8 +21,8 @@ export function BlogPost({ post, className, ...rest }: IBlogPost) {
   return (
     <article
       className={clsx(
-        "pb-8 mt-8 last-of-type:border-b-0 border-b md:border-b border-neutral-300",
-        post.refs && "pb-0",
+        "mt-8 last-of-type:border-b-0 border-b md:border-b border-neutral-300",
+        post.refs ? "pb-0" : "pb-8",
         _cn
       )}
       {...rest}
@@ -70,7 +70,7 @@ export function BlogPost({ post, className, ...rest }: IBlogPost) {
         ))}
       </div>
       {post.refs ? (
-        <div className="bg-zinc-100 flex flex-col gap-3 md:py-6 md:px-6">
+        <div className="md:bg-zinc-100 flex flex-col gap-3 md:py-8 md:px-6">
           {post.refs.map(ref => (
             <Link
               key={ref.id}
