@@ -21,7 +21,7 @@ export function FilterBlogContent() {
   const { toggleSeeingFavoritePosts } = useFavoritePosts()
   const seeingFavoritePosts = useStore(useFavoritePosts, state => state.seeingFavoritePosts)
 
-  // const { rootRef } = useElementRefs()
+  const { rootRef } = useElementRefs()
 
   const handleOnChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearchInput(e.target.value)
@@ -45,11 +45,11 @@ export function FilterBlogContent() {
     toggleSeeingFavoritePosts()
   }
 
-  // React.useEffect(() => {
-  //   if (rootRef && rootRef.current && rootRef.current.scrollTop > 20) {
-  //     rootRef.current.scrollTo({ top: 80 })
-  //   }
-  // }, [seeingFavoritePosts])
+  React.useEffect(() => {
+    if (rootRef && rootRef.current && rootRef.current.scrollTop > 20) {
+      rootRef.current.scrollTo({ top: 80 })
+    }
+  }, [seeingFavoritePosts])
 
   return (
     <>

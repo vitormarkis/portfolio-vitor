@@ -1,9 +1,11 @@
 "use client"
 import { FilterToolbarPopup } from "@/components/BlogPageSection/FilterToolbarPopup"
 import { useBlogFeed } from "@/state/blogFeed"
+import { useFavoritePosts } from "@/state/favoritePosts"
 import { useFooterVisibility } from "@/state/toolbarVisibility"
 import React from "react"
 import ReactDOM from "react-dom"
+import { useStore } from "zustand"
 
 interface IBlogToolbar extends React.ComponentProps<"button"> {}
 
@@ -12,8 +14,9 @@ export function BlogToolbar({ className, ...rest }: IBlogToolbar) {
   const [hasDocument, setHasDocument] = React.useState(false)
   const { isFooterVisible } = useFooterVisibility()
   const { searchInput, seeingTags } = useBlogFeed()
+  const seeingFavoritePosts = useStore(useFavoritePosts, s => s.seeingFavoritePosts)
 
-  const mustBeVisible = searchInput.length > 0 || seeingTags.length > 0
+  const mustBeVisible = searchInput.length > 0 || seeingTags.length > 0 || seeingFavoritePosts
 
   React.useEffect(() => {
     setHasDocument(true)

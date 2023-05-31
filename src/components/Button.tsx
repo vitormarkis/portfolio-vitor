@@ -2,7 +2,9 @@ import React, { CSSProperties, HTMLAttributes, RefAttributes } from "react"
 import clsx from "clsx"
 import Link from "next/link"
 
-interface Props extends RefAttributes<HTMLAnchorElement>, Pick<React.ComponentProps<"a">, "onClick"> {
+interface Props
+  extends RefAttributes<HTMLAnchorElement>,
+    Pick<React.ComponentProps<"a">, "onClick"> {
   children?: React.ReactNode | undefined
   text?: string | undefined
   backgroundColor?: "orange" | "black" | "luminescent" | "neon"
@@ -51,7 +53,9 @@ const Button: React.FC<Props> = ({
       {content}
     </Link>
   ) : (
-    <button {...props}>{content}</button>
+    <button onClick={onClick as any} {...props}>
+      {content}
+    </button>
   )
 }
 

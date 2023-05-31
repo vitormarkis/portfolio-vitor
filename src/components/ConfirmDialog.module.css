@@ -1,0 +1,57 @@
+.root {
+  --z-index: 30;
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  z-index: var(--z-index);
+  font-size: 0.25rem;
+}
+
+.dark {
+  position: absolute;
+  inset: 0;
+  z-index: calc(var(--z-index) - 1);
+  background: #00000040;
+}
+
+.container {
+  background: #fff;
+  border-radius: 4em;
+  z-index: inherit;
+  padding: 5em;
+  line-height: 1;
+}
+
+.title {
+  font-size: 5em;
+  font-weight: 500;
+  margin-bottom: 6px;
+}
+
+.description {
+  font-size: 4em;
+  margin-bottom: 1.5rem;
+}
+
+.buttonsWrapper {
+  font-size: 4em;
+  display: flex;
+  justify-content: space-between;
+}
+
+.buttonCancel {
+  border-width: 1px;
+  border-style: solid;
+}
+
+.button {
+  --shadow-color: #00000040;
+  height: 2.5em;
+  padding-inline: 2em;
+  border-radius: 8px;
+  color: white;
+  font-size: inherit;
+  line-height: 1;
+  box-shadow: 0 4px 6px -1px var(--shadow-color), 0 2px 4px -2px var(--shadow-color);
+}

@@ -21,9 +21,9 @@ export const XIcon: React.FC<IIconProps> = ({ size, className, ...rest }) => {
         y2="200"
         fill="none"
         stroke="currentColor"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-        stroke-width="24"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth="24"
       />
       <line
         x1="200"
@@ -32,9 +32,9 @@ export const XIcon: React.FC<IIconProps> = ({ size, className, ...rest }) => {
         y2="56"
         fill="none"
         stroke="currentColor"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-        stroke-width="24"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth="24"
       />
     </svg>
   )
