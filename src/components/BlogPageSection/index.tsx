@@ -41,24 +41,12 @@ export function BlogPageSection({ className, ...rest }: IBlogPageSection) {
       ? feed__allPosts.filter(post => favoritePosts.includes(post.id))
       : feed__allPosts
 
-  React.useEffect(() => {
-    console.log("feed__favoritePosts")
-  }, [feed__favoritePosts])
-
   const feed__checkboxFilterData = React.useMemo(
     () => feed__favoritePosts.filter(post => post.importance.some(i => seeingTags.includes(i))),
     [seeingTags, seeingFavoritePosts]
   )
 
-  React.useEffect(() => {
-    console.log("feed__checkboxFilterData")
-  }, [feed__checkboxFilterData])
-
   const feed__checkboxFilter = seeingTags.length ? feed__checkboxFilterData : feed__favoritePosts
-
-  React.useEffect(() => {
-    console.log("feed__checkboxFilter")
-  }, [feed__checkboxFilter])
 
   const feed__search = isSearching
     ? feed__checkboxFilter.filter(
@@ -68,17 +56,9 @@ export function BlogPageSection({ className, ...rest }: IBlogPageSection) {
       )
     : feed__checkboxFilter
 
-  React.useEffect(() => {
-    console.log("feed_search")
-  }, [feed__search])
-
   const feed = feed__search.sort((a, b) =>
     a.created_at > b.created_at ? sortNumber : a.created_at < b.created_at ? sortNumber * -1 : 0
   )
-
-  React.useEffect(() => {
-    console.log("feed")
-  }, [feed])
 
   React.useEffect(() => {
     if (rootRef?.current && rootRef.current.scrollTop > 80) {
