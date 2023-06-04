@@ -72,6 +72,31 @@ export type IFeedPost = {
 
 export const feedData: IFeedPost[] = [
   {
+    id: 8783393993984591,
+    title: "Ideia de projeto, responda perguntas e ganhe pontos",
+    text: `
+      Eu tive uma ideia de projeto interessante.
+
+      A forma que eu mais aprendi sobre negócios, tráfego pago e copywritting, foi na época que eu ensinava sobre isso em grupos, mas eu ensinava e tirava dúvidas, por vontade própria, talvez eles não sabiam, mas o meu pagamento ali era que quanto mais eu explicava um assunto, mais ele se soldificava na minha cabeça, é doido, só quem ensina sabe o quanto isso é verdade.
+
+      Isso com certeza ajudou muita gente, e me ajudaria muito caso eu estivesse começando em uma área nova.
+
+      Então eu pensei, qual incentivo a pessoa tem de dispor o tempo dela à ajudar os outros em grupos, tirar dúvidas e ensinar? Foi aí que eu pensei em uma forma de recompensar as pessoas por isso.
+
+      A ideia do app que pensei, seria uma forma de fórum, onde as pessoas fazem perguntas ou tiram dúvidas, com cada post com status de aberto, ai todos podem responder e tentar ajudar essa pessoa.
+
+      Feito o post, as pessoas deram possíveis soluções, agora o autor pode escolher uma solução que funcionou e premiar essa resposta como a vencedora.
+      
+      O autor da solução poderá acumular esses pontos, e isso é salvo em seu perfil.
+
+      Poderia também implementar um podium/tabela com os membros que mais tiraram dúvidas.
+
+      O app terá todo o histórico da pessoa, e como ela agregou pra comunidade, isso poderá ser visto com bons olhos para possíves recrutadores e possíveis parceiros de negócio.
+    `.trim(),
+    created_at: "2023-06-04T18:05:09.609Z",
+    importance: ["willing_to_do", "important", "off_topic"],
+  },
+  {
     id: 3456382938929289,
     title: "Comecei a prospecção",
     text: `
