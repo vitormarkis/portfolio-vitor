@@ -100,7 +100,7 @@ export function Footer({ className, ...rest }: IFooter) {
             <li>
               <Link
                 className="w-full h-full"
-                href="https://www.linkedin.com/in/vitor-markis-524945265/"
+                href="https://www.linkedin.com/in/vitormarkis/"
                 target="_blank"
                 passHref
                 legacyBehavior
@@ -112,7 +112,11 @@ export function Footer({ className, ...rest }: IFooter) {
                 >
                   <div className="inset-[-1px] bg-gradient-to-tr from-violet-800 via-black to-fuchsia-500 absolute rounded-[9px]" />
                   <div className="inset-0 bg-black absolute rounded-[10px]" />
-                  <LinkedinSquare height={24} width={24} className="absolute top-1/2 -translate-y-1/2 left-3" />
+                  <LinkedinSquare
+                    height={24}
+                    width={24}
+                    className="absolute top-1/2 -translate-y-1/2 left-3"
+                  />
                   <ButtonText>Linked In</ButtonText>
                 </ContactButtonHollow>
               </Link>

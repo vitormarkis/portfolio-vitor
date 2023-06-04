@@ -14,16 +14,21 @@ interface Props extends HTMLAttributes<HTMLDivElement> {}
 export function Hero({ className, ...rest }: Props) {
   return (
     <CenteredContainer className="min-h-[calc(100dvh_-_80px)]">
-      <section className={`mt-[12vh] flex px-6 mdx:px-12 flex-col items-center justify-center ${className}`} {...rest}>
+      <section
+        className={`mt-[12vh] flex px-6 mdx:px-12 flex-col items-center justify-center ${className}`}
+        {...rest}
+      >
         <div className={`relative  flex items-center ${montserrat.className}`}>
           <div className="gradient gr alpha hero-01" />
           <div className="gradient gr bravo hero-02" />
           <h1 className="leading-tight sm:text-[5.5rem] text-[12vw] mb-[8vw] sm:mb-0 text-slate-800 font-semibold relative z-10 text-center">
-            Seu próximo desenvolvedor <span className="whitespace-nowrap font-black h1-accent">Fullstack ;{")"}</span>
+            Seu próximo desenvolvedor{" "}
+            <span className="whitespace-nowrap font-black h1-accent">Fullstack ;{")"}</span>
           </h1>
         </div>
         <p className="relative z-10 mt-4 mb-8 text-center text-zinc-500 inter max-w-[32rem] text-sm sm:text-base">
-          Me chamo Vítor Markis, 20 anos, desenvolvedor fullstack React, Node e Next, saiba mais sobre mim
+          Me chamo Vítor Markis, 20 anos, desenvolvedor fullstack React, Node e Next, saiba mais
+          sobre mim
         </p>
         <div className="[&_*]:transition-colors [&_*]:duration-300 flex sm:flex-row flex-col gap-4 sm:gap-12">
           <Button
@@ -33,15 +38,25 @@ export function Hero({ className, ...rest }: Props) {
             fontSize="base"
             backgroundColor="luminescent"
           >
-            <Github className="absolute left-3 offset-icon-y" width={24} height={24} color={twc.white} />
+            <Github
+              className="absolute left-3 offset-icon-y"
+              width={24}
+              height={24}
+              color={twc.white}
+            />
             <span>Github</span>
           </Button>
           <ButtonProjectCard
-            url="https://www.linkedin.com/in/vitor-markis-524945265/"
+            url="https://www.linkedin.com/in/vitormarkis/"
             target="_blank"
             className="relative w-full px-16 h-10"
           >
-            <LinkedinSquare className="absolute left-3 offset-icon-y" width={24} height={24} color={twc.slate["700"]} />
+            <LinkedinSquare
+              className="absolute left-3 offset-icon-y"
+              width={24}
+              height={24}
+              color={twc.slate["700"]}
+            />
             <span className="whitespace-nowrap">Linked In</span>
           </ButtonProjectCard>
         </div>

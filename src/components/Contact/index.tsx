@@ -24,7 +24,9 @@ export function Contact({ className, ...rest }: Props) {
     <div ref={contactRef} className={`${className ?? ""}`} {...rest}>
       <CenteredContainer id="contact" className="p-6">
         <div className="flex flex-col">
-          <h2 className="text-slate-800 font-semibold mb-2 text-4xl relative z-10 text-center">Contato</h2>
+          <h2 className="text-slate-800 font-semibold mb-2 text-4xl relative z-10 text-center">
+            Contato
+          </h2>
           <p className="text-neutral-400 max-w-[17rem] mx-auto text-center text-xs">
             Caso você tenha se interessado e deseja trabalhar comigo, você pode entrar em contato
           </p>
@@ -45,7 +47,12 @@ export function Contact({ className, ...rest }: Props) {
               </span>
             </ContactButtonHollow>
           </Link>
-          <Link href="https://www.linkedin.com/in/vitor-markis-524945265/" target="_blank" passHref legacyBehavior>
+          <Link
+            href="https://www.linkedin.com/in/vitormarkis/"
+            target="_blank"
+            passHref
+            legacyBehavior
+          >
             <ContactButtonHollow
               border="border-t-blue-300 border-b-blue-700"
               className="hover:border-blue-500 focus:outline-blue-500 transition-colors group duration-300 sm:max-w-md"
