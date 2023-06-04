@@ -72,6 +72,15 @@ export type IFeedPost = {
 
 export const feedData: IFeedPost[] = [
   {
+    id: 3456382938929289,
+    title: "Comecei a prospecção",
+    text: `
+      Me doi ver a atividade do meu Github ficando baixa agora que eu vou começar a prospectar e aplicar as vagas. Infelizmente é o que deve ser feito. 
+    `.trim(),
+    created_at: "2023-06-04T01:41:00.348Z",
+    importance: ["off_topic", "casual"],
+  },
+  {
     id: 6753483847538748,
     title: "Redis, Clerk e UploadThing",
     text: `
