@@ -72,6 +72,19 @@ export type IFeedPost = {
 
 export const feedData: IFeedPost[] = [
   {
+    id: 8748509903947994,
+    title: "Começo no GraphQL",
+    text: `
+      Comecei a estudar GraphQL, era uma tecnologia que eu não tinha nenhuma experiência e até evitava, por ser bem diferente do REST.
+
+      Tem algumas coisas novas como tipagens própria e decorators, ainda vai levar um tempo até tudo ficar intuitivo.
+
+      Comecei a estudar GraphQL porque quero agregar no projeto Mentor Cycle, um projeto Open Source que conecta aprendizes e professores de quaisquer graus, o projeto usa GraphQL, então fiquei um pouco perdido, mas a chavinha ta começando a virar.
+    `.trim(),
+    created_at: "2023-06-05T09:08:02.783Z",
+    importance: ["casual", "off_topic"],
+  },
+  {
     id: 8783393993984591,
     title: "Ideia de projeto, responda perguntas e ganhe pontos",
     text: `
