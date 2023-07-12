@@ -72,6 +72,22 @@ export type IFeedPost = {
 
 export const feedData: IFeedPost[] = [
   {
+    id: 4735646572899393,
+    title: "CSS Modules no Vite",
+    text: `
+      ${"`"}import st from './style.module.css${"`"} funciona, mas typescript não reconhece.
+      
+      A solução é criar um arquivo  ${"`"}globals.d.ts${"`"} e colocar lá
+      ${"`"}${"`"}${"`"}tsx
+      declare module "*.css"
+      declare module "*.scss"
+      ${"`"}${"`"}${"`"}
+      Ai o typescript passa a reconhecer CSS modules. 
+    `.trim(),
+    created_at: "2023-07-12T22:00:00.101Z",
+    importance: ["casual", "discover"],
+  },
+  {
     id: 8748509903947994,
     title: "Começo no GraphQL",
     text: `
