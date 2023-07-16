@@ -9,12 +9,12 @@ import { GoToTopButton } from "@/components/GoToTopButton"
 
 export default function Home() {
   return (
-    <main className="flex flex-col">
+    <main className="Spacing_floor space-y-section flex flex-col">
       <Hero />
-      <AboutMe className="mt-24" />
-      <Projects className="mt-24" />
-      <BlogShowcase className="mt-24" />
-      <Contact className="my-24" />
+      <AboutMe />
+      <Projects />
+      <BlogShowcase />
+      <Contact />
       <GoToTopButton className="md:bottom-12" />
     </main>
   )

@@ -13,7 +13,7 @@ export function Implementation({ className, ...rest }: IImplementation) {
 
   return (
     <div className={"text-slate-700" + _cn} {...rest}>
-      <CenteredContainer className="px-6 mdx:px-12">
+      <CenteredContainer className="mdx:px-12">
         <Header />
         {/* <h3 className="font-black text-2xl tracking-tight font-josefin relative h1-third">Implementações</h3> */}
         <div className="flex flex-col-reverse md:flex-row gap-16 md:gap-6">

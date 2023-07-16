@@ -13,7 +13,7 @@ export function UsedTechnologies({ className, ...rest }: IUsedTechnologies) {
 
   return (
     <div className={"bg-slate-950 text-white" + _cn} {...rest}>
-      <CenteredContainer className="px-6 mdx:px-12 py-12">
+      <CenteredContainer className="mdx:px-12 py-12">
         <Header />
         <div className="flex flex-wrap text-sm text-slate-300 gap-3">
           <TechnologyIcon
@@ -72,7 +72,13 @@ export function TechnologyIcon({ icon, text, technology, className, ...rest }: I
       {...rest}
     >
       <p className="mb-4 last:mb-0">
-        <IconTechnology icon={icon} width={14} height={14} color={twc.white} className="mr-1 translate-y-[-1.5px]" />
+        <IconTechnology
+          icon={icon}
+          width={14}
+          height={14}
+          color={twc.white}
+          className="mr-1 translate-y-[-1.5px]"
+        />
         <strong>{technology}</strong>
         {", "}
         {formattedText}

@@ -3,6 +3,44 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --spacing-xxs: 2px;
+  --spacing-xs: 4px;
+  --spacing-sm: 8px;
+  --spacing-r: 12px;
+  --spacing-lg: 16px;
+  --spacing-xl: 20px;
+  --spacing-2xl: 24px;
+  --spacing-3xl: 32px;
+  --spacing-5xl: 48px;
+  --spacing-6xl: 64px;
+  --spacing-7xl: 96px;
+}
+
+.Spacing_floor {
+  --spacing-inner: var(--spacing-2xl);
+  --spacing-gap: var(--spacing-2xl);
+  --spacing-section: var(--spacing-7xl);
+  --spacing-strong: '';
+  --spacing-base: '';
+  --spacing-container: '';
+}
+
+@media (min-width: 896px) {
+  .Spacing_floor {
+    --spacing-inner: var(--spacing-5xl);
+  }
+}
+
+.Spacing_section {
+  --spacing-inner: inherit;
+  --spacing-gap: inherit;
+  --spacing-section: var(--spacing-2xl);
+  --spacing-strong: inherit;
+  --spacing-base: inherit;
+  --spacing-container: inherit;
+}
+
 .root-height {
   height: 100dvh;
   background-image: linear-gradient(to bottom right, #e4e6ff 0%, white 40%, #e4ebff 100%);
@@ -174,3 +212,4 @@
     width: min(5rem, 7.5vw);
   }
 }
+

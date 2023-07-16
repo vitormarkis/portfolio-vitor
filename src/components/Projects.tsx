@@ -20,7 +20,7 @@ export function Projects({ className, ...rest }: Props) {
 
   return (
     <div className={`${className}`} {...rest}>
-      <CenteredContainer className="p-6 mdx:p-12">
+      <CenteredContainer className="mdx:p-12">
         <h2 className="font-semibold mb-2 text-4xl relative z-10 text-center">Projetos</h2>
         <p className="text-neutral-400 mb-6 max-w-[17rem] mx-auto text-center text-xs">
           Veja os projetos onde coloquei meus conhecimentos em prática.

@@ -8,7 +8,7 @@ interface Props extends HTMLAttributes<HTMLDivElement> {}
 export function About({ className, ...rest }: Props) {
   return (
     <div className={`${className ?? ""}`} {...rest}>
-      <CenteredContainer className="px-6 md:px-12">
+      <CenteredContainer className="md:px-12">
         <div className="flex flex-col"></div>
       </CenteredContainer>
     </div>

@@ -22,7 +22,7 @@ export function Contact({ className, ...rest }: Props) {
 
   return (
     <div ref={contactRef} className={`${className ?? ""}`} {...rest}>
-      <CenteredContainer id="contact" className="p-6">
+      <CenteredContainer id="contact" className="py-inner">
         <div className="flex flex-col">
           <h2 className="text-slate-800 font-semibold mb-2 text-4xl relative z-10 text-center">
             Contato
