@@ -72,6 +72,17 @@ export type IFeedPost = {
 
 export const feedData: IFeedPost[] = [
   {
+    id: 5678253647373842,
+    title: "Importância do Docker",
+    text: `
+      Toda vez que tento abrir/rodar um projeto antigo, eu perco 1 dia inteiro tendo que resolver problemas, sempre algo para de funcionar, ou não funciona da forma como era antes, ou algo externo mudou e quebrou o sistema...
+
+      Enfim, agora eu percebo a falta que faz um Docker, imagina se outra pessoa tenta rodar algum projeto meu do Github, não vai rodar...
+    `.trim(),
+    created_at: "2023-07-31T23:27:15.462Z",
+    importance: ["casual", "off_topic"],
+  },
+  {
     id: 4735646572899393,
     title: "CSS Modules no Vite",
     text: `
