@@ -72,6 +72,24 @@ export type IFeedPost = {
 
 export const feedData: IFeedPost[] = [
   {
+    id: 9018356436737373,
+    title: "Criação do CADD e Markis UI",
+    text: `
+      A um tempo atrás, eu criei o CADD (Container's Anatomy Driven Design). A metodolodia do CADD se consiste em você definir paletas de cores no CSS, linkar estilizações de componentes à essas cores por meios de classes Tailwind, e passar a classe da paleta em um elemento, para que ele alimente os elementos subsequentes com as cores.
+
+      Desde que eu tive essa ideia até agora, eu fui tendo outras ideias de como melhorar o CADD, e decidi criar um site para tanto testar o CADD em escala, quanto para testar as idéias.
+    `.trim(),
+    created_at: "2023-09-20T04:08:33.228Z",
+    importance: ["off_topic", "casual"],
+    refs: [
+      {
+        id: "375h2374523",
+        title: "Markis UI",
+        url: "https://markis-ui.vercel.app/",
+      },
+    ],
+  },
+  {
     id: 5678253647373842,
     title: "Importância do Docker",
     text: `
